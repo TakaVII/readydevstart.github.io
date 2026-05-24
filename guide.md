@@ -1,11 +1,11 @@
-# readydevstart.indiegameacademy.com — Wiki Platform
+# Ready Dev Start — Wiki Platform
 
 This repository contains the complete static site source code for the Indie Game Academy (IGA) developer launchpad and wiki. The platform serves as an accessible, read-only guide helping aspiring game creators learn game development fundamentals, access studio templates, find resources, and transition into indie studio founders.
 
 ## 1. Project Parameters & Environment
 
 * **Hosting Target:** GitHub Pages
-* **Domain:** `readydevstart.indiegameacademy.com` (Configured via Namecheap CNAME)
+* **Site URL:** `https://takavii.github.io/readydevstart.github.io` (GitHub Pages)
 * **Architecture:** Static Site Generator (Astro or clean Jekyll setup optimized for GitHub Pages compiling via GitHub Actions).
 * **Database:** None. All content reads from local Markdown (`.md`) files and structured JSON files stored in the repository.
 * **Access Pattern:** 100% read-only for public visitors. No user accounts, authentication systems, or sessions required.

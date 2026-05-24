@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Getting Started" activeNav="quest-logs">
@@ -32,7 +33,7 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
 
     <h2>Step 2: Pick a Game Engine</h2>
     <p>
-      A game engine is your primary tool. Head to our <a href="/equipment/game-engines/">Game Engines</a>
+      A game engine is your primary tool. Head to our <a href={`${base}equipment/game-engines/`}>Game Engines</a>
       guide for a detailed comparison. For most beginners, we recommend starting with:
     </p>
     <table>
@@ -69,7 +70,7 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
       is to go through the full creation cycle: idea → prototype → polish → share.
     </p>
     <p>
-      Ready to build? Head to <a href="/quest-logs/your-first-game/">Your First Game</a>.
+      Ready to build? Head to <a href={`${base}quest-logs/your-first-game/`}>Your First Game</a>.
     </p>
 
     <h2>Step 4: Join the Community</h2>

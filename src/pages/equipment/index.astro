@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WikiLayout from "../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Equipment" activeNav="equipment">
@@ -12,25 +13,25 @@ import WikiLayout from "../../layouts/WikiLayout.astro";
     </p>
 
     <div class="card-grid">
-      <a href="/equipment/game-engines/" class="card" style="text-decoration:none;">
+      <a href={`${base}equipment/game-engines/`} class="card" style="text-decoration:none;">
         <div class="card-icon">⚙️</div>
         <h3>Game Engines</h3>
         <p>Compare popular engines like Unity, Godot, Unreal, and more — with pros, cons, and ideal use cases.</p>
       </a>
 
-      <a href="/equipment/art-tools/" class="card" style="text-decoration:none;">
+      <a href={`${base}equipment/art-tools/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🎨</div>
         <h3>Art &amp; Design Tools</h3>
         <p>2D sprite editors, 3D modelers, animation suites, and pixel art tools.</p>
       </a>
 
-      <a href="/equipment/audio-tools/" class="card" style="text-decoration:none;">
+      <a href={`${base}equipment/audio-tools/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🎵</div>
         <h3>Audio Tools</h3>
         <p>DAWs, sound effect generators, and music composition software for game audio.</p>
       </a>
 
-      <a href="/equipment/project-management/" class="card" style="text-decoration:none;">
+      <a href={`${base}equipment/project-management/`} class="card" style="text-decoration:none;">
         <div class="card-icon">📋</div>
         <h3>Project Management</h3>
         <p>Task trackers, version control guides, and team collaboration platforms.</p>
