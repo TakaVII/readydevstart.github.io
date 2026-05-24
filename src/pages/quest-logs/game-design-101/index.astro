@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Game Design 101" activeNav="quest-logs">
+  <WikiLayout title="Game Design 101" activeNav="quest-logs" activeSidebar="game-design-101">
+    <div class="callout callout-info">
+      <strong>🎯 Objective:</strong> Understand core game design principles so you can create engaging, intentional player experiences.
+    </div>
+
+    <h2>What Is Game Design?</h2>
+    <p>
+      Game design is the craft of defining what a game <em>is</em> — its rules, systems,
+      goals, and the feelings it creates in players. It's distinct from programming (how it
+      works) and art (how it looks).
+    </p>
+
+    <h2>The MDA Framework</h2>
+    <p>
+      One of the most useful lenses for understanding games is the <strong>MDA Framework</strong>
+      (Mechanics, Dynamics, Aesthetics):
+    </p>
+    <ul>
+      <li><strong>Mechanics</strong> — The rules and systems (e.g., "press A to jump," health points, inventory).</li>
+      <li><strong>Dynamics</strong> — How mechanics interact during play (e.g., resource management creates tension).</li>
+      <li><strong>Aesthetics</strong> — The emotional responses evoked (e.g., challenge, discovery, fellowship).</li>
+    </ul>
+
+    <h2>Core Design Pillars</h2>
+    <p>Before you build, define 2–3 <strong>design pillars</strong> — short phrases that guide every decision:</p>
+    <table>
+      <thead>
+        <tr><th>Example Game</th><th>Pillar 1</th><th>Pillar 2</th><th>Pillar 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Celeste</td><td>Tight controls</td><td>Emotional narrative</td><td>Fair difficulty</td></tr>
+        <tr><td>Stardew Valley</td><td>Relaxing routine</td><td>Community bonds</td><td>Player freedom</td></tr>
+        <tr><td>Hades</td><td>Fast combat</td><td>Story progression</td><td>Replayable variety</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The Core Loop</h2>
+    <p>
+      Every game has a <strong>core loop</strong> — the repeated cycle of actions that forms
+      the heartbeat of gameplay. A strong loop is satisfying on its own, even before adding
+      progression or story.
+    </p>
+    <p>Example: <em>Enter room → Fight enemies → Collect loot → Upgrade → Repeat</em></p>
+
+    <h2>Scope Is Everything</h2>
+    <p>
+      The #1 killer of indie projects is <strong>scope creep</strong>. Start with the smallest
+      possible version of your idea that's still fun. You can always add more later.
+    </p>
+
+    <div class="callout callout-warning">
+      <strong>⚠️ Quest Alert:</strong> If your first game idea has "procedurally generated open world with multiplayer," take a step back. Scope down to something you can finish in 2–4 weeks.
+    </div>
+  </WikiLayout>
+</BaseLayout>

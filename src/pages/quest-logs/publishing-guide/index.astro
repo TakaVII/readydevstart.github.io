@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Publishing Guide" activeNav="quest-logs">
+  <WikiLayout title="Publishing Guide" activeNav="quest-logs" activeSidebar="publishing-guide">
+    <div class="callout callout-info">
+      <strong>📦 Objective:</strong> Navigate the path from finished game to published release.
+    </div>
+
+    <h2>Where to Publish</h2>
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Fee</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>itch.io</strong></td><td>Free (optional revenue share)</td><td>First releases, game jam games, experimental titles</td></tr>
+        <tr><td><strong>Steam</strong></td><td>$100 per title</td><td>Commercial releases, wishlists, visibility</td></tr>
+        <tr><td><strong>Epic Games Store</strong></td><td>Free (12% revenue share)</td><td>Unreal Engine games, exclusive deals</td></tr>
+        <tr><td><strong>Console Stores</strong></td><td>Varies (dev kit required)</td><td>Established studios, console-first titles</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Pre-Launch Checklist</h2>
+    <ol>
+      <li>Create a compelling store page with screenshots, trailer, and description.</li>
+      <li>Build a landing page or social media presence for your game.</li>
+      <li>Send press kits to indie gaming outlets and YouTubers.</li>
+      <li>Set up a wishlist page (Steam) at least 2–3 months before launch.</li>
+      <li>Playtest with external testers for bugs and feedback.</li>
+    </ol>
+
+    <h2>Marketing on a Budget</h2>
+    <ul>
+      <li><strong>Social media</strong> — Post devlogs, GIFs, and progress updates on Twitter/X, TikTok, and Reddit.</li>
+      <li><strong>Game jams</strong> — Use jams to build an audience before your commercial release.</li>
+      <li><strong>Community building</strong> — Start a Discord server; engaged communities drive launch-day sales.</li>
+      <li><strong>Press outreach</strong> — Use <a href="https://presskit.to" target="_blank" rel="noopener noreferrer">presskit()</a> to create a professional media kit.</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>⚠️ Quest Alert:</strong> Don't launch on the same day as a major AAA release. Check release calendars and pick a quiet window.
+    </div>
+  </WikiLayout>
+</BaseLayout>

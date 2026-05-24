@@ -1,0 +1,57 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  activeNav?: string;
+  activeSidebar?: string;
+}
+
+const {
+  title,
+  description,
+  activeNav = "",
+  activeSidebar = "",
+} = Astro.props;
+---
+
+<style>
+  /* WikiLayout-specific styles scoped here */
+</style>
+
+<div>
+  <slot name="hero" />
+
+  <div class="main-area">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar" id="sidebar">
+      <h3>🗺️ Quest Logs</h3>
+      <ul>
+        <li><a href="/quest-logs/getting-started/" class:list={[{ active: activeSidebar === "getting-started" }]}>Getting Started</a></li>
+        <li><a href="/quest-logs/game-design-101/" class:list={[{ active: activeSidebar === "game-design-101" }]}>Game Design 101</a></li>
+        <li><a href="/quest-logs/your-first-game/" class:list={[{ active: activeSidebar === "your-first-game" }]}>Your First Game</a></li>
+        <li><a href="/quest-logs/publishing-guide/" class:list={[{ active: activeSidebar === "publishing-guide" }]}>Publishing Guide</a></li>
+      </ul>
+
+      <h3>⚔️ Equipment</h3>
+      <ul>
+        <li><a href="/equipment/game-engines/" class:list={[{ active: activeSidebar === "game-engines" }]}>Game Engines</a></li>
+        <li><a href="/equipment/art-tools/" class:list={[{ active: activeSidebar === "art-tools" }]}>Art &amp; Design Tools</a></li>
+        <li><a href="/equipment/audio-tools/" class:list={[{ active: activeSidebar === "audio-tools" }]}>Audio Tools</a></li>
+        <li><a href="/equipment/project-management/" class:list={[{ active: activeSidebar === "project-management" }]}>Project Management</a></li>
+      </ul>
+
+      <h3>📐 Blueprints</h3>
+      <ul>
+        <li><a href="/blueprints/studio-template/" class:list={[{ active: activeSidebar === "studio-template" }]}>Studio Template</a></li>
+        <li><a href="/blueprints/game-design-doc/" class:list={[{ active: activeSidebar === "game-design-doc" }]}>Game Design Doc</a></li>
+        <li><a href="/blueprints/pitch-deck/" class:list={[{ active: activeSidebar === "pitch-deck" }]}>Pitch Deck</a></li>
+      </ul>
+    </aside>
+
+    <!-- ===== Main Content ===== -->
+    <main class="content">
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </div>
+</div>

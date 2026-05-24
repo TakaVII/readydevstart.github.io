@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Pitch Deck" activeNav="blueprints">
+  <WikiLayout title="Pitch Deck Template" activeNav="blueprints" activeSidebar="pitch-deck">
+    <div class="callout callout-info">
+      <strong>📊 Blueprint:</strong> A 10-slide framework for pitching your game to publishers, investors, or grant programs.
+    </div>
+
+    <h2>Slide Structure</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Slide</th><th>What to Include</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Title</strong></td><td>Game name, logo, studio name, key art</td></tr>
+        <tr><td>2</td><td><strong>The Hook</strong></td><td>One-sentence pitch + genre + platform + comparison ("X meets Y")</td></tr>
+        <tr><td>3</td><td><strong>Gameplay</strong></td><td>Core loop, key mechanics, GIF or video link</td></tr>
+        <tr><td>4</td><td><strong>Visual Style</strong></td><td>Screenshots, concept art, art direction mood board</td></tr>
+        <tr><td>5</td><td><strong>Story &amp; World</strong></td><td>Setting, narrative hook, characters (if applicable)</td></tr>
+        <tr><td>6</td><td><strong>Market &amp; Audience</strong></td><td>Target audience, comparable titles and their sales data</td></tr>
+        <tr><td>7</td><td><strong>Unique Selling Points</strong></td><td>3 bullets that differentiate your game from competitors</td></tr>
+        <tr><td>8</td><td><strong>Team</strong></td><td>Key members, relevant experience, shipped titles</td></tr>
+        <tr><td>9</td><td><strong>Timeline &amp; Budget</strong></td><td>Development roadmap, milestones, funding ask</td></tr>
+        <tr><td>10</td><td><strong>Contact &amp; CTA</strong></td><td>Studio website, email, social links, playable demo link</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Tips for a Strong Pitch</h2>
+    <ul>
+      <li><strong>Lead with visuals</strong> — Show, don't tell. GIFs and gameplay footage win pitches.</li>
+      <li><strong>Know your comps</strong> — "It's like Hollow Knight meets Celeste" communicates instantly.</li>
+      <li><strong>Be specific about the ask</strong> — How much funding? What's it for? What's the timeline?</li>
+      <li><strong>Keep it short</strong> — 10 slides, each digestible in under 30 seconds.</li>
+      <li><strong>Practice</strong> — Rehearse until you can present without reading slides.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Always include a playable demo link. Publishers receive hundreds of pitches — a demo that's fun in 5 minutes will do more than any slide deck.
+    </div>
+  </WikiLayout>
+</BaseLayout>

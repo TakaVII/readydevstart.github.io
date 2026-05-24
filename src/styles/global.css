@@ -1,0 +1,426 @@
+/* ============================
+   IGA Wiki — Global Styles
+   ============================ */
+
+/* Google Font import */
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+/* ----- CSS Custom Properties ----- */
+:root {
+  --color-dark: #463418;
+  --color-pink: #f6517c;
+  --color-gold: #f3d73e;
+  --color-blue: #6ab4e8;
+  --color-bg: #ecece9;
+  --color-white: #ffffff;
+
+  --font-heading: "Russo One", sans-serif;
+  --font-body: Helvetica, Arial, sans-serif;
+
+  --sidebar-width: 260px;
+  --header-height: 64px;
+  --max-content: 960px;
+}
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background: var(--color-bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- Typography ----- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-pink);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  background: rgba(70, 52, 24, 0.08);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--color-dark);
+  color: var(--color-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* ----- Layout Shell ----- */
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-area {
+  display: flex;
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+}
+
+/* ----- Header / Nav ----- */
+.site-header {
+  background: var(--color-dark);
+  color: var(--color-bg);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-header .logo span {
+  color: var(--color-pink);
+}
+
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-header nav a {
+  color: var(--color-bg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: var(--color-gold);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-bg);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ----- Sidebar ----- */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  padding: 1.5rem 1rem;
+  border-right: 2px solid var(--color-gold);
+  background: var(--color-white);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.sidebar h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-pink);
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.sidebar h3:first-child {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.25rem;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  color: var(--color-dark);
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+/* ----- Main Content ----- */
+.content {
+  flex: 1;
+  padding: 1.5rem 2rem 3rem;
+  max-width: var(--max-content);
+}
+
+.content > *:first-child {
+  margin-top: 0;
+}
+
+.content p {
+  margin-bottom: 1rem;
+}
+
+.content ul,
+.content ol {
+  margin-bottom: 1rem;
+}
+
+.content li {
+  margin-bottom: 0.35rem;
+}
+
+/* ----- Hero Banner ----- */
+.hero {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #5a4222 100%);
+  color: var(--color-bg);
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--color-gold);
+  font-size: 2.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.9;
+}
+
+.hero .cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ----- Buttons ----- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pink {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.btn-blue {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+/* ----- Cards Grid ----- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--color-blue);
+  box-shadow: 0 4px 16px rgba(106, 180, 232, 0.15);
+}
+
+.card h3 {
+  color: var(--color-pink);
+}
+
+.card .card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ----- Callouts ----- */
+.callout {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid;
+}
+
+.callout-info {
+  background: rgba(106, 180, 232, 0.12);
+  border-color: var(--color-blue);
+}
+
+.callout-warning {
+  background: rgba(243, 215, 62, 0.15);
+  border-color: var(--color-gold);
+}
+
+.callout-tip {
+  background: rgba(246, 81, 124, 0.1);
+  border-color: var(--color-pink);
+}
+
+/* ----- Tables ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th, td {
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(70, 52, 24, 0.12);
+}
+
+th {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-pink);
+  border-bottom: 2px solid var(--color-gold);
+}
+
+/* ----- Footer ----- */
+.site-footer {
+  background: var(--color-dark);
+  color: var(--color-bg);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+.site-footer a {
+  color: var(--color-gold);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 280px;
+    height: calc(100vh - var(--header-height));
+    z-index: 90;
+    overflow-y: auto;
+    border-right: 2px solid var(--color-gold);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.open {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

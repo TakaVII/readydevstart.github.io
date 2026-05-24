@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Art & Design Tools" activeNav="equipment">
+  <WikiLayout title="Art & Design Tools" activeNav="equipment" activeSidebar="art-tools">
+    <p>
+      From pixel art to 3D modeling, here are the tools indie devs use to bring their
+      visual worlds to life.
+    </p>
+
+    <h2>2D / Pixel Art</h2>
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Best For</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Aseprite</strong></td><td>Pixel art, sprite animation</td><td>$19.99 (or free to compile)</td></tr>
+        <tr><td><strong>Krita</strong></td><td>Digital painting, concept art</td><td>Free &amp; open-source</td></tr>
+        <tr><td><strong>GIMP</strong></td><td>General image editing</td><td>Free &amp; open-source</td></tr>
+        <tr><td><strong>Pixelorama</strong></td><td>Pixel art (Godot-based)</td><td>Free &amp; open-source</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3D Modeling &amp; Animation</h2>
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Best For</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Blender</strong></td><td>Full 3D pipeline: modeling, rigging, animation, rendering</td><td>Free &amp; open-source</td></tr>
+        <tr><td><strong>Blockbench</strong></td><td>Voxel and low-poly 3D models</td><td>Free</td></tr>
+        <tr><td><strong>MagicaVoxel</strong></td><td>Voxel art and rendering</td><td>Free</td></tr>
+      </tbody>
+    </table>
+
+    <h2>UI &amp; Vector Design</h2>
+    <ul>
+      <li><strong>Figma</strong> — Collaborative UI/UX design (free tier).</li>
+      <li><strong>Inkscape</strong> — Open-source vector graphics editor.</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>🎨 Note:</strong> You don't need expensive software. Blender + Aseprite + Krita cover 95% of indie art needs for under $20.
+    </div>
+  </WikiLayout>
+</BaseLayout>

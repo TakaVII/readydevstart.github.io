@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WikiLayout from "../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="About" activeNav="about">
+  <WikiLayout title="About Indie Game Academy" activeNav="about">
+    <p>
+      <strong>Indie Game Academy (IGA)</strong> is a community-driven knowledge base built
+      for aspiring game developers who want to go from zero to shipping their first indie
+      title — and beyond.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      We believe everyone deserves free, well-organized access to game development
+      knowledge. No paywalls, no accounts — just clear, scannable guides, curated tools,
+      and production-ready templates.
+    </p>
+
+    <h2>How This Site Works</h2>
+    <ul>
+      <li><strong>Quest Logs</strong> — Step-by-step learning paths covering design, programming, art, and publishing.</li>
+      <li><strong>Equipment</strong> — Curated tool recommendations sorted by discipline and budget.</li>
+      <li><strong>Blueprints</strong> — Downloadable templates (GDDs, pitch decks, studio charters) ready to customize.</li>
+    </ul>
+
+    <h2>Contributing</h2>
+    <p>
+      This site is open-source and powered by Markdown files. If you spot an error or want
+      to add a guide, open a pull request on our
+      <a href="https://github.com/TakaVII/readydevstart.github.io" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
+    </p>
+
+    <div class="callout callout-tip">
+      <strong>💡 Tip:</strong> All content follows the gamified naming convention — guides
+      are "Quest Logs," tools are "Equipment," and templates are "Blueprints."
+    </div>
+  </WikiLayout>
+</BaseLayout>

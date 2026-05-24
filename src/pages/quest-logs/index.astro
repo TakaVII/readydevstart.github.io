@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WikiLayout from "../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Quest Logs" activeNav="quest-logs">
+  <WikiLayout title="Quest Logs" activeNav="quest-logs">
+    <p>
+      Follow these step-by-step guides to level up your game development skills.
+      Each quest is designed to be completed in order, but feel free to jump to
+      whatever catches your eye.
+    </p>
+
+    <div class="card-grid">
+      <a href="/quest-logs/getting-started/" class="card" style="text-decoration:none;">
+        <div class="card-icon">🚀</div>
+        <h3>Getting Started</h3>
+        <p>Set up your development environment and understand the game dev landscape in under 10 minutes.</p>
+      </a>
+
+      <a href="/quest-logs/game-design-101/" class="card" style="text-decoration:none;">
+        <div class="card-icon">🧩</div>
+        <h3>Game Design 101</h3>
+        <p>Learn core design principles: mechanics, dynamics, aesthetics, and player experience loops.</p>
+      </a>
+
+      <a href="/quest-logs/your-first-game/" class="card" style="text-decoration:none;">
+        <div class="card-icon">🕹️</div>
+        <h3>Your First Game</h3>
+        <p>Build a complete, small-scope game from concept to playable prototype.</p>
+      </a>
+
+      <a href="/quest-logs/publishing-guide/" class="card" style="text-decoration:none;">
+        <div class="card-icon">📦</div>
+        <h3>Publishing Guide</h3>
+        <p>Navigate storefronts, marketing basics, and launch checklists for indie releases.</p>
+      </a>
+    </div>
+  </WikiLayout>
+</BaseLayout>
