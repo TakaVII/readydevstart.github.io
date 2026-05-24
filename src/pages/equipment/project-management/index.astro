@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Project Management" activeNav="equipment">
+  <WikiLayout title="Project Management" activeNav="equipment" activeSidebar="project-management">
+    <p>
+      Shipping a game requires more than code and art — you need a system to stay organized.
+      Here are tools and practices to keep your project on track.
+    </p>
+
+    <h2>Version Control</h2>
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Best For</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Git + GitHub</strong></td><td>Code versioning, collaboration, open-source</td><td>Free</td></tr>
+        <tr><td><strong>Git LFS</strong></td><td>Large binary files (art, audio) in Git</td><td>Free (with limits)</td></tr>
+        <tr><td><strong>Perforce (Helix Core)</strong></td><td>Large teams, binary-heavy projects</td><td>Free for up to 5 users</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Task &amp; Project Tracking</h2>
+    <ul>
+      <li><strong>Trello</strong> — Simple Kanban boards; great for solo devs and small teams.</li>
+      <li><strong>Notion</strong> — All-in-one workspace for docs, tasks, and wikis.</li>
+      <li><strong>GitHub Issues + Projects</strong> — Integrated with your repo; free and powerful.</li>
+      <li><strong>HacknPlan</strong> — Purpose-built for game dev project management.</li>
+    </ul>
+
+    <h2>Communication</h2>
+    <ul>
+      <li><strong>Discord</strong> — Team chat, voice, and community management.</li>
+      <li><strong>Slack</strong> — Professional team communication.</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>⚠️ Quest Alert:</strong> If you're working solo, version control is still essential. A single <code>git commit</code> can save you from losing hours of work to a crash or bad edit.
+    </div>
+  </WikiLayout>
+</BaseLayout>

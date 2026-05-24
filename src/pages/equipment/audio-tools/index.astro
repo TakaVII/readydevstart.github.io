@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Audio Tools" activeNav="equipment">
+  <WikiLayout title="Audio Tools" activeNav="equipment" activeSidebar="audio-tools">
+    <p>
+      Great audio transforms a good game into an unforgettable one. Here are the best
+      tools for creating music and sound effects.
+    </p>
+
+    <h2>Digital Audio Workstations (DAWs)</h2>
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Best For</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>LMMS</strong></td><td>Music composition, beat-making</td><td>Free &amp; open-source</td></tr>
+        <tr><td><strong>Audacity</strong></td><td>Audio editing, recording, SFX cleanup</td><td>Free &amp; open-source</td></tr>
+        <tr><td><strong>FL Studio</strong></td><td>Professional music production</td><td>From $99</td></tr>
+        <tr><td><strong>Reaper</strong></td><td>Full-featured DAW, lightweight</td><td>$60 (discounted license)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Sound Effect Generators</h2>
+    <ul>
+      <li><strong>sfxr / jsfxr</strong> — Retro sound effect generator (free, runs in browser).</li>
+      <li><strong>Bfxr</strong> — Extended version of sfxr with more waveforms.</li>
+      <li><strong>ChipTone</strong> — Browser-based chiptune SFX maker.</li>
+    </ul>
+
+    <h2>Free Asset Libraries</h2>
+    <ul>
+      <li><a href="https://freesound.org" target="_blank" rel="noopener noreferrer">Freesound.org</a> — Collaborative database of Creative Commons sounds.</li>
+      <li><a href="https://opengameart.org" target="_blank" rel="noopener noreferrer">OpenGameArt.org</a> — Free game assets including music and SFX.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Add sound effects early in development — even placeholder ones. Audio feedback makes playtesting dramatically more useful.
+    </div>
+  </WikiLayout>
+</BaseLayout>

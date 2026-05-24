@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Home" activeNav="home">
+  <!-- ===== Hero Banner ===== -->
+  <section class="hero">
+    <h1>Ready. Dev. Start!</h1>
+    <p>
+      Your launchpad to game development mastery. Learn the fundamentals, grab
+      studio-ready templates, and level up from aspiring creator to indie studio
+      founder.
+    </p>
+    <div class="cta-group">
+      <a href="/quest-logs/getting-started/" class="btn btn-pink">Start Your Quest</a>
+      <a href="/equipment/game-engines/" class="btn btn-gold">Browse Equipment</a>
+      <a href="/blueprints/studio-template/" class="btn btn-blue">Get Blueprints</a>
+    </div>
+  </section>
+
+  <!-- ===== Featured Sections ===== -->
+  <div class="main-area" style="flex-direction: column; padding: 2rem;">
+    <main class="content" style="max-width: 100%; padding: 0;">
+      <h2>Choose Your Path</h2>
+      <div class="card-grid">
+        <a href="/quest-logs/" class="card" style="text-decoration:none;">
+          <div class="card-icon">🗺️</div>
+          <h3>Quest Logs</h3>
+          <p>Step-by-step guides covering game development fundamentals — from your very first prototype to publishing on storefronts.</p>
+        </a>
+
+        <a href="/equipment/" class="card" style="text-decoration:none;">
+          <div class="card-icon">⚔️</div>
+          <h3>Equipment</h3>
+          <p>Curated tools and software for every stage of development: engines, art suites, audio workstations, and project management.</p>
+        </a>
+
+        <a href="/blueprints/" class="card" style="text-decoration:none;">
+          <div class="card-icon">📐</div>
+          <h3>Blueprints</h3>
+          <p>Production-ready templates for studio setup, game design documents, pitch decks, and more — just fill in and ship.</p>
+        </a>
+      </div>
+
+      <div class="callout callout-info" style="margin-top: 2rem;">
+        <strong>🎯 New here?</strong> Start with the
+        <a href="/quest-logs/getting-started/">Getting Started</a> guide — it takes
+        about 10 minutes and sets you up with everything you need.
+      </div>
+    </main>
+  </div>
+</BaseLayout>

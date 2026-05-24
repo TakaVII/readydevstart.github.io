@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Game Design Document" activeNav="blueprints">
+  <WikiLayout title="Game Design Document (GDD)" activeNav="blueprints" activeSidebar="game-design-doc">
+    <div class="callout callout-info">
+      <strong>📝 Blueprint:</strong> A living document that captures your game's vision, mechanics, and production plan. Fill in each section as your design evolves.
+    </div>
+
+    <h2>1. Overview</h2>
+    <ul>
+      <li><strong>Title:</strong> [Game Name]</li>
+      <li><strong>Genre:</strong> [e.g., Roguelike, Platformer, RPG]</li>
+      <li><strong>Platform(s):</strong> [PC, Mobile, Console]</li>
+      <li><strong>Target Audience:</strong> [Age range, player type]</li>
+      <li><strong>Elevator Pitch:</strong> [2–3 sentences describing the game]</li>
+    </ul>
+
+    <h2>2. Gameplay</h2>
+    <h3>Core Loop</h3>
+    <p>[Describe the primary repeated cycle of player actions]</p>
+
+    <h3>Mechanics</h3>
+    <ul>
+      <li>[Mechanic 1: description]</li>
+      <li>[Mechanic 2: description]</li>
+      <li>[Mechanic 3: description]</li>
+    </ul>
+
+    <h3>Progression</h3>
+    <p>[How does the player advance? Levels, upgrades, story progression?]</p>
+
+    <h2>3. Narrative</h2>
+    <ul>
+      <li><strong>Setting:</strong> [World, time period, atmosphere]</li>
+      <li><strong>Story Synopsis:</strong> [Brief plot outline]</li>
+      <li><strong>Characters:</strong> [Key characters and their roles]</li>
+    </ul>
+
+    <h2>4. Art Direction</h2>
+    <ul>
+      <li><strong>Visual Style:</strong> [Pixel art, low-poly, hand-drawn, realistic]</li>
+      <li><strong>Color Palette:</strong> [Primary colors and mood]</li>
+      <li><strong>Reference Games:</strong> [Games with similar art direction]</li>
+    </ul>
+
+    <h2>5. Audio</h2>
+    <ul>
+      <li><strong>Music Style:</strong> [Chiptune, orchestral, ambient, electronic]</li>
+      <li><strong>Key SFX:</strong> [List critical sound effects needed]</li>
+    </ul>
+
+    <h2>6. Technical Specs</h2>
+    <ul>
+      <li><strong>Engine:</strong> [Godot, Unity, Unreal, etc.]</li>
+      <li><strong>Min Requirements:</strong> [Target hardware specs]</li>
+      <li><strong>Networking:</strong> [Single-player, local co-op, online?]</li>
+    </ul>
+
+    <h2>7. Milestones</h2>
+    <table>
+      <thead>
+        <tr><th>Milestone</th><th>Target Date</th><th>Deliverables</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prototype</td><td>[Date]</td><td>Core loop playable</td></tr>
+        <tr><td>Vertical Slice</td><td>[Date]</td><td>One polished level/area</td></tr>
+        <tr><td>Alpha</td><td>[Date]</td><td>All content in, playable start to finish</td></tr>
+        <tr><td>Beta</td><td>[Date]</td><td>Feature-complete, bug fixing</td></tr>
+        <tr><td>Release</td><td>[Date]</td><td>Launch-ready build</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warning">
+      <strong>⚠️ Reminder:</strong> A GDD is a living document. Update it as your design evolves — an outdated GDD is worse than no GDD.
+    </div>
+  </WikiLayout>
+</BaseLayout>

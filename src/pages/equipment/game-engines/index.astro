@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Game Engines" activeNav="equipment">
+  <WikiLayout title="Game Engines" activeNav="equipment" activeSidebar="game-engines">
+    <p>
+      Your game engine is the foundation of your project. Here's an honest comparison of the
+      most popular options for indie developers.
+    </p>
+
+    <h2>Engine Comparison</h2>
+    <table>
+      <thead>
+        <tr><th>Engine</th><th>Language</th><th>Strengths</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Godot 4</strong></td>
+          <td>GDScript, C#</td>
+          <td>Lightweight, open-source, excellent 2D, fast iteration</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>Unity</strong></td>
+          <td>C#</td>
+          <td>Massive ecosystem, cross-platform, huge community</td>
+          <td>Free tier; paid plans</td>
+        </tr>
+        <tr>
+          <td><strong>Unreal Engine 5</strong></td>
+          <td>C++, Blueprints</td>
+          <td>Stunning 3D visuals, Nanite, Lumen, AAA features</td>
+          <td>Free; 5% royalty after $1M</td>
+        </tr>
+        <tr>
+          <td><strong>GameMaker</strong></td>
+          <td>GML</td>
+          <td>Beginner-friendly, great 2D workflow, fast prototyping</td>
+          <td>Free tier; paid export</td>
+        </tr>
+        <tr>
+          <td><strong>Defold</strong></td>
+          <td>Lua</td>
+          <td>Lightweight, mobile-optimized, free forever</td>
+          <td>Free</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>How to Choose</h2>
+    <ul>
+      <li><strong>Making a 2D game?</strong> → Start with <strong>Godot</strong> or <strong>GameMaker</strong>.</li>
+      <li><strong>Want a large community &amp; job prospects?</strong> → <strong>Unity</strong>.</li>
+      <li><strong>Building in 3D with high-fidelity visuals?</strong> → <strong>Unreal Engine</strong>.</li>
+      <li><strong>Targeting mobile?</strong> → <strong>Defold</strong> or <strong>Unity</strong>.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> The best engine is the one you actually learn and ship with. Don't engine-hop — pick one and commit for your first project.
+    </div>
+  </WikiLayout>
+</BaseLayout>

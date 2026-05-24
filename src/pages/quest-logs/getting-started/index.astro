@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Getting Started" activeNav="quest-logs">
+  <WikiLayout title="Getting Started" activeNav="quest-logs" activeSidebar="getting-started">
+    <div class="callout callout-info">
+      <strong>⏱️ Estimated Time:</strong> 10 minutes — by the end, you'll have a clear mental map of the game dev landscape and know your next steps.
+    </div>
+
+    <h2>Welcome, Adventurer!</h2>
+    <p>
+      So you want to make games? Excellent. Whether you dream of building a cozy farming sim,
+      a fast-paced roguelike, or an emotional narrative experience — this guide will orient you
+      and get you moving.
+    </p>
+
+    <h2>Step 1: Understand the Landscape</h2>
+    <p>Game development sits at the intersection of multiple disciplines:</p>
+    <ul>
+      <li><strong>Design</strong> — What the player does and why it's fun.</li>
+      <li><strong>Programming</strong> — Making things work with code (or visual scripting).</li>
+      <li><strong>Art</strong> — Visuals, UI, animations, and world-building aesthetics.</li>
+      <li><strong>Audio</strong> — Music, sound effects, and ambient atmosphere.</li>
+      <li><strong>Production</strong> — Planning, scoping, and shipping on time.</li>
+    </ul>
+    <p>
+      You don't need to master all of them. Many successful indie devs specialize in one or
+      two and lean on free assets or collaborators for the rest.
+    </p>
+
+    <h2>Step 2: Pick a Game Engine</h2>
+    <p>
+      A game engine is your primary tool. Head to our <a href="/equipment/game-engines/">Game Engines</a>
+      guide for a detailed comparison. For most beginners, we recommend starting with:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Engine</th>
+          <th>Best For</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Godot</strong></td>
+          <td>2D games, learning, open-source enthusiasts</td>
+          <td>Free &amp; open-source</td>
+        </tr>
+        <tr>
+          <td><strong>Unity</strong></td>
+          <td>Versatile 2D/3D, large community, mobile</td>
+          <td>Free tier available</td>
+        </tr>
+        <tr>
+          <td><strong>Unreal Engine</strong></td>
+          <td>AAA-quality 3D, Blueprints visual scripting</td>
+          <td>Free until $1M revenue</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Step 3: Complete a Tiny Project</h2>
+    <p>
+      The single best thing you can do right now is <strong>make something small</strong>.
+      Don't plan a massive RPG. Build Pong, a simple platformer, or a click-counter. The goal
+      is to go through the full creation cycle: idea → prototype → polish → share.
+    </p>
+    <p>
+      Ready to build? Head to <a href="/quest-logs/your-first-game/">Your First Game</a>.
+    </p>
+
+    <h2>Step 4: Join the Community</h2>
+    <p>
+      Game development thrives on community. Here are some great places to connect:
+    </p>
+    <ul>
+      <li>Reddit: <code>r/gamedev</code>, <code>r/indiegaming</code></li>
+      <li>Discord servers for your chosen engine</li>
+      <li>Game jams on <a href="https://itch.io/jams" target="_blank" rel="noopener noreferrer">itch.io</a></li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Game jams are the fastest way to learn. They force you to scope small, finish, and ship — the exact skills that separate hobbyists from developers.
+    </div>
+  </WikiLayout>
+</BaseLayout>

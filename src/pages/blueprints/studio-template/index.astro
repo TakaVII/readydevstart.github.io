@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+---
+
+<BaseLayout title="Studio Template" activeNav="blueprints">
+  <WikiLayout title="Studio Template" activeNav="blueprints" activeSidebar="studio-template">
+    <div class="callout callout-info">
+      <strong>🏗️ Blueprint:</strong> Use this template as a starting framework for setting up your indie studio — customize each section to fit your team and goals.
+    </div>
+
+    <h2>1. Studio Identity</h2>
+    <ul>
+      <li><strong>Studio Name:</strong> [Your Studio Name]</li>
+      <li><strong>Tagline:</strong> [One sentence describing your studio's vibe]</li>
+      <li><strong>Founded:</strong> [Date]</li>
+      <li><strong>Website:</strong> [URL]</li>
+    </ul>
+
+    <h2>2. Team Roles</h2>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Person</th><th>Responsibilities</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Creative Director</td><td>[Name]</td><td>Game vision, design decisions, creative oversight</td></tr>
+        <tr><td>Lead Programmer</td><td>[Name]</td><td>Architecture, core systems, code review</td></tr>
+        <tr><td>Artist</td><td>[Name]</td><td>Visual assets, UI design, animations</td></tr>
+        <tr><td>Audio Designer</td><td>[Name]</td><td>Music, SFX, audio integration</td></tr>
+        <tr><td>Producer</td><td>[Name]</td><td>Schedule, scope, stakeholder communication</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Legal Basics</h2>
+    <ul>
+      <li>Register your business entity (LLC recommended for liability protection).</li>
+      <li>Draft a simple operating agreement or partnership agreement.</li>
+      <li>Define revenue split and IP ownership upfront — in writing.</li>
+      <li>Use contracts for any freelance or contractor work.</li>
+    </ul>
+
+    <h2>4. Operational Workflow</h2>
+    <ol>
+      <li><strong>Ideation</strong> — Brainstorm, pitch, and validate game concepts.</li>
+      <li><strong>Pre-Production</strong> — GDD, prototype, vertical slice.</li>
+      <li><strong>Production</strong> — Sprint-based development with milestone reviews.</li>
+      <li><strong>Polish &amp; QA</strong> — Bug fixing, playtesting, optimization.</li>
+      <li><strong>Launch &amp; Post-Launch</strong> — Marketing, release, patches, community.</li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Even solo devs benefit from writing a studio charter. It forces you to clarify your goals, scope, and working style before you start building.
+    </div>
+  </WikiLayout>
+</BaseLayout>

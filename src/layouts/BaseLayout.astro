@@ -1,0 +1,69 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  activeNav?: string;
+}
+
+const {
+  title,
+  description = "Indie Game Academy — Your launchpad to game development mastery.",
+  activeNav = "",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Indie Game Academy</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- ===== Header / Navigation ===== -->
+      <header class="site-header">
+        <a href="/" class="logo">🎮 Indie Game <span>Academy</span></a>
+        <nav>
+          <a href="/" class:list={[{ active: activeNav === "home" }]}>Home</a>
+          <a href="/quest-logs/" class:list={[{ active: activeNav === "quest-logs" }]}>Quest Logs</a>
+          <a href="/equipment/" class:list={[{ active: activeNav === "equipment" }]}>Equipment</a>
+          <a href="/blueprints/" class:list={[{ active: activeNav === "blueprints" }]}>Blueprints</a>
+          <a href="/about/" class:list={[{ active: activeNav === "about" }]}>About</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+      </header>
+
+      <!-- ===== Page Content ===== -->
+      <slot />
+
+      <!-- ===== Footer ===== -->
+      <footer class="site-footer">
+        <p>
+          &copy; {new Date().getFullYear()} <a href="/">Indie Game Academy</a>.
+          Built with ♥ for aspiring game creators.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const sidebar = document.querySelector(".sidebar");
+      if (sidebar) {
+        document.body.classList.add("has-sidebar");
+      }
+      if (toggle && sidebar) {
+        toggle.addEventListener("click", () => {
+          const isOpen = sidebar.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import "../styles/global.css";
+</style>
