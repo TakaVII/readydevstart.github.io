@@ -408,11 +408,11 @@ th {
     display: block;
   }
 
-  .menu-toggle {
+  body.has-sidebar .menu-toggle {
     display: block;
   }
 
-  .site-header nav {
+  body.has-sidebar .site-header nav {
     display: none;
   }
 
