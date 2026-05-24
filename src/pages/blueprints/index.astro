@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WikiLayout from "../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Blueprints" activeNav="blueprints">
@@ -11,19 +12,19 @@ import WikiLayout from "../../layouts/WikiLayout.astro";
     </p>
 
     <div class="card-grid">
-      <a href="/blueprints/studio-template/" class="card" style="text-decoration:none;">
+      <a href={`${base}blueprints/studio-template/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🏗️</div>
         <h3>Studio Template</h3>
         <p>A complete indie studio setup guide covering legal, branding, team roles, and operational workflows.</p>
       </a>
 
-      <a href="/blueprints/game-design-doc/" class="card" style="text-decoration:none;">
+      <a href={`${base}blueprints/game-design-doc/`} class="card" style="text-decoration:none;">
         <div class="card-icon">📝</div>
         <h3>Game Design Document</h3>
         <p>A structured GDD template that covers vision, mechanics, narrative, art direction, and technical specs.</p>
       </a>
 
-      <a href="/blueprints/pitch-deck/" class="card" style="text-decoration:none;">
+      <a href={`${base}blueprints/pitch-deck/`} class="card" style="text-decoration:none;">
         <div class="card-icon">📊</div>
         <h3>Pitch Deck</h3>
         <p>Present your game to publishers, investors, or your team with this proven slide framework.</p>

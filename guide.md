@@ -5,7 +5,7 @@ This repository contains the complete static site source code for the Indie Game
 ## 1. Project Parameters & Environment
 
 * **Hosting Target:** GitHub Pages
-* **Domain:** `takavii.github.io/readydevstart.github.io` (GitHub Pages)
+* **Site URL:** `https://takavii.github.io/readydevstart.github.io` (GitHub Pages)
 * **Architecture:** Static Site Generator (Astro or clean Jekyll setup optimized for GitHub Pages compiling via GitHub Actions).
 * **Database:** None. All content reads from local Markdown (`.md`) files and structured JSON files stored in the repository.
 * **Access Pattern:** 100% read-only for public visitors. No user accounts, authentication systems, or sessions required.
