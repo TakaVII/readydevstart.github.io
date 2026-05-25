@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Resource List" activeNav="career-guide">
+  <WikiLayout title="Career Resource List" activeNav="career-guide" activeSidebar="resources">
+    <p>
+      A curated collection of books, courses, communities, and tools to help
+      you break into and advance within the game industry.
+    </p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Quick Nav</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/`}>← Browse Roles</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/job-boards/`}>Job Boards →</a>
+          </p>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <h2>📖 Books</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h3>The Art of Game Design — Jesse Schell</h3>
+            <p>A comprehensive guide to game design principles with 100+ "lenses" for analyzing your designs.</p>
+          </div>
+          <div class="card">
+            <h3>Blood, Sweat, and Pixels — Jason Schreier</h3>
+            <p>Behind-the-scenes stories of game development that reveal the realities of the industry.</p>
+          </div>
+          <div class="card">
+            <h3>Game Programming Patterns — Robert Nystrom</h3>
+            <p>Essential programming patterns for game developers, available free online.</p>
+          </div>
+        </div>
+
+        <h2 style="margin-top: 2rem;">🎓 Online Courses</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h3>GDC Vault (Free Talks)</h3>
+            <p>Hundreds of free conference talks from industry veterans on every game dev topic.</p>
+          </div>
+          <div class="card">
+            <h3>Coursera — Game Design Specialization</h3>
+            <p>University-level game design courses from CalArts and Michigan State.</p>
+          </div>
+          <div class="card">
+            <h3>Brackeys / Game Maker's Toolkit (YouTube)</h3>
+            <p>Free video tutorials and design analysis channels perfect for self-learners.</p>
+          </div>
+        </div>
+
+        <h2 style="margin-top: 2rem;">🤝 Communities</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h3>IGDA (International Game Developers Association)</h3>
+            <p>The largest non-profit for game developers — local chapters, events, and mentorship.</p>
+          </div>
+          <div class="card">
+            <h3>r/gamedev (Reddit)</h3>
+            <p>Active community for game developers of all levels sharing advice, feedback, and resources.</p>
+          </div>
+          <div class="card">
+            <h3>Game Dev Discord Servers</h3>
+            <p>Many discipline-specific Discord communities offer real-time feedback and networking.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Pro Tips</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>🎮 Ship Something</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            The best career resource is a finished project. Join a game jam to build your portfolio fast.
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🌐 Network</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            Attend local meetups, GDC, and online events. Many jobs are filled through personal connections.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

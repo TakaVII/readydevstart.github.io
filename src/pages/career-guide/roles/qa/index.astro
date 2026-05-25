@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  { name: "QA Tester", description: "Plays builds systematically to find and document bugs, glitches, and usability issues." },
+  { name: "QA Lead", description: "Manages the QA team, defines test plans, and coordinates with developers on bug priorities." },
+  { name: "Automation Engineer", description: "Builds automated test frameworks and CI pipelines to catch regressions early." },
+  { name: "Compliance Tester", description: "Ensures the game meets platform-specific requirements (console TRCs, store policies, ratings)." },
+];
+---
+
+<BaseLayout title="QA Roles" activeNav="career-guide">
+  <WikiLayout title="QA Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>
+      Quality Assurance is the last line of defense before a game ships.
+      QA professionals ensure players have the best possible experience.
+    </p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>QA Roles</h3>
+        {roles.map((r) => (
+          <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+            <strong style="font-size: 0.9rem;">{r.name}</strong>
+          </div>
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">← All Roles</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        {roles.map((role) => (
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3>{role.name}</h3>
+            <p>{role.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Related</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/programming/`}>Programming Roles →</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/job-boards/`}>Job Boards →</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>
