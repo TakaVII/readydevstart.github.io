@@ -1,0 +1,26 @@
+---
+/**
+ * BodyScripts.astro
+ * Place third-party snippets that belong right after <body> here.
+ * Import this component inside BaseLayout, right after the opening <body> tag.
+ * To add more tags in the future, just add them below.
+ *
+ * Set the PUBLIC_GTM_ID environment variable to enable Google Tag Manager.
+ */
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+---
+
+{gtmId && (
+  <>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </>
+)}

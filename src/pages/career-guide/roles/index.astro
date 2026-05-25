@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const roleDisciplines = [
+  {
+    name: "Animation",
+    icon: "🎬",
+    href: `${base}career-guide/roles/animation/`,
+    description: "Bring characters and worlds to life through motion.",
+    roles: ["Character Animator", "Technical Animator", "Cinematic Animator", "Rigging Artist"],
+  },
+  {
+    name: "Art",
+    icon: "🎨",
+    href: `${base}career-guide/roles/art/`,
+    description: "Create the visual identity of games — from concept to final asset.",
+    roles: ["Concept Artist", "3D Modeler", "Environment Artist", "UI Artist", "Pixel Artist"],
+  },
+  {
+    name: "Audio",
+    icon: "🎵",
+    href: `${base}career-guide/roles/audio/`,
+    description: "Design the sonic landscape that immerses players.",
+    roles: ["Sound Designer", "Composer", "Audio Programmer", "Voice Director"],
+  },
+  {
+    name: "Design",
+    icon: "🧩",
+    href: `${base}career-guide/roles/design/`,
+    description: "Shape the rules, systems, and experiences players interact with.",
+    roles: ["Game Designer", "Level Designer", "Narrative Designer", "Systems Designer", "UX Designer"],
+  },
+  {
+    name: "Production",
+    icon: "📊",
+    href: `${base}career-guide/roles/production/`,
+    description: "Keep teams on track and projects moving forward.",
+    roles: ["Producer", "Associate Producer", "Project Manager", "Scrum Master"],
+  },
+  {
+    name: "Programming",
+    icon: "💻",
+    href: `${base}career-guide/roles/programming/`,
+    description: "Build the systems that make games run.",
+    roles: ["Gameplay Programmer", "Engine Programmer", "Tools Programmer", "Graphics Programmer", "Network Programmer"],
+  },
+  {
+    name: "QA",
+    icon: "🔍",
+    href: `${base}career-guide/roles/qa/`,
+    description: "Ensure quality and catch issues before players do.",
+    roles: ["QA Tester", "QA Lead", "Automation Engineer", "Compliance Tester"],
+  },
+];
+---
+
+<BaseLayout title="Roles" activeNav="career-guide">
+  <WikiLayout title="Gamedev Career Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>
+      The game industry spans many disciplines. Explore each category below
+      to learn about specific roles, what they do, and how to break in.
+    </p>
+
+    <!-- 3-column layout: sidebar | main | sidebar -->
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Disciplines</h3>
+        {roleDisciplines.map((d) => (
+          <a href={d.href} class="card" style="text-decoration:none; display:block;">
+            <span style="font-size:1.25rem;">{d.icon}</span>
+            <strong>{d.name}</strong>
+          </a>
+        ))}
+      </aside>
+
+      <div class="career-main">
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roleDisciplines.map((discipline) => (
+            <a href={discipline.href} class="card" style="text-decoration:none;">
+              <div class="card-icon">{discipline.icon}</div>
+              <h3>{discipline.name}</h3>
+              <p>{discipline.description}</p>
+              <ul style="margin-top: 0.5rem; font-size: 0.85rem;">
+                {discipline.roles.map((role) => (
+                  <li>{role}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>🎯 Not sure where to start?</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            Check out the <a href={`${base}career-guide/resources/`}>Resource List</a> for career guides and self-assessments.
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>💼 Ready to apply?</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            Browse our <a href={`${base}career-guide/job-boards/`}>Job Boards</a> directory.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

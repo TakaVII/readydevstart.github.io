@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const boards = [
+  { name: "Work With Indies", url: "https://workwithindies.com", description: "Indie-focused job board with remote-friendly listings across all disciplines." },
+  { name: "Hitmarker", url: "https://hitmarker.net", description: "Gaming and esports job board with positions from studios worldwide." },
+  { name: "GameJobs.co", url: "https://gamejobs.co", description: "Aggregates game industry jobs from major and indie studios." },
+  { name: "Remote Game Jobs", url: "https://remotegamejobs.com", description: "Curated remote positions in the game industry." },
+  { name: "GamesIndustry.biz Jobs", url: "https://jobs.gamesindustry.biz", description: "Job listings from one of the industry's leading news outlets." },
+  { name: "LinkedIn Gaming Jobs", url: "https://www.linkedin.com/jobs/gaming-jobs", description: "Filter LinkedIn's massive job database for gaming-specific roles." },
+  { name: "Indeed Game Developer", url: "https://www.indeed.com/q-game-developer-jobs.html", description: "Broad job search engine with many game dev listings." },
+];
+---
+
+<BaseLayout title="Job Boards" activeNav="career-guide">
+  <WikiLayout title="Game Industry Job Boards" activeNav="career-guide" activeSidebar="job-boards">
+    <p>
+      Ready to land your first (or next) game industry role? These curated
+      job boards specialize in game development positions — from AAA studios
+      to indie teams.
+    </p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Quick Nav</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/`}>← Browse Roles</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/resources/`}>Resources →</a>
+          </p>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          {boards.map((board) => (
+            <div class="card">
+              <h3>
+                <a href={board.url} target="_blank" rel="noopener noreferrer">{board.name} ↗</a>
+              </h3>
+              <p>{board.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="callout callout-tip" style="margin-top: 1.5rem;">
+          <strong>💡 Tip:</strong> Set up job alerts on multiple boards and tailor your resume
+          for each application. Many studios also post openings on their own websites before
+          listing elsewhere.
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Tips</h3>
+        <div class="card" style="padding: 1rem;">
+          <strong>📝 Portfolio First</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            Most game roles prioritize a strong portfolio over formal credentials. Start building yours today.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

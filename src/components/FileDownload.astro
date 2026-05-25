@@ -1,0 +1,126 @@
+---
+export interface Props {
+  /** Display name for the file */
+  name: string;
+  /** URL to the file — can be a local path (e.g. /downloads/file.pdf) or an external link (Google Drive) */
+  href: string;
+  /** File type label shown in the badge, e.g. "PDF", "Google Drive", "DOCX" */
+  type?: string;
+  /** Optional file size string, e.g. "2.4 MB" */
+  size?: string;
+  /** Optional description */
+  description?: string;
+}
+
+const { name, href, type = "PDF", size, description } = Astro.props;
+
+const isExternal = href.startsWith("http");
+---
+
+<div class="file-download">
+  <div class="file-download-icon" aria-hidden="true">
+    {type === "Google Drive" ? "📁" : "📄"}
+  </div>
+  <div class="file-download-info">
+    <strong class="file-download-name">{name}</strong>
+    {description && <p class="file-download-desc">{description}</p>}
+    <div class="file-download-meta">
+      <span class="file-download-badge">{type}</span>
+      {size && <span class="file-download-size">{size}</span>}
+    </div>
+  </div>
+  <a
+    href={href}
+    class="btn btn-blue file-download-btn"
+    download={!isExternal ? "" : undefined}
+    target={isExternal ? "_blank" : undefined}
+    rel={isExternal ? "noopener noreferrer" : undefined}
+  >
+    {isExternal ? "Open ↗" : "Download ↓"}
+  </a>
+</div>
+
+<style>
+  .file-download {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-gold);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .file-download:hover {
+    border-color: var(--color-blue);
+    box-shadow: 0 4px 16px rgba(106, 180, 232, 0.15);
+  }
+
+  .file-download-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .file-download-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .file-download-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-dark);
+  }
+
+  .file-download-desc {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.75;
+    margin: 0.25rem 0 0;
+  }
+
+  .file-download-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.35rem;
+  }
+
+  .file-download-badge {
+    display: inline-block;
+    background: var(--color-pink);
+    color: var(--color-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+  }
+
+  .file-download-size {
+    font-size: 0.8rem;
+    color: var(--color-dark);
+    opacity: 0.6;
+  }
+
+  .file-download-btn {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  }
+
+  @media (max-width: 480px) {
+    .file-download {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .file-download-meta {
+      justify-content: center;
+    }
+  }
+</style>

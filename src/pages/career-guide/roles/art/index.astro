@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  { name: "Concept Artist", description: "Designs the initial visual ideas and mood boards that guide the art direction of a game." },
+  { name: "3D Modeler", description: "Creates three-dimensional assets including characters, props, and environments." },
+  { name: "Environment Artist", description: "Builds immersive game worlds — landscapes, interiors, and architectural elements." },
+  { name: "UI Artist", description: "Designs the visual interface elements players interact with: menus, HUDs, icons, and screens." },
+  { name: "Pixel Artist", description: "Creates 2D sprite-based art for retro-style or pixel-art games." },
+];
+---
+
+<BaseLayout title="Art Roles" activeNav="career-guide">
+  <WikiLayout title="Art Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>
+      Art roles define the visual identity of a game. From early concepts to
+      final polished assets, artists shape every pixel players see.
+    </p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {roles.map((r) => (
+          <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+            <strong style="font-size: 0.9rem;">{r.name}</strong>
+          </div>
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">← All Roles</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        {roles.map((role) => (
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3>{role.name}</h3>
+            <p>{role.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Related</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/animation/`}>Animation Roles →</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}equipment/art-tools/`}>Art Tools →</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>
