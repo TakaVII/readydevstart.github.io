@@ -422,7 +422,7 @@ th {
     display: block;
   }
 
-  .site-header nav {
+  html.js .site-header nav {
     display: none;
     position: absolute;
     top: var(--header-height);
@@ -436,7 +436,7 @@ th {
     z-index: 95;
   }
 
-  .site-header nav.open {
+  html.js .site-header nav.open {
     display: flex;
   }
 

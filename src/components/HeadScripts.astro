@@ -4,15 +4,22 @@
  * Place third-party scripts that belong in <head> here.
  * Import this component inside the <head> of BaseLayout.
  * To add more tags in the future, just add them below.
+ *
+ * Set the PUBLIC_GTM_ID environment variable to enable Google Tag Manager.
  */
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
 ---
 
-<!-- Google Tag Manager -->
-<script is:inline>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');
-</script>
-<!-- End Google Tag Manager -->
+{gtmId && (
+  <>
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ gtmId }}>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',gtmId);
+    </script>
+    <!-- End Google Tag Manager -->
+  </>
+)}
