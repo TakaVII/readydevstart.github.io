@@ -86,8 +86,8 @@ const sidebarRoles = [
         <h3>Engineering & Programming Roles</h3>
         {sidebarRoles.map((r) => (
           r.current ? (
-            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
-              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
             </div>
           ) : (
             <a href={`${base}career-guide/roles/programming/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
@@ -151,7 +151,7 @@ const sidebarRoles = [
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
             {tools.map((t) => (
-              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
             ))}
           </div>
         </div>

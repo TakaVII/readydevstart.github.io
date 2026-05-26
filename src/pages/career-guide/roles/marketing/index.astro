@@ -5,12 +5,12 @@ const base = import.meta.env.BASE_URL;
 
 const roles = [
   { name: "Social Media Specialist", slug: "social-media-specialist", description: "A Social Media Specialist is the conductor of the hype train, orchestrating the online conversation around your game." },
-  { name: "Community Manager", slug: "community-manager", description: "A Community Manager in the game industry is the lifeblood of the gamer experience, fostering vibrant communities that breathe life into the virtual worlds we love, keeping everyone informed, entert..." },
+  { name: "Community Manager", slug: "community-manager", description: "A Community Manager in the game industry is the lifeblood of the gamer experience, fostering vibrant communities that breathe life into the virtual worlds we love, keeping everyone informed, entertained, and connected." },
   { name: "Influencer Marketer", slug: "influencer-marketer", description: "An Influencer Marketer, a more specific version of an Affiliate Marketer (but sometimes with the same responsibilities), is the cool cousin your average marketer wishes they had." },
   { name: "Content Marketer", slug: "content-marketer", description: "A Content Marketer is the storyteller extraordinaire, creating captivating narratives that draw players into the heart of the game and keep them coming back for more." },
   { name: "Campaign Specialist", slug: "campaign-specialist", description: "Campaign Specialists work by orchestrating strategic initiatives that make the game resonate with its target audience." },
-  { name: "PR Specialist", slug: "pr-specialist", description: "A PR Specialist is a mix of hype squad leader and media whisperer, crafting press releases, pitching stories to journalists, and orchestrating events that put the spotlight on the newest and hottes..." },
-  { name: "Performance Marketer", slug: "performance-marketer", description: "A Performance Marketer is the strategist behind those targeted ads you see everywhere, the mastermind behind in-game offers that keep you hooked, and the analysts who ensure every marketing dollar ..." }
+  { name: "PR Specialist", slug: "pr-specialist", description: "A PR Specialist is a mix of hype squad leader and media whisperer, crafting press releases, pitching stories to journalists, and orchestrating events that put the spotlight on the newest and hottest titles." },
+  { name: "Performance Marketer", slug: "performance-marketer", description: "A Performance Marketer is the strategist behind those targeted ads you see everywhere, the mastermind behind in-game offers that keep you hooked, and the analysts who ensure every marketing dollar delivers maximum impact." }
 ];
 
 const skills = [
@@ -81,7 +81,7 @@ const courses = [
           <h3>Skills Involved</h3>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
             {skills.map((s) => (
-              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
             ))}
           </div>
         </div>
