@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/gameplay-designer-salary-SRCH_KO0,17.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/gameplay-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Gameplay-Designer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Design the fundamental rules, actions, and interactions that define how the game is played, ensuring they're intuitive, engaging, and endlessly rewarding.",
+  "Shape the overall flow and progression of the game, from the initial tutorial to the endgame, balancing challenge, pacing, and meaningful rewards.",
+  "Fine-tune difficulty, enemy AI, resource management, and progression systems to create a fair and satisfying challenge for players of all skill levels.",
+  "Playtest relentlessly, identify pain points and imbalances, and iterate on mechanics to optimize player engagement and enjoyment.",
+  "Craft satisfying combat systems, whether action-packed or strategic, and intuitive movement mechanics that feel natural and responsive.",
+  "Design unique and engaging character skills, talents, and progression systems that encourage exploration, experimentation, and mastery.",
+  "Ensure gameplay elements support and enhance the game's story and themes, creating a cohesive and impactful player experience."
+];
+
+const resources = [
+  { name: "Presentation: Combat Design - Mark Acero", url: "https://www.youtube.com/watch?v=xHG3-Nwc4VM&ab_channel=VancouverFilmSchool" },
+  { name: "AAA Combat Design | Naughty Dog Panel @ PAX Prime 2014", url: "https://www.youtube.com/watch?v=nBNf2CHRQ8E&ab_channel=SolarisPLAYS" },
+  { name: "Beginner's Guide to Becoming a Gameplay Designer", url: "https://certifieddigitalartist.com/guides/beginners-guide-to-becoming-a-gameplay-designer/" },
+  { name: "What Is a Gameplay Designer? Unreal Engine Course", url: "https://dev.epicgames.com/community/learning/tutorials/3VV/unreal-engine-what-is-a-gameplay-designer?locale=es-es" },
+  { name: "The Art Of Game Design Website by Jesse Schell", url: "https://schellgames.com/art-of-game-design" },
+  { name: "Game Accessibility Guidelines", url: "https://gameaccessibilityguidelines.com/" },
+  { name: "The 13 Basic Principles of Gameplay Design", url: "https://www.gamedeveloper.com/design/the-13-basic-principles-of-gameplay-design" },
+  { name: "Gameplay and Game Mechanics Design: A Key to Quality in Videogames by Carlo Fabricatore", url: "https://www.oecd.org/education/ceri/39414829.pdf" },
+  { name: "Core Loops in Gameplay", url: "https://gamedesignskills.com/game-design/core-loops-in-gameplay/" },
+  { name: "Three Hundred Mechanics", url: "https://www.squidi.net/three/" }
+];
+
+const books = [
+  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
+  { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
+  { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
+  { name: "Hooked: How to Build Habit-Forming Products by Nir Eyal", url: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788" },
+  { name: "Game Balance by Ian Schreiber and Brenda Romero", url: "https://www.amazon.com/Game-Balance-Brenda-Romero/dp/1498799574" },
+  { name: "Advanced Game Design: A Systems Approach by Michael Sellers", url: "https://www.amazon.com/Advanced-Game-Design-Systems-Approach/dp/0134667603/" },
+  { name: "Rules of Play: Game Design Fundamentals by Katie Salen Tekinbas and Eric Zimmerman", url: "https://www.amazon.com/Rules-Play-Design-Fundamentals-Press/dp/0262240459/" },
+  { name: "Designing Games: A Guide to Engineering Experiences by Tynan Sylvester", url: "https://www.amazon.com/Designing-Games-Guide-Engineering-Experiences/dp/1449337937" }
+];
+
+const tools = [
+  "Game Engines",
+  "Rider",
+  "Houdini",
+  "Substance Painter",
+  "C#",
+  "C++",
+  "Git",
+  "Confluence",
+  "Excel",
+  "Perforce",
+  "Inkspace"
+];
+
+const sidebarRoles = [
+  { name: "Game Designer", slug: "game-designer", current: false },
+  { name: "Level Designer", slug: "level-designer", current: false },
+  { name: "Narrative Designer/Writer", slug: "narrative-designer-writer", current: false },
+  { name: "Gameplay Designer", slug: "gameplay-designer", current: true },
+  { name: "System Designer", slug: "system-designer", current: false },
+  { name: "UX/UI Designer", slug: "ux-ui-designer", current: false },
+  { name: "Technical Designer", slug: "technical-designer", current: false }
+];
+---
+
+<BaseLayout title="Gameplay Designer" activeNav="career-guide">
+  <WikiLayout title="Gameplay Designer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Game Design Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/design/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/design/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Game Design</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Gameplay Designer in the game industry is the architect of the "fun." They craft the core mechanics, rules, and objectives that drive player engagement and define the essence of how a game is played. They're the invisible hand shaping every jump, swing, and puzzle, ensuring a satisfying balance of challenge and reward, and molding raw systems into compelling gameplay loops. They iterate, test, and refine every interaction, striving to create moments of surprise, exhilaration, and mastery that keep players coming back for more, making the joy of play the heart of every game.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

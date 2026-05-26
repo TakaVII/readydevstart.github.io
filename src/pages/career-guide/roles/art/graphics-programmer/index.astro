@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/graphics-programmer-salary-SRCH_KO0,19.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/graphics-programmer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Graphics-Programmer-Salary#intsrc=fe.candidate_header_desktop_logged_out" }
+];
+
+const responsibilities = [
+  "Craft real-time rendering programs for various effects like lighting, materials, and post-processing, ensuring optimal performance and visual fidelity.",
+  "Seamlessly connect data structures, rendering APIs, and shaders to bring game visuals to life, addressing technical challenges and limitations.",
+  "Analyze and troubleshoot rendering bottlenecks, implement performance-enhancing techniques, and ensure smooth framerates across target platforms.",
+  "Develop custom shaders and tools for procedural textures, particle systems, and other dynamic visuals, contributing to the game's artistic style.",
+  "Understand and translate artistic vision into technically feasible solutions, communicating limitations and proposing alternative approaches.",
+  "Continuously learn and implement new graphics APIs, rendering techniques, and optimization strategies to enhance visual quality and performance.",
+  "Investigate and resolve visual glitches, rendering errors, and performance inconsistencies across various hardware and software configurations.",
+  "Participate in improving or extending the game engine's rendering capabilities, potentially working on core graphics systems and tools.",
+  "Utilize profiling tools to identify performance bottlenecks, analyze frame time breakdowns, and optimize rendering code for efficiency."
+];
+
+const resources = [
+  { name: "Graphics Developer Roadmap by Pro.Graphon Community", url: "https://github.com/prographon/graphics-developer-roadmap" },
+  { name: "How do I become a graphics programmer? - A small guide from the AMD Game Engineering team", url: "https://gpuopen.com/learn/how_do_you_become_a_graphics_programmer/" },
+  { name: "Graphics Resources by mattdesl", url: "https://github.com/mattdesl/graphics-resources?tab=readme-ov-file#readme" },
+  { name: "Graphics Programming community", url: "https://graphics-programming.org/" },
+  { name: "ScreenSkills Graphics Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/technical-art/graphics-programmer/" },
+  { name: "Computer Graphics Resouces by Sundaram Ramaswamy", url: "https://legends2k.github.io/note/cg_resources/" },
+  { name: "Learn OpenGL", url: "https://learnopengl.com/" },
+  { name: "Real-Time Rendering Resources", url: "https://www.realtimerendering.com/" },
+  { name: "How to become a Graphics Programmer in the games industry", url: "https://www.gamedeveloper.com/programming/how-to-become-a-graphics-programmer-in-the-games-industry" },
+  { name: "Where Do I Start? A Very Gentle Introduction to Computer Graphics Programming", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/get-started/gentle-introduction-to-computer-graphics-programming.html" },
+  { name: "Finding Your Home in Game Graphics Programming by Alex Tardiff", url: "https://alextardif.com/LearningGraphics.html" }
+];
+
+const books = [
+  { name: "Real-Time Rendering 4th Edition by Tomas Akenine-Möller, Eric Haines, Naty Hoffman", url: "https://www.amazon.com/Real-Time-Rendering-Fourth-Tomas-Akenine-M%C3%B6ller/dp/1138627003" },
+  { name: "Physically Based Rendering: From Theory to Implementation by Matt Pharr, Wenzel Jakob and Greg Humphreys", url: "https://www.amazon.com/Physically-Based-Rendering-Theory-Implementation/dp/0128006455" },
+  { name: "Mathematics for 3D Game Programming and Computer Graphics by Eric Lengyel", url: "https://www.amazon.com/Mathematics-Programming-Computer-Graphics-Third/dp/1435458869" },
+  { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
+  { name: "GPU Gems: Programming Techniques, Tips and Tricks for Real-Time Graphics by NVIDIA", url: "https://www.amazon.com/GPU-Gems-Programming-Techniques-Real-Time/dp/0321228324" },
+  { name: "3D Game Engine Design: A Practical Approach to Real-Time Computer Graphics by David H. Eberly", url: "https://www.amazon.com/Game-Engine-Design-Interactive-Technology/dp/1558605932" },
+  { name: "Foundations of Game Engine Development by Eric Lengyel", url: "https://www.amazon.com/dp/B087C1X587" },
+  { name: "Ray Tracing in One Weekend Book Series", url: "https://raytracing.github.io/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Visual Studio",
+  "Git",
+  "CMake",
+  "Python",
+  "Nsight Graphics",
+  "RenderDoc",
+  "PIX",
+  "GPUOpen Radeon Developer Tool Suite",
+  "NVIDIA Nsight Systems",
+  "Intel VTune Profiler",
+  "AMD CodeXL",
+  "Shader Designer",
+  "Material Editor",
+  "Texture Packer",
+  "Mesh Optimization Tool"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: true },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Graphics Programmer" activeNav="career-guide">
+  <WikiLayout title="Graphics Programmer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Graphics programmers are the magicians behind the stunning visuals in video games. They use their knowledge of computer graphics and programming to create the realistic and immersive worlds that we love to explore. They are responsible for everything from the lighting and shadows to the textures and special effects. In short, they make the game look as good as it possibly can, without sacrificing performance. To achieve this, graphics programmers need to have a strong understanding of both art and technology. They must be able to think creatively to come up with new visual effects, but they also need to be able to code efficiently to make sure that those effects run smoothly on a variety of devices.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

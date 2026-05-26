@@ -1,0 +1,194 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/character-artist-salary-SRCH_KO0,16.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/character-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Character-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Collaborate with concept artists and game designers to develop the visual style and appearance of characters in video games.",
+  "Create highly detailed 3D character models using software like ZBrush, Maya, or 3ds Max.",
+  "Sculpt and texture characters to give them depth, realism, and personality.",
+  "Ensure that character models are optimized for real-time rendering in the game engine.",
+  "Work on character rigging and animation to bring the characters to life.",
+  "Collaborate with the art team to maintain consistent visual aesthetics throughout the game.",
+  "Create concept art and character sheets to guide the development process.",
+  "Iterate and make adjustments based on feedback from the design and art teams."
+];
+
+const resources = [
+  { name: "Top 7 Things You Need to Know to Become a Game Character Artist by Artstation", url: "https://magazine.artstation.com/2017/03/game-character-artist/" },
+  { name: "Tips & Tricks for Character Artists by 80Level", url: "https://80.lv/articles/tips-tricks-for-character-artists/" },
+  { name: "Character Designer vs Concept Artist", url: "https://retrostylegames.com/blog/character-designer-vs-concept-artist/" },
+  { name: "How To Become a Character Designer by Indeed", url: "https://www.indeed.com/career-advice/finding-a-job/how-to-become-character-designer" },
+  { name: "Ultimate Guide To Becoming A 3D Character Artist by Flipped Normals", url: "https://blog.flippednormals.com/becoming-a-character-artist-ultimate-guide/" },
+  { name: "Character Art School: Complete Character Drawing Udemy Course", url: "https://www.udemy.com/course/character-art-school-complete-character-drawing/" },
+  { name: "Concept Art Academy by CGMasterAcademy", url: "https://www.cgmasteracademy.com/courses?school=Concept+Art&subject=Character%20Design" },
+  { name: "Online Character Design courses by Domestika", url: "https://www.domestika.org/en/courses/area/19-character-design" },
+  { name: "Character Design Course by Gnomon", url: "https://www.gnomon.edu/academics/individual-courses/course-list/character-design/" },
+  { name: "6 Great Courses for Character Artists by 80Level", url: "https://80.lv/articles/6-great-courses-for-character-artists/" },
+  { name: "Mastered’s 3D Artist Bootcamp", url: "https://join.mastered.com/skillsbootcamp" },
+  { name: "Into Games’ Junior Character Artist Database", url: "https://entrylevel.games/database/junior-character-artist" }
+];
+
+const books = [
+  { name: "Figure Drawing for All It's Worth by Andrew Loomis", url: "https://www.amazon.com/Figure-Drawing-All-Its-Worth-ebook/dp/B08J47Y3T7/ref=sr_1_1" },
+  { name: "Digital Modeling by William Vaughan", url: "https://www.amazon.com/Digital-Modeling-William-Vaughan/dp/0321700899/ref=sr_1_1" },
+  { name: "Anatomy For Sculptors, Understanding the Human Figure by Uldis Zarins and Sandis Kondrats", url: "https://www.amazon.com/Anatomy-Sculptors-Understanding-Human-Figure/dp/1735039020/ref=sr_1_1" },
+  { name: "The Artist's Guide to Human Anatomy by Gottfried Bammes", url: "https://www.amazon.com/Artists-Guide-Human-Anatomy-Dover/dp/0486436411/ref=sr_1_8" },
+  { name: "Character Design from the Ground Up by Kevin Crossley", url: "https://www.amazon.com/Character-Design-Ground-Up-Sketches-ebook/dp/B01LZP29PC/ref=sr_1_1" },
+  { name: "How to draw anatomy, faces & hands 1000 poses for artists by Hardcore Learning", url: "https://www.amazon.com/anatomy-faces-hands-poses-artists/dp/B0CK9VLN7L/ref=sr_1_1" },
+  { name: "Digital Painting Tricks & Techniques: 100 Ways to Improve Your CG Art by Gary Tongue", url: "https://www.amazon.com/Digital-Painting-Tricks-Techniques-Improve-ebook/dp/B005V2EE2W/ref=sr_1_1" },
+  { name: "Anatomy for the artist by Jeno Barcsay", url: "https://www.amazon.com/Anatomy-artist-Jeno-Barcsay/dp/1566192455/ref=sr_1_2" },
+  { name: "Anatomy for the Artist by Sarah Simblet", url: "https://www.amazon.com/Anatomy-Artist-Sarah-Simblet/dp/078948045X/ref=sr_1_3" },
+  { name: "Anatomy: A Complete Guide for Artists by Joseph Sheppard", url: "https://www.amazon.com/Anatomy-Complete-Guide-Artists-Dover/dp/0486272796/ref=sr_1_4" },
+  { name: "Dynamic Anatomy: Revised and Expanded Edition by Burne Hogarth", url: "https://www.amazon.com/Dynamic-Anatomy-Expanded-Burne-Hogarth/dp/0823015521/ref=sr_1_1" },
+  { name: "Designing Creatures and Characters by Marc Taro Holmes", url: "https://www.amazon.co.uk/Designing-Creatures-Characters-Portfolio-Animation/dp/1440344094" },
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+];
+
+const tools = [
+  "Game Engines",
+  "ZBrush",
+  "Maya",
+  "Substance Painter",
+  "Marvelous Designer",
+  "Photoshop",
+  "Blender",
+  "Adobe Illustrator",
+  "Keyshot",
+  "3D Coat",
+  "Marmoset Toolbag",
+  "Autodesk Mudbox",
+  "3ds Max",
+  "Houdini",
+  "Quixel Suite",
+  "Aseprite",
+  "Procreate",
+  "Clip Studio Paint",
+  "Agisoft Metashape",
+  "Substance Alchemist"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: true },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Character Artist" activeNav="career-guide">
+  <WikiLayout title="Character Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A character artist in the game industry is responsible for creating and designing the visual appearance of characters in video games. They collaborate with concept artists and game designers to bring characters to life by sculpting, modeling, and texturing them. Character artists use software like ZBrush, Maya, or 3ds Max to create highly detailed 3D models. They also work on character rigging and animation, ensuring that the characters move realistically. Additionally, character artists may be involved in creating concept art, creating character sheets, and optimizing character models for real-time rendering in the game engine. Their role is crucial in shaping the overall visual aesthetic and immersion of the game.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

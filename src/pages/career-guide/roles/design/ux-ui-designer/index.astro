@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/game-ui-designer-salary-SRCH_KO0,16.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/ui-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Game-UI-Designer-Salary" }
+];
+
+const responsibilities = [
+  "Design user interfaces that are easy to navigate, visually appealing, and seamlessly integrate with the game's theme and narrative.",
+  "Conduct user research, playtest prototypes, and analyze data to ensure a smooth and enjoyable experience for all player skill levels and device types.",
+  "Design menus, inventory systems, and HUD layouts that efficiently present information and minimize player cognitive load.",
+  "Design intuitive and visually appealing options for players to personalize their characters, vehicles, and equipment.",
+  "Ensure interfaces are accessible and usable for players with diverse abilities and preferences.",
+  "Help weave the story through UI elements like dialogue boxes, cutscene interfaces, and environmental signage.",
+  "Work closely with artists and programmers to translate UI concepts into visually stunning and technically functional elements.",
+  "Obsess over details, iterate on designs, and ensure UI elements are visually consistent and polished across the entire game.",
+  "Champion user-centered design principles, ensuring interfaces feel intuitive, responsive, and support the core gameplay loop."
+];
+
+const resources = [
+  { name: "Introduction to UX in Game Design", url: "https://uxdesign.cc/ux-and-video-game-design-5d8bcc50be67" },
+  { name: "Keys to Efficient User Interfaces by GDKeys", url: "https://gdkeys.com/keys-efficient-user-interfaces/" },
+  { name: "Game UX Resources for getting into the industry", url: "https://bootcamp.uxdesign.cc/game-ux-resources-for-getting-into-the-industry-29350545017d" },
+  { name: "UX/UI for Gaming Live Course by ELVTR", url: "https://elvtr.com/course/ux-ui-for-gaming" },
+  { name: "What Is Games ‘User Experience’ (UX) and How Does It Help?", url: "https://playerresearch.medium.com/what-is-games-user-experience-ux-and-how-does-it-help-ea35ceaa9f05" },
+  { name: "What is Game UX? The Complete Guide for 2024", url: "https://careerfoundry.com/en/blog/ux-design/game-ux/" },
+  { name: "Basic Guide to Game UX Design", url: "https://www.protopie.io/blog/game-ux-design" },
+  { name: "How to become a UX Game Designer in Game Development?", url: "https://8bitplay.com/blog/how-to-become-a-ux-game-designer-in-game-development/" },
+  { name: "Game UI Design: Everything You Need To Know", url: "https://careerfoundry.com/en/blog/ui-design/game-ui-design/" },
+  { name: "UX Research Tools Map", url: "https://www.userinterviews.com/ux-research-tools-map-2022" },
+  { name: "UX Research Resources, Crowdsourced by the Learners Community", url: "https://docs.google.com/document/d/1N1GFir0c73UIG7o9AW3JTqVnX_QFLAjOjpeMCTC3DYE/edit#heading=h.s6sto2t7gaex" },
+  { name: "Table of Contents — UX Knowledge Base by Krisztina Szerovay", url: "https://uxknowledgebase.com/table-of-contents-4d24ed5114ac" },
+  { name: "Game UI Database", url: "https://gameuidatabase.com/" }
+];
+
+const books = [
+  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
+  { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
+  { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
+  { name: "The Gamer's Brain: How Neuroscience and UX Can Impact Video Game Design by Celia Hodent", url: "https://www.amazon.com/Gamers-Brain-Neuroscience-Impact-Design/dp/1498775500" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
+  { name: "Game Usability by Noah Schaffer and Katherine Isbister", url: "https://www.amazon.com/gp/product/B0092J077G" },
+  { name: "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability by Steve Krug", url: "https://www.amazon.co.uk/Dont-Make-Think-Revisited-Usability/dp/0321965515" },
+  { name: "Hooked: How to Build Habit-Forming Products by Nir Eyal", url: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788" },
+  { name: "The Secret Science of Games by John Hopson", url: "https://www.amazon.com/The-Secret-Science-of-Games/dp/B0C3T6PSBS/" },
+  { name: "The Design Of Everyday Things by Don Norman", url: "https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654" }
+];
+
+const tools = [
+  "Game Engines",
+  "Figma",
+  "Adobe XD",
+  "Sketch",
+  "InVision",
+  "Framer X",
+  "Unity UI Toolkit (UXML, USS)",
+  "Unreal Motion Graphics (UMG)",
+  "Principle",
+  "After Effects",
+  "Photoshop",
+  "Illustrator",
+  "Marvel",
+  "Zeplin",
+  "Axure",
+  "UsabilityHub",
+  "C#",
+  "C++",
+  "Python"
+];
+
+const sidebarRoles = [
+  { name: "Game Designer", slug: "game-designer", current: false },
+  { name: "Level Designer", slug: "level-designer", current: false },
+  { name: "Narrative Designer/Writer", slug: "narrative-designer-writer", current: false },
+  { name: "Gameplay Designer", slug: "gameplay-designer", current: false },
+  { name: "System Designer", slug: "system-designer", current: false },
+  { name: "UX/UI Designer", slug: "ux-ui-designer", current: true },
+  { name: "Technical Designer", slug: "technical-designer", current: false }
+];
+---
+
+<BaseLayout title="UX/UI Designer" activeNav="career-guide">
+  <WikiLayout title="UX/UI Designer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Game Design Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/design/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/design/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Game Design</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A UX/UI Game Designer inhabits a unique space where user experience meets artistic vision. They're the bridge between the mechanics of gameplay and the player's emotional connection, crafting interfaces and interactions that are both intuitive and immersive. They sculpt the digital spaces players navigate, ensuring every button press, menu click, and character interaction feels seamless and natural, subtly guiding players through the game's world and weaving a narrative of discovery and delight through the interface.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/game-publishing-specialist-salary-SRCH_KO0,26.htm" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Game-Publisher-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Analyze market trends and data, identifying platforms, genres, and audiences with high potential for the studio's games.",
+  "Craft compelling proposals and presentations, convincing internal stakeholders and potential partners of the game's viability and market appeal.",
+  "Negotiate publishing deals, secure funding, and manage contracts with external partners, ensuring optimal terms for the studio's IP and revenue.",
+  "Navigate distribution channels, choose platforms for release, and optimize pricing strategies to maximize game reach and profitability.",
+  "Collaborate with marketing teams on launch campaigns, crafting effective messaging and strategies to build hype and drive player acquisition.",
+  "Foster communication between the studio and players, managing community engagement, addressing concerns, and building brand loyalty.",
+  "Analyze player data and feedback, translating insights into actionable plans for post-launch live operations and improvements.",
+  "Design and implement monetization strategies within the game, ensuring fairness, profitability, and alignment with player expectations.",
+  "Research and predict upcoming trends in the industry, informing the studio's development pipeline and strategic direction for future projects."
+];
+
+const resources = [
+  { name: "ScreenSkills’ Games Publisher Profile", url: "https://www.screenskills.com/job-profiles/browse/games/production/games-publisher/" },
+  { name: "Trend watch: the rise of 'publisher as a service'?", url: "https://www.gamedeveloper.com/business/trend-watch-the-rise-of-publisher-as-a-service" },
+  { name: "What Is Game Publishing? (Definition, Duties and Companies)", url: "https://www.indeed.com/career-advice/career-development/what-is-game-publishing" },
+  { name: "The 6 Blogs Every Mobile Game Publisher Needs To Bookmark", url: "https://tenjin.com/blog/the-6-blogs-every-mobile-game-publisher-needs-to-bookmark/" },
+  { name: "What Does a Game Publisher Do?", url: "https://www.kwalee.com/blog/publishing/what-does-a-game-publisher-do" },
+  { name: "Video Game Publisher Encyclopedia by Academic Accelerator", url: "https://academic-accelerator.com/encyclopedia/video-game-publisher" }
+];
+
+const books = [
+  { name: "Game Thinking: Innovate smarter & drive deep engagement with design techniques from hit games by Amy Jo Kim", url: "https://www.amazon.com/Game-Thinking-Innovate-engagement-techniques/dp/099978854X" },
+  { name: "The Publishing Challenge for Independent Video Game Developers: A Practical Guide by Odile Limpach", url: "https://www.amazon.com/Publishing-Challenge-Independent-Video-Developers-ebook/dp/B084HMT546" },
+  { name: "Indie Game Publishing: A Practical Guide for Videogame Developers by Odile Limpach", url: "https://www.amazon.com/Indie-Game-Publishing-Practical-Developers/dp/B098RKW3GQ" },
+  { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Second/dp/1466598646" },
+  { name: "Reality Is Broken: Why Games Make Us Better and How They Can Change the World by Jane McGonigal", url: "https://www.amazon.com/Reality-Broken-Games-Better-Change-ebook/dp/B004G8Q1Q4" },
+  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "Virtual Selling: How to Build Relationships, Differentiate, and Win Sales Remotely by Mike Schultz, Dave Shaby and Andy Springer", url: "https://www.amazon.com/Virtual-Selling-Relationships-Differentiate-Remotely-ebook/dp/B088KW33WZ" }
+];
+
+const tools = [
+  "Game Engines",
+  "Perforce Helix Core",
+  "Jira",
+  "Confluence",
+  "Discord",
+  "GitHub",
+  "TestRail",
+  "AppFollow",
+  "UserTesting",
+  "Microsoft Excel",
+  "Tableau",
+  "Power BI",
+  "Python",
+  "SQL",
+  "Adobe Photoshop"
+];
+
+const sidebarRoles = [
+  { name: "Game Producer", slug: "game-producer", current: false },
+  { name: "Executive Producer", slug: "executive-producer", current: false },
+  { name: "Publisher", slug: "publisher", current: true },
+  { name: "Project Manager", slug: "project-manager", current: false },
+  { name: "Operations Manager", slug: "operations-manager", current: false }
+];
+---
+
+<BaseLayout title="Publisher" activeNav="career-guide">
+  <WikiLayout title="Publisher" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Production Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/production/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/production/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Production</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>The Publisher acts as the bridge between creation and consumption. They're not developers, shaping the game's core elements themselves. Instead, they're the megaphone, amplifying the game's voice and propelling it into the hands of eager players. Imagine them as savvy dealmakers and marketing maestros. They secure funding, forge distribution channels, and unleash a strategic promotional blitz to ensure the game finds its audience. By handling the business side of things, they free developers to focus on their craft, ultimately allowing both parties to bring their unique expertise to the table and forge a game that thrives in the marketplace.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/project-manager-salary-SRCH_KO0,15.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/offering/game-project-manager-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Project-Manager-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Craft and manage the project roadmap, breaking down milestones and tasks, outlining dependencies, and keeping everyone on track.",
+  "Prioritize bug fixes and polish, advocate for quality standards, and ensure a smooth launch with minimal technical issues.",
+  "Allocate resources efficiently, assign tasks to team members, and adjust plan dynamically to handle unforeseen challenges.",
+  "Facilitate agile methodology, conduct daily stand-up meetings, track progress, and remove roadblocks for the team.",
+  "Ensure clear and transparent communication between all stakeholders, developers, and management.",
+  "Identify and mitigate potential risks, proactively solve problems, and adapt to changing circumstances.",
+  "Manage playtesting cycles, gather feedback, analyze results, and translate insights into actionable improvements.",
+  "Generate reports and dashboards, track progress against milestones, and provide data-driven insights to stakeholders.",
+  "Keep the team motivated and engaged, celebrate successes, address concerns, and create a positive and productive work environment."
+];
+
+const resources = [
+  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
+  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" },
+  { name: "How to Be a Project Manager in Games by starveup", url: "https://www.youtube.com/watch?v=JB1Ff-WtMuU&ab_channel=starveup" },
+  { name: "IntoGames’ Project Manager Profile", url: "https://intogames.org/role/project-manager-games/" },
+  { name: "Steering the Game: My Journey as a Project Manager in the Gaming Industry", url: "https://medium.com/@globalstephaniechavez/steering-the-game-my-journey-as-a-project-manager-in-the-gaming-industry-20876c898a7d" },
+  { name: "Project Management Tools for Game Development: A Comprehensive Guide", url: "https://teamhub.com/blog/project-management-tools-for-game-development/" },
+  { name: "Efective Project Management in Game Development", url: "https://www.argentics.io/effective-project-management-in-game-development" },
+  { name: "The Importance of Project Management in Game Co-Development", url: "https://gamingrespawn.com/features/58489/the-importance-of-project-management-in-game-co-development/" },
+  { name: "Game Development Project Management: Tips From Top Studios", url: "https://www.perforce.com/blog/hns/manage-game-development-teams" },
+  { name: "Navigating Game Development | The Power of Game Project Management", url: "https://polydin.com/game-project-management/" }
+];
+
+const books = [
+  { name: "Hooked: How to Build Habit-Forming Products by Nir Eyal", url: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788" },
+  { name: "Project Management QuickStart Guide by Chris Croft", url: "https://www.amazon.com/dp/1636100589" },
+  { name: "Project Management All-in-One For Dummies by Stanley E. Portny", url: "https://www.amazon.com/Project-Management-All-One-Dummies-ebook/dp/B08JQS14RS/" },
+  { name: "Game Thinking: Innovate smarter & drive deep engagement with design techniques from hit games by Amy Jo Kim", url: "https://www.amazon.com/Game-Thinking-Innovate-engagement-techniques/dp/099978854X" },
+  { name: "Project Management for the Unofficial Project Manager by Kory Kogon, Suzette Blakemore and James Wood", url: "https://www.amazon.com/Project-Management-Unofficial-Manager-FranklinCovey/dp/B07VN91TCV/" },
+  { name: "A Guide to the Project Management Body of Knowledge by Project Management Institute", url: "https://www.amazon.com/Guide-Project-Management-Knowledge-PMBOK%C2%AE/dp/1628256648/" },
+  { name: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses by Eric Ries", url: "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602" },
+  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
+  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
+  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
+  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
+  { name: "The Game Production Toolbox by Heather Maxwell Chandler", url: "https://www.amazon.com/Production-Toolbox-Heather-Maxwell-Chandler-ebook/dp/B086XLC7RY" },
+  { name: "Project Management Mastery by Jack Hayden", url: "https://www.amazon.com/Project-Management-Mastery-Comprehensive-Successfully/dp/B0CCG2CV4P/" },
+  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Jira",
+  "Microsoft Project",
+  "Trello",
+  "Asana",
+  "Confluence",
+  "Git",
+  "Perforce",
+  "Discord",
+  "Unity Collaborate",
+  "Plastic SCM",
+  "SVN",
+  "Cloud Storage Software"
+];
+
+const sidebarRoles = [
+  { name: "Game Producer", slug: "game-producer", current: false },
+  { name: "Executive Producer", slug: "executive-producer", current: false },
+  { name: "Publisher", slug: "publisher", current: false },
+  { name: "Project Manager", slug: "project-manager", current: true },
+  { name: "Operations Manager", slug: "operations-manager", current: false }
+];
+---
+
+<BaseLayout title="Project Manager" activeNav="career-guide">
+  <WikiLayout title="Project Manager" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Production Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/production/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/production/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Production</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Project Manager’s main role is to ensure that every instrument plays its part in harmony. They orchestrate the daily chaos, wielding time, resources, and communication like fine-tuned conductors, keeping the game on track to a polished launch. Their focus is meticulous, managing schedules, budgets, and tasks. They translate the vision into actionable steps, break down goals into manageable milestones, and navigate any roadblocks that arise. They bridge the gap between creative ambitions and technical limitations, ensuring everyone on the team understands their role and contributes effectively. A PM’s success lies in their ability to lead, adapt, and deliver on time and within budget.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

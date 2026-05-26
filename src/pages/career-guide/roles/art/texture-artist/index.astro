@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/texture-artist-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/posting/texture-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Texture-Artist-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Craft visually believable and engaging textures for various game assets like characters, environments, objects, and props, enhancing the overall visual fidelity.",
+  "Translate concept art and design specifications into detailed textures that align with the game's style, theme, and lore.",
+  "Utilize tools to create realistic textures with proper color, surface properties, and wear and tear.",
+  "Balance visual quality with game performance by strategically choosing texture resolutions, compression formats, and memory usage considerations.",
+  "Build systems for generating noise, patterns, and variations to create dynamic and efficient textures for large environments or repeating elements.",
+  "Generate additional maps like normal maps, height maps, and specular maps to add depth, detail, and lighting effects to textures.",
+  "Maintain consistency in material properties and visual language across different assets within the game world.",
+  "Identify and resolve texture-related problems like tiling, stretching, clipping, and lighting inconsistencies."
+];
+
+const resources = [
+  { name: "Unlocking the Secrets of 3D Texturing: 8 Techniques Wow-How Experts Recommend Trying", url: "https://wow-how.com/articles/unlocking-secrets-of-3d-texturing" },
+  { name: "Exploring the World of 3D Textures: A Comprehensive Guide by Nazanin Shahbazi", url: "https://pixune.com/blog/3d-texturing/" },
+  { name: "3D Modeling Process – 10 Main Steps by Nazanin Shahbazi", url: "https://pixune.com/blog/3d-modeling-process/" },
+  { name: "8 Best Ways to Make Texturing for 3D Models", url: "https://www.ideasanimation.net/texturing-3d-models-8-best-ways/" },
+  { name: "Complete Guide to the 3D Pipeline #5: Texturing", url: "https://www.gdp.academy/article/complete-guide-to-the-3d-pipeline-5-texturing" },
+  { name: "Creating Procedural Textures for Games by Jussi Jantunen", url: "https://www.theseus.fi/bitstream/handle/10024/132562/Jantunen_Jussi.pdf;jsessionid=10FF311F583BB5D76544102B5C1B87E9?sequence=1" },
+  { name: "Game Character #2 - Modeling Clothes and Accessories - by Crystal Bretz", url: "https://www.youtube.com/watch?v=zLdzWZo7iv4&ab_channel=Reallusion" },
+  { name: "Game Character #3 - Texturing Body and Outfits - by Crystal Bretz", url: "https://www.youtube.com/watch?v=cZcXCTPDajA&ab_channel=Reallusion" },
+  { name: "The ULTIMATE Guide for Creating Handpainted 3D Models", url: "https://www.youtube.com/watch?v=nnfkkvCvijc&ab_channel=StylizedStation" },
+  { name: "The Ultimate Guide To Texturing And Shading For 3D Beginners By Henning Sanden", url: "https://blog.flippednormals.com/the-ultimate-guide-to-texturing-shading/" },
+  { name: "3D Texturing in Animation Production – A Detailed Guide", url: "https://www.anideos.com/3d-texturing-in-animation" },
+  { name: "Unleashing your full potential as a texture artist by Michael Borhi", url: "https://www.foundry.com/insights/film-tv/michael-borhi-texture-artist-framestore" }
+];
+
+const books = [
+  { name: "Artists’ Master Series: Color and Light", url: "https://www.amazon.com/Artists-Master-Color-3dtotal-Publishing/dp/1912843412" },
+  { name: "Blender 3D Incredible Models by Arijan Belec", url: "https://www.amazon.com/Blender-Incredible-Models-comprehensive-hard-surface/dp/1801817812" },
+  { name: "Texture Magic: Procedural Textures for Blender Cycles by Richard Egdahl", url: "https://www.amazon.com/Texture-Magic-Procedural-Textures-Blender-ebook/dp/B01DI5KK44" },
+  { name: "Game Art Complete: All-in-One by Andrew Gahan", url: "https://www.amazon.com/Game-Art-Complete-All-One/dp/024081147X" },
+  { name: "3D Art Essentials: The Fundamentals of 3D Modeling, Texturing, and Animation by Ami Chopine", url: "https://www.amazon.com/Art-Essentials-Fundamentals-Texturing-Animation/dp/1138400688" },
+  { name: "3D Game Textures: Create Professional Game Art Using Photoshop by Luke Ahearn", url: "https://www.amazon.com/3D-Game-Textures-Professional-Photoshop-ebook/dp/B01MTGAI7F/ref=sr_1_4" }
+];
+
+const tools = [
+  "Game Engines",
+  "Substance Designer/Painter",
+  "Mari",
+  "Quixel Megascans",
+  "ZBrush",
+  "Photoshop",
+  "Blender",
+  "xNormal",
+  "Krita",
+  "RizomUV",
+  "Marmoset Viewer",
+  "nDo",
+  "Substance Alchemist",
+  "Photoshop Camera Raw",
+  "TexTools",
+  "PureRef"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: true },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Texture Artist" activeNav="career-guide">
+  <WikiLayout title="Texture Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Texture Artist is the alchemist of digital surfaces, weaving magic with paint and pixels to bring 3D models to life. They're the ones who transform flat polygons into weathered skin, gleaming armor, or mossy rocks, adding intricate details like wrinkles, scuffs, and imperfections that make virtual worlds feel tangible. Using specialized software and their keen eye for materials, they hand-paint textures, manipulate photographs, and craft bespoke surfaces, ensuring everything from a dragon's scales to a knight's shield reflects light and reacts to its environment, immersing players and viewers in believable beauty.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

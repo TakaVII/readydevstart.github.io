@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-company-lawyer-salary-SRCH_IL.0,2_IN1_KO3,17.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/lawyer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Lawyer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Unravel and manage legal intricacies across various areas like intellectual property, data privacy, esports regulations, and content compliance within the global gaming ecosystem.",
+  "Craft and negotiate watertight contracts for game development, publishing, licensing, distribution, merchandising, and esports sponsorships, ensuring fair and protective terms for the studio.",
+  "Strategize and secure IP protection for game concepts, characters, assets, and code, mitigating risks of infringement and maximizing value for the studio's creations.",
+  "Help the studio navigate global data privacy regulations like GDPR and CCPA, ensuring legal compliance for player data collection, storage, and use.",
+  "Advise on esports tournament structures, player contracts, sponsorships, and broadcasting agreements, upholding fair competition and navigating evolving legal frameworks.",
+  "Analyze game content for potential legal issues like violence, discrimination, and loot box mechanics, suggesting adjustments to comply with regional regulations and avoid legal troubles.",
+  "Represent the studio in potential IP infringement lawsuits, handling negotiations, settlements, and litigation proceedings to protect the studio's assets.",
+  "Continuously monitor and track changing legal landscapes around game development, data privacy, esports, and content regulations, informing the studio's strategies and ensuring legal preparedness."
+];
+
+const resources = [
+  { name: "How Not to Make a Game: Revenge of the Lawyers", url: "https://www.youtube.com/watch?v=nsI5bGnlKTE&ab_channel=InteractiveFictionTechnologyFoundation" },
+  { name: "CVGLS 2018 4 Current Issues in Video Game Law: 2018", url: "https://www.youtube.com/watch?v=dvpH_oOgQLI&ab_channel=ChicagoVideoGameLawSummit" },
+  { name: "MAGFest 2022: That’s Probably Not Legal… Or Is It? A Lawyer AMA!", url: "https://www.youtube.com/watch?v=x6kePg3bkOE&ab_channel=MAGFest" },
+  { name: "Careers in Gaming Law: an Overview", url: "https://law.unlv.edu/gaming-law/careers" },
+  { name: "Seven (mostly) free legal resources for game developers", url: "https://www.gamedeveloper.com/business/seven-mostly-free-legal-resources-for-game-developers" },
+  { name: "Life as a lawyer in computer gaming: an interview with Steven Webb", url: "https://www.linkedin.com/pulse/life-lawyer-computer-gaming-interview-steven-webb-miguel-florit/" },
+  { name: "The legal landscape of gaming company financing rounds", url: "https://nordialaw.com/insights-financing-round-gaming-company/" }
+];
+
+const books = [
+  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design-dp-1118877160/dp/1118877160/" },
+  { name: "Video Game Law by S. Gregory Boyd, Brian Pyne and Sean F. Kane", url: "https://www.amazon.com/Video-Game-Law-Everything-Business/dp/1138058491" },
+  { name: "The Essential Guide to the Business & Law of Esports & Professional Video Gaming by Justin Jacobson", url: "https://www.amazon.com/Essential-Business-Esports-Professional-Gaming/dp/0367699451" },
+  { name: "Virtual Law: Navigating the Legal Landscape of Virtual Worlds by Benjamin Duranske", url: "https://www.amazon.com/Virtual-Law-Navigating-Landscape-Worlds/dp/160442009X" },
+  { name: "The American Bar Association's Legal Guide to Video Game Development", url: "https://www.amazon.com/gp/product/1614380031/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1614380031&linkCode=as2&tag=zacharystrebeck-20" }
+];
+
+const tools = [
+  "Jira",
+  "Confluence",
+  "Microsoft Office Suite",
+  "Adobe Acrobat Pro",
+  "Evernote",
+  "Grammarly",
+  "Cloud storage",
+  "Contract management software",
+  "E-signature software"
+];
+
+const sidebarRoles = [
+  { name: "Product Manager", slug: "product-manager", current: false },
+  { name: "Business Development Executive", slug: "business-development-executive", current: false },
+  { name: "User Acquisition Specialist", slug: "user-acquisition-specialist", current: false },
+  { name: "Specialist Lawyer", slug: "specialist-lawyer", current: true },
+  { name: "Human Resources Specialist", slug: "human-resources-specialist", current: false },
+  { name: "Financial Specialist", slug: "financial-specialist", current: false },
+  { name: "Office/Studio Manager", slug: "office-studio-manager", current: false }
+];
+---
+
+<BaseLayout title="Specialist Lawyer" activeNav="career-guide">
+  <WikiLayout title="Specialist Lawyer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Business Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/business/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/business/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Business</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Specialist Lawyer’s job is to shield studios from legal pitfalls and guide them through the labyrinthine world of gaming regulations, protecting intellectual property, negotiating contracts, and ensuring compliance with ever-evolving laws. From safeguarding copyrights and trademarks to navigating licensing agreements and data privacy concerns, they ensure games launch smoothly and avoid costly legal battles. They analyze potential risks, draft watertight contracts, and represent studios in case of disputes, all while staying in tune with the industry's dynamic legal landscape.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

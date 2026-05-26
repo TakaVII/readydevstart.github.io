@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/qa-analyst-salary-SRCH_KO0,10.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/qa-analyst-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/QA-Analyst-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Analyze game requirements and specifications, develop comprehensive test plans covering functionality, performance, and compatibility.",
+  "Create detailed test cases for all features, scenarios, and edge cases, ensuring thorough and efficient testing.",
+  "Conduct manual and automated test execution, track progress, log results, and manage bug databases.",
+  "Analyze reported bugs, assess their severity and impact, categorize them for efficient resolution.",
+  "Clearly and concisely document bugs with accurate steps to reproduce, screenshots, and videos for developers.",
+  "Manage test suites, data sets, and scripts, keeping them current with game updates and new features.",
+  "Compile and analyze test results, identify trends, and prepare reports for stakeholders with actionable insights.",
+  "Conduct performance testing, analyze metrics like frame rate, loading times, and memory usage, and suggest optimization strategies.",
+  "Participate in localization testing, review UI/UX elements and text for accuracy and cultural appropriateness."
+];
+
+const resources = [
+  { name: "What does a quality assurance analyst do?", url: "https://www.careerexplorer.com/careers/quality-assurance-analyst/" },
+  { name: "Best Practices for QA Testing", url: "https://www.globalapptesting.com/best-practices-for-qa-testing" },
+  { name: "Best QA Practices for Game Development", url: "https://pinglestudio.com/blog/game-testing/best-qa-practices-for-game-development" },
+  { name: "An Introduction to Quality Assurance Testing in Video Games", url: "https://www.transperfect.com/blog/introduction-quality-assurance-testing-video-games" },
+  { name: "What Is a Quality Assurance Analyst? 2024 Career Guide", url: "https://www.coursera.org/articles/quality-assurance-analyst" },
+  { name: "What Is A QA Analyst, And What Do They Really Do?", url: "https://theqalead.com/careers/qa-analyst-explained/" },
+  { name: "What does a video game tester do?", url: "https://www.cgspectrum.com/career-pathways/qa-game-tester" },
+  { name: "What a video game tester does and how you can become one", url: "https://hitmarker.net/what-a-video-game-tester-does-how-to-become-one" }
+];
+
+const books = [
+  { name: "Modern Game Testing: Learn how to test games like a pro, optimize testing effort, and skyrocket your QA career by Nikolina Finska", url: "https://www.amazon.com/dp/1803244402/" },
+  { name: "Game Development Essentials: Game QA & Testing by Luis Levy and Jeannie Novak", url: "https://www.amazon.com/Game-Development-Essentials-QA-Testing/dp/1435439473/" },
+  { name: "Modern Game Testing: A Pragmatic Guide to Test Planning and Strategy by Chris Howell", url: "https://www.amazon.com/Modern-Game-Testing-Pragmatic-Planning/dp/1739711505/" },
+  { name: "Design Patterns for High-Quality Automated Tests: High-Quality Test Attributes and Best Practices by Anton Angelov", url: "https://www.amazon.com/Design-Patterns-High-Quality-Automated-Tests/dp/B085KR3XQ9/" },
+  { name: "The Complete Software Tester: Concepts, Skills, and Strategies for High-Quality Testing by Kristin Jackvony", url: "https://www.amazon.com/Complete-Software-Tester-Strategies-High-Quality-ebook/dp/B09NGVVCJ9/" },
+  { name: "Storytelling with Data: A Data Visualization Guide for Business Professionals by Cole Nussbaumer Knaflic", url: "https://www.amazon.com/Storytelling-with-Data-audiobook/dp/B079H3ZJJZ/" },
+  { name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics by Tim Harford", url: "https://www.amazon.com/dp/B089B5VXQ7" },
+  { name: "Naked Statistics: Stripping the Dread from the Data by Charles Wheelan", url: "https://www.amazon.com/dp/B00CH7FWWU" },
+  { name: "The Art of Statistics: How to Learn from Data by David Spiegelhalter", url: "https://www.amazon.com/dp/B07WK7KPKH" },
+  { name: "The Visual Display of Quantitative Information by Edward R. Tufte", url: "https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Jira",
+  "TestRail",
+  "Selenium",
+  "Appium",
+  "Postman",
+  "Charles Proxy",
+  "Fiddler",
+  "Wireshark",
+  "Git",
+  "Bug Genie",
+  "TestLink",
+  "Zephyr",
+  "qTest Manager",
+  "TestComplete"
+];
+
+const sidebarRoles = [
+  { name: "Playtester", slug: "playtester", current: false },
+  { name: "QA Analyst", slug: "qa-analyst", current: true },
+  { name: "QA Engineer", slug: "qa-engineer", current: false },
+  { name: "Localization Tester", slug: "localization-tester", current: false }
+];
+---
+
+<BaseLayout title="QA Analyst" activeNav="career-guide">
+  <WikiLayout title="QA Analyst" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Quality Assurance Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/qa/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/qa/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Quality Assurance</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A QA Analyst in the game industry delves deeper than just bug-hunting. They're analyzing game mechanics, features, and user experience with a critical eye. They go beyond the surface, dissecting design choices, identifying potential issues before they become bugs, and ensuring the game aligns with its core vision. Their expertise lies in understanding game development principles and collaborating with designers and programmers to refine mechanics and optimize gameplay balance. They analyze data, conduct user research, and provide insightful feedback that shapes the final product. Ultimately, the QA Analyst ensures the game is not only technically sound but also fun, engaging, and true to its intended design.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

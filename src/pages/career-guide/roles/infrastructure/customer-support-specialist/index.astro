@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/customer-support-specialist-salary-SRCH_KO0,27.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/customer-support-specialist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Customer-Support-Specialist-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Be the first point of contact for players facing issues, ensuring prompt and empathetic resolution to maintain their satisfaction.",
+  "Understand game mechanics, systems, and policies thoroughly to answer player questions accurately and efficiently.",
+  "Actively listen to player concerns, investigate issues, and troubleshoot technical problems to identify and resolve root causes.",
+  "Communicate player feedback, bug reports, and suggestions to internal teams, advocating for player needs.",
+  "Compose clear and concise responses to inquiries, emails, and chat messages, maintaining a professional and helpful tone.",
+  "Remain calm and patient while dealing with frustrated or upset players, de-escalating situations and building rapport.",
+  "Represent the game and company values with every interaction, fostering a positive and supportive community experience.",
+  "Stay updated on game patches, updates, and community news to provide accurate information to players.",
+  "Proactively identify common player issues and develop knowledge bases or FAQs to streamline support and reduce workload.",
+  "Track trends in player inquiries and feedback to identify areas for improvement in the game and the support process itself."
+];
+
+const resources = [
+  { name: "Customer Service In the Gaming Industry: Specifics And Challenges", url: "https://pexly.com/blog/customer-care/customer-service-in-the-gaming-industry-specifics-and-challenges/" },
+  { name: "In-Game Support by Erik Ashby", url: "https://www.helpshift.com/glossary/in-game-support/" },
+  { name: "Gaming Customer Support Services – Do we really need it?", url: "https://www.iopex.com/blogs/gaming-customer-support-services-do-we-really-need-it/" },
+  { name: "Player support 101: The five basics of great gaming customer service", url: "https://www.telusinternational.com/insights/customer-experience/article/player-support-level-one" },
+  { name: "What Makes Quality Customer Service For Game Companies", url: "https://www.cocos.com/en/post/what-makes-quality-customer-service-for-game-companies" },
+  { name: "The Top 6 Guiding Principles in Implementing Customer Service for Gamers by Grégoire Vigroux", url: "https://www.linkedin.com/pulse/top-6-guiding-principles-implementing-customer-service-vigroux/" },
+  { name: "When It Comes To Customer Service, What Do Game Users Really Think?", url: "https://latisglobal.com/en/blog-en/game-users-think-of-customer-service-20230526/" }
+];
+
+const books = [
+  { name: "This Is Service Design Doing: Applying Service Design Thinking in the Real World by Marc Stickdorn, Markus Hormess and Adam Lawrence", url: "https://www.amazon.com/This-Service-Design-Doing-Successful/dp/1491927186" },
+  { name: "The Seven Pillars of Customer Success: A Proven Framework to Drive Impactful Client Outcomes for Your Company by Wayne McCulloch", url: "https://www.amazon.com/Seven-Pillars-Customer-Success-Framework-ebook/dp/B0921XBHWG/" },
+  { name: "The Service Culture Handbook: A Step-by-Step Guide to Getting Your Employees Obsessed with Customer Service by Jeff Toister", url: "https://www.amazon.com/Service-Culture-Handbook-Step-Step/dp/0692842004/" },
+  { name: "The Customer Support Handbook: How to Create the Ultimate Customer Experience For Your Brand by Sarah Hatter", url: "https://www.amazon.com/Customer-Support-Handbook-Ultimate-Experience-ebook/dp/B00J5HX64Q/" },
+  { name: "The Power of Discipline: How to Use Self Control and Mental Toughness to Achieve Your Goals by Daniel Walter", url: "https://www.amazon.com/Power-Discipline-Control-Toughness-Achieve/dp/B086PRLDCB/" },
+  { name: "The Ultimate Guide to Customer Support by Matthew Guay, Jess Byrne, Wade Foster and Micah Bennett", url: "https://www.amazon.com/Ultimate-Guide-Customer-Support-effectively-ebook/dp/B01BZMBCHG/r" },
+  { name: "Customer Service Tip of the Week: Over 52 ideas and reminders to sharpen your skills by Jeff Toister", url: "https://www.amazon.com/Customer-Service-Tip-Week-reminders/dp/0692154140/" },
+  { name: "Getting Service Right: Overcoming the Hidden Obstacles to Outstanding Customer Service by Jeff Toister", url: "https://www.amazon.com/Getting-Service-Right-Overcoming-Outstanding/dp/0578433362/" },
+  { name: "The Choreography of Customer Service: High Touch Service in a Touch Free World by Chris Lynam", url: "https://www.amazon.com/Choreography-Customer-Service-Touch-World/dp/1637582161" }
+];
+
+const tools = [
+  "Game Engines",
+  "Zendesk",
+  "Help Scout",
+  "LiveChat",
+  "Discord",
+  "Slack",
+  "Jira Service Management",
+  "Freshdesk",
+  "Intercom",
+  "Salesforce Service Cloud",
+  "TeamViewer",
+  "LogMeIn Rescue",
+  "Zoom",
+  "Microsoft Teams",
+  "Google Workspace",
+  "Grammarly"
+];
+
+const sidebarRoles = [
+  { name: "LiveOps Engineer", slug: "liveops-engineer", current: false },
+  { name: "Data Analyst", slug: "data-analyst", current: false },
+  { name: "Customer Support Specialist", slug: "customer-support-specialist", current: true },
+  { name: "Data Scientist", slug: "data-scientist", current: false }
+];
+---
+
+<BaseLayout title="Customer Support Specialist" activeNav="career-guide">
+  <WikiLayout title="Customer Support Specialist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Infrastructure & Live Ops Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/infrastructure/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/infrastructure/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Infrastructure & Live Ops</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Customer Support Specialist in the game industry is the lifeline between players and the developer. They wear many hats, acting as tech-savvy guides, a patient listener, and sometimes even a cheerleader. Their mission? To ensure smooth sailing for every player, solving technical issues, addressing concerns, and fostering a positive community experience. From deciphering confusing error messages to navigating complex in-game systems, their day-to-day is filled with diverse challenges. But their greatest strength lies in their empathy and passion for the game. They go the extra mile to understand player frustrations, providing clear solutions and a welcoming space to voice concerns.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

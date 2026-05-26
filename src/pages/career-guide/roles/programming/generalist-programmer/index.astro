@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/game-programmer-salary-SRCH_KO0,15.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/game-programmer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/GAME-Programmer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Take on a wide range of programming tasks across different game systems, including gameplay, AI, UI, tools, and engine features, as needed by project demands.",
+  "Write code for fundamental game mechanics, character movement, physics interactions, user interface elements, and tools to support game development workflows.",
+  "Identify and fix bugs, glitches, and performance issues across various game systems, ensuring a smooth and enjoyable player experience.",
+  "Work closely with game designers, artists, animators, and other programmers to ensure code aligns with overall game vision and functions seamlessly within the game engine.",
+  "Analyze code for bottlenecks and implement optimizations to maintain smooth gameplay framerates, reduce loading times, and manage memory usage efficiently.",
+  "Be willing to jump into different areas of game development as needed, demonstrating flexibility and problem-solving skills in various programming domains.",
+  "Connect different game features like gameplay, rendering, audio, and networking, ensuring seamless interaction and data exchange.",
+  "Adhere to coding standards, write clear and well-commented code, and document design decisions to facilitate future maintenance and collaboration among team members."
+];
+
+const resources = [
+  { name: "Mastered’s Games Programming Bootcamp", url: "https://join.mastered.com/games_careers_sb" },
+  { name: "ScreenSkills’ Generalist Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/generalist-programmer/" },
+  { name: "Into Games’ Generalist Programmer Profile", url: "https://intogames.org/role/generalist-programmer/" },
+  { name: "Game Programming Gems", url: "https://www.satori.org/game-programming-gems/" },
+  { name: "Game Code School", url: "http://gamecodeschool.com/" }
+];
+
+const books = [
+  { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
+  { name: "Game Engine Architecture by Jason Gregory", url: "https://www.amazon.com/Engine-Architecture-Third-Jason-Gregory/dp/1138035459/" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779/" },
+  { name: "Invent Your Own Computer Games with Python by Al Sweigart", url: "https://www.amazon.com/Invent-Your-Computer-Games-Python/dp/1593277954/" },
+  { name: "The Little Book Of Adventure Game Programming by Huw Collingbourne", url: "https://www.amazon.com/Little-Book-Adventure-Game-Programming-ebook/dp/B08231LMWL/" },
+  { name: "The Pragmatic Programmer by David Thomas and Andrew Hunt", url: "https://www.amazon.com/Pragmatic-Programmer-Anniversary-Journey-Mastery/dp/B0833FBNHV/" },
+  { name: "Game Programming Algorithms and Techniques: A Platform-Agnostic Approach by Sanjay Madhav", url: "https://www.amazon.com/Game-Programming-Algorithms-Techniques-Platform-Agnostic-ebook/dp/B00HCHUU90/" },
+  { name: "Game Programming with Unity and C#: A Complete Beginner’s Guide by Casey Hardman", url: "https://www.amazon.com/Game-Programming-Unity-Complete-Beginners/dp/1484256557/" },
+  { name: "Programming Game AI by Example by Mat Buckland", url: "https://www.amazon.com/Programming-Example-Wordware-Developers-Library/dp/1556220782/" },
+  { name: "Multiplayer Game Programming: Architecting Networked Games by Josh Glazer and Sanjay Madhav", url: "https://www.amazon.com/Multiplayer-Game-Programming-Architecting-Networked-ebook/dp/B0189RXWJQ/" }
+];
+
+const tools = [
+  "Game Engines",
+  "C#",
+  "C++",
+  "Python",
+  "Git",
+  "Visual Studio debugger",
+  "GDB",
+  "Valgrind",
+  "VTune Amplifier",
+  "Wireshark",
+  "Perforce",
+  "Plastic SCM",
+  "JaCoCo",
+  "BullseyeCoverage",
+  "SonarQubePVS-Studio",
+  "Unity Profiler",
+  "Unreal Engine Profiler",
+  "RenderDoc",
+  "PIX",
+  "Eigen",
+  "glm",
+  "Bullet Physics",
+  "Havok"
+];
+
+const sidebarRoles = [
+  { name: "AI Programmer", slug: "ai-programmer", current: false },
+  { name: "Gameplay Programmer", slug: "gameplay-programmer", current: false },
+  { name: "Generalist Programmer", slug: "generalist-programmer", current: true },
+  { name: "VR Programmer", slug: "vr-programmer", current: false },
+  { name: "Tools Programmer", slug: "tools-programmer", current: false },
+  { name: "Network Engineer", slug: "network-engineer", current: false },
+  { name: "Engine Programmer", slug: "engine-programmer", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "UX/UI Programmer", slug: "ux-ui-programmer", current: false },
+  { name: "Physics Programmer", slug: "physics-programmer", current: false }
+];
+---
+
+<BaseLayout title="Generalist Programmer" activeNav="career-guide">
+  <WikiLayout title="Generalist Programmer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Engineering & Programming Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/programming/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/programming/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Engineering & Programming</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Generalist Programmer is a versatile coding wizard who thrives on diverse challenges. They're not confined to one specific area of expertise but rather juggle multiple programming tasks across the development spectrum. Imagine them as the Swiss army knife of the coding world, adept at handling core game functionalities, UI/UX implementation, bug fixing, and even dipping their toes into broader areas like AI or networking. Their agility and broad skillset make them invaluable assets to smaller studios where they can wear multiple hats, or even to larger teams where they can provide crucial support and fill in gaps. While not specialists in any one domain, Generalist Programmers possess a deep understanding of core game development principles and can quickly learn new technologies as needed.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

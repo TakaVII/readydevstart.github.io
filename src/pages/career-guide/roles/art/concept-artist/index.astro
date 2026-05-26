@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/concept-artist-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/concept-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Concept-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Bring game scripts, storyboards, and design briefs to life through artwork, establishing the game's visual identity and style.",
+  "Design the look and feel of game characters, from heroes and villains to NPCs and monsters, breathing personality and detail into each one.",
+  "Craft original and captivating concepts, breathing life into the game's unique style.",
+  "Design weapons, vehicles, objects, and other in-game assets, contributing to the overall aesthetics and functionality of the game.",
+  "Convey emotions, atmosphere, and narrative through artwork, immersing players in the game's world and setting the tone for the story.",
+  "Understand basic game design principles, 3D modeling techniques, and lighting to ensure concepts are feasible for implementation.",
+  "Possess strong artistic skills in drawing, painting, and digital illustration, with a keen eye for composition, color, and lighting."
+];
+
+const resources = [
+  { name: "Concept Art Essentials by CGSpectrum", url: "https://www.cgspectrum.com/courses/introduction-to-concept-art-and-illustration" },
+  { name: "StudioQuest - What’s like to be a concept artist by Atomhawk Studio", url: "https://www.artstation.com/learning/series/vnw/studioquest" },
+  { name: "Concept Art Courses by Domestika", url: "https://www.domestika.org/en/courses/area/113-concept-art" },
+  { name: "Concept Art and Illustration Course by CG Master Academy", url: "https://www.conceptart.cgmasteracademy.com/" },
+  { name: "Concept Art Udemy Courses", url: "https://www.udemy.com/topic/concept-art/" },
+  { name: "Concept Art Course by Motion Design School", url: "https://motiondesign.school/courses/in-depth-concept-art/" },
+  { name: "Best Resources for Learning Concept Art by MAGES Institute", url: "https://mages.edu.sg/blog/best-resources-for-learning-concept/" },
+  { name: "Concept Art – Everything You Need To Know by Nashville Film Institute", url: "https://www.nfi.edu/concept-art/" },
+  { name: "How to Learn Concept Art for Beginners by Arc Academy", url: "https://arc.academy/how-to-learn-concept-art-for-beginners/" },
+  { name: "The Complete Beginner's Guide to Concept Art by Vancouver Animation School", url: "https://www.vanas.ca/blog/the-complete-beginners-guide-to-concept-art" },
+  { name: "Into Games’ Junior Concept Artist Database", url: "https://entrylevel.games/database/junior-concept-artist" }
+];
+
+const books = [
+  { name: "Figure Drawing for All It's Worth by Andrew Loomis", url: "https://www.amazon.com/Figure-Drawing-All-Its-Worth-ebook/dp/B08J47Y3T7/ref=sr_1_1" },
+  { name: "Digital Modeling by William Vaughan", url: "https://www.amazon.com/Digital-Modeling-William-Vaughan/dp/0321700899/ref=sr_1_1" },
+  { name: "Anatomy For Sculptors, Understanding the Human Figure by Uldis Zarins and Sandis Kondrats", url: "https://www.amazon.com/Anatomy-Sculptors-Understanding-Human-Figure/dp/1735039020/ref=sr_1_1" },
+  { name: "The Artist's Guide to Human Anatomy by Gottfried Bammes", url: "https://www.amazon.com/Artists-Guide-Human-Anatomy-Dover/dp/0486436411/ref=sr_1_8" },
+  { name: "Framed Perspective Vol. 1 by Marcos Mateu-Mestre", url: "https://www.amazon.com/Framed-Perspective-Vol-Technical-Storytelling/dp/1624650309/ref=sr_1_1" },
+  { name: "Modeling and Sculpting the Human Figure by Edouard Lanteri", url: "https://www.amazon.com/Modelling-Sculpting-Human-Figure-Instruction-ebook/dp/B008U9T84C/ref=sr_1_1" },
+  { name: "Digital Painting Tricks & Techniques: 100 Ways to Improve Your CG Art by Gary Tongue", url: "https://www.amazon.com/Digital-Painting-Tricks-Techniques-Improve-ebook/dp/B005V2EE2W/ref=sr_1_1" },
+  { name: "Digital Art: A Complete Guide to Making Your Own Computer Artworks", url: "https://www.amazon.com/Digital-Art-Complete-Computer-Artworks-ebook/dp/B09HH8B5DR/ref=sr_1_6" },
+  { name: "The Big Bad World of Concept Art for Video Games: How to Start Your Career as a Concept Artist by Eliott Lilly", url: "https://www.amazon.com/Big-World-Concept-Video-Games/dp/1624650368" },
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+];
+
+const tools = [
+  "Game Engines",
+  "Photoshop",
+  "Clip Studio Paint",
+  "Krita",
+  "3DCoat",
+  "PureRef",
+  "Milanote",
+  "Perspective grids/rulers (built-in or plugins)",
+  "Sketchfab",
+  "PureRef",
+  "Adobe Color",
+  "Paletton",
+  "ZBrush",
+  "HeroForge",
+  "ZBrush",
+  "Blender",
+  "Git"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: true },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Concept Artist" activeNav="career-guide">
+  <WikiLayout title="Concept Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>In the game industry, a concept artist plays a crucial role in establishing the visual identity and style of a game. They are the visual storytellers, the first to bring the world, characters, and objects of the game to life through their artwork. A concept artist's work lays the foundation for the entire game's visual design. Their decisions influence the look and feel of the characters, environments, and overall aesthetic, impacting the player's experience and immersion in the game world. They are crucial players in shaping the visual experience and setting the tone for the entire game.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

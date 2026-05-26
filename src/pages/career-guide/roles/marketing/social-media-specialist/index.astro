@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salary/Social-Media-Specialist-Social-Media-Specialist-Salaries-E4909208_D_KO24,47.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/social-media-specialist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Social-Media-Specialist-Salary" }
+];
+
+const responsibilities = [
+  "Develop and manage social media content calendars, creating text posts, images, videos, and live streams that capture player attention and build community engagement.",
+  "Foster positive player interactions on social platforms, respond to comments and messages, host community events, and build a loyal fan base.",
+  "Utilize social media channels to promote new game releases, updates, and special events, driving traffic to the game and maximizing reach.",
+  "Track key metrics like engagement, reach, and sentiment, analyze data to understand audience preferences, and refine content strategies for continuous improvement.",
+  "Continuously learn about new social media features, emerging platforms, and relevant trends in the gaming community, adapting strategies accordingly.",
+  "Work closely with game developers, marketers, and community managers to ensure social media messaging aligns with the overall game vision and marketing goals.",
+  "Address negative feedback and handle online controversies professionally, maintaining a positive brand image and fostering a respectful community.",
+  "Develop and manage paid social media campaigns to reach specific audience segments, drive player acquisition, and increase brand awareness.",
+  "Monitor online conversations for mentions of the game, player sentiment, and competitor activity, providing valuable insights to inform future strategies.",
+  "Explore creative formats, engage in influencer partnerships, and try new social media features to discover new ways to connect with the audience and keep them engaged."
+];
+
+const resources = [
+  { name: "Social media for gamers: How to level up your video game marketing", url: "https://sproutsocial.com/insights/social-media-for-gamers/" },
+  { name: "How to Create Gaming Social Media Content Worth Sharing", url: "https://www.gamemarketinggenie.com/blog/gaming-social-media-content-worth-sharing" },
+  { name: "How To Use Social Media Gamification", url: "https://brame.io/blog/social-media-gamification/" },
+  { name: "The 5 Best Resources for Social Media Managers", url: "https://digitalmarketinginstitute.com/blog/the-5-best-resources-for-social-media-managers" },
+  { name: "12 Top Social Media Marketing Resources to Keep Up with the Industry", url: "https://rockcontent.com/blog/social-media-marketing-resources/" },
+  { name: "How to Learn Social Media Marketing: 39 Resources for Beginners", url: "https://blog.hubspot.com/marketing/social-media-marketing-resources" },
+  { name: "Mastering Social Media for Gamers: The Ultimate Guide for Game Makers", url: "https://www.socialpilot.co/blog/social-media-for-gamers" },
+  { name: "Gamification In Social Media Marketing: The Complete Guide", url: "https://statusbrew.com/insights/gamification-in-social-media/" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "Social Media Marketing Workbook by Jason McDonald", url: "https://www.amazon.com/dp/B0CPXNNHSM" },
+  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
+  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
+  { name: "The StorySelling Method: Master the Art of Storytelling to Build Trust, Stand Out, and Boost Sales by Philipp Humm", url: "https://www.amazon.com/dp/B0BZ32CTSJ/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
+  { name: "500 Social Media Marketing Tips by Andrew Macarthy", url: "https://www.amazon.com/500-Social-Media-Marketing-Tips/dp/179279603X/" },
+  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
+  { name: "Social Media Marketing: 9 Easy Steps Using Facebook, Instagram, and Pinterest to Reach New Customers, Increase Sales, and Ensure Customer Loyalty by Mick Black", url: "https://www.amazon.com/Social-Media-Marketing-Instagram-Pinterest/dp/B0BTKKDN7R/" },
+  { name: "Social Media Success for Every Brand: The Five StoryBrand Pillars That Turn Posts into Profits by Claire Diaz-Ortiz and Donald Miller", url: "https://www.amazon.com/Social-Media-Success-Every-Brand/dp/B07PYYRHPH/" }
+];
+
+const tools = [
+  "Hootsuite",
+  "Buffer",
+  "Sprout Social",
+  "Discord",
+  "TwitchAlerts",
+  "StreamElements",
+  "Twitter Analytics",
+  "YouTube Analytics",
+  "Google Trends",
+  "Reddit Keyword Monitor",
+  "TikTok for Business",
+  "Keyhole",
+  "Bitly",
+  "Canva",
+  "Photoshop",
+  "Premiere Pro",
+  "Adobe After Effects",
+  "Filmora"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: true },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="Social Media Specialist" activeNav="career-guide">
+  <WikiLayout title="Social Media Specialist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Social Media Specialist is the conductor of the hype train, orchestrating the online conversation around your game. They seek to ignite buzz, foster engagement, and build a loyal following. This involves juggling multiple platforms, crafting catchy content, running campaigns, and responding to players in real time. They translate game updates into bite-sized stories, celebrate player achievements, and create a vibrant online space where fans can connect. They work as the bridge between the game and its audience, keeping the buzz alive and turning casual players into die-hard enthusiasts.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

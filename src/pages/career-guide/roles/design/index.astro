@@ -4,53 +4,112 @@ import WikiLayout from "../../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 
 const roles = [
-  { name: "Game Designer", description: "Defines core gameplay mechanics, loops, and player progression systems." },
-  { name: "Level Designer", description: "Designs individual levels, maps, and environments that guide player flow and challenge." },
-  { name: "Narrative Designer", description: "Crafts stories, dialogue, and lore that are woven into gameplay." },
-  { name: "Systems Designer", description: "Designs interconnected game systems — economy, combat, crafting, AI behaviors." },
-  { name: "UX Designer", description: "Ensures the game interface is intuitive and the player experience is smooth and accessible." },
+  { name: "Game Designer", slug: "game-designer", description: "A Game Designer is the creator of the core gameplay experience." },
+  { name: "Level Designer", slug: "level-designer", description: "In the video game realm, Level Designers are the architects of captivating digital worlds." },
+  { name: "Narrative Designer/Writer", slug: "narrative-designer-writer", description: "A Narrative Designer in the game industry is the architect of compelling stories within the interactive canvas of gameplay." },
+  { name: "Gameplay Designer", slug: "gameplay-designer", description: "A Gameplay Designer in the game industry is the architect of the \"fun.\" They craft the core mechanics, rules, and objectives that drive player engagement and define the essence of how a game is played." },
+  { name: "System Designer", slug: "system-designer", description: "A Game System Designer is the unseen hand guiding the intricate mechanisms that breathe life into a game." },
+  { name: "UX/UI Designer", slug: "ux-ui-designer", description: "A UX/UI Game Designer inhabits a unique space where user experience meets artistic vision." },
+  { name: "Technical Designer", slug: "technical-designer", description: "A Technical Designer understands both the intricate workings of game engines and the nuances of gameplay systems." }
+];
+
+const skills = [
+  "Game Concept Development",
+  "Game Mechanics Design",
+  "Level Design",
+  "User Experience (UX) Design",
+  "User Interface (UI) Design",
+  "Prototyping",
+  "Balancing and Tuning",
+  "Player Behavior Analysis",
+  "Narrative Design",
+  "Storytelling",
+  "Branching Narrative",
+  "Character Design",
+  "World Building",
+  "Game Testing and Iteration",
+  "Game Analytics",
+  "Game Monetization Strategies",
+  "Game Economy Design",
+  "Game Progression Design",
+  "Game Accessibility Design",
+  "Player Engagement Strategies",
+  "Collaborative Design Processes"
+];
+
+const courses = [
+  { name: "Game Design Wiki by Rosa Carbo-Mascarell", url: "https://www.notion.so/6902c5dc9d1242c9a70822f13e6c76b3?pvs=21" },
+  { name: "Creating a Killer Game Design Portfolio", url: "https://marlenaabraham.medium.com/creating-a-killer-game-design-portfolio-what-to-include-and-why-edecbe771632" },
+  { name: "IGA’s GDD Template", url: "https://docs.google.com/document/d/1KNqZez5ImjqAgjs--KJjScfjTH2igyASX83dHHEZQTw/edit?usp=sharing" },
+  { name: "IGA’s Design One Pager Template", url: "https://docs.google.com/document/d/1t9nAbA2GYaXENET1ZgcXuoFZDKRKbvBG5fba2_s0h2o/edit?usp=sharing" },
+  { name: "The Game Design Resource Guide", url: "https://alexiamandeville.medium.com/the-game-design-resource-guide-e19bb237877" },
+  { name: "Game Design Resources", url: "https://docs.google.com/spreadsheets/d/1QhFyPfYSjHv7PjibGrslF3mNW_CIDXWv9o-iQgLbu1o/edit#gid=779345491" },
+  { name: "GameDeveloper.com Design Articles", url: "https://www.gamedeveloper.com/design" }
 ];
 ---
 
-<BaseLayout title="Design Roles" activeNav="career-guide">
-  <WikiLayout title="Design Roles" activeNav="career-guide" activeSidebar="roles">
-    <p>
-      Design roles define how games feel to play. Designers craft the rules,
-      systems, stories, and experiences that keep players engaged.
-    </p>
+<BaseLayout title="Game Design Roles" activeNav="career-guide">
+  <WikiLayout title="Game Design Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>Game designers are the masterminds behind captivating video games, crafting rules, systems, mechanics, and narratives that define virtual worlds. Narrative designers weave compelling storylines and memorable characters, immersing players in the game's world. Game designers collaborate with other professionals to bring their visions to life, iterating and refining designs throughout the development process.</p>
 
     <div class="career-layout">
       <aside class="career-sidebar">
-        <h3>Design Roles</h3>
+        <h3>Game Design Roles</h3>
         {roles.map((r) => (
-          <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href={`${base}career-guide/roles/design/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
             <strong style="font-size: 0.9rem;">{r.name}</strong>
-          </div>
+          </a>
         ))}
         <div style="margin-top: 1rem;">
-          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">← All Roles</a>
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; All Roles</a>
         </div>
       </aside>
 
       <div class="career-main">
-        {roles.map((role) => (
-          <div class="card" style="margin-bottom: 1rem;">
-            <h3>{role.name}</h3>
-            <p>{role.description}</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roles.map((role) => (
+            <a href={`${base}career-guide/roles/design/${role.slug}/`} class="card" style="text-decoration:none;">
+              <h3>{role.name}</h3>
+              <p>{role.description}</p>
+              <span class="btn btn-pink" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; margin-top: 0.5rem; display: inline-block;">View Role &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Skills Involved</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {skills.map((s) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Courses &amp; Resources</h3>
+          <ul>
+            {courses.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <aside class="career-sidebar">
         <h3>Related</h3>
         <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}quest-logs/game-design-101/`}>Game Design 101 →</a>
+            <a href={`${base}career-guide/roles/programming/`}>💻 Engineering & Programming Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/infrastructure/`}>🔧 Infrastructure & Live Ops Roles &rarr;</a>
           </p>
         </div>
         <div class="card" style="padding: 1rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/resources/`}>Resources →</a>
+            <a href={`${base}career-guide/job-boards/`}>Job Boards &rarr;</a>
           </p>
         </div>
       </aside>

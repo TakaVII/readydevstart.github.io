@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/game-data-analyst-salary-SRCH_KO0,17.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/data-analyst-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Data-Analyst-Salary" }
+];
+
+const responsibilities = [
+  "Collect, clean, and organize massive datasets from gameplay, player behaviors, and in-game metrics.",
+  "Collaborate with designers, developers, and marketers to define key metrics and analyze data to answer critical business questions.",
+  "Use data visualization tools and storytelling techniques to present findings in a clear and actionable way for non-technical audiences.",
+  "Analyze player behavior, engagement, and monetization patterns to discover hidden trends and inform game improvements.",
+  "Evaluate the effectiveness of new features, updates, and campaigns through A/B testing and other statistical methods.",
+  "Develop predictive models to anticipate player behavior, churn risk, and potential monetization opportunities.",
+  "Analyze data to inform decisions on game balance, difficulty, progression systems, and content updates.",
+  "Work closely with other analysts, designers, developers, and stakeholders to turn data into actionable insights and successful game strategies."
+];
+
+const resources = [
+  { name: "What Do Data Analyst/Scientist(s) Do in The Gaming Industry?", url: "https://datascope.co.uk/blog/what-do-data-analyst-scientists-do-in-the-gaming-industry/" },
+  { name: "How Data Science Streamlines Gaming Industry", url: "https://geeklurn.com/blog/how-data-science-streamlines-gaming-industry/" },
+  { name: "The Role Of Data Science In Gaming Industry", url: "https://ekeeda.com/blog/the-role-of-data-science-in-gaming-industry" },
+  { name: "Top 8 Data Science Use Cases in Gaming", url: "https://activewizards.com/blog/top-8-data-science-use-cases-in-gaming/" },
+  { name: "How data science and AI have transformed gaming industry", url: "https://www.financialexpress.com/business/blockchain-how-data-science-and-ai-have-transformed-gaming-industry-3172757/" },
+  { name: "Data Science Dojo Bootcamp", url: "https://datasciencedojo.com/" },
+  { name: "7 Roles of Data Analytics in Video Games Development", url: "https://www.hdatasystems.com/blog/7-roles-of-data-analytics-in-video-games-development" },
+  { name: "Data Analytics Resources by SOA", url: "https://www.soa.org/sections/technology/technology-data-analytics-resources/" },
+  { name: "The Role of Big Data Analytics in Gaming", url: "https://www.smartdatacollective.com/role-of-big-data-analytics-gaming/" },
+  { name: "65 Best Resources to Learn Data Analysis", url: "https://aqsazafar81.medium.com/65-best-resources-to-learn-data-analysis-792c017a76e9" }
+];
+
+const books = [
+  { name: "Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking by Foster Provost and Tom Fawcett", url: "https://www.amazon.in/Data-Science-Business-Data-Analytic-Thinking-ebook/dp/B00E6EQ3X4" },
+  { name: "Storytelling with Data: A Data Visualization Guide for Business Professionals by Cole Nussbaumer Knaflic", url: "https://www.amazon.com/Storytelling-with-Data-audiobook/dp/B079H3ZJJZ/" },
+  { name: "Everything Data Analytics A Beginner's Guide to Data Literacy: Understanding the Processes That Turn Data Into Insights by Elizabeth Clarke", url: "https://www.amazon.com/dp/B0B52FL5RT" },
+  { name: "Data Science for Business: What You Need to Know About Data Mining and Data-Analytic Thinking by Foster Provost and Tom Fawcett", url: "https://www.amazon.com/dp/B08VL5K5ZX" },
+  { name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics by Tim Harford", url: "https://www.amazon.com/dp/B089B5VXQ7" },
+  { name: "Data Analytics, Data Visualization & Communicating Data by Elizabeth Clarke", url: "https://www.amazon.com/dp/B0BPD6RNKC" },
+  { name: "Naked Statistics: Stripping the Dread from the Data by Charles Wheelan", url: "https://www.amazon.com/dp/B00CH7FWWU" },
+  { name: "The Art of Statistics: How to Learn from Data by David Spiegelhalter", url: "https://www.amazon.com/dp/B07WK7KPKH" },
+  { name: "The Visual Display of Quantitative Information by Edward R. Tufte", url: "https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Python",
+  "SQL",
+  "Tableau",
+  "Power BI",
+  "Excel",
+  "R",
+  "Apache Spark",
+  "Google Analytics",
+  "Mixpanel",
+  "Amplitude",
+  "Snowflake",
+  "BigQuery",
+  "Redshift",
+  "Looker",
+  "Mode"
+];
+
+const sidebarRoles = [
+  { name: "LiveOps Engineer", slug: "liveops-engineer", current: false },
+  { name: "Data Analyst", slug: "data-analyst", current: true },
+  { name: "Customer Support Specialist", slug: "customer-support-specialist", current: false },
+  { name: "Data Scientist", slug: "data-scientist", current: false }
+];
+---
+
+<BaseLayout title="Data Analyst" activeNav="career-guide">
+  <WikiLayout title="Data Analyst" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Infrastructure & Live Ops Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/infrastructure/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/infrastructure/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Infrastructure & Live Ops</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>The Data Analyst is a role made for mixing creativity with insight, translating the vast volumes of data generated by players into actionable intel for developers. This information, gleaned from player behavior, in-game metrics, and market trends, becomes the lifeblood of informed decision-making. By analyzing player engagement, purchase patterns, and feedback, they uncover hidden trends and identify areas for improvement. This newfound knowledge empowers developers to refine game mechanics, optimize monetization strategies, and ultimately, create experiences that resonate with their audience.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

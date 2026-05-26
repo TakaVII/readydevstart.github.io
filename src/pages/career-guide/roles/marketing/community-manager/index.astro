@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-community-manager-salary-SRCH_IL.0,2_IN1_KO3,20.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/community-manager-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Community-Manager-Salary" }
+];
+
+const responsibilities = [
+  "Foster a thriving and engaged community, encourage positive interactions, address conflicts, and cultivate a sense of belonging among players.",
+  "Develop engaging content like blog posts, forum discussions, social media interactions, and live streams to keep players informed, entertained, and connected.",
+  "Gather player feedback through various channels, analyze their needs and concerns, and effectively communicate them to development teams to inform game updates and future features.",
+  "Organize contests, giveaways, tournaments, and other events to drive player engagement, reward participation, and celebrate community achievements.",
+  "Utilize community channels to spread the word about the game, attract new players, and maintain a positive online presence.",
+  "Address negative feedback, handle controversy with diplomacy, and ensure a safe and enjoyable experience for all community members.",
+  "Work closely with developers, marketers, PR, and customer support to ensure smooth communication, coordinated efforts, and alignment with the overall game vision.",
+  "Measure community engagement metrics, analyze feedback patterns, and use insights to inform future content, events, and initiatives.",
+  "Respond to changing player dynamics, adjust strategies based on community needs, and embrace new opportunities to connect with and empower the game's ecosystem."
+];
+
+const resources = [
+  { name: "Becoming a Video Game Community Manager", url: "https://www.victoriatran.com/writing/becoming-a-video-game-community-manager" },
+  { name: "Into Games’ Junior Community Manager", url: "https://entrylevel.games/database/community-manager" },
+  { name: "Complete Guide on Community Management For Gaming by Tatvam Insights", url: "https://tatvaminsights.com/complete-guide-on-community-management-for-gaming/" },
+  { name: "Community Managers: What They Do & How to Be a Great One by HubSpot", url: "https://blog.hubspot.com/marketing/great-community-management-tips" },
+  { name: "The Community Manager Handbook", url: "https://communityroundtable.com/what-we-do/research/community-manager-handbook-2/" },
+  { name: "The Beginner’s Guide To Community Management by FeverBee", url: "https://www.feverbee.com/the-beginners-guide-to-community-management/" },
+  { name: "ScreenSkills’ Community Manager Profile", url: "https://www.screenskills.com/job-profiles/browse/games/production/community-manager/" },
+  { name: "Why a Game Community Manager is important for your success", url: "https://sandvox.io/game-community-manager/" },
+  { name: "How to get a job as a community manager in games by GamesIndustry.biz", url: "https://www.gamesindustry.biz/how-to-get-a-job-as-a-community-manager-in-games" },
+  { name: "What a video game community manager does and how you can become one", url: "https://hitmarker.net/what-a-video-game-community-manager-does-how-to-become-one" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "Social Media Marketing Workbook by Jason McDonald", url: "https://www.amazon.com/dp/B0CPXNNHSM" },
+  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
+  { name: "The Business of Belonging: How to Make Community your Competitive Advantage by David Spinks", url: "https://www.amazon.com/Business-Belonging-Community-Competitive-Advantage/dp/1119766125" },
+  { name: "Community Engagement Leadership: Unleashing the Power Within by Dawn Glasco", url: "https://www.amazon.com/Community-Engagement-Leadership-Unleashing-Within/dp/B0C9K6GY8L/" },
+  { name: "Online Community Management For Dummies by Deborah Ng", url: "https://www.amazon.com/Online-Community-Management-Dummies-Deborah-ebook/dp/B006O1OUX2" },
+  { name: "Build Your Community by Richard Millington", url: "https://www.amazon.com/Audible-Build-Your-Community/dp/B0CFRFWD1W/" },
+  { name: "The Pocket Mentor for Game Community Management by Carolin Wendt", url: "https://www.amazon.com/Pocket-Community-Management-Mentors-Careers-ebook/dp/B0CLKZLZMV/" },
+  { name: "The Rise of Virtual Communities: In Conversation with Virtual World Pioneers by Amber Atherton", url: "https://www.amazon.com/dp/1484292960/?coliid=I36J3W80E88GN5&colid=1B3M02PU6QBGP&psc=1&ref_=_sed_dp" }
+];
+
+const tools = [
+  "Discord",
+  "Hootsuite",
+  "Buffer",
+  "Sprout Social",
+  "Google Analytics",
+  "Canva",
+  "Adobe Photoshop",
+  "Adobe Premiere Pro",
+  "OBS Studio",
+  "Streamlabs",
+  "Crowdfire",
+  "Mailchimp",
+  "Hubspot CRM"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: true },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="Community Manager" activeNav="career-guide">
+  <WikiLayout title="Community Manager" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Community Manager in the game industry is the lifeblood of the gamer experience, fostering vibrant communities that breathe life into the virtual worlds we love, keeping everyone informed, entertained, and connected. Their day-to-day tasks are as diverse as the players themselves. They might be organizing in-game events and tournaments, keeping social media abuzz with exciting updates, or even defusing tense situations and fostering a positive online environment. Ultimately, they're the bridge between developers and players, ensuring both sides feel heard and valued.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

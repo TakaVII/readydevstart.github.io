@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-pr-specialist-salary-SRCH_IL.0,2_IN1_KO3,16.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/pr-specialist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/PR-Specialist-Salary" }
+];
+
+const responsibilities = [
+  "Develop compelling press releases, media pitches, and talking points that capture journalist interest and highlight the game's unique features and appeal.",
+  "Cultivate strong relationships with gaming media outlets, influencers, and reviewers, securing opportunities for game exposure through previews, reviews, interviews, and features.",
+  "Proactively prepare for potential PR crises, respond effectively to negative feedback, and maintain a positive brand image for the game during challenging situations.",
+  "Track online conversations about the game, address player concerns, and leverage positive buzz to amplify media coverage and player engagement.",
+  "Plan and manage press events, developer interviews, influencer showcases, and community gatherings to generate excitement and buzz around the game.",
+  "Track media coverage, measure campaign effectiveness, and provide data-driven insights to inform future PR strategies and decisions.",
+  "Work closely with game developers, marketing, community managers, and executives to ensure consistent messaging, seamless event execution, and alignment with overall game goals.",
+  "Understand and comply with relevant legal and ethical regulations regarding game promotion and influencer marketing, ensuring responsible and compliant campaign execution.",
+  "Showcase the impact of PR efforts on key metrics like game awareness, player acquisition, and brand perception, highlighting the strategic role PR plays in the game's success."
+];
+
+const resources = [
+  { name: "Press Kit Guide", url: "https://www.notion.so/Press-Kit-Guide-Indie-Game-Academy-ec553b347c094da0a879d4673a37c542?pvs=21" },
+  { name: "Videogame Marketing & PR Checklist", url: "https://uberstrategist.com/video-game-pr-and-marketing-checklist/" },
+  { name: "11 must-have tools and resources for a PR professional", url: "https://www.agilitypr.com/pr-news/public-relations/11-must-have-tools-and-resources-for-a-pr-professional/" },
+  { name: "Press Play on PR: Public Relations in the Gaming Industry", url: "https://press.farm/public-relations-gaming-industry/" },
+  { name: "Public Relations for Video Games – How to do Gaming PR in 2023", url: "https://prowly.com/magazine/gaming-pr/" },
+  { name: "The Essential Starting Guide to Video Game Public Relations", url: "https://medium.com/@ryanjfabian/the-essential-starting-guide-to-video-game-public-relations-90ccd2c95179" },
+  { name: "Game PR and You: A Comprehensive Overview", url: "https://www.gamedeveloper.com/business/game-pr-and-you-a-comprehensive-overview" },
+  { name: "Video Game PR: How to Get Press for Your Game", url: "https://www.cloutboost.com/blog/video-game-pr-how-to-get-press-for-your-game" },
+  { name: "How Video Game Public Relations Can Make or Break a Game’s Success", url: "https://press.farm/how-to-do-video-game-public-relations/" },
+  { name: "Public Relations For Video Games – How To Do Gaming PR In 2024", url: "https://prnews.io/blog/public-relations-for-video-games.html" },
+  { name: "Everything You Need To Know About Public Relations Games", url: "https://marxcommunications.com/public-relations-games/" },
+  { name: "Why video games PR needs to change", url: "https://www.gamesindustry.biz/why-video-games-pr-needs-to-change" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
+  { name: "The StorySelling Method: Master the Art of Storytelling to Build Trust, Stand Out, and Boost Sales by Philipp Humm", url: "https://www.amazon.com/dp/B0BZ32CTSJ/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
+  { name: "Brand Identity Breakthrough: How to Craft Your Company's Unique Story to Make Your Products Irresistible by Gregory V. Diehl", url: "https://www.amazon.com/dp/069265187X/" },
+  { name: "Brand Naming: The Complete Guide to Creating a Name for Your Company, Product, or Service by Rob Meyerson", url: "https://www.amazon.com/dp/1637421559/" }
+];
+
+const tools = [
+  "Google Analytics",
+  "Hootsuite",
+  "Sprout Social",
+  "BuzzSumo",
+  "SEMrush",
+  "Ahrefs",
+  "Brand24",
+  "Muck Rack",
+  "TrendKite",
+  "Cision",
+  "Meltwater",
+  "Prowly",
+  "JustReachOut",
+  "NinjaOutreach"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: true },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="PR Specialist" activeNav="career-guide">
+  <WikiLayout title="PR Specialist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A PR Specialist is a mix of hype squad leader and media whisperer, crafting press releases, pitching stories to journalists, and orchestrating events that put the spotlight on the newest and hottest titles. Their mission is to build positive buzz and generate excitement for games, shaping public perception and ensuring everyone's talking about the latest masterpiece. This involves crafting compelling messaging, strategically placing interviews with key influencers, and even managing potential crises with a cool head and a knack for storytelling, using their creativity and strategic thinking to paint a picture that draws players in and leaves them itching to experience the adventure for themselves.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

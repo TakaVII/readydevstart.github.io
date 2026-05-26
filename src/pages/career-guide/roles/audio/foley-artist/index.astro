@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/foley-artist-salary-SRCH_KO0,12.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/foley-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Foley-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Utilize everyday objects, props, and specialized tools to generate convincing sounds for footsteps, actions, objects, creatures, and environments within the game.",
+  "Layer, filter, and manipulate recorded sounds to achieve the desired sonic texture, enhance detail, and create unique sound effects beyond the limitations of the original source.",
+  "Analyze gameplay mechanics and animation to craft sound effects that accurately reflect in-game actions, reactions, and visual effects.",
+  "Build and maintain a vast library of recorded sounds and Foley props, categorized and readily accessible for future projects.",
+  "Work closely with audio designers and directors to understand the desired sonic vision, interpret concept art and gameplay ideas, and translate them into effective sound effects.",
+  "Be prepared to adjust and improvise sound effects on the fly to accommodate unexpected gameplay scenarios, glitches, or changes in development.",
+  "Consider file size, memory usage, and audio playback performance when creating and implementing sound effects to ensure smooth gameplay.",
+  "Understand the emotional tone and narrative arc of the game, and utilize sound effects to evoke specific emotions, build tension, and enhance player immersion in the story."
+];
+
+const resources = [
+  { name: "Game Audio Implementation Resources", url: "https://gameaudioimplementation.com/" },
+  { name: "12 inspiring resources about the fine art of Foley sounds", url: "https://www.systematic-sound.com/12-inspiring-resources-about-the-fine-art-of-foley-sounds/" },
+  { name: "Foley Artist: Everything You Need To Know", url: "https://www.nfi.edu/foley-artist/" },
+  { name: "Art of Foley Sound Effects Library", url: "https://www.sound-ideas.com/Product/441/Art-of-Foley-Sound-Effects-Library" },
+  { name: "What are foley sounds? by Josh Edwards", url: "https://artlist.io/blog/foley-sound-effects/" },
+  { name: "Discover the hidden world of Foley sound effects by Adobe", url: "https://www.adobe.com/creativecloud/video/discover/foley-sound-effects.html" },
+  { name: "Foley: the art and craft of sound effects!", url: "https://huehd.com/foley-the-art-and-craft-of-sound-effects/" },
+  { name: "What is a Foley Artist — How to Bring Movies to Life with Sound by Alysa Maio", url: "https://www.studiobinder.com/blog/what-is-a-foley-artist/" },
+  { name: "How to Create Foley Sound Effects by Suzy Woltmann", url: "https://www.backstage.com/magazine/article/how-to-create-foley-sound-effects-75583/" },
+  { name: "How to Become a Foley Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/foley-artist" },
+  { name: "Foley Artist by The Art Career Project", url: "https://theartcareerproject.com/careers/foley-art/" },
+  { name: "How Do You Become a Foley Artist and Work in Sound Design?", url: "https://www.ipr.edu/blogs/sound-design-for-visual-media/how-do-you-become-a-foley-artist-and-work-in-sound-design/" }
+];
+
+const books = [
+  { name: "The Foley Grail by Vanessa Theme Ament", url: "https://www.amazon.com/Foley-Grail-Performing-Sound-Animation/dp/0367442248/ref=sr_1_1" },
+  { name: "The Game Audio Tutorial: A Practical Guide to Sound and Music for Interactive Games by Richard Stevens", url: "https://www.amazon.com/Game-Audio-Tutorial-Practical-Interactive/dp/0240817265/ref=sr_1_1" },
+  { name: "Principles of Game Audio and Sound Design by Jean-Luc Sinclair", url: "https://www.amazon.com/Principles-Game-Audio-Sound-Design/dp/1138738972/ref=sr_1_24" },
+  { name: "The Game Audio Strategy Guide: A Practical Course by Gina Zdanowicz and Spencer Bambrick", url: "https://www.amazon.com/Game-Audio-Strategy-Guide-Practical/dp/1138498343/ref=sr_1_1" },
+  { name: "Game Audio Implementation by Richard Stevens and Dave Raybould", url: "https://www.amazon.com/Game-Audio-Implementation-Practical-Unreal/dp/1138777242/ref=sr_1_2" },
+  { name: "Complete Guide to Game Audio by Aaron Marks", url: "https://www.amazon.com/Aaron-Marks-Complete-Guide-Audio/dp/1138795380/ref=sr_1_4" },
+  { name: "The Essential Guide to Game Audio by Steve Horowitz and Scott Looney", url: "https://www.amazon.com/Essential-Guide-Game-Audio-Practice/dp/041570670X/ref=sr_1_13" },
+  { name: "Game Audio Mixing by Alex Riviere", url: "https://www.amazon.com/Game-Audio-Mixing-Alex-Riviere/dp/1032397357/ref=sr_1_14" },
+  { name: "The Art of Game Design by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third-ebook/dp/B07X59RN6N" },
+  { name: "The Computer Music Tutorial by Curtis Roads", url: "https://www.amazon.com/Computer-Music-Tutorial-MIT-Press/dp/0262680823" },
+  { name: "Sound Synthesis and Sampling by Martin Russ", url: "https://www.amazon.com/Sound-Synthesis-Sampling-Third-Technology/dp/0240521056" }
+];
+
+const tools = [
+  "Game Engines",
+  "Pro Tools",
+  "Reaper",
+  "iZotope RX series",
+  "Soundminer.",
+  "Wwise or FMOD Studio",
+  "Kontakt or Battery",
+  "Boom Library",
+  "Spitfire Audio",
+  "SpectraLayers Pro",
+  "Waves plugins",
+  "iZotope Ozone",
+  "Audient iD14",
+  "Focusrite Scarlett",
+  "Zoom H6",
+  "Tascam DR-40x",
+  "Soundtoys plugins"
+];
+
+const sidebarRoles = [
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "Audio Producer", slug: "audio-producer", current: false },
+  { name: "Composer", slug: "composer", current: false },
+  { name: "Foley Artist", slug: "foley-artist", current: true },
+  { name: "Sound Designer", slug: "sound-designer", current: false },
+  { name: "Voiceover Artist", slug: "voiceover-artist", current: false }
+];
+---
+
+<BaseLayout title="Foley Artist" activeNav="career-guide">
+  <WikiLayout title="Foley Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Audio & Music Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/audio/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/audio/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Audio & Music</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Foley artists are magicians of sound. They're the ones who bring the aural textures of the game world to life, from the satisfying crunch of footsteps on different surfaces to the clinking of armor and the whoosh of a sword swing. Just like their film counterparts, game Foley artists use everyday objects and their own creative ingenuity to recreate, enhance, or replace sounds that were either poorly captured during development or simply don't exist in the real world. They're the alchemist of squeaks and pops, transforming celery stalks into crackling flames, leather jackets into flapping dragon wings, and bowls of cereal into the crunching footsteps of trolls.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

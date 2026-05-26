@@ -4,13 +4,25 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 
 const boards = [
-  { name: "Work With Indies", url: "https://workwithindies.com", description: "Indie-focused job board with remote-friendly listings across all disciplines." },
-  { name: "Hitmarker", url: "https://hitmarker.net", description: "Gaming and esports job board with positions from studios worldwide." },
-  { name: "GameJobs.co", url: "https://gamejobs.co", description: "Aggregates game industry jobs from major and indie studios." },
-  { name: "Remote Game Jobs", url: "https://remotegamejobs.com", description: "Curated remote positions in the game industry." },
-  { name: "GamesIndustry.biz Jobs", url: "https://jobs.gamesindustry.biz", description: "Job listings from one of the industry's leading news outlets." },
-  { name: "LinkedIn Gaming Jobs", url: "https://www.linkedin.com/jobs/gaming-jobs", description: "Filter LinkedIn's massive job database for gaming-specific roles." },
-  { name: "Indeed Game Developer", url: "https://www.indeed.com/q-game-developer-jobs.html", description: "Broad job search engine with many game dev listings." },
+  { name: "Work With Indies", url: "https://www.workwithindies.com/", description: "Indie-focused job board with remote-friendly listings across all disciplines." },
+  { name: "Remote Game Jobs", url: "https://remotegamejobs.com/", description: "Curated remote positions in the game industry." },
+  { name: "Hitmarker", url: "https://hitmarker.net/", description: "Gaming and esports job board with positions from studios worldwide." },
+  { name: "GameJobs.co", url: "https://gamejobs.co/", description: "Aggregates game industry jobs from major and indie studios." },
+  { name: "GameJobs.com", url: "https://jobs.gamejobs.com/jobs", description: "Job listings platform for game industry professionals." },
+  { name: "Game Dev Jobs", url: "https://gamedevjobs.com/", description: "Dedicated job board for game development positions." },
+  { name: "GamesIndustry.biz", url: "https://jobs.gamesindustry.biz/", description: "Job listings from one of the industry's leading news outlets." },
+  { name: "IGDA Careers", url: "https://careers.igda.org/", description: "International Game Developers Association career center and job board." },
+  { name: "Games Jobs Direct", url: "https://www.gamesjobsdirect.com/", description: "Direct job postings from game studios across the globe." },
+  { name: "InGame Job", url: "https://ingamejob.com/", description: "Game industry job listings with salary data and company profiles." },
+  { name: "XP Game Jobs", url: "https://xpgamejobs.com/", description: "Curated game industry positions for experienced professionals." },
+  { name: "Grackle HQ", url: "https://gracklehq.com/jobs", description: "Community-driven job board for the games industry." },
+  { name: "TEN.gg", url: "https://ten.gg/jobs", description: "Gaming industry job board and networking platform." },
+  { name: "Itch Jobs", url: "https://itch.io/jobs", description: "Job listings on the popular indie game platform." },
+  { name: "Artstation", url: "https://www.artstation.com/jobs/all", description: "Art-focused job board ideal for game artists and visual roles." },
+  { name: "WriteFinder", url: "https://www.writefinder.com/#jobs", description: "Job listings for narrative designers, writers, and content creators in games." },
+  { name: "LinkedIn", url: "https://www.linkedin.com/jobs/", description: "Filter LinkedIn's massive job database for gaming-specific roles." },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Job/index.htm", description: "Job listings with company reviews and salary information." },
+  { name: "Indeed", url: "https://www.indeed.com/worldwide", description: "Broad job search engine with many game dev listings worldwide." },
 ];
 ---
 

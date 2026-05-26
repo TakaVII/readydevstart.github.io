@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-performance-marketer-salary-SRCH_IL.0,2_IN1_KO3,23.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/performance-marketer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Performance-Marketer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Analyze player data, identify target audiences, and craft targeted campaigns across various channels (social media, mobile ads, influencer partnerships) to optimize player acquisition and engagement.",
+  "Allocate resources effectively, negotiate vendor contracts, and continuously monitor campaign performance using data analytics to maximize ROI and minimize risk.",
+  "Experiment with different ad formats, visuals, messaging, and audience targeting to identify the most effective combinations and improve campaign performance.",
+  "Monitor metrics like cost-per-install (CPI), conversion rates, retention rates, and player lifetime value (LTV) to assess campaign effectiveness and inform strategic adjustments.",
+  "Continuously learn about emerging marketing channels, data analysis tools, and advertising platforms to adapt strategies and leverage new opportunities for better player acquisition.",
+  "Work closely with game developers, product managers, community managers, and designers to ensure campaign messaging aligns with the game's features and resonates with the target audience.",
+  "Utilize attribution models to accurately track player acquisition sources and credit campaigns for their contribution to conversions and revenue.",
+  "Understand player psychology and behavior, analyze in-app purchase data, and optimize pricing, placement, and timing of offers to maximize revenue generation.",
+  "Understand and adhere to relevant data privacy regulations like GDPR and CCPA when collecting and using player data for targeting and analysis.",
+  "Prepare clear and concise reports for stakeholders, showcasing campaign successes, key learnings, and data-driven recommendations for future initiatives."
+];
+
+const resources = [
+  { name: "Top 10 Performance Marketing Tools for Optimal Business Growth in 2024", url: "https://brand24.com/blog/performance-marketing-tools/" },
+  { name: "A Beginner’s Guide to Performance Marketing: Everything You Need to Know", url: "https://www.bigcommerce.com/articles/ecommerce/performance-marketing/" },
+  { name: "Top 12 Performance Marketing tools", url: "https://funnel.io/blog/top-performance-tools" },
+  { name: "What is Performance Marketing?", url: "https://mailchimp.com/resources/what-is-performance-marketing/" },
+  { name: "Performance Marketing in the Gaming Industry by Team EMB", url: "https://blog.emb.global/performance-marketing-in-the-gaming-industry/" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
+  { name: "Mobile App Marketing And Monetization: How To Promote Mobile Apps Like A Pro by Alex Genadinik", url: "https://www.amazon.com/Mobile-App-Marketing-Monetization-downloads/dp/1502383829" },
+  { name: "Ultimate Guide to Facebook Advertising by Perry Marshall, Thomas Meloche and Bob Regnerus", url: "https://www.amazon.com/Ultimate-Guide-Facebook-Advertising-Marshall-ebook/dp/B08L3ZY4Z8/" },
+  { name: "Marketing Metrics by Neil Bendle, Paul Farris, Phillip Pfeifer and David Reibstein", url: "https://www.amazon.com/Marketing-Metrics-4th-David-Reibstein/dp/0136717136/" },
+  { name: "Marketing Performance: How Marketers Drive Profitable Growth by Thomas Bauer, Tjark Freundt, Jonathan Gordon, Jesko Perrey and Dennis Spillecke", url: "https://www.amazon.com/Marketing-Performance-Marketers-Profitable-Growth/dp/1119278333/" },
+  { name: "Storytelling with Data: A Data Visualization Guide for Business Professionals by Cole Nussbaumer Knaflic", url: "https://www.amazon.com/Storytelling-Data-Visualization-Business-Professionals/dp/1119002257/" },
+  { name: "The Forecaster Method: The Modern System to Accurately Evaluate, Forecast, and Scale Your Digital Marketing by John Lincoln", url: "https://www.amazon.com/Forecaster-Method-Accurately-Evaluate-Marketing/dp/1080815643" },
+  { name: "Retention Point by Robert Skrob", url: "https://www.amazon.com/dp/B07CZXD289/" }
+];
+
+const tools = [
+  "AppsFlyer",
+  "Branch",
+  "Kochava",
+  "Adjust",
+  "Tenjin",
+  "Singular",
+  "Google Analytics",
+  "Google Ads",
+  "Facebook Ads",
+  "Twitter Ads",
+  "TikTok Ads",
+  "App Annie",
+  "Sensor Tower",
+  "GameAnalytics"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: true }
+];
+---
+
+<BaseLayout title="Performance Marketer" activeNav="career-guide">
+  <WikiLayout title="Performance Marketer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Performance Marketer is the strategist behind those targeted ads you see everywhere, the mastermind behind in-game offers that keep you hooked, and the analysts who ensure every marketing dollar delivers maximum impact. They turn clicks into engaged players and in-app purchases, using data analysis, campaign optimization, and creative A/B testing, constantly tweaking and refining their strategies to attract the right players, keep them playing, and ultimately, generate revenue for the game. They're the bridge between marketing magic and financial reality, ensuring every campaign delivers a quantifiable return on investment.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

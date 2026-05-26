@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/qa-engineer-salary-SRCH_KO0,11.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/engineer-qa-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/QA-Engineer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Playtest extensively, systematically exploring all facets of the game to identify and report bugs through clear, actionable documentation.",
+  "Ensure features function as intended across platforms and configurations, testing edge cases and stress scenarios to guarantee stability.",
+  "Analyze gameplay mechanics, provide critical feedback on balance, difficulty, and user experience, and suggest improvements.",
+  "Verify text accuracy, cultural appropriateness, and UI/UX functionality across all supported languages.",
+  "Identify performance bottlenecks, analyze frame rates, memory usage, and loading times, and suggest solutions for smooth gameplay.",
+  "Ensure fixes for previously reported bugs remain resolved after new updates or code changes.",
+  "Develop and utilize automated test scripts to cover core functionalities and repetitive tasks, improving test efficiency.",
+  "Interpret game data and analytics to identify areas for improvement, track player behavior, and inform design decisions."
+];
+
+const resources = [
+  { name: "What is a software quality assurance engineer?", url: "https://airfocus.com/glossary/what-are-quality-assurance-engineers/" },
+  { name: "What Is a QA Engineer? How to Become One, Salary, Skills", url: "https://builtin.com/learn/careers/qa-engineer" },
+  { name: "Into Games’ Quality Assurance (QA) Build Engineer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/quality-assurance/quality-assurance-qa-build-engineer/" },
+  { name: "What does a QA engineer do in gaming?", url: "https://www.joberty.com/blog/what-does-a-qa-engineer-do-in-gaming/" }
+];
+
+const books = [
+  { name: "Test Automation Engineering Handbook by Manikandan Sambamurthy", url: "https://www.amazon.com/Test-Automation-Engineering-Handbook-techniques/dp/1804615498/" },
+  { name: "Modern Game Testing: Learn how to test games like a pro, optimize testing effort, and skyrocket your QA career by Nikolina Finska", url: "https://www.amazon.com/dp/1803244402/" },
+  { name: "Game Development Essentials: Game QA & Testing by Luis Levy and Jeannie Novak", url: "https://www.amazon.com/Game-Development-Essentials-QA-Testing/dp/1435439473/" },
+  { name: "Modern Game Testing: A Pragmatic Guide to Test Planning and Strategy by Chris Howell", url: "https://www.amazon.com/Modern-Game-Testing-Pragmatic-Planning/dp/1739711505/" },
+  { name: "Software QA Engineer: 3 in 1 - A Comprehensive Compilation of Essential Knowledge, from Beginner's Introduction to Advanced Techniques by Anna Thompson", url: "https://www.amazon.com/Software-Engineer-Comprehensive-Compilation-Introduction/dp/B0C7J7Y3J6/" },
+  { name: "Software Testing Explained by Jaime Mantilla MSIT", url: "https://www.amazon.com/Software-Testing-Explained-Comprehensive-Non/dp/B0CFZFVZYG/" },
+  { name: "The Self-Taught Software Tester A Step By Step Guide to Learn Software Testing Using Real-Life Project by Chhavi Raj Dosaj", url: "https://www.amazon.com/Self-Taught-Software-Testing-Real-Life-Project/dp/B087R7ZKHG/" },
+  { name: "Design Patterns for High-Quality Automated Tests: High-Quality Test Attributes and Best Practices by Anton Angelov", url: "https://www.amazon.com/Design-Patterns-High-Quality-Automated-Tests/dp/B085KR3XQ9/" },
+  { name: "The Complete Software Tester: Concepts, Skills, and Strategies for High-Quality Testing by Kristin Jackvony", url: "https://www.amazon.com/Complete-Software-Tester-Strategies-High-Quality-ebook/dp/B09NGVVCJ9/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Jira",
+  "TestRail",
+  "Selenium",
+  "Appium",
+  "Postman",
+  "Charles Proxy",
+  "Fiddler",
+  "Python",
+  "SQL",
+  "Git",
+  "BugZilla",
+  "TestLink",
+  "TestComplete",
+  "Unity Test Framework",
+  "Unreal Engine Test Framework"
+];
+
+const sidebarRoles = [
+  { name: "Playtester", slug: "playtester", current: false },
+  { name: "QA Analyst", slug: "qa-analyst", current: false },
+  { name: "QA Engineer", slug: "qa-engineer", current: true },
+  { name: "Localization Tester", slug: "localization-tester", current: false }
+];
+---
+
+<BaseLayout title="QA Engineer" activeNav="career-guide">
+  <WikiLayout title="QA Engineer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Quality Assurance Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/qa/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/qa/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Quality Assurance</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A QA Engineer is a sentinel against bugs and glitches. They meticulously playtest every aspect of the game, from core mechanics to intricate details, hunting down errors and inconsistencies that could mar the player experience. They collaborate with developers, providing detailed feedback on gameplay balance, user experience, and technical performance. They also design automated tests, build testing tools, and champion a culture of quality throughout the development process, ensuring every pixel and interaction is polished and enjoyable, paving the way for a smooth and satisfying launch.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

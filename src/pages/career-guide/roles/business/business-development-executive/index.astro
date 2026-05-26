@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/business-development-executive-salary-SRCH_KO0,30.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/business-development-account-executive-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Business-Development-Executive-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Forge business alliances with other game companies, platforms, technology providers, and marketing partners to expand reach, access resources, and enhance the game's potential.",
+  "Negotiate favorable terms for partnerships, contracts, licensing agreements, and distribution deals, ensuring optimal financial benefit and value for the game.",
+  "Research and identify emerging trends, competitor strategies, and potential target markets to inform strategic business decisions and partnerships.",
+  "Collaborate with marketing teams to develop and implement targeted marketing campaigns across various channels, maximizing game awareness and driving player acquisition.",
+  "Network with industry professionals, investors, and potential partners at conferences and events to build brand awareness and generate business leads.",
+  "Craft compelling proposals and presentations to secure funding, partnerships, and investment opportunities for the game's development and launch.",
+  "Monitor the success of established partnerships, gather data on campaign effectiveness, and adjust strategies to optimize results and value generation.",
+  "Understand and comply with relevant legal and regulatory requirements within the gaming industry, ensuring ethical and transparent business practices.",
+  "Foster strong relationships with partners, proactively communicate, and address any concerns to maintain successful and mutually beneficial collaborations.",
+  "Align individual efforts with the overall business development strategy, actively contribute to achieving set goals and key performance indicators (KPIs) for the game and the company."
+];
+
+const resources = [
+  { name: "Business Development Resources (BDR)", url: "https://www.bdrco.com/" },
+  { name: "Business Development: Definition, Strategies, Steps & Skills", url: "https://www.investopedia.com/articles/personal-finance/090815/basics-business-development.asp" },
+  { name: "19 Top Business Development Resources To Stay Ahead Of Emerging Market Trends", url: "https://www.forbes.com/sites/forbesbusinessdevelopmentcouncil/2023/10/10/19-top-business-development-resources-to-stay-ahead-of-emerging-market-trends/?sh=778a3a2d2386" },
+  { name: "The Ultimate Guide to Business Development and How It Can Help Your Company Grow", url: "https://blog.hubspot.com/sales/business-development" },
+  { name: "+10 Best Business Development Training & Courses in 2024", url: "https://www.thebdschool.com/blog/business-development-training-courses" },
+  { name: "Business Development Foundations", url: "https://www.linkedin.com/learning/business-development-foundations-18980222" },
+  { name: "Go, Go, Gadget Business Development: A Beginner's Guide to Business Development in the Video Game Industry - GDC Talk by Jay Powell", url: "https://www.gdcvault.com/play/1021572/Go-Go-Gadget-Business-Development" },
+  { name: "Winning the business development game (without feeling like a sell-out)", url: "https://www.gamesindustry.biz/winning-the-business-development-game-without-feeling-like-a-sell-out" }
+];
+
+const books = [
+  { name: "Reality Is Broken: Why Games Make Us Better and How They Can Change the World by Jane McGonigal", url: "https://www.amazon.com/Reality-Broken-Games-Better-Change-ebook/dp/B004G8Q1Q4" },
+  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "One Up: Creativity, Competition, and the Global Business of Video Games by Joost van Dreunen", url: "https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527" },
+  { name: "Virtual Selling: How to Build Relationships, Differentiate, and Win Sales Remotely by Mike Schultz, Dave Shaby and Andy Springer", url: "https://www.amazon.com/Virtual-Selling-Relationships-Differentiate-Remotely-ebook/dp/B088KW33WZ" },
+  { name: "Business Development For Dummies by Anna Kennedy", url: "https://www.amazon.com/Business-Development-Dummies-Anna-Kennedy/dp/1118962710" },
+  { name: "What, Exactly, Is Business Development?: A Primer on Getting Deals Done by Scott Pollack", url: "https://www.amazon.com/What-Exactly-Business-Development-Getting/dp/1521770506" }
+];
+
+const tools = [
+  "Microsoft Excel",
+  "Salesforce",
+  "HubSpot CRM",
+  "LinkedIn Sales Navigator",
+  "Hunter.io",
+  "Crunchbase Pro",
+  "Owler",
+  "App Annie",
+  "Sensor Tower",
+  "Discord",
+  "Git",
+  "Trello"
+];
+
+const sidebarRoles = [
+  { name: "Product Manager", slug: "product-manager", current: false },
+  { name: "Business Development Executive", slug: "business-development-executive", current: true },
+  { name: "User Acquisition Specialist", slug: "user-acquisition-specialist", current: false },
+  { name: "Specialist Lawyer", slug: "specialist-lawyer", current: false },
+  { name: "Human Resources Specialist", slug: "human-resources-specialist", current: false },
+  { name: "Financial Specialist", slug: "financial-specialist", current: false },
+  { name: "Office/Studio Manager", slug: "office-studio-manager", current: false }
+];
+---
+
+<BaseLayout title="Business Development Executive" activeNav="career-guide">
+  <WikiLayout title="Business Development Executive" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Business Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/business/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/business/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Business</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Business Development Specialist in the game industry is a matchmaker of sorts, forging connections that fuel the industry's growth. They're the relationship architects, building bridges between game companies, investors, partners, and sometimes even players. Their goal is to identify and unlock new revenue streams and opportunities. This involves digging deep into market trends, scouting for potential partners, and negotiating deals that benefit everyone involved. From securing funding for indie studios to crafting strategic partnerships for major publishers, they're the glue that holds the game industry's ecosystem together, constantly seeking out and cultivating opportunities that make the whole sector thrive.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

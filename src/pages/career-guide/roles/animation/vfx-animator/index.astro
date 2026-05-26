@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/vfx-animator-salary-SRCH_KO0,12.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/search?keyword=vfx%20animator" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/VFX-Animator-Salary" }
+];
+
+const responsibilities = [
+  "Design immersive environment effects (explosions, weather, fire).",
+  "Seamlessly integrate VFX with in-game assets and lighting.",
+  "Optimize effects for smooth gameplay and resource efficiency.",
+  "Collaborate with programmers to implement VFX within engine limitations.",
+  "Enrich narrative through VFX and evoke emotional responses in players.",
+  "Translate concept art into stunning and impactful VFX.",
+  "Iterate on VFX based on feedback from designers and playtesters."
+];
+
+const resources = [
+  { name: "Building a Great VFX Portfolio by Hadidjah Chamberlin", url: "https://www.hadidjah.com/demo-vfx-portfolio" },
+  { name: "VFX Courses in Udemy", url: "https://www.udemy.com/courses/search/?src=ukw&q=VFX+Animation" },
+  { name: "What is the Difference Between Animation and VFX? by USV", url: "https://usv.edu/blog/what-is-the-difference-between-animation-and-vfx/" },
+  { name: "VFX Courses by Motion Design School", url: "https://motiondesign.school/vfx-courses/" },
+  { name: "Diploma in 3D Animation and Visual Effects (VFX) by AAFT Online", url: "https://aaftonline.com/diploma-in-animation-and-vfx" },
+  { name: "CGSpectrum VFX Courses", url: "https://www.cgspectrum.com/courses/visual-effects" },
+  { name: "3D Animation & VFX Course by Vancouver Film School", url: "https://vfs.edu/programs/3D-animation-vfx" },
+  { name: "Mastered’s VFX Bootcamp", url: "https://join.mastered.com/vfx_artist_sb" },
+  { name: "The Essential Guide to Building a Successful VFX Workflow by Dan Swierenga", url: "https://blog.frame.io/2020/02/17/vfx-workflow-best-practices/" },
+  { name: "What is the VFX Pipeline? by Ricky Cheung", url: "https://massive.io/workflow/vfx-pipeline/" },
+  { name: "The Art of VFX in Games", url: "https://www.argentics.io/the-art-of-vfx-in-video-games" },
+  { name: "NextGen Level 3 Extended Diploma in Games, Animation and Visual Effects Skills", url: "https://gateway.ac.uk/course/nextgen-games-development-l3/" }
+];
+
+const books = [
+  { name: "The Animator's Survival Kit by Richard Williams", url: "https://www.amazon.com/Animators-Survival-Kit-Principles-Classical/dp/086547897X/ref=sr_1_1" },
+  { name: "Timing for Animation by Harold Whitaker and John Halas", url: "https://www.amazon.com/Timing-Animation-Harold-Whitaker/dp/0240517148" },
+  { name: "The VES Handbook of Visual Effects: Industry Standard VFX Practices and Procedures", url: "https://www.amazon.com/VES-Handbook-Visual-Effects-Procedures/dp/1138542202/ref=sr_1_1" },
+  { name: "Physics for Game Developers by David Bourg and Bryan Bywalec", url: "https://www.amazon.com/Physics-Game-Developers-Science-realistic/dp/1449392512/ref=sr_1_1" },
+  { name: "Why I Do VFX: The Untold Truths About Working in Visual Effects by Vicki Lau", url: "https://www.amazon.com/Why-Do-VFX-Working-Effects/dp/B0983YXQLR/ref=sr_1_1" },
+  { name: "The Filmmaker's Guide to Visual Effect by Eran Dinur", url: "https://www.amazon.com/Filmmakers-Guide-Visual-Effects-Cinematographers-ebook/dp/B06XVW66K6/ref=sr_1_2" },
+  { name: "The Visual Effects Producer by Charles Finance and Susan Zwerman", url: "https://www.amazon.com/Visual-Effects-Producer-Understanding-Business/dp/0240812638/ref=sr_1_3" },
+  { name: "The Art and Science of Digital Compositing by Ron Brinkmann", url: "https://www.amazon.com/Art-Science-Digital-Compositing-Techniques/dp/0123706386/ref=sr_1_7" },
+  { name: "Story Structure and Development: A Guide for Animators, VFX Artists, Game Designers, and Virtual Reality by Craig Caldwell", url: "https://www.routledge.com/Story-Structure-and-Development-A-Guide-for-Animators-VFX-Artists-Game/Caldwell/p/book/9781498781732" }
+];
+
+const tools = [
+  "Game Engines",
+  "Maya",
+  "Blender",
+  "After Effects",
+  "Houdini",
+  "Adobe Animate",
+  "Toon Boom Harmony",
+  "Particle System Editors (ex: Niagara, Shuriken, etc.)",
+  "NVIDIA PhysX",
+  "Nuke"
+];
+
+const sidebarRoles = [
+  { name: "Character Animator", slug: "character-animator", current: false },
+  { name: "Cinematic Animator", slug: "cinematic-animator", current: false },
+  { name: "Motion Capture Artist", slug: "motion-capture-artist", current: false },
+  { name: "Technical Animator", slug: "technical-animator", current: false },
+  { name: "UX/UI Animator", slug: "ux-ui-animator", current: false },
+  { name: "VFX Animator", slug: "vfx-animator", current: true },
+  { name: "Rigging Artist", slug: "rigging-artist", current: false }
+];
+---
+
+<BaseLayout title="VFX Animator" activeNav="career-guide">
+  <WikiLayout title="VFX Animator" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Animation Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/animation/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/animation/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Animation</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>VFX animators occupy a unique space within the cinematic workflow, bridging the gap between artistic vision and technical feasibility. More than mere technical prowess, VFX animation demands a collaborative spirit. Animators work closely with directors, designers, and other artists to ensure their effects serve the narrative and resonate with the audience. They are problem solvers, adept at tackling complex technical challenges to achieve the desired visual impact, balancing artistic expression with performance efficiency.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

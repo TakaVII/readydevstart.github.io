@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-content-marketer-salary-SRCH_IL.0,2_IN1_KO3,19.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/content-marketer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Content-Marketer-Salary" }
+];
+
+const responsibilities = [
+  "Develop a comprehensive content strategy aligned with the game's marketing goals, target audience, and overall brand identity.",
+  "Craft various content formats like blog posts, articles, videos, trailers, social media posts, and live streams to capture player attention and drive engagement.",
+  "Understand and implement SEO best practices to ensure content reaches the right audience through organic search queries.",
+  "Work closely with developers, community managers, designers, and other departments to ensure content aligns with game updates, features, and community interactions.",
+  "Monitor content reach, engagement, conversion rates, and other key metrics to measure success and inform future content strategies.",
+  "Embrace emerging trends, explore new content formats, and utilize data analytics tools to continuously improve content effectiveness.",
+  "Leverage platforms like YouTube ads, social media advertising, and influencer partnerships to amplify content reach and drive targeted player acquisition.",
+  "Explore interactive content, user-generated content, and other innovative formats to keep the audience engaged and excited about the game.",
+  "Clearly demonstrate the value of content marketing efforts by tying content performance to key business goals like player acquisition, retention, and revenue generation."
+];
+
+const resources = [
+  { name: "44 Must Read Resources on Content Marketing", url: "https://neilpatel.com/blog/44-content-marketing-resources/" },
+  { name: "The Ultimate Guide to Content Marketing in 2023 by HubSpot", url: "https://blog.hubspot.com/marketing/content-marketing" },
+  { name: "Content Marketing Resources: How to Grow as a Content Marketer", url: "https://www.copystash.io/content-marketing-resources/" },
+  { name: "The Ultimate Guide to Content Marketing Strategy by Semrush", url: "https://www.semrush.com/blog/content-marketing-strategy-guide/" },
+  { name: "Spice Up Your Content Marketing Plan with Branded Games", url: "https://www.easypromosapp.com/blog/en/content-marketing-gamification/" },
+  { name: "10 Content Marketing Strategies for Your Game Launch", url: "https://www.gamemarketinggenie.com/blog/game-launch-content-marketing-strategies" },
+  { name: "6 Lessons Content Marketers Can Learn from the Video Game Industry", url: "https://www.wtmdigital.com/blog/6-lessons-content-marketers-can-learn-from-the-video-game-industry/" },
+  { name: "Content Writing for Games: A Tool for Success", url: "https://goodmanlantern.com/blog/content-writing-for-games/" },
+  { name: "Game Content Marketing Strategy: How to Adopt Content Marketing Strategies for Your Game Launch?", url: "https://www.tridindia.com/blog/game-content-marketing-strategy/" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
+  { name: "The Content Shift: Why A Search Mindset Is Essential To Your Content Marketing Strategy by Mark Hawks and Jonathan Heinl", url: "https://www.amazon.com/dp/B0BW27PCSZ/" },
+  { name: "The One Hour Content Plan by Meera Kothand", url: "https://www.amazon.com/One-Hour-Content-Plan-Solopreneurs/dp/1974415708/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/Hook-Point-Stand-3-Second-World-ebook/dp/B08D56R2FW/" },
+  { name: "The Quickest Guide to Content Creation by Helena Escalante", url: "https://www.amazon.com/Quickest-Guide-Content-Creation-Consistently-ebook/dp/B08BJ16NY7/" },
+  { name: "The One-Page Content Marketing Blueprint by Prafull Sharma", url: "https://www.amazon.com/One-Page-Content-Marketing-Blueprint-Strategy-ebook/dp/B082QVKYKR/" },
+  { name: "Content Rules: How to Create Killer Blogs, Podcasts, Videos, Ebooks, Webinars (and More) That Engage Customers and Ignite Your Business by Ann Handley and C. C. Chapman", url: "https://www.amazon.com/Content-Rules-Podcasts-Webinars-Customers/dp/1118232607" },
+  { name: "Don't Make It Weird: The Entrepreneur’s Guide to Being Human on the Internet by Colleen Nichols", url: "https://www.amazon.com/Dont-Make-Weird-Entrepreneurs-Internet/dp/B0CPTDLM1M/" },
+  { name: "How to Get to the Top of Google: The Plain English Guide to SEO by Tim Cameron-Kitchen and Exposure Ninja", url: "https://www.amazon.com/How-Get-Top-Google-English/dp/B07CB218ZV/" },
+  { name: "The YouTube Formula: How Anyone Can Unlock the Algorithm to Drive Views, Build an Audience, and Grow Revenue by Derral Eves and \"Mr. Beast\" Jimmy Donaldson", url: "https://www.amazon.com/YouTube-Formula-Algorithm-Audience-Revenue/dp/B09XY1HQ32" }
+];
+
+const tools = [
+  "Adobe Photoshop",
+  "Adobe Premiere Pro",
+  "Adobe After Effects",
+  "Canva",
+  "Hootsuite",
+  "BuzzSumo",
+  "Google Analytics",
+  "Semrush",
+  "Ahrefs",
+  "MailChimp",
+  "WordPress",
+  "Asana",
+  "Trello",
+  "Discord",
+  "Grammarly"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: true },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="Content Marketer" activeNav="career-guide">
+  <WikiLayout title="Content Marketer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Content Marketer is the storyteller extraordinaire, creating captivating narratives that draw players into the heart of the game and keep them coming back for more. Their arsenal is filled with creative tools: crafting engaging blog posts and articles, conjuring up breathtaking trailers and cinematic visuals, and even orchestrating thrilling live streams and influencer collaborations. They understand the power of words and visuals, using them to build hype, showcase hidden depths, and foster a sense of community around the game.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

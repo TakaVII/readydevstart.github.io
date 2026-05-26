@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/operations-manager-salary-SRCH_KO0,18.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/game-operations-manager-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Operations-Manager-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Design and implement post-launch live operations plans, including events, content updates, and player engagement strategies.",
+  "Analyze player data and feedback, identify trends and pain points, and translate insights into actionable improvements for the game.",
+  "Foster a healthy and vibrant community, manage communication channels, address player concerns, and build brand loyalty.",
+  "Optimize in-game economies and monetization systems, ensuring fairness, profitability, and alignment with player expectations.",
+  "Manage and schedule in-game content releases, ensuring a steady stream of engaging activities and experiences for players.",
+  "Address player issues and reports promptly, troubleshoot technical problems, and ensure a smooth and enjoyable player experience.",
+  "Track key performance indicators (KPIs) related to live operations, analyze performance, and recommend adjustments to optimize player engagement and retention.",
+  "Collaborate with marketing teams on live ops campaigns, promote new content and updates, and drive player engagement through targeted messaging.",
+  "Manage relationships with external partners, negotiate deals for in-game collaborations and promotions, and leverage partnerships to enhance the player experience."
+];
+
+const resources = [
+  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
+  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" },
+  { name: "What Does Gaming Operations Management Encompass?", url: "https://www.oceangamingconsult.ug/blog/what-does-gaming-operations-management-encompass" },
+  { name: "Operations Management: How It Drives Production and Enhances Profitability", url: "https://safetyculture.com/topics/operations-management/" },
+  { name: "A Comprehensive Guide to Operations Management: 10 Key Principles", url: "https://emeritus.org/in/learn/what-is-operations-management/" }
+];
+
+const books = [
+  { name: "Operations Management For Dummies by Mary Ann Anderson, Edward J. Anderson and Geoffrey Parker", url: "https://www.amazon.com/Operations-Management-Dummies-Business-Personal/dp/1119843103/" },
+  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
+  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
+  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
+  { name: "The Game Production Toolbox by Heather Maxwell Chandler", url: "https://www.amazon.com/Production-Toolbox-Heather-Maxwell-Chandler-ebook/dp/B086XLC7RY" },
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "One Up: Creativity, Competition, and the Global Business of Video Games by Joost van Dreunen", url: "https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527" },
+  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" },
+  { name: "The Dream Architects: Adventures in the Video Game Industry by David Polfeldt", url: "https://www.amazon.com/Dream-Architects-Adventures-Video-Industry/dp/B08FMVSFMR" },
+  { name: "The McGraw-Hill 36-Hour Course: Operations Management (McGraw-Hill 36-Hour Courses) by Linda Brennan", url: "https://www.amazon.com/McGraw-Hill-36-Hour-Course-Operations-Management/dp/0071743839" },
+  { name: "Operations Management by Jay Heizer and Barry Render", url: "https://www.amazon.com/Operations-Management-11th-Jay-Heizer/dp/0132921146/" }
+];
+
+const tools = [
+  "Game Engines",
+  "Jira",
+  "Confluence",
+  "Git",
+  "Discord",
+  "PagerDuty",
+  "Datadog",
+  "Splunk",
+  "Grafana",
+  "Kibana",
+  "Tableau",
+  "Power BI",
+  "Azure DevOps"
+];
+
+const sidebarRoles = [
+  { name: "Game Producer", slug: "game-producer", current: false },
+  { name: "Executive Producer", slug: "executive-producer", current: false },
+  { name: "Publisher", slug: "publisher", current: false },
+  { name: "Project Manager", slug: "project-manager", current: false },
+  { name: "Operations Manager", slug: "operations-manager", current: true }
+];
+---
+
+<BaseLayout title="Operations Manager" activeNav="career-guide">
+  <WikiLayout title="Operations Manager" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Production Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--color-pink);">
+              <strong style="font-size: 0.9rem; color: var(--color-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/production/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/production/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Production</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>An Operations Manager in the game industry is the engine behind the smooth running of a live game. They're the unseen force ensuring servers hum, content updates roll out flawlessly, and players encounter minimal hiccups. They are seen juggling server health, player engagement, and revenue streams simultaneously. From monitoring server performance and resolving technical issues to coordinating live events and analyzing player data, their responsibilities are diverse. They collaborate with developers, community managers, and marketing teams to keep the game humming, adapting to player feedback and optimizing the experience for maximum enjoyment, keeping the game alive and thriving, post-launch, while paving the way for continued growth and player satisfaction.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--color-bg); border: 1px solid var(--color-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>
