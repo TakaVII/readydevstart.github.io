@@ -1,0 +1,57 @@
+# Indie Game Academy’s Gamedev Careers Guide
+
+> ***Version 2.0 - April 2024***
+> 
+
+> *First big update for the Careers Guide! We focused on improving the UI and segmenting each category as its own page!*
+> 
+
+Hi there! Welcome to the IGA Gamedev Careers Guide, your gateway into understanding working in the game industry.
+
+These resources have been gathered from a number of talented voices from all around games.
+
+We recommend you start in the Career Paths section, getting to know your discipline. 
+
+Please share this with anyone you feel might benefit from it.
+
+<aside>
+<img src="descarga_(2).png" alt="descarga_(2).png" width="40px" /> Feel free to join [IGA’s wonderful Discord community](https://discord.gg/6aWbWVYreJ)!
+
+</aside>
+
+---
+
+<aside>
+💡 Think we can make this guide even more awesome? [Tell us how!](https://www.notion.so/IGA-s-Career-Guide-Suggestion-41b71bf7529e4ab0a8dd7b3fd202957e?pvs=21)
+
+</aside>
+
+[https://www.youtube.com/watch?v=0JRSXh99sJk&ab_channel=IndieGameAcademy](https://www.youtube.com/watch?v=0JRSXh99sJk&ab_channel=IndieGameAcademy)
+
+---
+
+[Job Boards](Job%20Boards%20958cc9115ad04ad09e53b741c3894790.md)
+
+[Resource List](Resource%20List%201546edc2bef54124b5adaf9ca3d4da9e.md)
+
+[Career Paths](Career%20Paths%20a0e0a9ef6bb04d6988f21ac527d7b68f.md)
+
+[Online Content Database](Online%20Content%20Database%200bf0c8209c774a589c43fe5def2cd37a.md)
+
+[IGA Upcoming Events & Classes](IGA%20Upcoming%20Events%20&%20Classes%203e38128193a640e8b5f8424a776af4e0.md)
+
+<aside>
+☕ Indie Game Academy is powered by caffeine. Feeling generous?
+[Fuel our next creation!](https://ko-fi.com/indiegameacademy)
+
+</aside>
+
+[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvODMwN2I5ZjYtYjlhMS00MDcyLWJlMzEtMWIxY2JhNjk4YjZiQ2FyZWVyJTI1MjBSZXNvdXJjZXMlMjUyMExpc3QucG5nIiwibGlua0hyZWYiOiJodHRwczovL2luZGllZ2FtZWFjYWRlbXkubm90aW9uLnNpdGUvSUdBLVVwY29taW5nLUV2ZW50cy1DbGFzc2VzLTNlMzgxMjgxOTNhNjQwZThiNWY4NDI0YTc3NmFmNGUwP3B2cz00In0=](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvODMwN2I5ZjYtYjlhMS00MDcyLWJlMzEtMWIxY2JhNjk4YjZiQ2FyZWVyJTI1MjBSZXNvdXJjZXMlMjUyMExpc3QucG5nIiwibGlua0hyZWYiOiJodHRwczovL2luZGllZ2FtZWFjYWRlbXkubm90aW9uLnNpdGUvSUdBLVVwY29taW5nLUV2ZW50cy1DbGFzc2VzLTNlMzgxMjgxOTNhNjQwZThiNWY4NDI0YTc3NmFmNGUwP3B2cz00In0=)
+
+[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvNjQyNDM0ZGEtMDAwYy00ZDM4LTgwZTctMmMwY2E1NTNmNmVhSm9iJTI1MjBCb2FyZHMlMjUyMCgxKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL0NhcmVlci1QYXRocy1hMGUwYTllZjZiYjA0ZDY5ODhmMjFhYzUyN2Q3YjY4Zj9wdnM9MjUifQ==](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvNjQyNDM0ZGEtMDAwYy00ZDM4LTgwZTctMmMwY2E1NTNmNmVhSm9iJTI1MjBCb2FyZHMlMjUyMCgxKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL0NhcmVlci1QYXRocy1hMGUwYTllZjZiYjA0ZDY5ODhmMjFhYzUyN2Q3YjY4Zj9wdnM9MjUifQ==)
+
+[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvNWI3Y2M0YjgtODg0OS00ZjAyLWJlMzMtMmMzY2VjMTJkMGEwSm9iJTI1MjBCb2FyZHMlMjUyMCgyKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL1Jlc291cmNlLUxpc3QtMTU0NmVkYzJiZWY1NDEyNGI1YWRhZjljYTNkNGRhOWU_cHZzPTI1In0=](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvNWI3Y2M0YjgtODg0OS00ZjAyLWJlMzMtMmMzY2VjMTJkMGEwSm9iJTI1MjBCb2FyZHMlMjUyMCgyKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL1Jlc291cmNlLUxpc3QtMTU0NmVkYzJiZWY1NDEyNGI1YWRhZjljYTNkNGRhOWU_cHZzPTI1In0=)
+
+[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvMjQzNWIwNmQtYjEyMS00OTBhLTgzMzYtZWExZjQ1NzBjNTcwSm9iJTI1MjBCb2FyZHMlMjUyMCg0KS5wbmciLCJsaW5rSHJlZiI6Imh0dHBzOi8vaW5kaWVnYW1lYWNhZGVteS5ub3Rpb24uc2l0ZS9Kb2ItQm9hcmRzLTk1OGNjOTExNWFkMDRhZDA5ZTUzYjc0MWMzODk0NzkwP3B2cz0yNSJ9](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvMjQzNWIwNmQtYjEyMS00OTBhLTgzMzYtZWExZjQ1NzBjNTcwSm9iJTI1MjBCb2FyZHMlMjUyMCg0KS5wbmciLCJsaW5rSHJlZiI6Imh0dHBzOi8vaW5kaWVnYW1lYWNhZGVteS5ub3Rpb24uc2l0ZS9Kb2ItQm9hcmRzLTk1OGNjOTExNWFkMDRhZDA5ZTUzYjc0MWMzODk0NzkwP3B2cz0yNSJ9)
+
+[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvM2QxZjAxMDYtM2FjZS00NWZhLWIxMGQtM2E4Nzg0ODJjYjY2Sm9iJTI1MjBCb2FyZHMlMjUyMCgzKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL09ubGluZS1Db250ZW50LURhdGFiYXNlLTBiZjBjODIwOWM3NzRhNTg5YzQzZmU1ZGVmMmNkMzdhP3B2cz0yNSJ9](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvM2QxZjAxMDYtM2FjZS00NWZhLWIxMGQtM2E4Nzg0ODJjYjY2Sm9iJTI1MjBCb2FyZHMlMjUyMCgzKSUyNTIwKDEpLnBuZyIsImxpbmtIcmVmIjoiaHR0cHM6Ly9pbmRpZWdhbWVhY2FkZW15Lm5vdGlvbi5zaXRlL09ubGluZS1Db250ZW50LURhdGFiYXNlLTBiZjBjODIwOWM3NzRhNTg5YzQzZmU1ZGVmMmNkMzdhP3B2cz0yNSJ9)
