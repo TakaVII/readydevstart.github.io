@@ -1,0 +1,188 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/storyboard-artist-salary-SRCH_KO0,17.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/storyboard-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Storyboard-Artist-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Transform scripts, game design documents, and gameplay concepts into clear and engaging storyboards that communicate the intended flow and emotion of the game.",
+  "Compose dynamic storyboards for cutscenes, cinematics, and in-game events, using camera angles, framing, and composition to enhance storytelling and emotional impact.",
+  "Closely work with game directors and writers to understand the narrative vision, interpret key moments, and translate them into visually compelling sequences.",
+  "Utilize storyboards to effectively showcase gameplay mechanics, character interactions, and level layouts, ensuring clarity and understanding for other teams.",
+  "Proficiently employ composition, framing, perspective, and cinematic shots to convey narrative beats, character emotions, and action within the game world.",
+  "Vary panel size, layout, and transitions to control the pacing and rhythm of the story, building tension, excitement, and emotional impact.",
+  "Utilize dynamic poses, expressions, and body language to portray character emotions, actions, and reactions within the storyboard sequences.",
+  "Ensure storyboards align with the game's overall visual style, tone, and character designs, contributing to a cohesive visual experience.",
+  "Effectively communicate storyboard ideas and receive feedback from directors, writers, and other teams, adapting and refining storyboards for optimal impact."
+];
+
+const resources = [
+  { name: "How to build a storyboard by Canva", url: "https://www.canva.com/learn/how-to-build-a-storyboard/" },
+  { name: "Drawing & Composition for Visual Storytelling", url: "http://www.floobynooby.com/comp1.html" },
+  { name: "The Animation Story Group - Discord Server", url: "https://discord.gg/JbeUjbs42u" },
+  { name: "Storyboarder Free Tool", url: "https://wonderunit.com/storyboarder/" },
+  { name: "StoryboardArt Tutorials and Guides", url: "https://storyboardart.org/" },
+  { name: "Storyboard Artist: Everything You Need To Know", url: "https://www.nfi.edu/storyboard-artist/" },
+  { name: "How to Become a Storyboard Artist by Teal", url: "https://www.tealhq.com/how-to-become/storyboard-artist" },
+  { name: "What is a Storyboard Artist?", url: "https://storyboardartists.com/what-is-a-storyboard-artist/" },
+  { name: "How to Become a Storyboard Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/storyboard-artist" },
+  { name: "How to Become a Storyboard Artist: Easy Peasy by Emiliano Pardo Saguier", url: "https://bunnystudio.com/blog/how-to-become-a-storyboard-artist-easy-peasy/" }
+];
+
+const books = [
+  { name: "Understanding Comics: The Invisible Art by Scott McCloud", url: "https://www.amazon.co.uk/Understanding-Comics-Invisible-Scott-McCloud/dp/006097625X" },
+  { name: "The Art of the Storyboard: Storyboarding for Film, TV, and Animation by John Hart", url: "https://www.amazon.com/Art-Storyboard-Storyboarding-Film-Animation/dp/0240803299" },
+  { name: "Acting for Animators: 4th Edition by Ed Hooks", url: "https://www.amazon.com/-/he/Ed-Hooks/dp/1138669121" },
+  { name: "From Word to Image-2nd edition: Storyboarding and the Filmmaking Process by Marcie Begleiter", url: "https://www.amazon.com/Word-Image-2nd-Storyboarding-Filmmaking-Process/dp/193290767X/ref=sr_1_1" },
+  { name: "Cinematics Storyboard Workshop: Filmmaking Essentials for the Entry-Level Storyboard Artist by Gregg Davidson", url: "https://www.amazon.com/Cinematics-Storyboard-Workshop-Filmmaking-Entry-Level/dp/1624650414/ref=sr_1_4" },
+  { name: "Directing the Story: Professional Storytelling and Storyboarding Techniques for Live Action and Animation by Francis Glebas", url: "https://www.amazon.com/Directing-Story-Professional-Storytelling-Storyboarding/dp/0240810767" },
+  { name: "Storyboarding Essentials: SCAD Creative Essentials by David Harland Rousseau and Benjamin Reid Phillips", url: "https://www.amazon.com/Storyboarding-Essentials-Creative-Translate-Screen/dp/0770436943/ref=pd_bxgy_d_sccl_1/142-8161820-1280056" },
+  { name: "Framed Ink: Drawing and Composition for Visual Storytellers by Marcos Mateu-Mestre", url: "https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953/ref=pd_bxgy_d_sccl_2/142-8161820-1280056" },
+  { name: "The Storyboard Artist: A Guide to Freelancing in Film, TV, and Advertising by Giuseppe Cristiano", url: "https://www.amazon.com/Storyboard-Artist-Guide-Freelancing-Advertising/dp/1615930833/ref=pd_sbs_d_sccl_3_7/142-8161820-1280056" },
+  { name: "Sketching for Animation: Developing Ideas, Characters and Layouts in Your Sketchbook by Peter Parr", url: "https://www.amazon.com/Sketching-Animation-Developing-Characters-Sketchbook/dp/1350087092/ref=pd_sbs_d_sccl_3_11/142-8161820-1280056" },
+  { name: "Storyboards: Motion in Art by Mark Simon", url: "https://www.amazon.com/gp/product/0240808053/" },
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+];
+
+const tools = [
+  "Game Engines",
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Clip Studio Paint",
+  "Toon Boom Harmony",
+  "Storyboard Pro",
+  "OpenToonz",
+  "ComicLife",
+  "Krita",
+  "Wacom Cintiq or similar drawing tablet",
+  "Marmoset Toolbag",
+  "Lens Studio",
+  "Miro",
+  "Figma",
+  "Maquette",
+  "Frame.io"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: true },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Storyboard Artist" activeNav="career-guide">
+  <WikiLayout title="Storyboard Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A storyboard artist is the visionary bridge between script and screen. They translate the written word into a series of sequential comic-strip-like panels, visually mapping out the narrative flow of a film, animation, or game. Think of them as the director's sketch artist, using their drawing skills and storytelling instincts to capture key scenes, camera angles, character actions, and lighting. Their work serves as a crucial blueprint for the entire production, ensuring everyone from animators to cinematographers are on the same page, leading to a cohesive and visually stunning final product.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

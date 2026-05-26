@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/technical-animator-salary-SRCH_KO0,18.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/offering/3d-technical-animator-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Technical-Animator-Salary" }
+];
+
+const responsibilities = [
+  "Develop and maintain efficient animation pipelines, optimizing workflows and tools for smooth animation creation and integration.",
+  "Integrate physics and simulations, enhancing character interactions and movement realism with physics forces and constraints.",
+  "Optimize animation performance.",
+  "Develop and implement custom animation tools.",
+  "Troubleshoot and solve technical animation issues, identifying and resolving issues related to rigs, animation data, and performance.",
+  "Contribute to game design and storytelling, providing technical insights and feedback to enhance character interactions and gameplay."
+];
+
+const resources = [
+  { name: "Technicolor’s Tech Anim Course", url: "https://www.technicolorcreative.com/the-academy/courses/tech-anim/" },
+  { name: "Sir Wade’s Animation Technical Skills Workshop", url: "https://courses.sirwade.com/technical-animation-skills" },
+  { name: "BCIT’s Advanced Technical Arts Diploma", url: "https://www.bcit.ca/programs/technical-arts-advanced-diploma-full-time-5240advdip/" }
+];
+
+const books = [
+  { name: "Inspired 3D Advanced Rigging and Deformations by Brad Clark", url: "https://www.amazon.com/Inspired-3D-Advanced-Rigging-Deformations/dp/1592001165/ref=sr_1_1" },
+  { name: "Procedural 3D Modeling Using Geometry Nodes in Blender by Siemen Lens", url: "https://www.amazon.com/Procedural-Modeling-Using-Geometry-Blender/dp/1804612553/ref=sr_1_3_sspa" },
+  { name: "3D Character Development Workshop: Rigging Fundamentals for Artists and Animators by Erik Van Horn", url: "https://www.amazon.com/Character-Development-Workshop-Fundamentals-Animators-ebook/dp/B07CSGYSRP/ref=sr_1_4" },
+  { name: "Game Physics Engine Development (The Morgan Kaufmann Series in Interactive 3D Technology) by Ian Millington", url: "https://www.amazon.com/Physics-Development-Kaufmann-Interactive-Technology-ebook/dp/B07CSWDPVS/ref=sr_1_4" },
+  { name: "Physics for Game Developers: Science, math, and code for realistic effects by David Bourg", url: "https://www.amazon.com/Physics-Game-Developers-Science-realistic/dp/1449392512/ref=sr_1_4" },
+  { name: "Mathematics & Physics for Programmers (GAME DEVELOPMENT SERIES) by Danny Kodicek and John P Flynt", url: "https://www.amazon.com/Mathematics-Physics-Programmers-GAME-DEVELOPMENT/dp/1435457331/ref=sr_1_5" },
+  { name: "Game Physics (Interactive 3d Technology Series) by David H. Eberly", url: "https://www.amazon.com/Game-Physics-Interactive-3d-Technology/dp/1558607404/ref=sr_1_7" },
+  { name: "Programming Game AI by Example by Mat Buckland", url: "https://www.amazon.com/Programming-Example-Wordware-Developers-Library/dp/1556220782/ref=sr_1_1" }
+];
+
+const tools = [
+  "Game Engines",
+  "Maya",
+  "Houdini",
+  "MotionBuilder",
+  "ZBrush",
+  "IKinema Orion",
+  "Autodesk HumanIK",
+  "CAT (Character Animation Toolkit)",
+  "Headus UVLayout",
+  "GLSL",
+  "Shader Graph",
+  "Python",
+  "C#",
+  "C++",
+  "Version Control (Git/SVN/etc.)",
+  "Physics Simulation Software"
+];
+
+const sidebarRoles = [
+  { name: "Character Animator", slug: "character-animator", current: false },
+  { name: "Cinematic Animator", slug: "cinematic-animator", current: false },
+  { name: "Motion Capture Artist", slug: "motion-capture-artist", current: false },
+  { name: "Technical Animator", slug: "technical-animator", current: true },
+  { name: "UX/UI Animator", slug: "ux-ui-animator", current: false },
+  { name: "VFX Animator", slug: "vfx-animator", current: false },
+  { name: "Rigging Artist", slug: "rigging-artist", current: false }
+];
+---
+
+<BaseLayout title="Technical Animator" activeNav="career-guide">
+  <WikiLayout title="Technical Animator" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Animation Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/animation/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/animation/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Animation</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Technical animators ensure that characters move realistically and the game runs smoothly, bridging the gap between artistic vision and technological limitations. Their expertise extends beyond animation software, encompassing physics, scripting, and programming to tackle technical challenges and optimize animation tools. By collaborating with programmers and animation teams, they develop innovative solutions that push the boundaries of what's possible within the game engine. Technical animators are the architects of efficient animation, ensuring a seamless and immersive experience for players.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

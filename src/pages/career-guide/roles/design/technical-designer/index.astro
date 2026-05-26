@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/technical-designer-salary-SRCH_KO0,18.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/technical-game-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Game-Technical-Designer-Salary" }
+];
+
+const responsibilities = [
+  "Translate game mechanics and systems into code, blueprints, or scripting languages, ensuring technical feasibility and efficiency.",
+  "Analyze and optimize game systems for smoother performance, reducing resource usage and preventing technical bottlenecks.",
+  "Collaborate with programmers to identify and fix bugs, glitches, and technical issues.",
+  "Build quick and playable prototypes to test mechanics, refine systems, and validate feasibility before full implementation.",
+  "Develop complex in-game logic and behaviors using scripting languages or visual scripting tools.",
+  "Design and implement AI behaviors that are engaging, challenging, and responsive to player actions.",
+  "Develop reusable code or system components to streamline future development and improve maintainability."
+];
+
+const resources = [
+  { name: "Into Games’ Junior Technical Designer Database", url: "https://entrylevel.games/database/junior-technical-designer" },
+  { name: "Into Games’ Technical Designer Profile", url: "https://intogames.org/role/technical-designer/" },
+  { name: "What Is A Technical Designer? by GameDev.tv", url: "https://www.youtube.com/watch?v=SgjvbYsLPdM&ab_channel=GameDev.tv" },
+  { name: "Avoid an Identity Crisis as a Technical Designer - GDC Talk", url: "https://www.youtube.com/watch?v=MYZ-Agw4d1A&ab_channel=GDC" },
+  { name: "Why you need a Technical Designer", url: "https://www.gamedeveloper.com/design/why-you-need-a-technical-designer" },
+  { name: "ISART Technical Game Design Course", url: "https://www.isart.ca/programmes/programmes-courts/technical-design/" },
+  { name: "Game Accesibility Guidelines", url: "https://gameaccessibilityguidelines.com/" },
+  { name: "Accessible Player Experiences (APX)", url: "https://accessible.games/accessible-player-experiences/" }
+];
+
+const books = [
+  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
+  { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
+  { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
+  { name: "Game Usability by Noah Schaffer and Katherine Isbister", url: "https://www.amazon.com/gp/product/B0092J077G" },
+  { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" }
+];
+
+const tools = [
+  "Game Engines",
+  "C#",
+  "C++",
+  "Python",
+  "Git",
+  "Perforce",
+  "Maya",
+  "Blender",
+  "Houdini",
+  "ZBrush",
+  "Substance 3D Painter",
+  "Substance 3D Designer",
+  "Photoshop",
+  "Illustrator",
+  "Jira",
+  "Confluence",
+  "Excel",
+  "Subversion (SVN)",
+  "Xcode"
+];
+
+const sidebarRoles = [
+  { name: "Game Designer", slug: "game-designer", current: false },
+  { name: "Level Designer", slug: "level-designer", current: false },
+  { name: "Narrative Designer/Writer", slug: "narrative-designer-writer", current: false },
+  { name: "Gameplay Designer", slug: "gameplay-designer", current: false },
+  { name: "System Designer", slug: "system-designer", current: false },
+  { name: "UX/UI Designer", slug: "ux-ui-designer", current: false },
+  { name: "Technical Designer", slug: "technical-designer", current: true }
+];
+---
+
+<BaseLayout title="Technical Designer" activeNav="career-guide">
+  <WikiLayout title="Technical Designer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Game Design Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/design/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/design/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Game Design</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Technical Designer understands both the intricate workings of game engines and the nuances of gameplay systems. Their role is to translate design ideas into functional prototypes, ensuring mechanics are not only fun but also technically achievable within the engine's limitations. They collaborate closely with both designers and programmers, acting as interpreters and problem solvers. They break down complex systems into manageable tasks, identify potential technical hurdles, and propose elegant solutions that maintain the vision's integrity while adhering to technical constraints, shaping the foundation of engaging gameplay without compromising technical stability, and ensuring a smooth and enjoyable experience for players.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const sidebarRoles = [
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "Audio Producer", slug: "audio-producer", current: true },
+  { name: "Composer", slug: "composer", current: false },
+  { name: "Foley Artist", slug: "foley-artist", current: false },
+  { name: "Sound Designer", slug: "sound-designer", current: false },
+  { name: "Voiceover Artist", slug: "voiceover-artist", current: false }
+];
+---
+
+<BaseLayout title="Audio Producer" activeNav="career-guide">
+  <WikiLayout title="Audio Producer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Audio & Music Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/audio/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/audio/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Audio & Music</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Audio Producer is a specialized role in the game industry.</p>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

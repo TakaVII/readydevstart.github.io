@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-human-resources-specialist-salary-SRCH_IL.0,2_IN1_KO3,29.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/human-resources-specialist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Human-Resources-Specialist-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Attract, identify, and onboard skilled developers, artists, designers, and other game professionals, understanding the unique skillsets and cultural fit needed for a thriving game studio.",
+  "Design and implement attractive compensation packages and benefits programs that cater to the specific needs and expectations of game industry professionals.",
+  "Champion diversity, equity, and inclusion initiatives within the studio, promoting a healthy and supportive work culture that empowers employees to thrive.",
+  "Address employee concerns, resolve workplace conflicts professionally, and maintain positive relationships between management and staff.",
+  "Ensure accurate and timely payroll processing, manage employee benefits enrollment and administration, and comply with relevant labor laws and regulations.",
+  "Create opportunities for professional growth and skill development within the studio, fostering employee engagement and retention.",
+  "Implement and manage company HR policies, handbooks, and procedures, ensuring compliance with legal requirements and upholding fair and consistent practices.",
+  "Gather and analyze employee data on performance, engagement, retention, and other key metrics, informing strategic HR decisions and talent management initiatives."
+];
+
+const resources = [
+  { name: "IntoGames’ HR Manager Profile", url: "https://intogames.org/role/hr-manager/" },
+  { name: "5 HR challenges for gaming companies", url: "https://www.hibob.com/blog/gaming-companies-hr-challenges/" },
+  { name: "What's wrong with HR and how can it be fixed?", url: "https://www.gamesindustry.biz/whats-wrong-with-hr-and-how-can-it-be-fixed" },
+  { name: "HR: The Study into Recruitment and Selection in the Growing Game Development Industry: Importance of Soft Skills", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3902525" },
+  { name: "8 Employee Retention Strategies for Gaming Industry Leaders", url: "https://www.learnerbly.com/articles/employee-retention-gaming" },
+  { name: "HR Unplugged Podcast", url: "https://www.bamboohr.com/resources/podcasts/hr-unplugged/" },
+  { name: "HR Brew Newsletter", url: "https://www.hr-brew.com/" },
+  { name: "HR Bartender Blog", url: "https://www.hrbartender.com/" }
+];
+
+const books = [
+  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
+  { name: "Human Resources Kit For Dummies by Max Messmer", url: "https://www.amazon.com/Human-Resources-Kit-Dummies-Messmer/dp/1118422899/" },
+  { name: "The New HR Leader's First 100 Days by Alan Collins", url: "https://www.amazon.com/New-Leaders-First-100-Days/dp/0996096124/" },
+  { name: "The Little Black Book of Human Resources Management by Barry Wolfe", url: "https://www.amazon.com/Little-Black-Human-Resources-Management/dp/B017UZCNJS/" },
+  { name: "The Essential HR Handbook, 10th Anniversary Edition by Sharon Armstrong and Barbara Mitchell", url: "https://www.amazon.com/Essential-Handbook-10th-Anniversary-Professional/dp/1632651394/" },
+  { name: "The Culture Code: The Secrets of Highly Successful Groups by Daniel Coyle", url: "https://www.amazon.com/Culture-Code-Secrets-Highly-Successful/dp/0525492461" },
+  { name: "The Gamification of Learning and Instruction: Game-based Methods and Strategies for Training and Education by Karl M. Kapp", url: "https://www.amazon.com/Gamification-Learning-Instruction-Game-based-Strategies/dp/1118096347" },
+  { name: "Drive: The Surprising Truth About What Motivates Us by Daniel H. Pink", url: "https://www.amazon.com/Drive-Surprising-Truth-About-Motivates/dp/1594484805" },
+  { name: "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers by Ben Horowitz", url: "https://www.amazon.com/Hard-Thing-About-Things-Building/dp/0062273205" },
+  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" }
+];
+
+const tools = [
+  "Workday",
+  "HireVue",
+  "Greenhouse",
+  "LinkedIn Recruiter",
+  "Google Workspace",
+  "Workable",
+  "BambooHR",
+  "Culture Amp",
+  "Lattice",
+  "15Five",
+  "Personio",
+  "BreezyHR"
+];
+
+const sidebarRoles = [
+  { name: "Product Manager", slug: "product-manager", current: false },
+  { name: "Business Development Executive", slug: "business-development-executive", current: false },
+  { name: "User Acquisition Specialist", slug: "user-acquisition-specialist", current: false },
+  { name: "Specialist Lawyer", slug: "specialist-lawyer", current: false },
+  { name: "Human Resources Specialist", slug: "human-resources-specialist", current: true },
+  { name: "Financial Specialist", slug: "financial-specialist", current: false },
+  { name: "Office/Studio Manager", slug: "office-studio-manager", current: false }
+];
+---
+
+<BaseLayout title="Human Resources Specialist" activeNav="career-guide">
+  <WikiLayout title="Human Resources Specialist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Business Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/business/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/business/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Business</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>HR Specialists are the orchestrators of talent and well-being. On one hand, they're the talent scouts, recruiting and nurturing the creative minds that bring games to life. They craft engaging onboarding experiences, cultivate a positive work environment, and ensure fair compensation and benefits. From managing crunch cycles to fostering work-life balance, they prioritize employee satisfaction. But their role goes beyond just recruitment. They're the confidantes and conflict navigators, resolving issues, mediating disputes, and ensuring legal compliance. They champion diversity and inclusion, building a strong company culture where everyone feels valued and empowered.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

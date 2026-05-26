@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/ux-ui-designer-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/lead-ux-ui-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/UX-UI-Animator-Salary" }
+];
+
+const responsibilities = [
+  "Craft engaging micro-interactions for UI elements.",
+  "Design intuitive user flows with animation.",
+  "Champion accessibility and inclusivity in animations.",
+  "Master game engine animation tools and workflows.",
+  "Optimize animation performance for smooth gameplay.",
+  "Collaborate with programmers and designers on UI/UX goals.",
+  "Provide technical feedback and recommendations.",
+  "Iterate on animations based on feedback and testing.",
+  "Contribute to the game's visual identity through animation."
+];
+
+const resources = [
+  { name: "Animation for UI Designers by Career Foundry", url: "https://careerfoundry.com/en/courses/animation-for-ui-designers/" },
+  { name: "UI Animation Essentials Course by Motion Design School", url: "https://motiondesign.school/courses/ui-animation-essentials/" },
+  { name: "UI Animation—How to Apply Disney’s 12 Principles of Animation to UI Design", url: "https://www.interaction-design.org/literature/article/ui-animation-how-to-apply-disney-s-12-principles-of-animation-to-ui-design" },
+  { name: "Animation in UI: How to Create Motion Design by Aela School", url: "https://aelaschool.com/en/interactiondesign/ui-animation-create-motion-design/" },
+  { name: "UI Animation – All You Need to Know and Examples by UXPIN", url: "https://www.uxpin.com/studio/blog/ui-animation-examples/" },
+  { name: "UI Animation: A Complete Guide For Beginners by Career Foundry", url: "https://careerfoundry.com/en/blog/ui-design/ui-animation-beginners-guide/" }
+];
+
+const books = [
+  { name: "The Design of Everyday Things by Don Norman", url: "https://www.amazon.com/Design-of-Everyday-Things-audiobook/dp/B07L5Y9HND/ref=sr_1_1" },
+  { name: "Don't Make Me Think by Steve Krug", url: "https://www.amazon.com/Dont-Make-Think-Revisited-Usability/dp/0321965515/ref=sr_1_1" },
+  { name: "Designing with the Mind in Mind by Jeff Johnson", url: "https://www.amazon.com/Designing-Mind-Understanding-Interface-Guidelines/dp/0128182024/ref=sr_1_1" },
+  { name: "Microinteractions by Dan Saffer and Don Norman", url: "https://www.amazon.com/Microinteractions-Full-Color-Designing-Details/dp/1491945923/ref=sr_1_1" },
+  { name: "Lean UX by Jeff Gothelf and Josh Seiden", url: "https://www.amazon.com/Lean-UX-Designing-Great-Products/dp/B09TCVPKR4/ref=sr_1_1" }
+];
+
+const tools = [
+  "Game Engines",
+  "Maya",
+  "Blender",
+  "After Effects",
+  "Animate",
+  "Aseprite",
+  "Photoshop",
+  "Toon Boom Harmony",
+  "Live2D",
+  "Anima",
+  "Duik Bassel",
+  "Figma",
+  "Adobe XD",
+  "Proto.io",
+  "Framer",
+  "Sketch",
+  "Illustrator"
+];
+
+const sidebarRoles = [
+  { name: "Character Animator", slug: "character-animator", current: false },
+  { name: "Cinematic Animator", slug: "cinematic-animator", current: false },
+  { name: "Motion Capture Artist", slug: "motion-capture-artist", current: false },
+  { name: "Technical Animator", slug: "technical-animator", current: false },
+  { name: "UX/UI Animator", slug: "ux-ui-animator", current: true },
+  { name: "VFX Animator", slug: "vfx-animator", current: false },
+  { name: "Rigging Artist", slug: "rigging-artist", current: false }
+];
+---
+
+<BaseLayout title="UX/UI Animator" activeNav="career-guide">
+  <WikiLayout title="UX/UI Animator" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Animation Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/animation/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/animation/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Animation</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>UX/UI animators are the architects of interactivity in games. They craft the subtle movements, dynamic behaviors, and responsive animations that guide players through menus, interfaces, and the overall experience. Their skillset blends artistic vision with technical prowess, encompassing animation tools, scripting, and engine optimization. They collaborate with programmers and designers to ensure animations are efficient, performant, and accessible to all players. The impact of their work is profound: smoother interactions, enhanced engagement, and a stronger connection to the game's brand.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

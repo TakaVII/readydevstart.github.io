@@ -2,92 +2,254 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
+
+const generalResources = [
+  { name: "Amir Satvat's Video Games Career Resources", url: "https://www.linkedin.com/in/amirsatvat/" },
+  { name: "Entry Level Skills Hub by Into Games x Bird's Eye View", url: "https://entrylevel.games/" },
+  { name: "Hitmarker's Career Advice Posts", url: "https://hitmarker.net/career-advice" },
+  { name: "GDC Vault Videos", url: "https://www.youtube.com/@Gdconf/videos" },
+  { name: "IGDA's Career Center", url: "https://igda.org/career-center/" },
+  { name: "Careers in the Games Industry: Where, Why and What?", url: "https://www.youtube.com/watch?v=E_V1adZmSOs&ab_channel=ScreenSkills" },
+  { name: "Eva Tucker's List of Indie Studios", url: "https://docs.google.com/spreadsheets/d/1dFM3aqo0F_L7h-lCdjlSFviB1xDsa1nley6e3Y0cu74/edit#gid=0" },
+  { name: "Ultimate Games Careers Lesson Pack by Digital School House", url: "https://www.digitalschoolhouse.org.uk/workshops/games-careers" },
+];
+
+const networkingResources = [
+  { name: "Jean Leggett's Networking Best Practices", url: "https://docs.google.com/document/d/1prizmccq5Dpj75wKJi-qwfmKModp9nJ6w_xxA4Z4FNY/edit" },
+  { name: "How to Network in the Game Industry", url: "https://youtu.be/LWi8F1OSnbM" },
+  { name: "8 Networking Tips for Gaming Industry Events", url: "https://8bitplay.com/blog/8-networking-tips-for-gaming-industry-events/" },
+  { name: "The Perks and Challenges of Networking in the Games Industry by Patty Toledo", url: "https://www.linkedin.com/pulse/perks-challenges-networking-games-industry-balancing-mental-toledo/" },
+  { name: "Games Industry Networking: The Introvert's Guide", url: "https://intogames.org/news/games-industry-networking-the-introverts-guide/" },
+  { name: "How to Build Your Network as a Game Developer", url: "https://medium.com/@dparente/how-to-build-your-network-as-a-game-developer-3f4713e75a5a" },
+];
+
+const mentorshipResources = [
+  { name: "Amir Satvat's Mentorship Volunteers List", url: "https://docs.google.com/spreadsheets/d/1cmrazV2iLHCXyT77EXzE6yyNWtZFulHCfdx2CzfnDwI/edit?usp=sharing" },
+  { name: "Joe Hobbs' Game Development Advice Contacts List", url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYveFAl_GuvBo0iuy3EvgPm0fWAGci-Z8e5CZ6hoYz9n8gcoK4dgE0RML-x0pWqRNjGqte-V7phtqB/pubhtml" },
+  { name: "Diversity Champions' Free Mentorship Program", url: "https://www.diversitychampions.games/" },
+];
+
+const portfolioResources = [
+  { name: "How To Build A Games Portfolio Flowchart", url: "https://www.linkedin.com/posts/ifyouwillem_gameindustry-videogameindustry-gamedev-activity-7148025041358643201-OjMe" },
+  { name: "Example Portfolios by Vertical", url: "https://drive.google.com/file/d/1ja5Wv41Dre3fcStjAXbJ0jI5yIRHPFsz/view" },
+  { name: "How to Make a Game Industry Portfolio", url: "https://www.youtube.com/watch?v=-MC7DUV4vRY&ab_channel=IndieGameAcademy" },
+  { name: "Jean Leggett's Portfolio Advice", url: "https://docs.google.com/document/d/1ZTxfI83KUp3YCT7zB9xCfxnGpBEMxzS-amwhQYYpzHo/edit" },
+  { name: "How to Make Your First Game Portfolio Website", url: "https://www.youtube.com/watch?v=FxEEgMIpCtY&t=1s&ab_channel=IndieGameAcademy" },
+  { name: "Common Issues with Student Portfolios and CV's", url: "https://www.plusonewisdom.com/post/common-issues-with-student-portfolios-and-cv-s" },
+];
+
+const careerAdviceResources = [
+  { name: "Tips to Help You Break Into the Game Industry", url: "https://blog.indiegameacademy.com/educational-content/three-tips-to-help-you-break-into-the-game-industry/" },
+  { name: "The Ultimate Guide to Kickstarting Your Career In Games by Pauliina Tornqvist", url: "https://www.linkedin.com/pulse/ultimate-guide-kickstarting-your-career-games-pauliina-tornqvist/" },
+  { name: "ScreenSkills' Games Industry Career Map", url: "https://www.screenskills.com/media/4379/games-a2-current-inclusivity-web.pdf" },
+  { name: "How to Get Into the Game Industry by Sam Willis", url: "https://insider.dbsinstitute.ac.uk/how-to-get-into-the-gaming-industry-our-ultimate-guide-with-advice-from-the-pros" },
+  { name: "Expert Advice for Scoring a Career in Gaming", url: "https://joinhandshake.com/blog/students/how-to-work-in-gaming/" },
+  { name: "Respawn: A Guide to Career Transitions", url: "https://www.linkedin.com/pulse/respawn-guide-career-transitions-sabrina-meditz-pcccc" },
+];
+
+const jobHuntingResources = [
+  { name: "Justin Williams' Job Search Tips", url: "https://www.linkedin.com/posts/justinalanwilliams_this-will-be-my-last-post-in-2023-as-i-start-activity-7143608575582494722-gnGo" },
+  { name: "JD's Game Job List", url: "https://docs.google.com/document/d/1CU1H-8ZQWUPIBrT3VaUjjSMpOrarfpfhI86q8Bkpr_8/edit" },
+  { name: "Hadidjah Chamberlin's Job Hunting Resources and Tips", url: "https://www.hadidjah.com/job-hunting" },
+  { name: "Hadidjah Chamberlin's Interview Questions and Tips", url: "https://www.hadidjah.com/interview-questions-and-tips" },
+  { name: "Jean Leggett's Salary and Negotiation Advice", url: "https://docs.google.com/document/d/1rqW5F5B5UDSGnx5U2JOXg4phfJNMEuONI91zOl0IoDM/edit" },
+  { name: "ScreenSkills' How to Get a Good Interview", url: "https://www.screenskills.com/your-career/lesson-plans-and-classroom-resources/how-to-get-a-good-interview/" },
+  { name: "Mock Interview Guide by Alex Gombos", url: "https://www.dropbox.com/scl/fi/0div2e841ixzjimdwrz6j/Interview-Prep-Pack-2024.pdf?rlkey=sbb88b48m0tu2e8e0gu90jbsl&dl=0" },
+  { name: "Cover Letter Template", url: "https://docs.google.com/document/d/13Vd7Nb1Luf4Tr0ROKz8j65hDa2CLzfs5RFEVtYl0ddc/edit?usp=sharing" },
+];
+
+const industryPeople = [
+  { name: "Alex Gombos", tags: "Hiring, Job Hunting", url: "https://www.linkedin.com/in/alexgombos/" },
+  { name: "Amir Satvat", tags: "Community Support, Job Hunting", url: "https://www.linkedin.com/in/amirsatvat" },
+  { name: "Arin Goldsmith", tags: "Career Advice, Community Support, Job Hunting", url: "https://www.linkedin.com/in/arin-goldsmith" },
+  { name: "Aïda Figuerola", tags: "Career Advice, Community Support", url: "https://www.linkedin.com/in/afiguerola/" },
+  { name: "Ben Kvalo", tags: "Business, Community Support, Hiring", url: "https://www.linkedin.com/in/benkvalo/" },
+  { name: "Chris Tran", tags: "Career Advice, Community Support", url: "https://www.linkedin.com/in/chrisltran/" },
+  { name: "Christina-Marie Drake", tags: "Career Advice, Hiring, Job Hunting", url: "https://www.linkedin.com/in/christinasaidso" },
+  { name: "Jasmine Coppin", tags: "Animation, Art, Career Advice, Hiring", url: "https://www.linkedin.com/in/jasminehope/" },
+  { name: "Jen Donahoe", tags: "Business, Marketing", url: "https://www.linkedin.com/in/jenniferdonahoe" },
+  { name: "Jon Wolheim", tags: "Career Advice, Community Support, Programming", url: "https://www.linkedin.com/in/jonwolheim/" },
+  { name: "Jordan Mazer", tags: "Business, Career Advice, Community Support", url: "https://www.linkedin.com/in/jordanmazer/" },
+  { name: "Marie Ablaza", tags: "Career Advice, Community Support, Hiring", url: "https://www.linkedin.com/in/mariebenigno/" },
+  { name: "Matt Barney", tags: "Career Advice, Hiring, Job Hunting", url: "https://www.linkedin.com/in/the-matt-barney/" },
+  { name: "Pauliina Tornqvist", tags: "Career Advice, Community Support, Production", url: "https://www.linkedin.com/in/pauliinatornqvist/" },
+  { name: "Pebbles Klein", tags: "Community Support, Marketing", url: "https://www.linkedin.com/in/pebbleslozano" },
+  { name: "Sara Machado", tags: "Career Advice, Hiring, Job Hunting", url: "https://www.linkedin.com/in/scmachadouk/" },
+  { name: "Sarah Bond", tags: "Community Support", url: "https://www.linkedin.com/in/sarahrbond/" },
+  { name: "Sergei Vasiuk", tags: "Business, Career Advice", url: "https://www.linkedin.com/in/sergeivasjuk/" },
+  { name: "Tim Wood", tags: "Career Advice, Hiring, Job Hunting", url: "https://www.linkedin.com/in/timwood4134" },
+  { name: "Willem Delventhal", tags: "Business, Career Advice, Game Design", url: "https://www.linkedin.com/in/ifyouwillem" },
+];
+
+const youtubeChannels = [
+  { name: "Brackeys", tags: "Game Design, Programming, Tutorials, Unity", url: "https://www.youtube.com/@Brackeys" },
+  { name: "Code Monkey", tags: "Programming, Tutorials, Unity", url: "https://www.youtube.com/@CodeMonkeyUnity" },
+  { name: "Game Dev Guide", tags: "Animation, Programming, Tutorials, Unity", url: "https://www.youtube.com/@GameDevGuide" },
+  { name: "Game Maker's Toolkit", tags: "Game Design, Narrative Design, Production", url: "https://www.youtube.com/@GMTK" },
+  { name: "One Wheel Studio", tags: "Art, Game Design, Programming, Unity", url: "https://www.youtube.com/@OneWheelStudio" },
+  { name: "quill18creates", tags: "Game Design, Godot, Programming, Unity", url: "https://www.youtube.com/@quill18creates" },
+  { name: "Visual Novel Design", tags: "Narrative Design, Tutorials", url: "https://www.youtube.com/@vimi" },
+];
+
+const discordCommunities = [
+  { name: "Indie Game Academy", tags: "Career Guidance, Courses, Community", url: "https://discord.gg/aZ49q7Hux7" },
+  { name: "Game Dev Network", tags: "Career Guidance, Job Hunting, Community", url: "https://discord.gg/gdn" },
+  { name: "Game Dev League", tags: "Career Guidance, Job Hunting, Projects", url: "https://discord.gg/gamedev" },
+  { name: "Funsmith Club", tags: "Career Guidance, Community, Projects", url: "https://discord.gg/ZDVpZ38j5T" },
+  { name: "GameDevDrinkUp", tags: "Community, IRL Meetings", url: "https://discord.com/invite/bR3UxD2S" },
+  { name: "r/Gamedev", tags: "Career Guidance, Job Hunting, Community", url: "https://discord.gg/reddit-gamedev" },
+];
 ---
 
 <BaseLayout title="Resource List" activeNav="career-guide">
   <WikiLayout title="Career Resource List" activeNav="career-guide" activeSidebar="resources">
     <p>
-      A curated collection of books, courses, communities, and tools to help
-      you break into and advance within the game industry.
+      A compilation of free resources useful for every discipline within the
+      game industry — from general advice to networking tips to portfolio best practices.
     </p>
 
     <div class="career-layout">
       <aside class="career-sidebar">
-        <h3>Quick Nav</h3>
-        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
-          <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/roles/`}>← Browse Roles</a>
-          </p>
+        <h3>Sections</h3>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#general" style="font-size: 0.85rem;">📚 General Resources</a>
         </div>
-        <div class="card" style="padding: 1rem;">
-          <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/job-boards/`}>Job Boards →</a>
-          </p>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#networking" style="font-size: 0.85rem;">👥 Networking</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#mentorships" style="font-size: 0.85rem;">🫂 Mentorships</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#portfolio" style="font-size: 0.85rem;">📄 Portfolio</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#career-advice" style="font-size: 0.85rem;">🎓 Career Advice</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#job-hunting" style="font-size: 0.85rem;">📡 Job Hunting</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#people" style="font-size: 0.85rem;">👤 Industry People</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#youtube" style="font-size: 0.85rem;">🎬 YouTube Channels</a>
+        </div>
+        <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href="#discord" style="font-size: 0.85rem;">💬 Discord Communities</a>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Career Guide</a>
         </div>
       </aside>
 
       <div class="career-main">
-        <h2>📖 Books</h2>
-        <div class="card-grid" style="grid-template-columns: 1fr;">
-          <div class="card">
-            <h3>The Art of Game Design — Jesse Schell</h3>
-            <p>A comprehensive guide to game design principles with 100+ "lenses" for analyzing your designs.</p>
-          </div>
-          <div class="card">
-            <h3>Blood, Sweat, and Pixels — Jason Schreier</h3>
-            <p>Behind-the-scenes stories of game development that reveal the realities of the industry.</p>
-          </div>
-          <div class="card">
-            <h3>Game Programming Patterns — Robert Nystrom</h3>
-            <p>Essential programming patterns for game developers, available free online.</p>
-          </div>
+        <h2 id="general">📚 General Resources</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {generalResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
         </div>
 
-        <h2 style="margin-top: 2rem;">🎓 Online Courses</h2>
-        <div class="card-grid" style="grid-template-columns: 1fr;">
-          <div class="card">
-            <h3>GDC Vault (Free Talks)</h3>
-            <p>Hundreds of free conference talks from industry veterans on every game dev topic.</p>
-          </div>
-          <div class="card">
-            <h3>Coursera — Game Design Specialization</h3>
-            <p>University-level game design courses from CalArts and Michigan State.</p>
-          </div>
-          <div class="card">
-            <h3>Brackeys / Game Maker's Toolkit (YouTube)</h3>
-            <p>Free video tutorials and design analysis channels perfect for self-learners.</p>
-          </div>
+        <h2 id="networking">👥 Networking</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {networkingResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
         </div>
 
-        <h2 style="margin-top: 2rem;">🤝 Communities</h2>
-        <div class="card-grid" style="grid-template-columns: 1fr;">
-          <div class="card">
-            <h3>IGDA (International Game Developers Association)</h3>
-            <p>The largest non-profit for game developers — local chapters, events, and mentorship.</p>
-          </div>
-          <div class="card">
-            <h3>r/gamedev (Reddit)</h3>
-            <p>Active community for game developers of all levels sharing advice, feedback, and resources.</p>
-          </div>
-          <div class="card">
-            <h3>Game Dev Discord Servers</h3>
-            <p>Many discipline-specific Discord communities offer real-time feedback and networking.</p>
-          </div>
+        <h2 id="mentorships">🫂 Mentorships</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {mentorshipResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <h2 id="portfolio">📄 Portfolio Resources</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {portfolioResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <h2 id="career-advice">🎓 Career Advice</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {careerAdviceResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <h2 id="job-hunting">📡 Job Hunting</h2>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <ul>
+            {jobHuntingResources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <h2 id="people">👤 Industry People to Follow</h2>
+        <p style="margin-bottom: 1rem;">Industry professionals who share career advice, job leads, and community support on LinkedIn.</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+          {industryPeople.map((p) => (
+            <a href={p.url} target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none; padding: 1rem;">
+              <strong>{p.name}</strong>
+              <p style="font-size: 0.8rem; margin-top: 0.35rem; color: var(--clr-dark); opacity: 0.75;">{p.tags}</p>
+            </a>
+          ))}
+        </div>
+
+        <h2 id="youtube" style="margin-top: 2rem;">🎬 Gamedev YouTube Channels</h2>
+        <p style="margin-bottom: 1rem;">Free video tutorials and design analysis channels perfect for self-learners.</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+          {youtubeChannels.map((c) => (
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none; padding: 1rem;">
+              <strong>{c.name}</strong>
+              <p style="font-size: 0.8rem; margin-top: 0.35rem; color: var(--clr-dark); opacity: 0.75;">{c.tags}</p>
+            </a>
+          ))}
+        </div>
+
+        <h2 id="discord" style="margin-top: 2rem;">💬 Discord Communities</h2>
+        <p style="margin-bottom: 1rem;">Active Discord servers for game developers to connect, collaborate, and find opportunities.</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+          {discordCommunities.map((c) => (
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none; padding: 1rem;">
+              <strong>{c.name}</strong>
+              <p style="font-size: 0.8rem; margin-top: 0.35rem; color: var(--clr-dark); opacity: 0.75;">{c.tags}</p>
+            </a>
+          ))}
         </div>
       </div>
 
       <aside class="career-sidebar">
-        <h3>Pro Tips</h3>
+        <h3>Quick Links</h3>
         <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
-          <strong>🎮 Ship Something</strong>
+          <strong>🎭 Browse Roles</strong>
           <p style="font-size: 0.85rem; margin-top: 0.35rem;">
-            The best career resource is a finished project. Join a game jam to build your portfolio fast.
+            <a href={`${base}career-guide/roles/`}>Explore all disciplines &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>💼 Ready to Apply?</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
           </p>
         </div>
         <div class="card" style="padding: 1rem;">
-          <strong>🌐 Network</strong>
+          <strong>🎮 Pro Tip</strong>
           <p style="font-size: 0.85rem; margin-top: 0.35rem;">
-            Attend local meetups, GDC, and online events. Many jobs are filled through personal connections.
+            The best career resource is a finished project. Join a game jam to build your portfolio fast.
           </p>
         </div>
       </aside>

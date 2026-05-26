@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  { name: "Product Manager", slug: "product-manager", description: "A game product manager is the captain steering the ship from concept to launch and beyond." },
+  { name: "Business Development Executive", slug: "business-development-executive", description: "A Business Development Specialist in the game industry is a matchmaker of sorts, forging connections that fuel the industry's growth." },
+  { name: "User Acquisition Specialist", slug: "user-acquisition-specialist", description: "A User Acquisition Specialist is the one luring players to your game." },
+  { name: "Specialist Lawyer", slug: "specialist-lawyer", description: "A Specialist Lawyer’s job is to shield studios from legal pitfalls and guide them through the labyrinthine world of gaming regulations, protecting intellectual property, negotiating contracts, and ..." },
+  { name: "Human Resources Specialist", slug: "human-resources-specialist", description: "HR Specialists are the orchestrators of talent and well-being." },
+  { name: "Financial Specialist", slug: "financial-specialist", description: "Financial Specialists are the budget architects and money navigators, ensuring studios spend wisely, maximize revenue, and keep the game financially afloat." },
+  { name: "Office/Studio Manager", slug: "office-studio-manager", description: "The Office/Studio Manager in the game industry is the orchestra conductor, ensuring every instrument plays in harmony to create a masterpiece." }
+];
+
+const skills = [
+  "Agility",
+  "Analytical Skills",
+  "Branding",
+  "Budgeting",
+  "Business Communications",
+  "Conflict Resolution",
+  "Corporate Communications",
+  "Creative Briefs",
+  "Digital Marketing",
+  "Event Management",
+  "Financial Analysis",
+  "Human Relationships",
+  "Market Research",
+  "Media Strategy",
+  "Negotiation",
+  "Presentation Skills",
+  "Program Management",
+  "Project Management",
+  "Stakeholder Management",
+  "Storytelling",
+  "Written Communication"
+];
+
+const courses = [
+  { name: "The GameDev Business Handbook", url: "https://www.gamedevbizbook.com/" },
+  { name: "LEAP - The Business Model Game", url: "https://www.businessmodelgame.com/" }
+];
+---
+
+<BaseLayout title="Business Roles" activeNav="career-guide">
+  <WikiLayout title="Business Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>Business professionals are essential to the success of video game development and publishing, handling strategic, operational, and financial aspects to bring games to life. Product managers lead development, user acquisition specialists attract players, lawyers ensure legal compliance, studio managers oversee operations, financial specialists manage finances, and HR professionals manage employees. Together, they form the backbone of the video game industry.</p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Business Roles</h3>
+        {roles.map((r) => (
+          <a href={`${base}career-guide/roles/business/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+            <strong style="font-size: 0.9rem;">{r.name}</strong>
+          </a>
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; All Roles</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roles.map((role) => (
+            <a href={`${base}career-guide/roles/business/${role.slug}/`} class="card" style="text-decoration:none;">
+              <h3>{role.name}</h3>
+              <p>{role.description}</p>
+              <span class="btn btn-pink" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; margin-top: 0.5rem; display: inline-block;">View Role &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Skills Involved</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {skills.map((s) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Courses &amp; Resources</h3>
+          <ul>
+            {courses.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Related</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/audio/`}>🎵 Audio & Music Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/programming/`}>💻 Engineering & Programming Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/job-boards/`}>Job Boards &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

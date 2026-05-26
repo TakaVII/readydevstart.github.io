@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-influencer-marketer-salary-SRCH_IL.0,2_IN1_KO3,22.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/influencer-marketer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Influencer-Marketer-Salary" }
+];
+
+const responsibilities = [
+  "Scour various platforms to find and partner with the right influencers whose audience, content style, and values align with the game's target market and overall brand image.",
+  "Craft personalized campaigns that leverage the strengths and reach of chosen influencers, integrating the game organically into their content and engaging their audience authentically.",
+  "Negotiate fair and mutually beneficial agreements with influencers, outlining campaign goals, deliverables, compensation, and reporting requirements.",
+  "Equip influencers with clear brand guidelines, messaging points, and relevant assets like gameplay footage, artwork, and key features to ensure consistent and effective communication.",
+  "Track key metrics like reach, engagement, and conversion rates, analyze influencer content performance, and adjust strategies based on data insights.",
+  "Foster long-term relationships with influencers, maintain open communication, and address their needs throughout the campaign to ensure continued collaboration and mutual success.",
+  "Stay abreast of evolving social media trends and emerging platforms in the gaming community, adapting campaigns and collaborations to leverage new opportunities and reach wider audiences.",
+  "Prepare clear and impactful reports for internal stakeholders, showcasing the reach, engagement, and impact achieved through influencer marketing campaigns.",
+  "Utilize influencers to foster connections with the broader gaming community, engage in fan interaction, and participate in relevant events and conversations.",
+  "Understand and adhere to FTC guidelines on influencer marketing disclosures, ensuring transparency and ethical brand promotion within the gaming space."
+];
+
+const resources = [
+  { name: "Influencer Resource Library by Influencer Marketing Hub", url: "https://influencermarketinghub.com/resources/" },
+  { name: "Influencer Marketing Resources by Mention", url: "https://mention.com/en/blog/influencer-marketing-resources/" },
+  { name: "Influencer Marketing Resources: A Complete Guide of Tools, Case Studies, & Examples", url: "https://grin.co/blog/influencer-marketing-resources-a-complete-guide/" },
+  { name: "What is influencer marketing?", url: "https://www.aspire.io/glossary/influencer-marketing" },
+  { name: "Gaming Influencer Marketing", url: "https://www.businessofapps.com/marketplace/influencer-marketing/gaming/" },
+  { name: "Building the Brand Through Influencer Marketing Course by eCornell", url: "https://ecornell.cornell.edu/courses/marketing/building-the-brand-through-influencer-marketing/" }
+];
+
+const books = [
+  { name: "Social Media Marketing Workbook by Jason McDonald", url: "https://www.amazon.com/dp/B0CPXNNHSM" },
+  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
+  { name: "The StorySelling Method: Master the Art of Storytelling to Build Trust, Stand Out, and Boost Sales by Philipp Humm", url: "https://www.amazon.com/dp/B0BZ32CTSJ/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
+  { name: "Performance Partnerships: The Checkered Past, Changing Present & Exciting Future of Affiliate Marketing by Robert Glazer", url: "https://www.amazon.com/Performance-Partnerships-Checkered-Affiliate-Marketing/dp/B07FG9KCLN/" }
+];
+
+const tools = [
+  "Brandwatch",
+  "Sprout Social",
+  "Social Blade",
+  "Hootsuite",
+  "BuzzSumo",
+  "Awario",
+  "Klear",
+  "Upfluence",
+  "Traackr",
+  "Influencity",
+  "Julius",
+  "ClickUp",
+  "SocialLadder",
+  "Hunter",
+  "trendHERO"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: true },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: false },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="Influencer Marketer" activeNav="career-guide">
+  <WikiLayout title="Influencer Marketer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>An Influencer Marketer, a more specific version of an Affiliate Marketer (but sometimes with the same responsibilities), is the cool cousin your average marketer wishes they had. They navigate the vibrant world of streamers, YouTubers, and esports stars, leveraging their influence to spread the word about your game. They work by crafting impactful campaigns that resonate with specific audiences, partnering with the right influencers, and measuring the buzz across social media and streaming platforms. From sponsored streams to strategic product placements, they turn influencers into living, breathing billboards for your game, adding that extra layer of hype and authenticity, driving downloads and boosting engagement.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

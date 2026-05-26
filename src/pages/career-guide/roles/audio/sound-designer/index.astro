@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/sound-designer-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/posting/sound-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Sound-Designer-Salary" }
+];
+
+const responsibilities = [
+  "Design and implement all sound effects, ambient sounds, dialogue, and music integration to create a unique and immersive audio experience that supports the game's narrative, theme, and gameplay.",
+  "Utilize Foley artistry, synthesis, and audio manipulation techniques to generate realistic and impactful sound effects for actions, objects, characters, environments, and UI elements.",
+  "Implement systems for dynamic ambient sounds, reactive sound effects, and procedural audio that adapt to player actions, environmental changes, and gameplay events.",
+  "Work closely with environment artists, character artists, and level designers to understand visual concepts and ensure audio seamlessly integrates with the game's art style and atmosphere.",
+  "Cast, direct, and edit voice acting performances for characters and narration, ensuring emotional depth, consistency, and adherence to the game's lore and dialogue style.",
+  "Analyze and address memory usage, resource allocation, and processing demands of audio assets to maintain smooth gameplay without compromising sound quality.",
+  "Identify and resolve audio glitches, clipping, inconsistencies, and performance bottlenecks across platforms and hardware configurations.",
+  "Proficiently utilize DAWs, audio editing software, sound libraries, and plugins to edit, mix, and master sound effects, dialogue, and music for optimal impact."
+];
+
+const resources = [
+  { name: "The 4 Fundamentals of a Good Mix (with Dan Worrall) by Audio University", url: "https://www.youtube.com/watch?v=QSvdhuu2orQ&ab_channel=AudioUniversity" },
+  { name: "Game Audio Implementation Resources", url: "https://gameaudioimplementation.com/" },
+  { name: "USITT/TSDCA Sound Documentation Recommended Practice", url: "https://tsdca.org/app/uploads/USITT-TSDCA-Sound-Documentation-Recommendations_April_2022_APPROVED.pdf" },
+  { name: "StudyingSound Resources & Exercises", url: "https://studyingsound.org/" },
+  { name: "What does a Sound Designer (Games and Tech) do?", url: "https://www.berklee.edu/careers/roles/sound-designer-games" },
+  { name: "Sound Designer: Everything You Need To Know", url: "https://www.nfi.edu/sound-designer/" },
+  { name: "How to become a video game sound designer by GamesIndustry.biz", url: "https://www.gamesindustry.biz/how-to-become-a-video-game-sound-designer" },
+  { name: "Video game sound design 101", url: "https://blog.native-instruments.com/video-game-sound-design/" },
+  { name: "ScreenSkills’ Sound Designer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/audio/sound-designer-games/" },
+  { name: "Basics of Sound Design for Video Games by Michael Cullen", url: "https://frost.ics.uci.edu/ics62/BasicsofSoundDesignforVideoGames-MichaelCullen.pdf" },
+  { name: "The Importance of Sound Design for Video Games", url: "https://www.visartech.com/blog/sound-effects-in-games-development/" }
+];
+
+const books = [
+  { name: "Designing Sound by Andy Farnell", url: "https://www.amazon.com/Designing-Sound-Press-Andy-Farnell/dp/0262014416" },
+  { name: "The Game Audio Tutorial: A Practical Guide to Sound and Music for Interactive Games by Richard Stevens", url: "https://www.amazon.com/Game-Audio-Tutorial-Practical-Interactive/dp/0240817265/ref=sr_1_1" },
+  { name: "Principles of Game Audio and Sound Design by Jean-Luc Sinclair", url: "https://www.amazon.com/Principles-Game-Audio-Sound-Design/dp/1138738972/ref=sr_1_24" },
+  { name: "The Game Audio Strategy Guide: A Practical Course by Gina Zdanowicz and Spencer Bambrick", url: "https://www.amazon.com/Game-Audio-Strategy-Guide-Practical/dp/1138498343/ref=sr_1_1" },
+  { name: "Game Audio Implementation by Richard Stevens and Dave Raybould", url: "https://www.amazon.com/Game-Audio-Implementation-Practical-Unreal/dp/1138777242/ref=sr_1_2" },
+  { name: "Complete Guide to Game Audio by Aaron Marks", url: "https://www.amazon.com/Aaron-Marks-Complete-Guide-Audio/dp/1138795380/ref=sr_1_4" },
+  { name: "The Essential Guide to Game Audio by Steve Horowitz and Scott Looney", url: "https://www.amazon.com/Essential-Guide-Game-Audio-Practice/dp/041570670X/ref=sr_1_13" },
+  { name: "Game Audio Mixing by Alex Riviere", url: "https://www.amazon.com/Game-Audio-Mixing-Alex-Riviere/dp/1032397357/ref=sr_1_14" },
+  { name: "The Art of Game Design by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third-ebook/dp/B07X59RN6N" },
+  { name: "The Computer Music Tutorial by Curtis Roads", url: "https://www.amazon.com/Computer-Music-Tutorial-MIT-Press/dp/0262680823" },
+  { name: "Sound Synthesis and Sampling by Martin Russ", url: "https://www.amazon.com/Sound-Synthesis-Sampling-Third-Technology/dp/0240521056" }
+];
+
+const tools = [
+  "Game Engines",
+  "Pro Tools",
+  "Logic Pro X",
+  "Wwise",
+  "FMOD Studio",
+  "iZotope RX Suite",
+  "Soundminer",
+  "Splice Sounds",
+  "Loopcloud",
+  "Kontakt",
+  "Battery",
+  "Serum",
+  "Massive",
+  "FabFilter Pro-Q 3",
+  "Soundtoys Decapitator",
+  "Wavesfactory Renaissance Reverb",
+  "Valhalla Room",
+  "Kilohearts Phaseplant",
+  "iZotope Neutron 3",
+  "Reaktor",
+  "Max/MSP",
+  "Ableton Live",
+  "Bitwig Studio"
+];
+
+const sidebarRoles = [
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "Audio Producer", slug: "audio-producer", current: false },
+  { name: "Composer", slug: "composer", current: false },
+  { name: "Foley Artist", slug: "foley-artist", current: false },
+  { name: "Sound Designer", slug: "sound-designer", current: true },
+  { name: "Voiceover Artist", slug: "voiceover-artist", current: false }
+];
+---
+
+<BaseLayout title="Sound Designer" activeNav="career-guide">
+  <WikiLayout title="Sound Designer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Audio & Music Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/audio/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/audio/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Audio & Music</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A game sound designer sculpts the sonic architecture of interactive worlds. Master manipulators of digital audio workstations, forge immersive experiences through meticulous layering of sound effects, environments, and dynamic cues. Their palette ranges from meticulously recorded foley elements to expertly synthesized ambiances, all meticulously crafted to seamlessly integrate with gameplay mechanics. They wield middleware tools like Wwise and FMOD with surgical precision, ensuring sounds trigger at the perfect moment, react to player actions, and dynamically adapt to real-time scenarios. From the satisfying clink of a well-placed headshot to the heart-pounding crescendo of a boss battle, they weave a sonic tapestry that guides, informs, and emotionally compels players, making them active participants in the unfolding soundscape.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

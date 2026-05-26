@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/technical-artist-salary-SRCH_KO0,16.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/posting/technical-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Technical-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Seamlessly translate artistic vision into technically feasible solutions by developing custom tools, shaders, and pipelines for efficient asset creation and optimization.",
+  "Create and implement custom shaders for various effects like lighting, materials, particles, and post-processing, focusing on both visual fidelity and performance.",
+  "Design and implement automation tools and scripting solutions to simplify repetitive tasks, improve efficiency, and reduce artist workload.",
+  "Analyze and troubleshoot asset performance issues, optimize asset topology and texture usage, and ensure assets meet target platform specifications.",
+  "Build specialized tools and plugins for artists and designers to tackle specific challenges, extend functionalities within the game engine, and enhance creative workflows.",
+  "Contribute to the optimization and expansion of the game engine by writing custom code, debugging rendering issues, and proposing technical improvements.",
+  "Identify and resolve rendering glitches, animation bugs, material issues, and other technical roadblocks in the game's visual presentation.",
+  "Work closely with artists, designers, programmers, and engineers to communicate technical limitations, understand artistic needs, and find solutions that satisfy both sides."
+];
+
+const resources = [
+  { name: "Mastered’s Technical Artist Bootcamp", url: "https://join.mastered.com/technical_artists_sb" },
+  { name: "When Art Meets Technology: The World of VFX and Technical Artists", url: "https://agate.id/when-art-meets-technology-the-world-of-vfx-and-technical-artists/" },
+  { name: "TechArtists.org Community", url: "https://tech-artists.org/" },
+  { name: "ScreenSkills’ Technical Artist Profile", url: "https://www.screenskills.com/job-profiles/browse/games/technical-art/technical-artist/" },
+  { name: "Tech Art Resources by Aaron Aikman", url: "https://tech-art-resources.zeef.com/aaron.a" },
+  { name: "Technical Artist – Everything You Need To Know", url: "https://www.nfi.edu/technical-artist/" },
+  { name: "How to start learning technical art by Nina Klos", url: "https://www.artstation.com/blogs/ninaklos/GXYa/how-to-start-learning-technical-art" },
+  { name: "How to become a technical artist by Career Explorer", url: "https://www.careerexplorer.com/careers/technical-artist/how-to-become/" },
+  { name: "Technical Artist Bootcamp: Introduction to Proceduralism", url: "https://www.gdcvault.com/play/1024281/Technical-Artist-Bootcamp-Introduction-to" },
+  { name: "How to get a job as a technical artist by GamesIndustry.Biz", url: "https://www.gamesindustry.biz/how-to-get-a-job-as-a-technical-artist" },
+  { name: "Rigging Dojo: Teaching the Art and Science of Character Rigging", url: "https://www.riggingdojo.com/" },
+  { name: "How to Become a Technical Artist by USV", url: "https://usv.edu/blog/how-to-become-a-technical-artist/" }
+];
+
+const books = [
+  { name: "The Game Asset Pipeline by Ben Carter", url: "https://www.amazon.com/Pipeline-Charles-Development-published-Paperback/dp/B008GE9UWQ" },
+  { name: "3D Game Engine Design: A Practical Approach to Real-Time Computer Graphics by David H. Eberly", url: "https://www.amazon.com/Game-Engine-Design-Interactive-Technology/dp/1558605932" },
+  { name: "The CG Tutorial: The Definitive Guide to Programmable Real-Time Graphics", url: "https://www.amazon.com/CG-Tutorial-Definitive-Programmable-Real-Time/dp/0321194969" },
+  { name: "Real-Time Rendering 4th Edition by Tomas Akenine-Möller, Eric Haines, Naty Hoffman", url: "https://www.amazon.com/Real-Time-Rendering-Fourth-Tomas-Akenine-M%C3%B6ller/dp/1138627003" },
+  { name: "Physically Based Rendering: From Theory to Implementation by Matt Pharr, Wenzel Jakob and Greg Humphreys", url: "https://www.amazon.com/Physically-Based-Rendering-Theory-Implementation/dp/0128006455" },
+  { name: "Ray Tracing in One Weekend Book Series", url: "https://raytracing.github.io/" },
+  { name: "The Book of Shaders by Patricio Gonzalez Vivo and Jen Lowe", url: "https://thebookofshaders.com/" },
+  { name: "The Art of Moving Points - Facial Articulation by Brian Tindall", url: "https://books.apple.com/us/book/the-art-of-moving-points/id639498241" }
+];
+
+const tools = [
+  "Game Engines",
+  "Houdini",
+  "Substance Painter",
+  "ZBrush",
+  "Maya/Maxscript",
+  "Maya/MEL Scripts",
+  "Photoshop",
+  "Marmoset Toolbag",
+  "Python for NCloth",
+  "Blender",
+  "Substance Designer",
+  "Noesis/Ninja Ripper",
+  "MeshMixer",
+  "XGen/Maya Hair",
+  "ZRemesher",
+  "Weta Digital Mari"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: true },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Technical Artist" activeNav="career-guide">
+  <WikiLayout title="Technical Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Imagine a world where artists can conjure dazzling visuals without technical limitations. That's the magic of technical artists (TAs) – they sculpt tools and optimize engines, empowering artists to bring their most ambitious creations to life. From crafting shaders that paint vibrant worlds to building intricate rigs that breathe life into animations, TAs are the bridge between artistic dreams and technical realities, ensuring every brushstroke translates into a masterpiece. They're the silent partners in creative expression, the problem-solvers who whisper possibilities and make even the impossible seem effortless.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

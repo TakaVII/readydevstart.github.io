@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-campaign-specialist-salary-SRCH_IL.0,2_IN1_KO3,22.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/campaign-specialist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Campaign-Specialist-Salary" }
+];
+
+const responsibilities = [
+  "Design multifaceted campaigns (social media, influencer partnerships, events) to attract new players and deepen engagement with existing ones.",
+  "Allocate resources effectively, negotiate vendor contracts, and monitor campaign performance to optimize spending and maximize ROI.",
+  "Utilize analytics tools to understand player demographics, preferences, and campaign response, informing future strategies and targeting.",
+  "Collaborate with marketing, PR, community management, and development teams to ensure seamless campaign execution and alignment with game goals.",
+  "Craft impactful text, visuals, and videos that resonate with the target audience and drive desired campaign actions.",
+  "Monitor key metrics like reach, engagement, conversion rates, and cost-per-acquisition to assess campaign effectiveness and identify areas for improvement.",
+  "Quickly adjust strategies and creative elements based on real-time performance data to optimize results and maximize campaign impact.",
+  "Continuously learn about new gaming platforms, influencer marketing best practices, and emerging trends to ensure campaigns remain fresh and effective.",
+  "Ensure all campaign elements align with the game's overall brand identity, voice, and tone, providing a unified experience for players.",
+  "Communicate campaign performance clearly to stakeholders, highlighting successes, analyzing learnings, and proposing data-driven recommendations for future initiatives."
+];
+
+const resources = [
+  { name: "What Makes a Great Campaign Specialist?", url: "https://www.resourceondemand.com/what-makes-a-great-campaign-specialist/" },
+  { name: "30 of the Most Successful Video Game Marketing Campaigns Ever", url: "https://www.bestmarketingdegrees.org/30-successful-video-game-marketing-campaigns-ever/" },
+  { name: "GameMarketingCampaigns", url: "https://gamemarketingcampaigns.com/" },
+  { name: "5 Excellent Game Marketing Campaigns from 2022 (Including 2 In-Game Marketing Examples)", url: "https://www.gamemarketinggenie.com/blog/excellent-game-marketing-campaigns" },
+  { name: "The Best Video Game Marketing Campaigns Ever", url: "https://www.tvscientific.com/insight/best-video-game-marketing-campaigns" },
+  { name: "Mobile Game Marketing: A Complete Guide to Leveling Up and Cashing In", url: "https://grin.co/blog/mobile-game-marketing-a-complete-guide/" }
+];
+
+const books = [
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
+  { name: "Mobile App Marketing And Monetization: How To Promote Mobile Apps Like A Pro by Alex Genadinik", url: "https://www.amazon.com/Mobile-App-Marketing-Monetization-downloads/dp/1502383829" },
+  { name: "The StorySelling Method: Master the Art of Storytelling to Build Trust, Stand Out, and Boost Sales by Philipp Humm", url: "https://www.amazon.com/dp/B0BZ32CTSJ/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
+  { name: "Ultimate Guide to Facebook Advertising by Perry Marshall, Thomas Meloche and Bob Regnerus", url: "https://www.amazon.com/Ultimate-Guide-Facebook-Advertising-Marshall-ebook/dp/B08L3ZY4Z8/" },
+  { name: "Advolution: How to Build a Systematic, Self-Improving, and Future-Proof Digital Marketing by John Lincoln", url: "https://www.amazon.com/Advolution-Systematic-Self-Improving-Future-Proof-Marketing/dp/1544535015/" },
+  { name: "The Definitive Guide to TikTok Advertising: How to Access 1 Billion People in 10 Minutes! by Perry Marshall and Dennis Yu", url: "https://www.amazon.com/dp/1735421146/" }
+];
+
+const tools = [
+  "Discord",
+  "Steamworks",
+  "Google Search Console",
+  "App Annie",
+  "Unity Ads",
+  "IronSource",
+  "Twilio",
+  "Mailchimp",
+  "Twitch Tracker",
+  "Google Analytics",
+  "Google Ads",
+  "Facebook Analytics",
+  "Meta Ads",
+  "Twitter Analytics",
+  "Twitter Ads",
+  "TikTok Ads",
+  "Ahrefs",
+  "Buzzsumo",
+  "Canva",
+  "Hootsuite",
+  "Sprout Social"
+];
+
+const sidebarRoles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", current: false },
+  { name: "Community Manager", slug: "community-manager", current: false },
+  { name: "Influencer Marketer", slug: "influencer-marketer", current: false },
+  { name: "Content Marketer", slug: "content-marketer", current: false },
+  { name: "Campaign Specialist", slug: "campaign-specialist", current: true },
+  { name: "PR Specialist", slug: "pr-specialist", current: false },
+  { name: "Performance Marketer", slug: "performance-marketer", current: false }
+];
+---
+
+<BaseLayout title="Campaign Specialist" activeNav="career-guide">
+  <WikiLayout title="Campaign Specialist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/marketing/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Marketing</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Campaign Specialists work by orchestrating strategic initiatives that make the game resonate with its target audience. They're the creatives behind those captivating ads, the masterminds behind viral social media campaigns, and the data-driven strategists who ensure the right message reaches the right players at the right time. They lead teams of designers, writers, and analysts to craft compelling narratives, eye-catching visuals, and engaging experiences that build hype and anticipation for the game. They delve deep into player psychology, analyze trends, and leverage data to tailor campaigns across various platforms, from traditional advertising to influencer marketing and grassroots initiatives, ensuring their game cuts through the noise and lands squarely in the hearts and minds of potential players.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

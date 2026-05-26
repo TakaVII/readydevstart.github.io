@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salary/Composer-Music-Composer-Salaries-E3743279_D_KO9,23.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/composer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Music-Composer-Salary" }
+];
+
+const responsibilities = [
+  "Understand the narrative, theme, and atmosphere of the game, translating them into original musical compositions that enhance player immersion and emotional impact.",
+  "Create a variety of orchestral, electronic, atmospheric, and thematic tracks to suit different environments, characters, and gameplay situations.",
+  "Collaborate closely with sound designers and audio directors to ensure music seamlessly integrates with other audio elements and supports the overall sound design.",
+  "Utilize dynamic music systems to adapt music in real-time based on player actions, storyline progress, and environmental changes.",
+  "Proficiently utilize DAWs, music notation software, sound libraries, and virtual instruments to compose, record, and mix high-quality soundtracks.",
+  "Openly receive feedback from developers and directors, revise and refine compositions to align with changing game features and gameplay mechanics.",
+  "Secure music licenses for external samples and instruments, ensuring copyright compliance and legal obligations."
+];
+
+const resources = [
+  { name: "Game Audio Implementation Resources", url: "https://gameaudioimplementation.com/" },
+  { name: "USITT/TSDCA Sound Documentation Recommended Practice", url: "https://tsdca.org/app/uploads/USITT-TSDCA-Sound-Documentation-Recommendations_April_2022_APPROVED.pdf" },
+  { name: "Getting into Game Audio: The Beginner’s Guide", url: "https://loganjameshart.com/getting-into-game-audio/" },
+  { name: "Composing Resources by Art of Composing", url: "https://www.artofcomposing.com/composing-resources" },
+  { name: "Composer Resources by r/composer", url: "https://www.reddit.com/r/composer/wiki/resources/" },
+  { name: "Young Composers’ Toolkit", url: "https://soundandmusic.org/discover/resources/young-composers-toolkit/" },
+  { name: "15 FREE Resources for Game Composers by Matt Kenyon", url: "https://www.youtube.com/watch?v=lGQsRgx8uVI&ab_channel=MattKenyon" },
+  { name: "Best Resources For Film & Game Composers by Jack Hughes", url: "https://www.northernfilmorchestra.com/post/best-resources-for-film-game-composers" },
+  { name: "ScreenSkills’ Music Composer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/audio/music-composer/" }
+];
+
+const books = [
+  { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
+  { name: "Composing Music for Games: The Art, Technology and Business of Video Game Scoring by Chance Thomas", url: "https://www.amazon.com/Composing-Music-Games-Technology-Business/dp/1138021415/ref=sr_1_16" },
+  { name: "The Game Audio Tutorial: A Practical Guide to Sound and Music for Interactive Games by Richard Stevens", url: "https://www.amazon.com/Game-Audio-Tutorial-Practical-Interactive/dp/0240817265/ref=sr_1_1" },
+  { name: "Principles of Game Audio and Sound Design by Jean-Luc Sinclair", url: "https://www.amazon.com/Principles-Game-Audio-Sound-Design/dp/1138738972/ref=sr_1_24" },
+  { name: "The Game Audio Strategy Guide: A Practical Course by Gina Zdanowicz and Spencer Bambrick", url: "https://www.amazon.com/Game-Audio-Strategy-Guide-Practical/dp/1138498343/ref=sr_1_1" },
+  { name: "Game Audio Implementation by Richard Stevens and Dave Raybould", url: "https://www.amazon.com/Game-Audio-Implementation-Practical-Unreal/dp/1138777242/ref=sr_1_2" },
+  { name: "Complete Guide to Game Audio by Aaron Marks", url: "https://www.amazon.com/Aaron-Marks-Complete-Guide-Audio/dp/1138795380/ref=sr_1_4" },
+  { name: "The Essential Guide to Game Audio by Steve Horowitz and Scott Looney", url: "https://www.amazon.com/Essential-Guide-Game-Audio-Practice/dp/041570670X/ref=sr_1_13" },
+  { name: "The Art of Game Design by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third-ebook/dp/B07X59RN6N" }
+];
+
+const tools = [
+  "Game Engines",
+  "Wwise",
+  "FMOD Studio",
+  "Reaper",
+  "Kontakt",
+  "VE Pro",
+  "SuperCollider",
+  "Max/MSP",
+  "Soundminer",
+  "iZotope RX",
+  "Splice",
+  "Pure Data",
+  "Tidal Cycles",
+  "Kontakt Script Editor",
+  "Logic Pro X",
+  "Cubase Pro"
+];
+
+const sidebarRoles = [
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "Audio Producer", slug: "audio-producer", current: false },
+  { name: "Composer", slug: "composer", current: true },
+  { name: "Foley Artist", slug: "foley-artist", current: false },
+  { name: "Sound Designer", slug: "sound-designer", current: false },
+  { name: "Voiceover Artist", slug: "voiceover-artist", current: false }
+];
+---
+
+<BaseLayout title="Composer" activeNav="career-guide">
+  <WikiLayout title="Composer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Audio & Music Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/audio/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/audio/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Audio & Music</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A composer is the weaver of emotions in sound. They paint with melodies, sculpt with rhythms, and breathe life into musical ideas. They're the architects of aural worlds, conjuring up feelings of joy, sorrow, or suspense with just the right sequence of notes. Some wield symphonies like a maestro, commanding vast orchestral landscapes. Others dance with electronic beats, crafting intimate sonic tapestries. But they all share a gift: the ability to speak the universal language of music, touching hearts and igniting imaginations, one note at a time.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

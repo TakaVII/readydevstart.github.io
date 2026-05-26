@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/lighting-artist-salary-SRCH_KO0,15.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/lighting-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Lighting-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Utilize lighting techniques and tools to create atmosphere, mood, and storytelling elements through light and shadow.",
+  "Work closely with environment artists, character artists, and level designers to achieve a cohesive visual style and desired emotional impact.",
+  "Proficiently use game engine lighting tools, real-time rendering techniques, and post-processing effects to achieve specific lighting goals.",
+  "Balance visual quality with performance by strategically placing lights, utilizing efficient lighting techniques, and optimizing lightmaps for target platforms.",
+  "Create distinct lighting moods and atmospheres for various locations, interiors, exteriors, and weather conditions.",
+  "Implement dynamic lighting for real-time events, explosions, weather changes, and character interactions to enhance immersion.",
+  "Maintain consistent lighting style and quality across different levels, characters, and objects within the game world.",
+  "Identify and resolve lighting glitches, clipping, unrealistic shadows, and other visual discrepancies."
+];
+
+const resources = [
+  { name: "How to Become a Game Lighting Artist by by Jasmine Katatikarn", url: "https://academyofanimatedart.com/become-a-game-lighting-artist/" },
+  { name: "How to become a 3D Lighting Artist by CGSpectrum", url: "https://www.cgspectrum.com/blog/become-a-3d-lighting-artist" },
+  { name: "How to Create a 3D Lighting Artist Portfolio by Jasmine Katatikarn", url: "https://academyofanimatedart.com/3d-lighting-artist-portfolio/" },
+  { name: "What is important for lighting artists in games? by Beyond Extent", url: "https://www.youtube.com/watch?v=DXcYSbH5Ukw&ab_channel=BeyondExtent" },
+  { name: "What is a 3D Lighting Artist? (A Beginner’s Guide On What They Do) by Thomas Denham", url: "https://conceptartempire.com/lighting-artist/" },
+  { name: "Lighting for Games Bootcamp in UE5 by Vertex School", url: "https://www.vertexschool.com/Lighting-For-Games-Bootcamp" },
+  { name: "The 20 Top 3D Lighting Courses Online by Jasmine Katatikarn", url: "https://academyofanimatedart.com/3d-lighting-courses/" },
+  { name: "Comprehensive Theory of 3D Lighting by CGI Master Class", url: "https://www.cgimasterclass.com/courses-chapter-1-theory" },
+  { name: "Lighting for Games Online Course by CG Master Academy", url: "https://www.vfx.cgmasteracademy.com/courses/the-art-of-lighting-for-games" }
+];
+
+const books = [
+  { name: "Advanced Lighting And Materials With Shaders by Kelly Dempski", url: "https://www.amazon.com/Advanced-Lighting-Materials-Shaders-Dempski/dp/1556222920" },
+  { name: "Digital Lighting & Rendering by Jeremy Birn", url: "https://www.amazon.com/Digital-Lighting-Rendering-Voices-Matter/dp/0321928989" },
+  { name: "High Dynamic Range Imaging: Acquisition, Display, and Image-Based Lighting by by Erik Reinhard, Wolfgang Heidrich, Paul Debevec, Sumanta Pattanaik, Greg Ward and Karol Myszkowski", url: "https://www.amazon.com/High-Dynamic-Range-Imaging-Acquisition/dp/012374914X" },
+  { name: "Lighting for Animation: The Art of Visual Storytelling by Jasmine Katatikarn and Michael Tanzillo", url: "https://www.amazon.com/Lighting-Animation-Art-Visual-Storytelling/dp/1138018678" },
+  { name: "Light for Visual Artists Second Edition by Richard Yot", url: "https://www.amazon.com/Light-Visual-Artists-Second-Understanding/dp/1786274515/ref=sr_1_1" },
+  { name: "Drawing Light & Shade: Understanding Chiarascuro by Giovani Civardi", url: "https://www.amazon.com/gp/product/1844481867/ref=as_li_qf_sp_asin_il_tl" },
+  { name: "Lessons on Shading by W. E. Sparkes", url: "https://www.amazon.com/gp/product/0486454517/ref=as_li_qf_sp_asin_il_tl" },
+  { name: "Rendering in Pen and Ink by Arthur L. Guptill, Susan E. Meyer", url: "https://www.amazon.com/gp/product/0823045293/ref=as_li_qf_sp_asin_il_tl" },
+  { name: "Art Fundamentals: Color, Light, Composition, Anatomy, Perspective, and Depth by Gilles Beloeil, Andrei Riabovitchev and Roberto F Castro", url: "https://www.amazon.com/gp/product/190941400X/ref=as_li_qf_sp_asin_il_tl" },
+  { name: "Color and Light: A Guide for the Realist Painter by James Gurney", url: "https://www.amazon.com/Color-Light-Realist-Painter-Gurney/dp/0740797719" },
+  { name: "The Illusion of Life: Disney Animation by Ollie Johnston and Frank Thomas", url: "https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707" },
+  { name: "The Art of 3D Computer Animation and Effects by Isaac Kerlow", url: "https://www.amazon.com/Art-3D-Computer-Animation-Effects/dp/0470084901" },
+  { name: "Directing the Story: Professional Storytelling and Storyboarding Techniques for Live Action and Animation by Francis Glebas", url: "https://www.amazon.com/Directing-Story-Professional-Storytelling-Storyboarding/dp/0240810767" }
+];
+
+const tools = [
+  "Game Engines",
+  "Mari",
+  "Nuke",
+  "Substance Painter",
+  "ZBrush",
+  "Marmoset Toolbag",
+  "Photoshop",
+  "xGen Studio",
+  "SpeedTree",
+  "WorldMachine",
+  "Blender",
+  "MeshLab",
+  "Lightmap HDR Light Studio",
+  "Substance Designer",
+  "Autodesk Maya",
+  "UE4/Unity Lightmass/Enlighten"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: true },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: false },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="Lighting Artist" activeNav="career-guide">
+  <WikiLayout title="Lighting Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A Lighting Artist is the sculptor of mood and atmosphere in the world of animation. They take the raw animation and breathe life into it through the magic of light and shadow. Using specialized software and a deep understanding of lighting principles, they create realistic and emotional lighting effects, from the sun dappling through a forest to the eerie glow of a haunted mansion. They collaborate closely with directors, animators, and other artists to ensure the lighting complements the story and enhances the overall visuals. In essence, a Lighting Artist is the invisible hand that guides the audience's emotions through the power of light.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

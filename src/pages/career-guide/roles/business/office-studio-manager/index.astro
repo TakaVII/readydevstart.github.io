@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-studio-manager-salary-SRCH_IL.0,2_IN1_KO3,17.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/posting/studio-manager-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Studio-Manager-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Manage office space, equipment, IT infrastructure, vendor contracts, and ensure smooth day-to-day operations for a thriving game development environment.",
+  "Cultivate a positive and productive work atmosphere, organize team-building events, and promote employee well-being within the often-demanding game development cycle.",
+  "Oversee office budgets, negotiate vendor contracts, plan and manage employee travel for conferences, events, and remote work setups.",
+  "Facilitate onboarding and offboarding processes, handle basic HR requests, and coordinate with the HR department on administrative tasks and employee relations.",
+  "Organize internal and external events like game release parties, studio anniversaries, and industry networking events.",
+  "Manage studio equipment, hardware, software licenses, and physical assets, ensuring proper maintenance and tracking.",
+  "Oversee office maintenance, repairs, safety protocols, and emergency preparedness to ensure a clean, safe, and comfortable work environment.",
+  "Act as a central point of communication within the studio, relaying information, managing calendars, and facilitating collaboration between departments.",
+  "Assist employees with travel arrangements, visa applications, and documentation for international conferences, events, or relocation needs.",
+  "Address unexpected challenges, find creative solutions to logistical hurdles, and anticipate needs to ensure a seamless and efficient studio operation."
+];
+
+const resources = [
+  { name: "Money in the game industry by Michael Fitch", url: "https://www.linkedin.com/pulse/money-game-industry-michael-fitch/" },
+  { name: "The Expensive Video Game Problem", url: "https://fleximize.com/articles/002825/funding-for-the-gaming-industry" },
+  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
+  { name: "What does a Studio Manager in games do? Interview with Claire Boissiere by Into Games", url: "https://intogames.org/news/how-do-you-become-a-studio-manager-for-videogames/" },
+  { name: "Into Games’ Office Manager Profile", url: "https://intogames.org/role/office-manager-games/" },
+  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" }
+];
+
+const books = [
+  { name: "Blood, Sweat, and Pixels: The Triumphant, Turbulent Stories Behind How Video Games Are Made by Jason Schreier", url: "https://www.amazon.com/Blood-Sweat-Pixels-Triumphant-Turbulent-ebook/dp/B01NAKSWW1" },
+  { name: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses by Eric Ries", url: "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602" },
+  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
+  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
+  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
+  { name: "The Missing Billionaires: A Guide to Better Financial Decisions by Victor Haghani and James White", url: "https://www.amazon.com/Missing-Billionaires-Better-Financial-Decisions-ebook/dp/B0CGW16YC4/" },
+  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" },
+  { name: "The Dream Architects: Adventures in the Video Game Industry by David Polfeldt", url: "https://www.amazon.com/Dream-Architects-Adventures-Video-Industry/dp/B08FMVSFMR" }
+];
+
+const tools = [
+  "Git",
+  "Cloud storage",
+  "Project management software",
+  "Perforce",
+  "FileZilla",
+  "Discord",
+  "Trello",
+  "Jira",
+  "Asana"
+];
+
+const sidebarRoles = [
+  { name: "Product Manager", slug: "product-manager", current: false },
+  { name: "Business Development Executive", slug: "business-development-executive", current: false },
+  { name: "User Acquisition Specialist", slug: "user-acquisition-specialist", current: false },
+  { name: "Specialist Lawyer", slug: "specialist-lawyer", current: false },
+  { name: "Human Resources Specialist", slug: "human-resources-specialist", current: false },
+  { name: "Financial Specialist", slug: "financial-specialist", current: false },
+  { name: "Office/Studio Manager", slug: "office-studio-manager", current: true }
+];
+---
+
+<BaseLayout title="Office/Studio Manager" activeNav="career-guide">
+  <WikiLayout title="Office/Studio Manager" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Business Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/business/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/business/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Business</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>The Office/Studio Manager in the game industry is the orchestra conductor, ensuring every instrument plays in harmony to create a masterpiece. They lead the day-to-day operations, juggling everything from keeping the coffee flowing to managing budgets and facilities. Think of them as the invisible force behind the scenes, handling logistics, administrative tasks, and even team-building events. They ensure the studio runs smoothly, allowing developers to focus on creating magic. From ordering pizza to troubleshooting internet issues, they're the glue that holds the creative chaos together, keeping the rhythm of development steady and efficient.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

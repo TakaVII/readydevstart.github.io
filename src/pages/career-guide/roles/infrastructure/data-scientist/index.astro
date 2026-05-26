@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/data-scientist-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/data-scientist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/DATA-Scientist-Salary" }
+];
+
+const responsibilities = [
+  "Develop and implement complex data models and machine learning algorithms to analyze player behavior, preferences, and churn, uncovering hidden insights to drive game development and live operations decisions.",
+  "Design and execute A/B tests, controlled experiments, and other statistical analyses to measure the impact of new features, content, and monetization strategies.",
+  "Build predictive models to anticipate player trends, churn risk, and optimize resource allocation based on data-driven insights.",
+  "Collaborate with designers, developers, and marketers to translate complex data findings into actionable recommendations and compelling narratives for non-technical stakeholders.",
+  "Develop and utilize automated data pipelines and machine learning workflows to streamline data analysis processes and optimize efficiency.",
+  "Translate business objectives into data-driven strategies and collaborate with designers and artists to integrate insights into the game's creative vision."
+];
+
+const resources = [
+  { name: "What Do Data Analyst/Scientist(s) Do in The Gaming Industry?", url: "https://datascope.co.uk/blog/what-do-data-analyst-scientists-do-in-the-gaming-industry/" },
+  { name: "Tutort Data Science Courses", url: "https://www.tutort.net/" },
+  { name: "How Data Science Streamlines Gaming Industry", url: "https://geeklurn.com/blog/how-data-science-streamlines-gaming-industry/" },
+  { name: "The Role Of Data Science In Gaming Industry", url: "https://ekeeda.com/blog/the-role-of-data-science-in-gaming-industry" },
+  { name: "Top 8 Data Science Use Cases in Gaming", url: "https://activewizards.com/blog/top-8-data-science-use-cases-in-gaming/" },
+  { name: "How data science and AI have transformed gaming industry", url: "https://www.financialexpress.com/business/blockchain-how-data-science-and-ai-have-transformed-gaming-industry-3172757/" },
+  { name: "Data Science Dojo Bootcamp", url: "https://datasciencedojo.com/" },
+  { name: "Data Science Resources by DataSchool", url: "https://www.dataschool.io/resources/" },
+  { name: "7 Resources for Those Wanting to Learn Data Science", url: "https://towardsdatascience.com/7-resources-for-those-wanting-to-learn-data-science-a89e25d1b55e" },
+  { name: "10 resources for data science self-study", url: "https://www.kdnuggets.com/2021/02/10-resources-data-science-self-study.html" }
+];
+
+const books = [
+  { name: "Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking by Foster Provost and Tom Fawcett", url: "https://www.amazon.in/Data-Science-Business-Data-Analytic-Thinking-ebook/dp/B00E6EQ3X4" },
+  { name: "Ace the Data Science Interview by Nick Singh and Kevin Huo", url: "https://www.amazon.com/Ace-Data-Science-Interview-Questions/dp/0578973839/" },
+  { name: "Build a Career in Data Science by Emily Robinson and Jacqueline Nolis", url: "https://www.amazon.com/Build-Career-Science-Jacqueline-Nolis/dp/1617296244/" },
+  { name: "The Data Science Handbook: Advice and Insights from 25 Amazing Data Scientists by Carl Shan, William Chen, Henry Wang and Max Song", url: "https://www.amazon.com/Data-Science-Handbook-Insights-Scientists/dp/0692434879/" },
+  { name: "Think Like a Data Scientist: Tackle the data science process step-by-step by Brian Godsey", url: "https://www.amazon.com/Think-Like-Scientist-step-step/dp/1633430278/" },
+  { name: "Storytelling with Data: A Data Visualization Guide for Business Professionals by Cole Nussbaumer Knaflic", url: "https://www.amazon.com/Storytelling-with-Data-audiobook/dp/B079H3ZJJZ/" },
+  { name: "Data Science for Business: What You Need to Know About Data Mining and Data-Analytic Thinking by Foster Provost and Tom Fawcett", url: "https://www.amazon.com/dp/B08VL5K5ZX" },
+  { name: "Becoming a Data Head: How to Think, Speak, and Understand Data Science, Statistics, and Machine Learning by Alex J. Gutman and Jordan Goldmeier", url: "https://www.amazon.com/Becoming-Data-Head-Understand-Statistics/dp/1119741742/" },
+  { name: "Practical Statistics for Data Scientists: 50 Essential Concepts by Peter Bruce and Andrew Bruce", url: "https://www.amazon.com/Practical-Statistics-Data-Scientists-Essential/dp/1491952962/" },
+  { name: "Data Science Programming All-in-One For Dummies by John Paul Mueller and Luca Massaron", url: "https://www.amazon.com/Data-Science-Programming-Dummies-Computer/dp/1119626110" }
+];
+
+const tools = [
+  "Game Engines",
+  "Python",
+  "Pandas",
+  "NumPy",
+  "PySpark",
+  "Scikit-learn",
+  "TensorFlow",
+  "PyTorch",
+  "Jupyter Notebook",
+  "Git",
+  "SQL",
+  "Tableau",
+  "Power BI",
+  "Hadoop",
+  "Cloud Computing Platforms (AWS, Azure, GCP)"
+];
+
+const sidebarRoles = [
+  { name: "LiveOps Engineer", slug: "liveops-engineer", current: false },
+  { name: "Data Analyst", slug: "data-analyst", current: false },
+  { name: "Customer Support Specialist", slug: "customer-support-specialist", current: false },
+  { name: "Data Scientist", slug: "data-scientist", current: true }
+];
+---
+
+<BaseLayout title="Data Scientist" activeNav="career-guide">
+  <WikiLayout title="Data Scientist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Infrastructure & Live Ops Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/infrastructure/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/infrastructure/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Infrastructure & Live Ops</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Data scientists act as hidden detectives, wielding statistics and algorithms to unlock the secrets of player behavior. They delve into the vast ocean of in-game data, from clicks and purchases to level progression and engagement metrics, to uncover hidden patterns and insights. Armed with their analytical prowess, they craft predictive models to understand player motivations, optimize game mechanics, and personalize the experience for each individual.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

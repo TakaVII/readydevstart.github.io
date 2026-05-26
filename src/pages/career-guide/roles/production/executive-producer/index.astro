@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/executive-producer-salary-SRCH_KO0,18.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/listing/executive-producer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Executive-Producer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Guide the game's overall direction, setting high-level goals and ensuring it aligns with the studio's strategic vision.",
+  "Evaluate game proposals, make final development decisions, and champion passion projects with potential.",
+  "Allocate resources across multiple projects, prioritizing funding and talent to maximize studio output and success.",
+  "Secure external investments, negotiate major deals, and oversee financial health of the studio and individual projects.",
+  "Attract and retain top talent, fostering a creative and inspiring environment for developers to thrive.",
+  "Identify and mitigate potential risks, making strategic decisions to ensure project viability and long-term success.",
+  "Protect the studio's reputation and game brands, managing public perception and navigating industry challenges.",
+  "Represent the studio at industry events, build relationships with partners, and influence the broader gaming landscape.",
+  "Predict industry trends, identify new platforms and opportunities, and guide the studio's long-term vision for game development."
+];
+
+const resources = [
+  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
+  { name: "5 Types of Game Production Meetings by Noble Steed Games", url: "https://www.linkedin.com/pulse/5-types-game-production-meetings-noble-steed-games/" },
+  { name: "An introduction to video game production", url: "https://www.gamesindustry.biz/an-introduction-to-video-game-production" },
+  { name: "Into Games’ Executive Games Producer Profile", url: "https://intogames.org/role/executive-games-producer/" },
+  { name: "Understanding the Executive Producer Role (With Duties)", url: "https://ca.indeed.com/career-advice/finding-a-job/executive-producer-role" },
+  { name: "Executive Producer vs Producer: What’s the Difference?", url: "https://www.zippia.com/advice/executive-producer-vs-producer/" }
+];
+
+const books = [
+  { name: "Hooked: How to Build Habit-Forming Products by Nir Eyal", url: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788" },
+  { name: "Game Thinking: Innovate smarter & drive deep engagement with design techniques from hit games by Amy Jo Kim", url: "https://www.amazon.com/Game-Thinking-Innovate-engagement-techniques/dp/099978854X" },
+  { name: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses by Eric Ries", url: "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602" },
+  { name: "Reality Is Broken: Why Games Make Us Better and How They Can Change the World by Jane McGonigal", url: "https://www.amazon.com/Reality-Broken-Games-Better-Change-ebook/dp/B004G8Q1Q4" },
+  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
+  { name: "From Expert to Executive: Mastering the SOPs of Leading by Edward E. Tyson and Michael Ashley", url: "https://www.amazon.com/Expert-Executive-Mastering-SOPs-Leading/dp/B08848D927" },
+  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
+  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
+  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
+  { name: "The Game Production Toolbox by Heather Maxwell Chandler", url: "https://www.amazon.com/Production-Toolbox-Heather-Maxwell-Chandler-ebook/dp/B086XLC7RY" },
+  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
+  { name: "One Up: Creativity, Competition, and the Global Business of Video Games by Joost van Dreunen", url: "https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527" }
+];
+
+const tools = [
+  "Game Engines",
+  "Jira",
+  "Perforce",
+  "Confluence",
+  "Excel",
+  "PowerPoint",
+  "Photoshop",
+  "Gantt Chart Software",
+  "Git",
+  "Discord",
+  "Google Analytics",
+  "Trello",
+  "Zoom",
+  "Microsoft Teams",
+  "LinkedIn Sales Navigator"
+];
+
+const sidebarRoles = [
+  { name: "Game Producer", slug: "game-producer", current: false },
+  { name: "Executive Producer", slug: "executive-producer", current: true },
+  { name: "Publisher", slug: "publisher", current: false },
+  { name: "Project Manager", slug: "project-manager", current: false },
+  { name: "Operations Manager", slug: "operations-manager", current: false }
+];
+---
+
+<BaseLayout title="Executive Producer" activeNav="career-guide">
+  <WikiLayout title="Executive Producer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Production Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/production/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/production/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Production</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>The Executive Producer in the game industry sits at the apex of a game's development, a strategic leader rather than a day-to-day manager. They are the visionaries, guiding the overall direction and ensuring the game aligns with market trends and studio goals. Think of them as the grand architects, shaping the game's concept, securing funding, and making key decisions that impact its core identity. They oversee multiple projects, setting high-level goals and delegating tasks to Game Producers. Through their experience, they bridge the gap between creative ambitions and business realities.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

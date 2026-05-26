@@ -4,53 +4,127 @@ import WikiLayout from "../../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 
 const roles = [
-  { name: "Concept Artist", description: "Designs the initial visual ideas and mood boards that guide the art direction of a game." },
-  { name: "3D Modeler", description: "Creates three-dimensional assets including characters, props, and environments." },
-  { name: "Environment Artist", description: "Builds immersive game worlds — landscapes, interiors, and architectural elements." },
-  { name: "UI Artist", description: "Designs the visual interface elements players interact with: menus, HUDs, icons, and screens." },
-  { name: "Pixel Artist", description: "Creates 2D sprite-based art for retro-style or pixel-art games." },
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", description: "Games' 3D modeling artists are digital architects, turning conceptual blueprints into living worlds." },
+  { name: "Concept Artist", slug: "concept-artist", description: "In the game industry, a concept artist plays a crucial role in establishing the visual identity and style of a game." },
+  { name: "Character Artist", slug: "character-artist", description: "A character artist in the game industry is responsible for creating and designing the visual appearance of characters in video games." },
+  { name: "Environment Artist", slug: "environment-artist", description: "An Environment Artist in the game industry is responsible for designing and creating the worlds that players explore." },
+  { name: "Graphics Programmer", slug: "graphics-programmer", description: "Graphics programmers are the magicians behind the stunning visuals in video games." },
+  { name: "Lighting Artist", slug: "lighting-artist", description: "A Lighting Artist is the sculptor of mood and atmosphere in the world of animation." },
+  { name: "Storyboard Artist", slug: "storyboard-artist", description: "A storyboard artist is the visionary bridge between script and screen." },
+  { name: "Texture Artist", slug: "texture-artist", description: "A Texture Artist is the alchemist of digital surfaces, weaving magic with paint and pixels to bring 3D models to life." },
+  { name: "Technical Artist", slug: "technical-artist", description: "Imagine a world where artists can conjure dazzling visuals without technical limitations." },
+  { name: "VFX Artist", slug: "vfx-artist", description: "A VFX Artist, short for Visual Effects Artist, is a skilled professional who breathes life into fantastical visuals on screen." },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", description: "UX/UI artists, the wizards behind the scenes of your favorite websites and apps, wield powerful magic: the magic of crafting seamless, intuitive, and visually captivating user experiences." }
+];
+
+const skills = [
+  "Animation",
+  "2D Art",
+  "3D Modeling",
+  "Art Composition",
+  "Art Simulations",
+  "Color Theory",
+  "Concept Art",
+  "Content Creation",
+  "Creative Process Development",
+  "Creativity",
+  "Cross-team Communication",
+  "Design Diligence",
+  "Design Principles",
+  "Design Readiness",
+  "Graphic Design",
+  "Graphic Illustrations",
+  "Hand-drawing",
+  "Illustration",
+  "Lighting",
+  "Offline Rendering",
+  "Pixel Art",
+  "Procedural Content Generation",
+  "Prototyping",
+  "Storyboarding",
+  "Technical Art",
+  "Texturing",
+  "UX/UI Design",
+  "VFX",
+  "Worldbuilding"
+];
+
+const courses = [
+  { name: "Advice from 500 Digital Artists Free Book", url: "https://therookies.hubspotpagebuilder.com/advice-from-500-digital-artists" },
+  { name: "Kieran Goodson@Artstation Guide to Game Art Applications", url: "https://www.artstation.com/learning/series/dRR/guide-to-game-art-applications" },
+  { name: "How to Make a Successful Demo Reel for 3D Artists", url: "https://www.lifewire.com/how-to-make-a-successful-demo-reel-for-3d-artists-2054" },
+  { name: "How to Get Your First Job as a Designer", url: "https://bootcamp.uxdesign.cc/how-to-get-your-first-job-as-a-designer-f97b25a479a8" },
+  { name: "Creature of Art’s Art Tutorials", url: "https://creatureartteacher.com/product-category/tutorials-lessons/art-fundamentals/" },
+  { name: "Artadia: Non Profit Grantmaker for Artists", url: "https://artadia.org/" },
+  { name: "Rhizome: Commissions, exhibitions, scholarship, and digital preservation", url: "https://rhizome.org/" },
+  { name: "Becoming a Video Game Artist: From Portfolio Design to Landing the Job by John Pearl", url: "https://www.amazon.com/Becoming-Video-Game-Artist-Portfolio/dp/1138824933" },
+  { name: "Game Artist: The Ultimate Career Guide by Paul Jones", url: "https://www.amazon.com/Game-Artist-Ultimate-Career-Guide/dp/1915008034/ref=sr_1_3_sspa" },
+  { name: "Awesome Blender: Curated List of Blender add-ons, tools, tutorials and resources", url: "https://github.com/agmmnn/awesome-blender" }
 ];
 ---
 
 <BaseLayout title="Art Roles" activeNav="career-guide">
   <WikiLayout title="Art Roles" activeNav="career-guide" activeSidebar="roles">
-    <p>
-      Art roles define the visual identity of a game. From early concepts to
-      final polished assets, artists shape every pixel players see.
-    </p>
+    <p>Game artists are the creative force behind captivating and immersive video game experiences. They transform conceptual visions into tangible digital assets, encompassing character design, environment creation, user interface development, and technical artistry. Through their diverse specializations, game artists breathe life into the virtual realms of gaming, captivating players and transporting them into the heart of the game's story.</p>
 
     <div class="career-layout">
       <aside class="career-sidebar">
         <h3>Art Roles</h3>
         {roles.map((r) => (
-          <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
             <strong style="font-size: 0.9rem;">{r.name}</strong>
-          </div>
+          </a>
         ))}
         <div style="margin-top: 1rem;">
-          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">← All Roles</a>
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; All Roles</a>
         </div>
       </aside>
 
       <div class="career-main">
-        {roles.map((role) => (
-          <div class="card" style="margin-bottom: 1rem;">
-            <h3>{role.name}</h3>
-            <p>{role.description}</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roles.map((role) => (
+            <a href={`${base}career-guide/roles/art/${role.slug}/`} class="card" style="text-decoration:none;">
+              <h3>{role.name}</h3>
+              <p>{role.description}</p>
+              <span class="btn btn-pink" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; margin-top: 0.5rem; display: inline-block;">View Role &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Skills Involved</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {skills.map((s) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Courses &amp; Resources</h3>
+          <ul>
+            {courses.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <aside class="career-sidebar">
         <h3>Related</h3>
         <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/roles/animation/`}>Animation Roles →</a>
+            <a href={`${base}career-guide/roles/animation/`}>🎬 Animation Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/audio/`}>🎵 Audio & Music Roles &rarr;</a>
           </p>
         </div>
         <div class="card" style="padding: 1rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}equipment/art-tools/`}>Art Tools →</a>
+            <a href={`${base}career-guide/job-boards/`}>Job Boards &rarr;</a>
           </p>
         </div>
       </aside>

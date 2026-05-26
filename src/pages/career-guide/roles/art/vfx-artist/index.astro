@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/vfx-artist-salary-SRCH_KO0,10.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/posting/vfx-artist-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/VFX-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Create eye-catching visual effects for spells, explosions, weather phenomena, particle systems, and environmental interactions, enhancing immersion and gameplay impact.",
+  "Proficiently utilize VFX software to design, simulate, and animate dynamic visual effects.",
+  "Apply principles of physics and fluid dynamics to create realistic simulations for smoke, fire, water, and other dynamic elements within the game world.",
+  "Balance visual quality with gameplay performance by managing particle counts, texture usage, and shader complexity to maintain smooth framerates.",
+  "Ensure VFX interact appropriately with environments, characters, and gameplay mechanics, enhancing immersion and avoiding unwanted collisions or clipping.",
+  "Craft VFX that react and adapt to player actions, environmental changes, and gameplay events, adding depth and interactivity to the experience.",
+  "Translate concept art and game design documents into visually compelling VFX that align with the game's style, theme, and lore.",
+  "Build reusable particle systems, shader effects, and simulation templates to streamline production and ensure visual consistency across the game.",
+  "Identify and resolve clipping, visual glitches, unrealistic animations, and performance bottlenecks within the VFX systems."
+];
+
+const resources = [
+  { name: "Building a Great VFX Portfolio - By Hadidjah Chamberlin", url: "https://www.hadidjah.com/demo-vfx-portfolio" },
+  { name: "Mastered’s VFX Bootcamp", url: "https://join.mastered.com/vfx_artist_sb" },
+  { name: "When Art Meets Technology: The World of VFX and Technical Artists", url: "https://agate.id/when-art-meets-technology-the-world-of-vfx-and-technical-artists/" },
+  { name: "The Essential Guide to Building a Successful VFX Workflow by Dan Swierenga", url: "https://blog.frame.io/2020/02/17/vfx-workflow-best-practices/" },
+  { name: "What is the VFX Pipeline? by Ricky Cheung", url: "https://massive.io/workflow/vfx-pipeline/" },
+  { name: "The Art of VFX in Games", url: "https://www.argentics.io/the-art-of-vfx-in-video-games" },
+  { name: "NextGen Level 3 Extended Diploma in Games, Animation and Visual Effects Skills", url: "https://gateway.ac.uk/course/nextgen-games-development-l3/" },
+  { name: "VFX Courses by Motion Design School", url: "https://motiondesign.school/vfx-courses/" },
+  { name: "CGSpectrum VFX Courses", url: "https://www.cgspectrum.com/courses/visual-effects" },
+  { name: "ActionVFX Tutorials", url: "https://www.actionvfx.com/blog?category=tutorials" },
+  { name: "Allan McKay’s Toolkit", url: "https://www.allanmckay.com/toolkit/" },
+  { name: "ScreenSkills’ VFX Artist Profile", url: "https://www.screenskills.com/job-profiles/browse/games/technical-art/visual-effects-vfx-artist/" },
+  { name: "VFX Continuing Education: Where Do VFX Go To Keep Learning", url: "https://www.vfxvoice.com/vfx-continuing-education-where-do-vfx-artists-go-to-keep-learning/" },
+  { name: "How to Become a Visual Effects Artist by MadVFX", url: "https://mad-vfx.com/becoming-a-visual-effects-artist/" },
+  { name: "Beginner's Guide to Becoming a Visual Effects (VFX) Artist", url: "https://discover.therookies.co/2019/05/06/beginners-guide-to-becoming-a-visual-effects-vfx-artist/" },
+  { name: "How to Grow as a VFX artist", url: "https://cghero.com/articles/how-to-grow-as-a-vfx-artist" },
+  { name: "130 Terms Every VFX Artist Should Know", url: "https://www.rebelway.net/vfx-terminology/" },
+  { name: "How to Become a Special & Visual Effects Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/special-visual-effects-artist" }
+];
+
+const books = [
+  { name: "The VES Handbook of Visual Effects: Industry Standard VFX Practices and Procedures", url: "https://www.amazon.com/VES-Handbook-Visual-Effects-Procedures/dp/1138542202/ref=sr_1_1" },
+  { name: "Why I Do VFX: The Untold Truths About Working in Visual Effects by Vicki Lau", url: "https://www.amazon.com/Why-Do-VFX-Working-Effects/dp/B0983YXQLR/ref=sr_1_1" },
+  { name: "Designing Creatures and Characters by Marc Taro Holmes", url: "https://www.amazon.co.uk/Designing-Creatures-Characters-Portfolio-Animation/dp/1440344094" },
+  { name: "Story Structure and Development: A Guide for Animators, VFX Artists, Game Designers, and Virtual Reality by Craig Caldwell", url: "https://www.routledge.com/Story-Structure-and-Development-A-Guide-for-Animators-VFX-Artists-Game/Caldwell/p/book/9781498781732" },
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+];
+
+const tools = [
+  "Game Engines",
+  "Maya",
+  "ZBrush",
+  "Houdini",
+  "Substance Painter",
+  "Mari",
+  "Nuke",
+  "After Effects",
+  "Photoshop",
+  "Houdini Engine",
+  "OpenFX Plugins (e.g., X-Gen, TurbulenceFD)",
+  "Python",
+  "Git",
+  "Toon Boom Harmony",
+  "PureRef",
+  "RealityCapture"
+];
+
+const sidebarRoles = [
+  { name: "3D Modeling Artist", slug: "3d-modeling-artist", current: false },
+  { name: "Concept Artist", slug: "concept-artist", current: false },
+  { name: "Character Artist", slug: "character-artist", current: false },
+  { name: "Environment Artist", slug: "environment-artist", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Lighting Artist", slug: "lighting-artist", current: false },
+  { name: "Storyboard Artist", slug: "storyboard-artist", current: false },
+  { name: "Texture Artist", slug: "texture-artist", current: false },
+  { name: "Technical Artist", slug: "technical-artist", current: false },
+  { name: "VFX Artist", slug: "vfx-artist", current: true },
+  { name: "UX/UI Artist", slug: "ux-ui-artist", current: false }
+];
+---
+
+<BaseLayout title="VFX Artist" activeNav="career-guide">
+  <WikiLayout title="VFX Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Art Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/art/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/art/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Art</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>A VFX Artist, short for Visual Effects Artist, is a skilled professional who breathes life into fantastical visuals on screen. They collaborate with a larger team to craft digital assets that would be impractical or impossible to capture in real life, enhancing movies, TV shows, and even video games. VFX artists can be specialists, mastering a specific skill like 3D modeling or texturing, or generalists, adept at handling various artistic and technical tasks within the VFX pipeline. Whether conjuring up awe-inspiring dragons or seamlessly integrating digital sets, these creative minds are the backbone of bringing imaginary worlds to vivid life.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

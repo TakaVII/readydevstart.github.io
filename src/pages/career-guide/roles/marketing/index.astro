@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  { name: "Social Media Specialist", slug: "social-media-specialist", description: "A Social Media Specialist is the conductor of the hype train, orchestrating the online conversation around your game." },
+  { name: "Community Manager", slug: "community-manager", description: "A Community Manager in the game industry is the lifeblood of the gamer experience, fostering vibrant communities that breathe life into the virtual worlds we love, keeping everyone informed, entert..." },
+  { name: "Influencer Marketer", slug: "influencer-marketer", description: "An Influencer Marketer, a more specific version of an Affiliate Marketer (but sometimes with the same responsibilities), is the cool cousin your average marketer wishes they had." },
+  { name: "Content Marketer", slug: "content-marketer", description: "A Content Marketer is the storyteller extraordinaire, creating captivating narratives that draw players into the heart of the game and keep them coming back for more." },
+  { name: "Campaign Specialist", slug: "campaign-specialist", description: "Campaign Specialists work by orchestrating strategic initiatives that make the game resonate with its target audience." },
+  { name: "PR Specialist", slug: "pr-specialist", description: "A PR Specialist is a mix of hype squad leader and media whisperer, crafting press releases, pitching stories to journalists, and orchestrating events that put the spotlight on the newest and hottes..." },
+  { name: "Performance Marketer", slug: "performance-marketer", description: "A Performance Marketer is the strategist behind those targeted ads you see everywhere, the mastermind behind in-game offers that keep you hooked, and the analysts who ensure every marketing dollar ..." }
+];
+
+const skills = [
+  "Market Analysis",
+  "Brand Management",
+  "Digital Marketing",
+  "Campaign Management",
+  "Data Analysis for marketing strategies.",
+  "Creative Thinking",
+  "Communication Skills",
+  "Market Research",
+  "Strategic Planning",
+  "Relationship Building",
+  "Creative Brief Development",
+  "Project Management",
+  "Presentation Skills",
+  "Storytelling",
+  "Budget Management",
+  "Media Planning",
+  "Cross-Functional Collaboration",
+  "Analytical Skills",
+  "Stakeholder Management",
+  "Event Planning",
+  "Written Communication"
+];
+
+const courses = [
+  { name: "Into Games’ Junior Marketing Assistant Database", url: "https://entrylevel.games/database/marketing-assistant" },
+  { name: "The Clark Tank! by Brace Yourself Games", url: "https://www.youtube.com/playlist?list=PLUPKuAVC8PO7uIGiDCHUZGDNYAyRmW6NC" },
+  { name: "Top 10 Indie Game Marketing Questions ANSWERED! by Game Dev Unlocked", url: "https://www.youtube.com/watch?v=YP4Aq-TrWAI&ab_channel=GameDevUnlocked" },
+  { name: "The GameDiscoverCo newsletter", url: "https://newsletter.gamediscover.co/" },
+  { name: "How To Market A Game by Chris Zukowski", url: "https://howtomarketagame.com/" },
+  { name: "Game Marketing: The Ultimate Guide to Visibility & Success", url: "https://upptic.com/game-marketing-ultimate-guide-to-visibility-success/" },
+  { name: "Marketing to Gamers: A Guide to Mastering the Game", url: "https://izea.com/resources/marketing-to-gamers/" },
+  { name: "A Beginner’s Guide To Marketing Your Games Online", url: "https://elearningindustry.com/advertise/elearning-marketing-resources/blog/beginners-guide-marketing-your-games-online" }
+];
+---
+
+<BaseLayout title="Marketing Roles" activeNav="career-guide">
+  <WikiLayout title="Marketing Roles" activeNav="career-guide" activeSidebar="roles">
+    <p>Marketing roles in the game industry involve promoting and selling video games to the target audience. These professionals utilize various strategies to create brand awareness, engage with the gaming community, and drive sales through market research, campaign development, social media management, influencer collaboration, and analyzing marketing data. Their goal is to position the game effectively, generate interest, and ensure its success in the market.</p>
+
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Marketing Roles</h3>
+        {roles.map((r) => (
+          <a href={`${base}career-guide/roles/marketing/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+            <strong style="font-size: 0.9rem;">{r.name}</strong>
+          </a>
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; All Roles</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roles.map((role) => (
+            <a href={`${base}career-guide/roles/marketing/${role.slug}/`} class="card" style="text-decoration:none;">
+              <h3>{role.name}</h3>
+              <p>{role.description}</p>
+              <span class="btn btn-pink" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; margin-top: 0.5rem; display: inline-block;">View Role &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Skills Involved</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {skills.map((s) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Courses &amp; Resources</h3>
+          <ul>
+            {courses.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Related</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/infrastructure/`}>🔧 Infrastructure & Live Ops Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/production/`}>📊 Production Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/job-boards/`}>Job Boards &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

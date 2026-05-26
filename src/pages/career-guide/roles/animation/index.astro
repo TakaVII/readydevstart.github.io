@@ -4,53 +4,121 @@ import WikiLayout from "../../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 
 const roles = [
-  { name: "Character Animator", description: "Creates movement and personality for game characters through keyframe or motion-capture animation." },
-  { name: "Technical Animator", description: "Bridges art and engineering — builds rigs, animation systems, and tools for the animation pipeline." },
-  { name: "Cinematic Animator", description: "Produces in-game cutscenes and scripted sequences with dramatic camera work and character performances." },
-  { name: "Rigging Artist", description: "Builds the skeletal and control systems that allow 3D models to be animated." },
+  { name: "Character Animator", slug: "character-animator", description: "Character animators are technical artists specializing in creating realistic and expressive movements for characters in video games." },
+  { name: "Cinematic Animator", slug: "cinematic-animator", description: "Cinematic animators are specialized technical artists who create high-fidelity, narrative-driven animation sequences for video games." },
+  { name: "Motion Capture Artist", slug: "motion-capture-artist", description: "Motion Capture Artists are the technical wizards behind the scenes, capturing the nuances of human movement and translating them into the digital world." },
+  { name: "Technical Animator", slug: "technical-animator", description: "Technical animators ensure that characters move realistically and the game runs smoothly, bridging the gap between artistic vision and technological limitations." },
+  { name: "UX/UI Animator", slug: "ux-ui-animator", description: "UX/UI animators are the architects of interactivity in games." },
+  { name: "VFX Animator", slug: "vfx-animator", description: "VFX animators occupy a unique space within the cinematic workflow, bridging the gap between artistic vision and technical feasibility." },
+  { name: "Rigging Artist", slug: "rigging-artist", description: "Rigging artists are the puppeteers of the digital world, crafting the internal structures that grant characters fluid, believable movement." }
+];
+
+const skills = [
+  "2D Art",
+  "3D Modeling",
+  "Animation",
+  "Art Composition",
+  "Art Simulations",
+  "Color Theory",
+  "Concept Art",
+  "Content Creation",
+  "Creative Process Development",
+  "Creativity",
+  "Cross-team Communication",
+  "Design Diligence",
+  "Design Principles",
+  "Design Readiness",
+  "Graphic Design",
+  "Graphic Illustrations",
+  "Hand-drawn Animation",
+  "Hand-drawn Art",
+  "Illustration",
+  "Lighting",
+  "Offline Rendering",
+  "Performance Capture",
+  "Pixel Animation",
+  "Pixel Art",
+  "Prototyping",
+  "Storyboarding",
+  "Texturing",
+  "Vector Animation"
+];
+
+const courses = [
+  { name: "Advice from 500 Digital Artists Free Book", url: "https://therookies.hubspotpagebuilder.com/advice-from-500-digital-artists" },
+  { name: "ScreenSkills’ slides “What jobs are needed to make an animation”", url: "https://www.screenskills.com/media/3359/animation-slides-240120.pdf" },
+  { name: "How to Make a Successful Demo Reel for 3D Artists", url: "https://www.lifewire.com/how-to-make-a-successful-demo-reel-for-3d-artists-2054" },
+  { name: "Fundamentals of Animation Course by Aaron Blaise", url: "https://creatureartteacher.com/product/fundamentals-of-animation/" },
+  { name: "Creature of Art’s Animation Tutorials", url: "https://creatureartteacher.com/product-category/tutorials-lessons/animation-tutorials/" },
+  { name: "3D Animation & VFX Course by Vancouver Film School", url: "https://vfs.edu/programs/3D-animation-vfx" },
+  { name: "CGSpectrum Courses", url: "https://www.cgspectrum.com/" },
+  { name: "Animation/VFX Game Industry Job Postings by Chris Mayne", url: "https://docs.google.com/spreadsheets/d/1eR2oAXOuflr8CZeGoz3JTrsgNj3KuefbdXJOmNtjEVM/edit#gid=0" },
+  { name: "Into Games’ Junior Animator Database", url: "https://entrylevel.games/database/junior-animator" }
 ];
 ---
 
 <BaseLayout title="Animation Roles" activeNav="career-guide">
   <WikiLayout title="Animation Roles" activeNav="career-guide" activeSidebar="roles">
-    <p>
-      Animation brings game worlds and characters to life. From subtle idle
-      loops to dramatic cinematic sequences, animators are essential to the
-      player experience.
-    </p>
+    <p>An Animator in the gaming industry specializes in creating lifelike movements, expressions, and actions for characters, objects, and environments in games. They use various software and tools to bring game characters to life, ensuring believable performances, realistic physics, and captivating storytelling. Animators work closely with other game development professionals, such as concept artists and programmers, to create visually stunning and immersive experiences for players.</p>
 
     <div class="career-layout">
       <aside class="career-sidebar">
         <h3>Animation Roles</h3>
         {roles.map((r) => (
-          <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem;">
+          <a href={`${base}career-guide/roles/animation/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
             <strong style="font-size: 0.9rem;">{r.name}</strong>
-          </div>
+          </a>
         ))}
         <div style="margin-top: 1rem;">
-          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">← All Roles</a>
+          <a href={`${base}career-guide/roles/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; All Roles</a>
         </div>
       </aside>
 
       <div class="career-main">
-        {roles.map((role) => (
-          <div class="card" style="margin-bottom: 1rem;">
-            <h3>{role.name}</h3>
-            <p>{role.description}</p>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+          {roles.map((role) => (
+            <a href={`${base}career-guide/roles/animation/${role.slug}/`} class="card" style="text-decoration:none;">
+              <h3>{role.name}</h3>
+              <p>{role.description}</p>
+              <span class="btn btn-pink" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; margin-top: 0.5rem; display: inline-block;">View Role &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Skills Involved</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {skills.map((s) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{s}</span>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Courses &amp; Resources</h3>
+          <ul>
+            {courses.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <aside class="career-sidebar">
         <h3>Related</h3>
         <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/roles/art/`}>Art Roles →</a>
+            <a href={`${base}career-guide/roles/qa/`}>🔍 Quality Assurance Roles &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <p style="font-size: 0.85rem;">
+            <a href={`${base}career-guide/roles/art/`}>🎨 Art Roles &rarr;</a>
           </p>
         </div>
         <div class="card" style="padding: 1rem;">
           <p style="font-size: 0.85rem;">
-            <a href={`${base}career-guide/job-boards/`}>Job Boards →</a>
+            <a href={`${base}career-guide/job-boards/`}>Job Boards &rarr;</a>
           </p>
         </div>
       </aside>

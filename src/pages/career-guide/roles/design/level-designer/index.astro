@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/level-designer-salary-SRCH_KO0,14.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/level-designer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Level-Designer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Design diverse levels that guide players through the game's narrative and test their skills in varied ways.",
+  "Weave narrative beats and world-building into level layouts, using scenery, obstacles, and props to enhance immersion.",
+  "Craft encounters and puzzles that offer balanced difficulty, reward exploration, and maintain a satisfying flow.",
+  "Integrate gameplay mechanics, characters, enemies, and environmental hazards into a cohesive experience.",
+  "Dress levels with props, interactables, and environmental storytelling to enrich the game's atmosphere and lore.",
+  "Guide player experience subtly through level geometry, visual cues, and environmental storytelling.",
+  "Break your own creations, identify flow issues, and relentlessly iterate for optimal player experience.",
+  "Master level layout, map design, and spatial visualization to craft both aesthetically pleasing and playable environments."
+];
+
+const resources = [
+  { name: "\"Everything I learned about Level Design, I Learned from Disneyland\" GDC Talk by Scott Rogers", url: "https://www.youtube.com/watch?v=P4uPwhSqW8Q&ab_channel=GameDesignCon" },
+  { name: "Into Game’s Junior Level Designer Database", url: "https://entrylevel.games/database/junior-level-designer" },
+  { name: "Level Design Resources", url: "https://app.milanote.com/1R3WQ51Gh0VHbT/level-design-resources?p=4pN11kPoqDo" },
+  { name: "The Level Design Book", url: "https://book.leveldesignbook.com/" },
+  { name: "Level Design Papermaps YouTube Playlist by Matthew Marquit", url: "https://www.youtube.com/watch?v=fR7AfLt1vYk&list=PL0GHpYtoYaLIA3xjjYNNi0iC-1QYguLY3&index=3&ab_channel=MatthewMarquit" },
+  { name: "Level Design Workshop: The Illusion of Choice - GDC Talk by Jim Brown", url: "https://www.gdcvault.com/play/1023552/Level-Design-Workshop-The-Illusion" },
+  { name: "Practical Guide on First Person Level Design", url: "https://medium.com/ironequal/practical-guide-on-first-person-level-design-e187e45c744c" },
+  { name: "Multiplayer Level Design Guide", url: "https://www.nextleveldesign.org/index.php?/content/articles/multiplayer-level-design-guide-r145/" },
+  { name: "An Approach to Holistic Level Design - GDC Talk by Steve Lee", url: "https://www.youtube.com/watch?v=CpOoTAVeEcU&ab_channel=GDC" },
+  { name: "Finding your own path as a professional Level Designer", url: "https://www.mapcore.org/articles/interviews/finding-your-own-path-as-a-professional-level-designer-r92/" },
+  { name: "Lighting Design for Level Designers - GDC Talk by Robert Yang", url: "https://www.gdcvault.com/play/1016450/Lighting-Design-for-Level" },
+  { name: "Competitive Design Guide", url: "https://www.nextleveldesign.org/index.php?/content/articles/competitive-design-guide-r39/" },
+  { name: "Level Design Lobby YouTube Channel", url: "https://www.youtube.com/channel/UCncCrL2AVwpp7NJEG2lhG9Q" },
+  { name: "Leve Design Compendium Board by Vicente Quesada", url: "https://trello.com/b/AM3ZOmAd/level-design-compendium" },
+  { name: "Level Design Workshop: Designing Celeste - GDC Talk by Maddy Thorson", url: "https://www.youtube.com/watch?v=4RlpMhBKNr0&ab_channel=GDC" },
+  { name: "Level Design Saga: Creating Levels for Casual Games - GDC Document by Jeremy Kang", url: "https://www.gdcvault.com/play/1023799/Level-Design-Saga-Creating-Levels" },
+  { name: "Awesome Level Design List of Resources by bytecauldron", url: "https://github.com/bytecauldron/awesome-level-design" },
+  { name: "Level Design Tips and Tricks", url: "https://sites.google.com/view/leveldesigner/english-version" },
+  { name: "Push and Pull: The art of guiding players through an environment", url: "https://www.clement-melendez.com/portfolio/essays" },
+  { name: "World of Level Design", url: "https://www.worldofleveldesign.com/" },
+  { name: "Level Design Fundamentals Unreal Engine Course", url: "https://dev.epicgames.com/community/learning/tutorials/3VKJ/unreal-engine-fortnite-level-design-fundamentals" },
+  { name: "80 Level Digest: Great Sources on Level Design", url: "https://80.lv/articles/80-level-digest-great-sources-on-level-design/" }
+];
+
+const books = [
+  { name: "Story Structure and Development: A Guide for Animators, VFX Artists, Game Designers, and Virtual Reality by Craig Caldwell", url: "https://www.routledge.com/Story-Structure-and-Development-A-Guide-for-Animators-VFX-Artists-Game/Caldwell/p/book/9781498781732" },
+  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
+  { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
+  { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
+  { name: "Fundamentals of Creature Design: How to Create Successful Concepts Using Functionality, Anatomy, Color, Shape & Scale by 3dtotal Publishing", url: "https://www.amazon.com/Fundamentals-Creature-Design-Successful-Functionality/dp/1912843129/" },
+  { name: "Designing Games: A Guide to Engineering Experiences by Tynan Sylvester", url: "https://www.amazon.com/Designing-Games-Guide-Engineering-Experiences/dp/1449337937" }
+];
+
+const tools = [
+  "Game Engines",
+  "Maya",
+  "Blender",
+  "Houdini",
+  "Substance Designer",
+  "Substance Painter",
+  "ZBrush",
+  "Photoshop",
+  "Jira",
+  "Perforce",
+  "Git",
+  "Excel",
+  "World Machine",
+  "Houdini Engine",
+  "Graphite",
+  "LDtk",
+  "Tiled"
+];
+
+const sidebarRoles = [
+  { name: "Game Designer", slug: "game-designer", current: false },
+  { name: "Level Designer", slug: "level-designer", current: true },
+  { name: "Narrative Designer/Writer", slug: "narrative-designer-writer", current: false },
+  { name: "Gameplay Designer", slug: "gameplay-designer", current: false },
+  { name: "System Designer", slug: "system-designer", current: false },
+  { name: "UX/UI Designer", slug: "ux-ui-designer", current: false },
+  { name: "Technical Designer", slug: "technical-designer", current: false }
+];
+---
+
+<BaseLayout title="Level Designer" activeNav="career-guide">
+  <WikiLayout title="Level Designer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Game Design Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/design/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/design/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Game Design</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>In the video game realm, Level Designers are the architects of captivating digital worlds. They sculpt the landscapes, populate them with interactive elements, and orchestrate the flow of gameplay, shaping the player's journey through each stage. Imagine them as master storytellers, crafting narratives not through words but through immersive environments and engaging challenges. They weave together gameplay mechanics, visual design, and audio to create a cohesive experience that keeps players hooked. From sprawling open worlds to intricately designed puzzle rooms, Level Designers breathe life into the game's vision, ensuring every step of the player's trek is exciting and memorable.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/motion-capture-artist-salary-SRCH_KO0,21.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/hiring/motion-capture-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Motion-Capture-Artist-Salary" }
+];
+
+const responsibilities = [
+  "Set up, operate and maintain motion capture systems.",
+  "Coach actors and guide them during capture sessions.",
+  "Monitor the capture process and troubleshoot technical issues.",
+  "Clean and process raw capture data.",
+  "Create and edit motion capture animation.",
+  "Retarget motion capture data to different characters."
+];
+
+const resources = [
+  { name: "How to Become A Motion Capture Artist? Is It An Attractive Work? by Animost", url: "https://animost.com/ideas-inspirations/motion-capture-artist/" },
+  { name: "Udemy’s Motion Capture Animation Courses", url: "https://www.udemy.com/courses/search/?q=motion+capture+animation&src=sac&kw=motion+capture" }
+];
+
+const books = [
+  { name: "Film Directing Shot by Shot by Steven D. Katz", url: "https://www.amazon.com/Film-Directing-Anniversary-Visualizing-Concept/dp/1615932976/ref=sr_1_1" },
+  { name: "Understanding Motion Capture for Computer Animation by Alberto Menache", url: "https://www.amazon.com/Understanding-Computer-Animation-Kaufmann-Graphics/dp/0123814960/ref=sr_1_1" },
+  { name: "Motion Capture for Artists: Workflow and Techniques for Motion Capture by Midori Kitagawa and Brian Windsor", url: "https://www.amazon.com/MoCap-Artists-Workflow-Techniques-Capture-ebook/dp/B08R2DX1QR/ref=sr_1_1" },
+  { name: "The Mocap Book: A Practical Guide to the Art of Motion Capture by Ricardo Tobon", url: "https://www.amazon.com/Mocap-Book-Practical-Motion-Capture/dp/0615293069/ref=sr_1_1" },
+  { name: "3D Character Development Workshop: Rigging Fundamentals for Artists and Animators by Erik Van Horn", url: "https://www.amazon.com/Character-Development-Workshop-Fundamentals-Animators-ebook/dp/B07CSGYSRP/ref=sr_1_3?crid=2KAWNA9HSKXAI&keywords=Character+Rigging+for+3D+Animation+by+Gary+Robson&qid=1702055825&sprefix=character+rigging+for+3d+animation+by+gary+robson%2Caps%2C194&sr=8-3" },
+  { name: "Illusion of Life: Disney Animation by Frank Thomas and Ollie Johnston", url: "https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707/ref=sr_1_1" },
+  { name: "Acting for Animators by Ed Hooks", url: "https://www.amazon.com/Acting-Animators-4th-Ed-Hooks/dp/1138669121/ref=sr_1_1" },
+  { name: "The Animator's Survival Kit by Richard Williams", url: "https://www.amazon.com/Richard-Williams/dp/086547897X/ref=sr_1_1" }
+];
+
+const tools = [
+  "Game Engines",
+  "XSense MVN",
+  "Rokoko Smartsuite Pro",
+  "Rokoko Studio",
+  "Vicon Vero",
+  "Optitrack Prime",
+  "IKinema Orion",
+  "MotionBuilder",
+  "iClone",
+  "Adobe After Effects",
+  "Mixamo"
+];
+
+const sidebarRoles = [
+  { name: "Character Animator", slug: "character-animator", current: false },
+  { name: "Cinematic Animator", slug: "cinematic-animator", current: false },
+  { name: "Motion Capture Artist", slug: "motion-capture-artist", current: true },
+  { name: "Technical Animator", slug: "technical-animator", current: false },
+  { name: "UX/UI Animator", slug: "ux-ui-animator", current: false },
+  { name: "VFX Animator", slug: "vfx-animator", current: false },
+  { name: "Rigging Artist", slug: "rigging-artist", current: false }
+];
+---
+
+<BaseLayout title="Motion Capture Artist" activeNav="career-guide">
+  <WikiLayout title="Motion Capture Artist" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Animation Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/animation/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/animation/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Animation</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>Motion Capture Artists are the technical wizards behind the scenes, capturing the nuances of human movement and translating them into the digital world. They are the architects of digital movement, using specialized cameras, sensors, and software to record and manipulate real-world performances for use in video games, movies, and other animated projects.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>

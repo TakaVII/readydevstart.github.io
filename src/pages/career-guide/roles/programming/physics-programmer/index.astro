@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const salaries = [
+  { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/physics-programmer-salary-SRCH_KO0,18.htm" },
+  { name: "Salary.com", url: "https://www.salary.com/research/salary/position/physics-programmer-salary" },
+  { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Physics-Programmer-Salary#Yearly" }
+];
+
+const responsibilities = [
+  "Craft the fundamental physics simulations for character movement, collisions, interactions with objects, and environment dynamics, ensuring realistic and engaging gameplay.",
+  "Balance fidelity with performance, identifying bottlenecks and implementing optimizations to maintain smooth gameplay frame rates and minimize computational resource usage.",
+  "Calibrate gravity, friction, restitution, and other physical properties to achieve desired gameplay feel, balancing realism with fun and enjoyable player experiences.",
+  "Connect physics simulations with animation, rendering, audio, and gameplay mechanics to create a cohesive and responsive game world.",
+  "Craft unique physics behavior for vehicles, ragdoll effects, dynamic environments, destructible objects, and other gameplay elements.",
+  "Create clear documentation of physics parameters, calculations, and design choices to facilitate future maintenance and collaboration.",
+  "Utilize physics simulation data to drive dynamic environmental events, trigger scripted sequences, and influence gameplay elements like enemy behaviors, weather effects, and object deformation, creating a dynamic and evolving game world.",
+  "Develop systems for realistic material properties like elasticity, buoyancy, and fluid dynamics, creating immersive interactions with objects and the environment."
+];
+
+const resources = [
+  { name: "ScreenSkills’ Physics Programmers Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/physics-programmer/#:~:text=What%20does%20a%20physics%20programmer,would%20happen%20in%20real%20life." },
+  { name: "Introduction to Physics Programming YouTube Series by Gustavo Oliveira", url: "https://www.youtube.com/watch?v=erLT9HsllJU&ab_channel=GustavoOliveira" },
+  { name: "Video Game Physics Tutorial by Toptal", url: "https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics" },
+  { name: "Into Games’ Physics Programmer Profile", url: "https://intogames.org/role/physics-programmer/" },
+  { name: "Awesome Physics Programming Resource List Repository by tensorush", url: "https://github.com/tensorush/Awesome-Physics-Programming" },
+  { name: "The Ultimate Guide for Physics in Game Development! by Will Hess", url: "https://www.youtube.com/watch?v=3lBYVSplAuo&ab_channel=WillHess" },
+  { name: "Physics for Game Programmers - GDC Talk by Richard Tonge", url: "https://www.gdcvault.com/play/1017643/Physics-for-Game" },
+  { name: "The Role of Physics in Video Game Design", url: "https://www.gamedesigning.org/learn/game-physics/" }
+];
+
+const books = [
+  { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
+  { name: "Game Physics Engine Development by Ian Millington", url: "https://www.amazon.com/Game-Physics-Engine-Development-Commercial-Grade/dp/0123819768/" },
+  { name: "Physics for Game Developers: Science, math, and code for realistic effects by David Bourg and Bryan Bywalec", url: "https://www.amazon.com/Physics-Game-Developers-Science-realistic/dp/1449392512/" },
+  { name: "Game Physics by David H. Eberly", url: "https://www.amazon.com/Game-Physics-David-H-Eberly/dp/0123749034" },
+  { name: "Physics for Game Programmers by Grant Palmer", url: "https://www.amazon.com/Physics-Game-Programmers-Grant-Palmer/dp/159059472X/" },
+  { name: "Game Physics book series by Gregory Hodges", url: "https://www.amazon.com/dp/B08RXZ4FPR" }
+];
+
+const tools = [
+  "Game Engines",
+  "Git",
+  "CMake",
+  "SWIG",
+  "Bullet Physics Engine",
+  "ODE Physics Engine",
+  "PhysX",
+  "OpenAL",
+  "Embree",
+  "OSPRay",
+  "Cinder",
+  "JUCE",
+  "Assimp",
+  "SPIRV-Cross",
+  "Glfw",
+  "Rapier",
+  "GIMPACT",
+  "Hikari",
+  "OpenMM",
+  "OpenFLUIDS"
+];
+
+const sidebarRoles = [
+  { name: "AI Programmer", slug: "ai-programmer", current: false },
+  { name: "Gameplay Programmer", slug: "gameplay-programmer", current: false },
+  { name: "Generalist Programmer", slug: "generalist-programmer", current: false },
+  { name: "VR Programmer", slug: "vr-programmer", current: false },
+  { name: "Tools Programmer", slug: "tools-programmer", current: false },
+  { name: "Network Engineer", slug: "network-engineer", current: false },
+  { name: "Engine Programmer", slug: "engine-programmer", current: false },
+  { name: "Graphics Programmer", slug: "graphics-programmer", current: false },
+  { name: "Audio Programmer", slug: "audio-programmer", current: false },
+  { name: "UX/UI Programmer", slug: "ux-ui-programmer", current: false },
+  { name: "Physics Programmer", slug: "physics-programmer", current: true }
+];
+---
+
+<BaseLayout title="Physics Programmer" activeNav="career-guide">
+  <WikiLayout title="Physics Programmer" activeNav="career-guide" activeSidebar="roles">
+    <div class="career-layout">
+      <aside class="career-sidebar">
+        <h3>Engineering & Programming Roles</h3>
+        {sidebarRoles.map((r) => (
+          r.current ? (
+            <div class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; border-left: 3px solid var(--clr-pink);">
+              <strong style="font-size: 0.9rem; color: var(--clr-pink);">{r.name}</strong>
+            </div>
+          ) : (
+            <a href={`${base}career-guide/roles/programming/${r.slug}/`} class="card" style="padding: 0.75rem; margin-bottom: 0.5rem; text-decoration: none; display: block;">
+              <strong style="font-size: 0.9rem;">{r.name}</strong>
+            </a>
+          )
+        ))}
+        <div style="margin-top: 1rem;">
+          <a href={`${base}career-guide/roles/programming/`} class="btn btn-gold" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">&larr; Engineering & Programming</a>
+        </div>
+      </aside>
+
+      <div class="career-main">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>About this Role</h2>
+          <p>The Physics Programmer is responsible for simulating the real-world laws of motion, gravity, and collision within the game engine. Their work encompasses a wide range of tasks, from designing and implementing physics systems for objects like characters, vehicles, and projectiles, to optimizing performance and ensuring realistic interactions between virtual elements. They collaborate closely with other programmers, designers, and artists to ensure physics seamlessly integrates with the game's visuals and gameplay mechanics. Ultimately, the Physics Programmer's expertise is crucial for creating believable and immersive worlds that feel responsive and engaging to players, ensuring they experience the thrill of gravity, the satisfying impact of a collision, and the fluidity of movement that makes games feel truly alive.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Salary Resources</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            {salaries.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-blue" style="font-size: 0.85rem;">
+                {s.name} &rarr;
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Key Responsibilities</h2>
+          <ul>
+            {responsibilities.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Learning Resources</h2>
+          <ul>
+            {resources.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Recommended Books</h2>
+          <ul>
+            {books.map((b) => (
+              <li><a href={b.url} target="_blank" rel="noopener noreferrer">{b.name}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h2>Tools to Learn</h2>
+          <div class="callout callout-info">
+            <p>You don&#39;t need to learn all of these — they are some of the more common tools for this role.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+            {tools.map((t) => (
+              <span style="background: var(--clr-bg); border: 1px solid var(--clr-dark); border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.85rem;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="career-sidebar">
+        <h3>Quick Links</h3>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📋 Job Boards</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/job-boards/`}>Browse job boards &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem; margin-bottom: 0.75rem;">
+          <strong>📚 Resources</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/resources/`}>Career resources &rarr;</a>
+          </p>
+        </div>
+        <div class="card" style="padding: 1rem;">
+          <strong>🎯 All Roles</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.35rem;">
+            <a href={`${base}career-guide/roles/`}>View all disciplines &rarr;</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </WikiLayout>
+</BaseLayout>
