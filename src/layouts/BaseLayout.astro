@@ -44,6 +44,7 @@ const base = import.meta.env.BASE_URL;
           <a href={`${base}about/`} class:list={[{ active: activeNav === "about" }]}>About</a>
         </nav>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar navigation" aria-expanded="false" aria-controls="sidebar">📑</button>
       </header>
 
       <!-- ===== Page Content ===== -->
@@ -70,16 +71,31 @@ const base = import.meta.env.BASE_URL;
       const toggle = document.getElementById("menuToggle");
       const nav = document.getElementById("mainNav");
       const sidebar = document.querySelector(".sidebar");
+      const sidebarToggle = document.getElementById("sidebarToggle");
 
-      // Mobile hamburger → header nav toggle
+      // Mobile hamburger → header nav toggle only
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
           const isNavOpen = nav.classList.toggle("open");
-          // Also toggle sidebar if present
-          if (sidebar) {
-            sidebar.classList.toggle("open", isNavOpen);
-          }
           toggle.setAttribute("aria-expanded", String(isNavOpen));
+          // Close sidebar when opening nav to avoid overlap
+          if (isNavOpen && sidebar) {
+            sidebar.classList.remove("open");
+            if (sidebarToggle) sidebarToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      // Separate sidebar toggle for mobile
+      if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener("click", () => {
+          const isSidebarOpen = sidebar.classList.toggle("open");
+          sidebarToggle.setAttribute("aria-expanded", String(isSidebarOpen));
+          // Close nav when opening sidebar to avoid overlap
+          if (isSidebarOpen && nav) {
+            nav.classList.remove("open");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+          }
         });
       }
 

@@ -19,7 +19,7 @@
 
   --sidebar-width: 260px;
   --header-height: 64px;
-  --max-content: 960px;
+  --max-content: 1100px;
 }
 
 /* ----- Reset & Base ----- */
@@ -109,7 +109,7 @@ pre code {
 .main-area {
   display: flex;
   flex: 1;
-  max-width: 1280px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   padding-top: 1.5rem;
@@ -172,6 +172,17 @@ pre code {
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: auto;
+}
+
+/* Sidebar toggle — only visible on mobile when sidebar exists */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-bg);
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
 }
 
 /* ----- Sidebar ----- */
@@ -382,16 +393,15 @@ th {
 
 /* ----- Career Guide 3-Column Layout ----- */
 .career-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr 180px;
   gap: 1.5rem;
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 0.5rem;
 }
 
 .career-sidebar {
-  width: 220px;
-  min-width: 220px;
   flex-shrink: 0;
 }
 
@@ -401,7 +411,7 @@ th {
 }
 
 .career-main {
-  flex: 1;
+  grid-column: 2 / 4;
   min-width: 0;
 }
 
@@ -436,6 +446,11 @@ th {
 /* Hamburger always visible on mobile */
 @media (max-width: 768px) {
   .menu-toggle {
+    display: block;
+  }
+
+  /* Show sidebar toggle on mobile only when body has sidebar */
+  .has-sidebar .sidebar-toggle {
     display: block;
   }
 
@@ -534,7 +549,7 @@ th {
 
   /* Career guide 3-column → stacked on mobile */
   .career-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .career-layout .career-sidebar {
@@ -543,6 +558,7 @@ th {
   }
 
   .career-layout .career-main {
+    grid-column: 1;
     width: 100%;
   }
 }
@@ -563,7 +579,15 @@ th {
   }
 
   .career-layout .career-sidebar {
-    width: 180px;
-    min-width: 180px;
+    width: auto;
+    min-width: 160px;
+  }
+
+  .career-layout {
+    grid-template-columns: 160px 1fr 160px;
+  }
+
+  .career-layout .career-main {
+    grid-column: 2 / 3;
   }
 }
