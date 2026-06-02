@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://takavii.github.io",
-  base: "/readydevstart.github.io/",
+  site: "https://readydevstart.indiegameacademy.com",
+  base: "/",
   output: "static",
 });

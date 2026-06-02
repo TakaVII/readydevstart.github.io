@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+import FileDownload from "../../../components/FileDownload.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Press Kit" activeNav="blueprints">
+  <WikiLayout title="Press Kit &amp; Press Release" activeNav="blueprints" activeSidebar="press-kit">
+    <div class="callout callout-info">
+      <strong>📰 Blueprint:</strong> Everything you need to get media coverage for your indie game — a press kit guide and a ready-to-use press release template.
+    </div>
+
+    <h2>Press Release Template</h2>
+    <p>
+      A press release announces your game to journalists, influencers, and the public.
+      Download our template, fill in the placeholders, and send it out when you're ready to announce.
+    </p>
+    <FileDownload
+      name="Press Release Template (HTML)"
+      href={`${base}downloads/press-release-template.html`}
+      type="HTML"
+      description="A styled, ready-to-customize press release template. Open in any browser or editor."
+    />
+
+    <h2>What Is a Press Kit?</h2>
+    <p>
+      A press kit is a collection of promotional materials that provides essential information
+      about your indie game to journalists, influencers, and potential collaborators. Think of it
+      as your game's first impression — a neatly wrapped package showcasing its essence.
+    </p>
+    <p>
+      <strong>Keep it short.</strong> A journalist should be able to understand your game in under
+      5 minutes. Most have tightly packed schedules, so transmit the key elements and feel of your
+      game concisely.
+    </p>
+
+    <h2>What to Include</h2>
+
+    <h3>Overview Document</h3>
+    <ul>
+      <li><strong>Game Description:</strong> A brief, captivating description highlighting unique features, gameplay mechanics, and genre.</li>
+      <li><strong>Key Features:</strong> The standout features that make your game interesting and appealing.</li>
+      <li><strong>History:</strong> A short overview of the story behind the development.</li>
+      <li><strong>Platform &amp; Release Info:</strong> Platforms, planned release date, and optionally the price.</li>
+    </ul>
+
+    <h3>Game Information</h3>
+    <ul>
+      <li><strong>Storyline:</strong> Summarize the plot, setting, and characters. Keep it to 1 short paragraph.</li>
+      <li><strong>Gameplay Features:</strong> Core mechanics, objectives, and innovative features.</li>
+      <li><strong>Game Modes:</strong> Single-player, multiplayer, cooperative, etc.</li>
+    </ul>
+
+    <h3>Visual Assets</h3>
+    <ul>
+      <li><strong>Screenshots:</strong> High-quality images showcasing different aspects of the game.</li>
+      <li><strong>Concept Art:</strong> Art direction and design glimpses.</li>
+      <li><strong>Logos &amp; Icons:</strong> High-resolution game and studio logos.</li>
+      <li><strong>Trailer or Gameplay Video:</strong> A well-edited video communicating the game's essence.</li>
+    </ul>
+
+    <h3>Press Coverage &amp; Reviews</h3>
+    <ul>
+      <li><strong>Quotes:</strong> Praise from reputable publications or industry figures.</li>
+      <li><strong>Awards &amp; Recognition:</strong> Any awards or nominations received.</li>
+    </ul>
+
+    <h3>Contact Information</h3>
+    <ul>
+      <li><strong>Press Contact:</strong> Name, email, and phone number.</li>
+      <li><strong>Social Media &amp; Website:</strong> Links to your official channels.</li>
+    </ul>
+
+    <h2>Why Is a Press Kit Important?</h2>
+    <ul>
+      <li><strong>Saves Time:</strong> Journalists get everything upfront, increasing the likelihood of coverage.</li>
+      <li><strong>Ensures Consistency:</strong> You control how your game is presented.</li>
+      <li><strong>Increases Visibility:</strong> A polished kit gets noticed by media professionals.</li>
+      <li><strong>Professional Image:</strong> Demonstrates credibility and seriousness.</li>
+    </ul>
+
+    <h2>Quick Press Kit Tools</h2>
+    <ul>
+      <li><a href="https://dopresskit.com/" target="_blank" rel="noopener noreferrer">Presskit()</a> — Free press kit generator</li>
+      <li><a href="https://impress.games/pricing" target="_blank" rel="noopener noreferrer">Impress</a> — Paid press kit platform</li>
+    </ul>
+
+    <h2>Press Kit Examples</h2>
+    <ul>
+      <li><a href="https://www.studiomdhr.com/press/" target="_blank" rel="noopener noreferrer">Studio MDHR (Cuphead)</a></li>
+      <li><a href="https://younghorsesgames.com/press/sheet.php?p=octodad_dadliest_catch" target="_blank" rel="noopener noreferrer">Young Horses Games (Octodad)</a></li>
+      <li><a href="https://www.stardewvalley.net/press/" target="_blank" rel="noopener noreferrer">Stardew Valley</a></li>
+      <li><a href="https://handy-games.com/en/about-us/press-kit/" target="_blank" rel="noopener noreferrer">Handy Games</a></li>
+      <li><a href="https://ludeon.com/press/" target="_blank" rel="noopener noreferrer">Ludeon Studios (Rimworld)</a></li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Regularly update your press kit with the latest screenshots, trailers,
+      and press coverage. An outdated kit can hurt your credibility.
+    </div>
+  </WikiLayout>
+</BaseLayout>
