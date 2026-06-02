@@ -1,5 +1,5 @@
 /* ============================
-   IGA Wiki — Global Styles
+   Ready Dev Start — Global Styles
    ============================ */
 
 /* Google Font import */
@@ -135,6 +135,11 @@ pre code {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.site-header .logo .logo-img {
+  height: 40px;
+  width: auto;
 }
 
 .site-header .logo span {
