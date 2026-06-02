@@ -391,7 +391,7 @@ th {
   border-bottom: 2px solid var(--color-gold);
 }
 
-/* ----- Career Guide 3-Column Layout ----- */
+/* ----- Career Guide 4-Column Layout ----- */
 .career-layout {
   display: grid;
   grid-template-columns: 180px 1fr 1fr 180px;
@@ -543,7 +543,7 @@ th {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Career guide 3-column → stacked on mobile */
+  /* Career guide 4-column → stacked on mobile */
   .career-layout {
     grid-template-columns: 1fr;
   }
