@@ -76,7 +76,7 @@ const webPageSchema = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${Astro.site}assets/Logo_IGA.png`} />
+    <meta name="twitter:image" content={new URL('assets/Logo_IGA.png', Astro.site).href} />
 
     <!-- JSON-LD structured data for SEO & GEO (AI discoverability) -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
