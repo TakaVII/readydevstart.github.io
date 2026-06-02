@@ -574,6 +574,7 @@ th {
     min-width: 220px;
   }
 
+  /* Career guide 4-column → 3-column on tablet */
   .career-layout {
     grid-template-columns: 160px 1fr 160px;
   }
