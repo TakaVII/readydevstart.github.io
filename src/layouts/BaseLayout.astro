@@ -68,9 +68,8 @@ const webPageSchema = {
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />
-    <meta property="og:image" content={`${Astro.site}assets/Logo_IGA.png`} />
+    <meta property="og:image" content={new URL('assets/Logo_IGA.png', Astro.site).href} />
     <meta property="og:site_name" content="Ready Dev Start" />
 
     <!-- Twitter / X -->
