@@ -22,3 +22,13 @@ The following assets are available in `public/assets/`:
 | **Pride Logo** | [`IGAPride.PNG`](public/assets/IGAPride.PNG) | Pride edition of the logo. |
 
 See [`public/assets/README.md`](public/assets/README.md) for the full asset catalog.
+
+## SEO & Analytics
+
+### Sitemap
+
+The site includes a static [`public/sitemap.xml`](public/sitemap.xml) submitted to Google Search Console. **Always update `sitemap.xml` when adding or removing pages** — add a new `<url>` entry with the full URL, `<lastmod>` date, and appropriate `<priority>`.
+
+### Google Tag Manager
+
+GTM is loaded via modular components (`src/components/HeadScripts.astro` and `src/components/BodyScripts.astro`). Set the `PUBLIC_GTM_ID` **GitHub Actions repository variable** (Settings → Secrets and variables → Actions → Variables) to your GTM container ID (e.g., `GTM-XXXXXXX`). For local development, copy `.env.example` to `.env` and fill in the value.
