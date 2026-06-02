@@ -401,10 +401,6 @@ th {
   padding: 1.5rem 0.5rem;
 }
 
-.career-sidebar {
-  flex-shrink: 0;
-}
-
 .career-sidebar .card {
   padding: 1rem;
   margin-bottom: 0.75rem;
@@ -576,11 +572,6 @@ th {
   .sidebar {
     width: 220px;
     min-width: 220px;
-  }
-
-  .career-layout .career-sidebar {
-    width: auto;
-    min-width: 160px;
   }
 
   .career-layout {
