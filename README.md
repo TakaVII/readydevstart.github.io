@@ -8,7 +8,7 @@ A wiki platform by Indie Game Academy helping aspiring game creators learn game 
 
 - **Quest Logs** — Step-by-step learning guides (Getting Started, Game Design 101, Your First Game, Publishing)
 - **Equipment** — Curated tool recommendations (Game Engines, Art Tools, Audio Tools, Project Management)
-- **Blueprints** — Production-ready templates (Studio Template, Game Design Document, Pitch Deck)
+- **Blueprints** — Production-ready templates (Studio Template, Game Design Document, Pitch Deck, One Pager, Press Kit)
 
 ## Key Assets
 

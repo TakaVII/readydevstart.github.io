@@ -4,7 +4,7 @@ This directory contains multimedia resources for the Ready Dev Start site.
 
 ## Key Assets
 
-- **`Logo_IGA.png`** — The official logo. Used in the site header, as the page favicon/thumbnail, and across branding materials.
+- **`Logo_IGA.png`** — The official logo. Used in the site header and as the page social preview thumbnail (og:image) across branding materials. Note: the page favicon is served from `/favicon.svg`, not this file.
 - **`Purple Backdrop Normal.jpg`** — Default backdrop image for banners and promotional use.
 - **`Logo animation HD.mp4`** — Animated logo for video intros.
 - **`IGAPride.PNG`** — Pride edition of the logo.
