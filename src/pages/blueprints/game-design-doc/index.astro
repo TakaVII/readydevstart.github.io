@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
+import FileDownload from "../../../components/FileDownload.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Game Design Document" activeNav="blueprints">
@@ -8,6 +10,20 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
     <div class="callout callout-info">
       <strong>📝 Blueprint:</strong> A living document that captures your game's vision, mechanics, and production plan. Fill in each section as your design evolves.
     </div>
+
+    <h2>Download the Template</h2>
+    <FileDownload
+      name="GDD Template (PDF)"
+      href={`${base}assets/Game Design Document Template - Indie Game Academy.docx.pdf`}
+      type="PDF"
+      description="Download the full Game Design Document template as a PDF."
+    />
+    <FileDownload
+      name="GDD Template (Google Docs)"
+      href="https://docs.google.com/document/d/1Uv3OQLHWiZx-zCqdXjkIRci7fEnElJFW/edit?usp=sharing&ouid=106898907094380861892&rtpof=true&sd=true"
+      type="Google Drive"
+      description="Open an editable copy of the GDD template in Google Docs."
+    />
 
     <h2>1. Overview</h2>
     <ul>

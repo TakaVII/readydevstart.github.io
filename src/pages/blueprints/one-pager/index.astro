@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikiLayout from "../../../layouts/WikiLayout.astro";
+import FileDownload from "../../../components/FileDownload.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="One Pager Design Document" activeNav="blueprints">
+  <WikiLayout title="One Pager Design Document" activeNav="blueprints" activeSidebar="one-pager">
+    <div class="callout callout-info">
+      <strong>📄 Blueprint:</strong> A one-page summary of your game's vision and core features — perfect for pitching to team members, investors, and publishers.
+    </div>
+
+    <h2>Download the Template</h2>
+    <FileDownload
+      name="One Pager Template (PDF)"
+      href={`${base}assets/IGA Game Design One Pager Template.docx.pdf`}
+      type="PDF"
+      description="Download the One Pager template as a PDF."
+    />
+    <FileDownload
+      name="One Pager Template (Google Docs)"
+      href="https://docs.google.com/document/d/1yHep_mchhOQbJtH8-nxzPildFU6XkGhX/edit?usp=sharing&ouid=106898907094380861892&rtpof=true&sd=true"
+      type="Google Drive"
+      description="Open an editable copy of the One Pager template in Google Docs."
+    />
+
+    <h2>What Is a One Pager?</h2>
+    <p>
+      A game design one-pager is a one-page document that summarizes the key aspects of a game's
+      design. It communicates the game's vision and core features to team members, investors,
+      and publishers — essentially a condensed GDD maximized for readability.
+    </p>
+
+    <h2>What to Include</h2>
+    <ul>
+      <li><strong>Game Concept:</strong> A brief overview including genre, platform, and target audience.</li>
+      <li><strong>Core Mechanics:</strong> The gameplay mechanics that make the game unique and fun.</li>
+      <li><strong>Story &amp; Setting:</strong> A summary of the game's narrative and world, if applicable.</li>
+      <li><strong>Art Style &amp; Visuals:</strong> Description of the visual direction, tone, and mood.</li>
+      <li><strong>Key Features:</strong> Standout features like multiplayer, level editor, or mod support.</li>
+      <li><strong>Monetization Plan:</strong> How the game will be monetized, if applicable.</li>
+    </ul>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Write clearly and concisely — make it easy for both technical and non-technical readers.</li>
+      <li>Make it visually appealing with screenshots, concept art, or diagrams.</li>
+      <li>Focus on what makes your game stand out from similar titles.</li>
+      <li>Keep it to a single page — this forces you to prioritize what matters most.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>💡 Pro Tip:</strong> Use the one pager as your "elevator pitch on paper."
+      If someone can understand your game in under 2 minutes of reading, you've nailed it.
+    </div>
+  </WikiLayout>
+</BaseLayout>
