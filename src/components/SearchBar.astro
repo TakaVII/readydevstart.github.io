@@ -144,6 +144,7 @@ const items = searchItems.map(item => ({
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('search-modal-active');
       renderResults();
       setTimeout(function() {
         input.focus();
@@ -155,6 +156,7 @@ const items = searchItems.map(item => ({
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      document.body.classList.remove('search-modal-active');
       selectedIndex = -1;
     }
 
@@ -666,5 +668,9 @@ const items = searchItems.map(item => ({
     .search-modal-footer {
       justify-content: center;
     }
+  }
+
+  :global(body.search-modal-active .site-header) {
+    z-index: 100000 !important;
   }
 </style>
