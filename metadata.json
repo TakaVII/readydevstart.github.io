@@ -1,0 +1,8 @@
+{
+  "name": "Ready Dev Start Wiki",
+  "description": "Indie Game Academy game development careers guide, blueprints, and wiki.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

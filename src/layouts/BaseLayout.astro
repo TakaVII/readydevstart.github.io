@@ -1,6 +1,8 @@
 ---
 import HeadScripts from "../components/HeadScripts.astro";
 import BodyScripts from "../components/BodyScripts.astro";
+import AnnouncementBanner from "../components/AnnouncementBanner.astro";
+import SearchBar from "../components/SearchBar.astro";
 
 export interface Props {
   title: string;
@@ -88,10 +90,17 @@ const webPageSchema = {
   </head>
   <body>
     <BodyScripts />
+
     <div class="site-wrapper">
+      <!-- Drawer Backdrop Overlay for Mobile -->
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
       <!-- ===== Header / Navigation ===== -->
       <header class="site-header">
-        <a href={base} class="logo"><img src={`${base}assets/Logo_IGA.png`} alt="Ready Dev Start logo" class="logo-img" /></a>
+        <a href={base} class="logo">
+          <img src={`${base}assets/Logo_IGA.png`} alt="Ready Dev Start logo" class="logo-img" decoding="async" />
+        </a>
+
         <nav id="mainNav">
           <a href={base} class:list={[{ active: activeNav === "home" }]}>Home</a>
           <a href={`${base}quest-logs/`} class:list={[{ active: activeNav === "quest-logs" }]}>Quest Logs</a>
@@ -100,9 +109,16 @@ const webPageSchema = {
           <a href={`${base}career-guide/`} class:list={[{ active: activeNav === "career-guide" }]}>Career Guide</a>
           <a href={`${base}about/`} class:list={[{ active: activeNav === "about" }]}>About</a>
         </nav>
+
+        <!-- Search Bar Trigger & Modal -->
+        <SearchBar />
+
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">☰</button>
         <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar navigation" aria-expanded="false" aria-controls="sidebar">📑</button>
       </header>
+
+      <!-- Persistent Announcement Slideshow Banner Below Header Menu -->
+      <AnnouncementBanner />
 
       <!-- ===== Page Content ===== -->
       <slot />
@@ -129,30 +145,55 @@ const webPageSchema = {
       const nav = document.getElementById("mainNav");
       const sidebar = document.querySelector(".sidebar");
       const sidebarToggle = document.getElementById("sidebarToggle");
+      const drawerBackdrop = document.getElementById("drawerBackdrop");
 
-      // Mobile hamburger → header nav toggle only
+      function updateBackdrop() {
+        const isNavOpen = nav?.classList.contains("open");
+        const isSidebarOpen = sidebar?.classList.contains("open");
+        if (drawerBackdrop) {
+          if (isNavOpen || isSidebarOpen) {
+            drawerBackdrop.classList.add("open");
+          } else {
+            drawerBackdrop.classList.remove("open");
+          }
+        }
+      }
+
+      function closeAllDrawers() {
+        if (nav) nav.classList.remove("open");
+        if (sidebar) sidebar.classList.remove("open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+        if (sidebarToggle) sidebarToggle.setAttribute("aria-expanded", "false");
+        updateBackdrop();
+      }
+
+      if (drawerBackdrop) {
+        drawerBackdrop.addEventListener("click", closeAllDrawers);
+      }
+
+      // Mobile hamburger toggle
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
           const isNavOpen = nav.classList.toggle("open");
           toggle.setAttribute("aria-expanded", String(isNavOpen));
-          // Close sidebar when opening nav to avoid overlap
           if (isNavOpen && sidebar) {
             sidebar.classList.remove("open");
             if (sidebarToggle) sidebarToggle.setAttribute("aria-expanded", "false");
           }
+          updateBackdrop();
         });
       }
 
-      // Separate sidebar toggle for mobile
+      // Sidebar toggle for mobile
       if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener("click", () => {
           const isSidebarOpen = sidebar.classList.toggle("open");
           sidebarToggle.setAttribute("aria-expanded", String(isSidebarOpen));
-          // Close nav when opening sidebar to avoid overlap
           if (isSidebarOpen && nav) {
             nav.classList.remove("open");
             if (toggle) toggle.setAttribute("aria-expanded", "false");
           }
+          updateBackdrop();
         });
       }
 

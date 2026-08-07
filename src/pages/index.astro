@@ -17,6 +17,18 @@ const base = import.meta.env.BASE_URL;
       <a href={`${base}equipment/game-engines/`} class="btn btn-gold">Browse Equipment</a>
       <a href={`${base}blueprints/studio-template/`} class="btn btn-blue">Get Blueprints</a>
     </div>
+
+    <!-- Quick Search Bar in Hero -->
+    <div class="hero-search-wrapper" style="margin-top: 2rem; display: flex; justify-content: center;">
+      <button onclick="document.getElementById('searchTrigger')?.click()" class="hero-search-btn" style="display: flex; align-items: center; gap: 0.75rem; background: #161622; border: 1px solid #363650; color: #a0a0b8; padding: 0.75rem 1.5rem; border-radius: 30px; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; width: 100%; max-width: 520px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="#f3d73e" stroke-width="2" fill="none">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search 50+ guides, tools, blueprints & career roles...</span>
+        <kbd style="background: #0c0c12; border: 1px solid #3d3d58; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: #f3d73e; margin-left: auto;">⌘K</kbd>
+      </button>
+    </div>
   </section>
 
   <!-- ===== Featured Sections ===== -->

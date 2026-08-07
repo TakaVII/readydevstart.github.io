@@ -1,0 +1,396 @@
+---
+import { defaultBanners } from '../data/banners';
+
+const base = import.meta.env.BASE_URL;
+
+// Format banner image and link URLs with Astro base path if relative
+const banners = defaultBanners.map(b => {
+  let imgUrl = b.imageUrl;
+  if (imgUrl.startsWith('/')) {
+    imgUrl = `${base}${imgUrl.slice(1)}`;
+  }
+
+  let targetUrl = b.linkUrl;
+  if (targetUrl.startsWith('/') && !targetUrl.startsWith('//')) {
+    targetUrl = `${base}${targetUrl.slice(1)}`;
+  }
+
+  return {
+    ...b,
+    imageUrl: imgUrl,
+    linkUrl: targetUrl
+  };
+});
+---
+
+<div id="announcementBannerBar" class="announcement-banner-bar">
+  <div class="banner-content-container">
+    <button id="bannerPrevBtn" class="banner-nav-btn" aria-label="Previous banner pair">‹</button>
+
+    <!-- Carousel Viewport -->
+    <div class="banner-carousel-viewport">
+      <div class="banner-slide-track" id="bannerSlideTrack">
+        <!-- Rendered via Client JS for 2-per-screen paging -->
+      </div>
+    </div>
+
+    <button id="bannerNextBtn" class="banner-nav-btn" aria-label="Next banner pair">›</button>
+
+    <!-- Pagination Dots & Auto-play indicator -->
+    <div class="banner-controls">
+      <button id="bannerAutoPlayBtn" class="banner-ctrl-icon" title="Toggle Slide Auto-play">⏸</button>
+      <div id="bannerDots" class="banner-dots"></div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ bannerItems: banners }}>
+  (function() {
+    let currentPage = 0;
+    let autoPlayTimer = null;
+    let isPlaying = true;
+    const intervalMs = 6000;
+
+    let trackEl, prevBtn, nextBtn, autoPlayBtn, dotsEl;
+
+    function getItemsPerPage() {
+      // Show 2 per page on desktop/tablet (>= 640px), 1 per page on narrow mobile
+      return window.innerWidth >= 640 ? 2 : 1;
+    }
+
+    function getTotalPages() {
+      const perPage = getItemsPerPage();
+      return Math.ceil(bannerItems.length / perPage);
+    }
+
+    function init() {
+      trackEl = document.getElementById('bannerSlideTrack');
+      prevBtn = document.getElementById('bannerPrevBtn');
+      nextBtn = document.getElementById('bannerNextBtn');
+      autoPlayBtn = document.getElementById('bannerAutoPlayBtn');
+      dotsEl = document.getElementById('bannerDots');
+
+      if (!trackEl) return;
+
+      render();
+      startAutoPlay();
+
+      if (prevBtn) prevBtn.addEventListener('click', prevPage);
+      if (nextBtn) nextBtn.addEventListener('click', nextPage);
+
+      if (autoPlayBtn) {
+        autoPlayBtn.addEventListener('click', function() {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            autoPlayBtn.textContent = '⏸';
+            autoPlayBtn.title = 'Pause Slideshow';
+            startAutoPlay();
+          } else {
+            autoPlayBtn.textContent = '▶';
+            autoPlayBtn.title = 'Play Slideshow';
+            stopAutoPlay();
+          }
+        });
+      }
+
+      // Pause auto-play on mouse hover
+      const bannerBar = document.getElementById('announcementBannerBar');
+      if (bannerBar) {
+        bannerBar.addEventListener('mouseenter', stopAutoPlay);
+        bannerBar.addEventListener('mouseleave', function() {
+          if (isPlaying) startAutoPlay();
+        });
+      }
+
+      // Re-render on window resize to adjust 1 vs 2 items per screen
+      window.addEventListener('resize', function() {
+        const totalPages = getTotalPages();
+        if (currentPage >= totalPages) {
+          currentPage = 0;
+        }
+        render();
+      });
+    }
+
+    function render() {
+      if (!bannerItems || bannerItems.length === 0) return;
+
+      const perPage = getItemsPerPage();
+      const totalPages = getTotalPages();
+      const startIndex = currentPage * perPage;
+      const visibleBanners = bannerItems.slice(startIndex, startIndex + perPage);
+
+      // If page has only 1 item on desktop (e.g. odd total count), wrap around to first item to keep 2 slots filled
+      if (perPage === 2 && visibleBanners.length === 1 && bannerItems.length > 1) {
+        visibleBanners.push(bannerItems[0]);
+      }
+
+      let html = '';
+      visibleBanners.forEach(function(b) {
+        html += `
+          <a href="${escapeHtml(b.linkUrl)}" target="_blank" rel="noopener noreferrer" class="banner-item-card" title="${escapeHtml(b.title)}">
+            <img src="${escapeHtml(b.imageUrl)}" alt="${escapeHtml(b.altText || b.title)}" loading="lazy" decoding="async" class="banner-img" />
+          </a>
+        `;
+      });
+
+      trackEl.innerHTML = html;
+
+      // Render dots
+      let dotsHtml = '';
+      for (let i = 0; i < totalPages; i++) {
+        dotsHtml += `<button class="banner-dot ${i === currentPage ? 'active' : ''}" data-page="${i}" title="Go to banner pair ${i + 1}"></button>`;
+      }
+
+      if (dotsEl) {
+        dotsEl.innerHTML = dotsHtml;
+        dotsEl.querySelectorAll('.banner-dot').forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            currentPage = parseInt(dot.getAttribute('data-page') || '0', 10);
+            render();
+          });
+        });
+      }
+    }
+
+    function nextPage() {
+      const totalPages = getTotalPages();
+      if (totalPages <= 1) return;
+      currentPage = (currentPage + 1) % totalPages;
+      render();
+    }
+
+    function prevPage() {
+      const totalPages = getTotalPages();
+      if (totalPages <= 1) return;
+      currentPage = (currentPage - 1 + totalPages) % totalPages;
+      render();
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      if (bannerItems.length > 1 && isPlaying) {
+        autoPlayTimer = setInterval(nextPage, intervalMs);
+      }
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+<style>
+  /* Header Banner Container */
+  .announcement-banner-bar {
+    background: #09090f;
+    border-bottom: 1px solid #232336;
+    color: #ffffff;
+    position: relative;
+    z-index: 102;
+    padding: 0.5rem 0;
+  }
+
+  .banner-content-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Nav Arrows */
+  .banner-nav-btn {
+    background: #141420;
+    border: 1px solid #2c2c42;
+    color: var(--color-gold, #f3d73e);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .banner-nav-btn:hover {
+    background: var(--color-gold, #f3d73e);
+    color: #000000;
+    border-color: var(--color-gold, #f3d73e);
+    transform: scale(1.05);
+  }
+
+  /* Viewport and CSS Grid Layout */
+  .banner-carousel-viewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .banner-slide-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    animation: fadeInBanners 0.35s ease forwards;
+  }
+
+  @keyframes fadeInBanners {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Banner Image Cards - Fluid aspect ratio matching 600x170 standard */
+  .banner-item-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 600 / 170;
+    max-height: 95px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2a2a3e;
+    background: #12121c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .banner-item-card:hover {
+    border-color: var(--color-gold, #f3d73e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(243, 215, 62, 0.25);
+  }
+
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .banner-item-card:hover .banner-img {
+    transform: scale(1.025);
+  }
+
+  /* Controls */
+  .banner-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .banner-ctrl-icon {
+    background: transparent;
+    border: none;
+    color: #8888a2;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+
+  .banner-ctrl-icon:hover {
+    color: #ffffff;
+  }
+
+  .banner-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  :global(.banner-dot) {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3a3a52;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  :global(.banner-dot.active) {
+    background: var(--color-gold, #f3d73e);
+    width: 16px;
+    border-radius: 10px;
+  }
+
+  /* Responsive Breakpoints with CSS Grid */
+  @media (min-width: 1024px) {
+    .banner-slide-track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .banner-item-card {
+      max-height: 100px;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .banner-slide-track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .banner-item-card {
+      max-height: 85px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .banner-content-container {
+      padding: 0 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .banner-slide-track {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .banner-item-card {
+      max-height: 75px;
+      aspect-ratio: 600 / 170;
+    }
+
+    .banner-nav-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+    }
+  }
+</style>
