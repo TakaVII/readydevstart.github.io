@@ -20,7 +20,7 @@ export const defaultBanners: Banner[] = [
   {
     id: 'banner-l3',
     title: 'Level 3 - Indie Game Academy',
-    imageUrl: 'assets/banners/L3 2026.svg',
+    imageUrl: '/assets/banners/L3 2026.svg',
     altText: 'Level 3 - Indie Game Academy',
     linkUrl: 'https://indiegameacademy.com/class-schedule-level-3/'
   },
