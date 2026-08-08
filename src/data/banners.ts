@@ -18,31 +18,38 @@ export interface Banner {
 
 export const defaultBanners: Banner[] = [
   {
-    id: 'banner-iga-level1',
-    title: 'Indie Game Academy - Level 1 Cohort',
-    imageUrl: '/assets/banners/banner-level1-placeholder.svg',
-    altText: 'Level 1 Game Development Cohort - Indie Game Academy (600x170)',
-    linkUrl: 'https://indiegameacademy.com'
+    id: 'banner-l3',
+    title: 'Level 3 - Indie Game Academy',
+    imageUrl: 'assets/banners/L3 2026.svg',
+    altText: 'Level 3 - Indie Game Academy',
+    linkUrl: 'https://indiegameacademy.com/class-schedule-level-3/'
   },
   {
-    id: 'banner-discord',
-    title: 'Join 5,000+ Game Devs in the IGA Discord',
-    imageUrl: '/assets/banners/banner-discord-placeholder.svg',
-    altText: 'Join 5,000+ indie game developers in the IGA Discord (600x170)',
-    linkUrl: 'https://discord.gg/9FR7g72bxj'
+    id: 'banner-dotr',
+    title: 'Daughter of the Rift - Play it on Steam',
+    imageUrl: '/assets/banners/Dotr Banner.svg',
+    altText: 'Daughter of the Rift - Play it on Steam (600x170)',
+    linkUrl: 'https://store.steampowered.com/app/3588170/Daughter_of_the_Rift/?utm_source=iga&utm_medium=rds&utm_campaign=header_banner'
   },
   {
-    id: 'banner-blueprints',
-    title: 'Free Studio & Game Design Templates',
-    imageUrl: '/assets/banners/banner-blueprints-placeholder.svg',
-    altText: 'Free GDD, Pitch Deck, and Studio Templates (600x170)',
-    linkUrl: '/blueprints/'
+    id: 'banner-www',
+    title: 'Whiskers, Wizards and Wands - Play it on Steam',
+    imageUrl: '/assets/banners/WWW Banner.svg',
+    altText: 'Whiskers, Wizards and Wands - Play it on Steam (600x170)',
+    linkUrl: 'https://store.steampowered.com/app/3588160/Whiskers_Wizards_and_Wands/?utm_source=iga&utm_medium=rds&utm_campaign=header_banner'
+  },
+  {
+    id: 'banner-tbia',
+    title: 'The Box is Alive - Play it on Steam',
+    imageUrl: '/assets/banners/TBiA Banner.svg',
+    altText: 'The Box is Alive - Play it on Steam (600x170)',
+    linkUrl: 'https://store.steampowered.com/app/3961120/The_Box_is_Alive/?utm_source=iga&utm_medium=rds&utm_campaign=header_banner'
   },
   {
     id: 'banner-podcast',
     title: 'Indie Game Guildhall Podcast',
     imageUrl: '/assets/banners/banner-podcast-placeholder.svg',
     altText: 'Indie Game Guildhall Community & Podcast (600x170)',
-    linkUrl: 'https://tr.ee/LwqloRs-lA'
+    linkUrl: 'https://www.spreaker.com/podcast/indie-game-guildhall--5279646'
   }
 ];
