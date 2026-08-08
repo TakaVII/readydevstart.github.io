@@ -27,7 +27,7 @@ export const defaultBanners: Banner[] = [
   {
     id: 'banner-dotr',
     title: 'Daughter of the Rift - Play it on Steam',
-    imageUrl: '/assets/banners/Dotr Banner.svg',
+    imageUrl: '/assets/banners/DotR Banner.svg',
     altText: 'Daughter of the Rift - Play it on Steam (600x170)',
     linkUrl: 'https://store.steampowered.com/app/3588170/Daughter_of_the_Rift/?utm_source=iga&utm_medium=rds&utm_campaign=header_banner'
   },
@@ -44,12 +44,5 @@ export const defaultBanners: Banner[] = [
     imageUrl: '/assets/banners/TBiA Banner.svg',
     altText: 'The Box is Alive - Play it on Steam (600x170)',
     linkUrl: 'https://store.steampowered.com/app/3961120/The_Box_is_Alive/?utm_source=iga&utm_medium=rds&utm_campaign=header_banner'
-  },
-  {
-    id: 'banner-podcast',
-    title: 'Indie Game Guildhall Podcast',
-    imageUrl: '/assets/banners/banner-podcast-placeholder.svg',
-    altText: 'Indie Game Guildhall Community & Podcast (600x170)',
-    linkUrl: 'https://www.spreaker.com/podcast/indie-game-guildhall--5279646'
   }
 ];
