@@ -1,52 +1,97 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Your First Game" activeNav="quest-logs">
-  <WikiLayout title="Your First Game" activeNav="quest-logs" activeSidebar="your-first-game">
+<BaseLayout title="Your First Game: From Idea to Reality" activeNav="quest-logs">
+  <WikiLayout title="Your First Game: From Idea to Reality" activeNav="quest-logs" activeSidebar="your-first-game">
     <div class="callout callout-info">
-      <strong>⏱️ Estimated Time:</strong> 1–2 weekends. By the end you'll have a playable game you can share with friends.
+      <strong>🕹️ Step 3 of 4:</strong> Turning an idea into a finished, polished game requires structure, realistic planning, and regular self-care.
     </div>
 
-    <h2>The Golden Rule: Finish It</h2>
+    <h2>Choosing Your First Real Project</h2>
     <p>
-      Your first game doesn't need to be good — it needs to be <strong>done</strong>. A finished
-      Pong clone teaches you more than an unfinished MMORPG ever will.
+      Select a simple genre for your first official game project. Avoid making online multiplayer games, massive open-world RPGs, or complex fighting games, as these require huge teams and years of work. Instead, choose small, mechanics-focused projects like 2D puzzle games, top-down arena shooters, or side-scrolling platformers where asset demands stay small.
     </p>
 
-    <h2>Choosing Your Project</h2>
-    <p>Pick one of these beginner-friendly scopes:</p>
+    <h2>Game Development Phase Checklist</h2>
+    <p>
+      Organizing your work into distinct development stages keeps production structured and manageable from start to finish.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Project Stage</th>
+            <th>Primary Tasks</th>
+            <th>Milestone Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Stage 1: Concept</strong></td>
+            <td>Define design pillars, draft core loop, set scope limits</td>
+            <td>One-page design sheet, feature list</td>
+          </tr>
+          <tr>
+            <td><strong>Stage 2: Prototype</strong></td>
+            <td>Code simple shapes (greyboxing), test basic jump/shoot mechanics</td>
+            <td>Playable greybox build with zero art assets</td>
+          </tr>
+          <tr>
+            <td><strong>Stage 3: Production</strong></td>
+            <td>Create art assets, add audio tracks, construct levels, build UI</td>
+            <td>Feature-complete vertical slice build</td>
+          </tr>
+          <tr>
+            <td><strong>Stage 4: Polish &amp; QA</strong></td>
+            <td>Test for software bugs, tweak control feel, adjust balance</td>
+            <td>Stable release build, localization setup</td>
+          </tr>
+          <tr>
+            <td><strong>Stage 5: Launch</strong></td>
+            <td>Submit store builds, launch marketing campaigns, post updates</td>
+            <td>Live public release on digital stores</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Common Pitfalls to Avoid</h2>
     <ul>
-      <li><strong>Pong / Breakout</strong> — Learn input handling, physics, scoring.</li>
-      <li><strong>Platformer (1 level)</strong> — Learn tile maps, character controllers, level design.</li>
-      <li><strong>Top-down Shooter</strong> — Learn projectiles, enemies, collision.</li>
-      <li><strong>Visual Novel / Quiz</strong> — Learn UI systems, branching logic, text display.</li>
+      <li>
+        <strong>Building a Custom Game Engine:</strong> Spending months writing custom engine code instead of picking an existing engine like Godot, Unity, or GameMaker to build the actual game.
+      </li>
+      <li>
+        <strong>Polishing Visuals Too Early:</strong> Spending weeks making character art look perfect before testing if the underlying game loop is genuinely fun.
+      </li>
+      <li>
+        <strong>Developing in Secrecy:</strong> Hiding your game from external playtesters until launch day, missing early warnings about confusing controls or bad pacing.
+      </li>
+      <li>
+        <strong>Endless Feature Addition:</strong> Continuously adding new ideas mid-project instead of finishing and refining existing mechanics.
+      </li>
     </ul>
 
-    <h2>Development Checklist</h2>
-    <ol>
-      <li><strong>Concept</strong> — One sentence describing your game.</li>
-      <li><strong>Core Mechanic</strong> — Get the main action working (movement, shooting, etc.).</li>
-      <li><strong>Minimum Loop</strong> — Add a win/lose condition.</li>
-      <li><strong>Juice</strong> — Screen shake, particles, sound effects, animation polish.</li>
-      <li><strong>Build &amp; Share</strong> — Export and upload to <a href="https://itch.io" target="_blank" rel="noopener noreferrer">itch.io</a>.</li>
-    </ol>
-
-    <h2>Common Pitfalls</h2>
-    <table>
-      <thead>
-        <tr><th>Pitfall</th><th>Solution</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Spending weeks on art before gameplay works</td><td>Use placeholder shapes first — "programmer art" is fine</td></tr>
-        <tr><td>Never showing your game to anyone</td><td>Share early and often — feedback is fuel</td></tr>
-        <tr><td>Rewriting the engine instead of making content</td><td>Use your engine's built-in features; fight the urge to over-engineer</td></tr>
-      </tbody>
-    </table>
+    <h2>Grounding Expectations and Mindful Mental Health</h2>
+    <p>
+      Game development takes time, patience, and practice. Half of all indie releases on Steam earn less than $5,000 gross lifetime revenue<sup>[2]</sup>. Setting modest financial expectations prevents disappointment and helps you focus on mastering the craft.
+    </p>
+    <p>
+      Building games is a marathon. Take regular rest breaks, set consistent work hours, avoid overnight crunching, and celebrate small achievements like squashing a tricky bug or completing a new UI menu. Remind yourself that every completed game makes you a stronger, more skilled developer.
+    </p>
 
     <div class="callout callout-tip">
-      <strong>💡 Pro Tip:</strong> When you're "done," add one more thing: a main menu with a Play button and a Quit button. It makes your game feel 10× more polished.
+      <strong>Next Quest:</strong> Ready to package and distribute your creation? Proceed to <a href={`${base}quest-logs/publishing-guide/`}>Publishing Guide: Reaching Your Audience →</a>
+    </div>
+
+    <div class="citations-section">
+      <h3>References</h3>
+      <ol class="citations-list">
+        <li>Indie Game Sales Statistics 2026: 500-2000 Copies Median, <a href="https://www.steampageanalyzer.com/blog/indie-game-sales-statistics" target="_blank" rel="noopener noreferrer">https://www.steampageanalyzer.com/blog/indie-game-sales-statistics</a></li>
+      </ol>
     </div>
   </WikiLayout>
 </BaseLayout>
