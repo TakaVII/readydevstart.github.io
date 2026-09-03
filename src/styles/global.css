@@ -468,6 +468,54 @@ pre code {
   margin-bottom: 0.75rem;
 }
 
+/* Engine Grid for Picking an Engine */
+.engine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.engine-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.engine-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.engine-card h4 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;
+  color: var(--color-gold);
+}
+
+.engine-card p {
+  font-size: 0.88rem;
+  color: #c9c9dc;
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.engine-card .engine-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+
 /* ----- Callouts ----- */
 .callout {
   padding: 1.1rem 1.35rem;
