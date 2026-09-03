@@ -2,89 +2,208 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
+
+const engines = [
+  { name: "Unity", desc: "A popular, flexible engine used for 2D, 3D, and mobile games using C#.", url: "https://unity.com/download" },
+  { name: "Unreal Engine", desc: "A high-end engine known for photorealistic 3D graphics and visual programming via Blueprints.", url: "https://www.unrealengine.com/download" },
+  { name: "Godot Engine", desc: "A free, open-source engine that is lightweight and great for 2D and 3D games using GDScript or C#.", url: "https://godotengine.org/download/" },
+  { name: "GameMaker", desc: "A beginner-friendly 2D engine that uses drag-and-drop blocks and its own programming language, GML.", url: "https://gamemaker.io/download" },
+  { name: "Construct 3", desc: "A powerful browser-based 2D game engine designed to create games without traditional coding.", url: "https://www.construct.net/" },
+  { name: "RPG Maker", desc: "A specialized, tile-based software suite built specifically for making classic top-down role-playing games.", url: "https://www.rpgmakerweb.com/" },
+  { name: "Defold", desc: "A free, lightweight, Lua-based engine built for cross-platform 2D and 3D development [5].", url: "https://defold.com/download/" },
+  { name: "CryEngine", desc: "A 3D engine designed for large environments, detailed lighting, and high-fidelity visual production.", url: "https://www.cryengine.com/" },
+  { name: "Open 3D Engine (O3DE)", desc: "An open-source, modular 3D engine maintained by the Linux Foundation.", url: "https://o3de.org/download/" },
+  { name: "Phaser", desc: "A fast, free JavaScript framework used to make HTML5 2D games for web browsers.", url: "https://phaser.io/download" },
+  { name: "Cocos Creator", desc: "A cross-platform 2D and 3D game engine designed primarily for mobile titles and browser apps.", url: "https://www.cocos.com/creator-download" },
+  { name: "Stencyl", desc: "A visual, block-based development environment optimized for making 2D grid and platform games without code.", url: "https://www.stencyl.com/download/" },
+  { name: "GDevelop", desc: "An easy-to-learn, open-source 2D game engine that uses visual events to control game logic.", url: "https://gdevelop.io/download" },
+  { name: "Ren'Py", desc: "A specialized open-source engine made for building visual novels and interactive digital stories.", url: "https://www.renpy.org/latest.html" },
+  { name: "Flax Engine", desc: "A modern, lightweight 3D engine built for fast performance using C++ and C# scripts.", url: "https://flaxengine.com/download/" },
+  { name: "Bevy", desc: "A modern, data-driven game engine built in the Rust programming language.", url: "https://bevyengine.org/" },
+  { name: "Raylib", desc: "A simple programming framework designed to help beginners build code-only games in C.", url: "https://www.raylib.com/" },
+  { name: "MonoGame", desc: "A code-focused C# framework that gives developers low-level control over their game loop and rendering.", url: "https://monogame.net/" },
+  { name: "PICO-8", desc: "A fantasy retro console that limits screen resolution, colors, and audio channels to spark creative arcade builds.", url: "https://www.lexaloffle.com/pico-8.php" },
+  { name: "Solar2D", desc: "A free, Lua-based cross-platform engine optimized for mobile and desktop 2D applications.", url: "https://solar2d.com/" },
+  { name: "Babylon.js", desc: "A complete JavaScript framework built to render interactive 3D graphics directly inside web browsers.", url: "https://www.babylonjs.com/" },
+];
 ---
 
-<BaseLayout title="Getting Started" activeNav="quest-logs">
-  <WikiLayout title="Getting Started" activeNav="quest-logs" activeSidebar="getting-started">
+<BaseLayout title="Getting Started: Understanding the Landscape" activeNav="quest-logs">
+  <WikiLayout title="Getting Started: Understanding the Landscape" activeNav="quest-logs" activeSidebar="getting-started">
     <div class="callout callout-info">
-      <strong>⏱️ Estimated Time:</strong> 10 minutes — by the end, you'll have a clear mental map of the game dev landscape and know your next steps.
+      <strong>⏱️ Step 1 of 4:</strong> Before diving into game engines and code, it helps to see how the video game industry works, what roles exist, and what commercial reality looks like for indie developers.
     </div>
 
-    <h2>Welcome, Adventurer!</h2>
-    <p>
-      So you want to make games? Excellent. Whether you dream of building a cozy farming sim,
-      a fast-paced roguelike, or an emotional narrative experience — this guide will orient you
-      and get you moving.
-    </p>
-
-    <h2>Step 1: Understand the Landscape</h2>
-    <p>Game development sits at the intersection of multiple disciplines:</p>
+    <h2>Core Development Roles</h2>
+    <p>Creating a game requires several distinct disciplines:</p>
     <ul>
-      <li><strong>Design</strong> — What the player does and why it's fun.</li>
-      <li><strong>Programming</strong> — Making things work with code (or visual scripting).</li>
-      <li><strong>Art</strong> — Visuals, UI, animations, and world-building aesthetics.</li>
-      <li><strong>Audio</strong> — Music, sound effects, and ambient atmosphere.</li>
-      <li><strong>Production</strong> — Planning, scoping, and shipping on time.</li>
+      <li><strong>Programming:</strong> Writing the code that moves characters, calculates physics, handles button presses, and runs artificial intelligence. (Explore our <a href={`${base}career-guide/roles/programming/`}>Programming Guide</a>)</li>
+      <li><strong>Game Design:</strong> Defining rules, challenge levels, control layouts, and core systems. (Explore our <a href={`${base}career-guide/roles/design/`}>Design Guide</a>)</li>
+      <li><strong>Visual Art:</strong> Creating 2D character sprites, 3D models, user interfaces, lighting, and environmental props. (Explore our <a href={`${base}career-guide/roles/art/`}>Art Guide</a>)</li>
+      <li><strong>Audio Engineering:</strong> Writing background music tracks, recording sound effects, and balancing spatial audio. (Explore our <a href={`${base}career-guide/roles/audio/`}>Audio Guide</a>)</li>
+      <li><strong>Production:</strong> Managing schedules, setting project goals, keeping the team organized, and tracking tasks. (Explore our <a href={`${base}career-guide/roles/production/`}>Production Guide</a>)</li>
+      <li><strong>Quality Assurance (QA):</strong> Testing game builds repeatedly to discover bugs, break mechanics, and report errors before launch. (Explore our <a href={`${base}career-guide/roles/qa/`}>QA Guide</a>)</li>
     </ul>
+
+    <h2>Realistic Industry Success Metrics</h2>
     <p>
-      You don't need to master all of them. Many successful indie devs specialize in one or
-      two and lean on free assets or collaborators for the rest.
+      Understanding industry data helps set real-world expectations. The global indie game market was valued at $4.85 billion in 2025, reaching $5.54 billion in 2026, and is projected to hit $10.83 billion by 2031<sup>[1]</sup>. Over 18,506 indie titles launched on Steam in 2024, and more than 20,017 launched in 2025—which equals roughly 55 new games landing on the store every day<sup>[1]</sup>.
+    </p>
+    <p>
+      Indie games made up 99% of all Steam releases in 2024 and captured 48% of total platform sales revenue<sup>[1]</sup>. However, revenue distribution is top-heavy, meaning a small group of smash hit games earns most of the total money, while thousands of smaller games earn much less<sup>[1]</sup>.
     </p>
 
-    <h2>Step 2: Pick a Game Engine</h2>
-    <p>
-      A game engine is your primary tool. Head to our <a href={`${base}equipment/game-engines/`}>Game Engines</a>
-      guide for a detailed comparison. For most beginners, we recommend starting with:
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Engine</th>
-          <th>Best For</th>
-          <th>Cost</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Godot</strong></td>
-          <td>2D games, learning, open-source enthusiasts</td>
-          <td>Free &amp; open-source</td>
-        </tr>
-        <tr>
-          <td><strong>Unity</strong></td>
-          <td>Versatile 2D/3D, large community, mobile</td>
-          <td>Free tier available</td>
-        </tr>
-        <tr>
-          <td><strong>Unreal Engine</strong></td>
-          <td>AAA-quality 3D, Blueprints visual scripting</td>
-          <td>Free until $1M revenue</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Table 1: Market Metrics -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Market Metric</th>
+            <th>Value</th>
+            <th>Industry Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Global Indie Market (2026)</strong></td>
+            <td>$5.54 Billion</td>
+            <td>Total projected value across PC, mobile, and console<sup>[1]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Annual Steam Indie Releases (2025)</strong></td>
+            <td>20,017 Games</td>
+            <td>Roughly 55 new indie titles launched per day<sup>[1]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Median Lifetime Gross Revenue</strong></td>
+            <td>$5,000 – $15,000</td>
+            <td>The middle earning point for catalog games on Steam<sup>[1]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Developer Take-Home Pay</strong></td>
+            <td>$3,500 – $10,500</td>
+            <td>Earnings left after Steam's 30% platform cut<sup>[1]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Games Grossing Under $5,000</strong></td>
+            <td>~50%</td>
+            <td>Half of all indie games on Steam earn under $5,000 total<sup>[2]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Top 5% Lifetime Revenue</strong></td>
+            <td>$1,000,000+</td>
+            <td>High-performing hit games on Steam<sup>[1]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Cost Recovery Rate</strong></td>
+            <td>10% – 20%</td>
+            <td>Share of small teams earning back $30k–$50k budgets<sup>[2]</sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h2>Step 3: Complete a Tiny Project</h2>
     <p>
-      The single best thing you can do right now is <strong>make something small</strong>.
-      Don't plan a massive RPG. Build Pong, a simple platformer, or a click-counter. The goal
-      is to go through the full creation cycle: idea → prototype → polish → share.
-    </p>
-    <p>
-      Ready to build? Head to <a href={`${base}quest-logs/your-first-game/`}>Your First Game</a>.
+      Genre selection strongly impacts sales performance. Games built around deep systems and mechanical replayability tend to earn higher median revenues than simple platforming games<sup>[2]</sup>.
     </p>
 
-    <h2>Step 4: Join the Community</h2>
+    <!-- Table 2: Genre Performance -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Genre Category</th>
+            <th>Median Gross Revenue (100+ Reviews)</th>
+            <th>Market Characteristics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Factory / Automation</strong></td>
+            <td>$200,000 – $500,000+</td>
+            <td>Strong player demand, deep systems, lower competition<sup>[2]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Colony Simulator</strong></td>
+            <td>$100,000 – $300,000</td>
+            <td>High average playtime, loyal fanbase<sup>[4]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Roguelite / Survival</strong></td>
+            <td>$25,000 – $100,000</td>
+            <td>Strong streamer visibility, high replay value<sup>[4]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>Metroidvania</strong></td>
+            <td>$10,000 – $40,000</td>
+            <td>Dedicated players, high requirement for art polish<sup>[4]</sup></td>
+          </tr>
+          <tr>
+            <td><strong>2D Platformer</strong></td>
+            <td>$5,000 – $20,000</td>
+            <td>High market saturation, harder to gain visibility<sup>[4]</sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Picking a Game Engine</h2>
     <p>
-      Game development thrives on community. Here are some great places to connect:
+      A game engine is a software toolkit that gives you pre-built components like physics engines, sound players, and rendering systems, so you do not have to write everything from scratch. Here are 21 popular game engines to explore:
     </p>
-    <ul>
-      <li>Reddit: <code>r/gamedev</code>, <code>r/indiegaming</code></li>
-      <li>Discord servers for your chosen engine</li>
-      <li>Game jams on <a href="https://itch.io/jams" target="_blank" rel="noopener noreferrer">itch.io</a></li>
-    </ul>
+
+    <div class="engine-grid">
+      {engines.map((e) => (
+        <div class="engine-card">
+          <h4>{e.name}</h4>
+          <p>{e.desc}</p>
+          <a href={e.url} target="_blank" rel="noopener noreferrer" class="engine-link">
+            Download {e.name} ↗
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p>
+      Looking for in-depth comparisons and platform matrices? Check out our dedicated <a href={`${base}equipment/game-engines/`}>Game Engines Directory</a>.
+    </p>
+
+    <h2>Completing Your First Tiny Project</h2>
+    <p>
+      New game creators often try to build massive dream games right away, get overwhelmed, and give up. Finishing small projects builds skills and boosts your confidence.
+    </p>
+    <p>
+      <strong>Joining a game jam</strong> is one of the best ways to complete your first game. Game jams are friendly community events where creators build a playable game from scratch in 48 to 72 hours around a surprise theme. The strict time limit forces you to make decisions quickly and finish a complete project.
+    </p>
+    <p>
+      Another great strategy is <strong>remaking classic arcade games</strong> like Pong, Snake, or Space Invaders. Because the design rules are already written, you can focus purely on learning how your engine handles inputs, movement, collisions, and user interface scores.
+    </p>
+    <p>
+      <strong>Limiting your project to a single mechanic</strong> is another proven method. Pick one action—like swinging a grappling hook or flipping gravity—and build a complete 3-level game around that single input.
+    </p>
+
+    <h2>Joining the Game Development Community</h2>
+    <p>
+      Game development is easier when you do not do it alone. Connecting with other creators gives you access to advice, instant bug fixes, playtest feedback, and encouragement.
+    </p>
+    <p>
+      Popular places to join include dedicated GameDev Discord channels, engine forums, and Reddit communities like <code>r/gamedev</code>. You can also share progress updates on platforms like itch.io or YouTube using public devlogs. Sharing early screenshots and clip updates helps you build an audience while getting constructive advice on your mechanics.
+    </p>
 
     <div class="callout callout-tip">
-      <strong>💡 Pro Tip:</strong> Game jams are the fastest way to learn. They force you to scope small, finish, and ship — the exact skills that separate hobbyists from developers.
+      <strong>Next Quest:</strong> Ready to turn raw concepts into captivating systems? Continue to <a href={`${base}quest-logs/game-design-101/`}>Game Design 101: Crafting the Experience →</a>
+    </div>
+
+    <!-- Citations / References Section -->
+    <div class="citations-section">
+      <h3>References &amp; Cited Sources</h3>
+      <ol class="citations-list">
+        <li>Indie Game Sales Statistics 2026 (Revenue &amp; Growth Data), <a href="https://rec0ded88.com/statistics/indie-game-sales/" target="_blank" rel="noopener noreferrer">https://rec0ded88.com/statistics/indie-game-sales/</a></li>
+        <li>Indie Game Sales Statistics 2026: 500-2000 Copies Median, <a href="https://www.steampageanalyzer.com/blog/indie-game-sales-statistics" target="_blank" rel="noopener noreferrer">https://www.steampageanalyzer.com/blog/indie-game-sales-statistics</a></li>
+        <li>Indie Game Revenue Data 2026: $5K-$15K Median, $1M Top 5%, <a href="https://www.steampageanalyzer.com/blog/indie-game-revenue-data" target="_blank" rel="noopener noreferrer">https://www.steampageanalyzer.com/blog/indie-game-revenue-data</a></li>
+        <li>Defold - Official Homepage - Free, small and truly cross platform, <a href="https://defold.com/" target="_blank" rel="noopener noreferrer">https://defold.com/</a></li>
+        <li>Download Defold, <a href="https://defold.com/download/" target="_blank" rel="noopener noreferrer">https://defold.com/download/</a></li>
+      </ol>
     </div>
   </WikiLayout>
 </BaseLayout>
