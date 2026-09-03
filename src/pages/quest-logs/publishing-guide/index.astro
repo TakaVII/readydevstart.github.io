@@ -1,46 +1,152 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Publishing Guide" activeNav="quest-logs">
-  <WikiLayout title="Publishing Guide" activeNav="quest-logs" activeSidebar="publishing-guide">
+<BaseLayout title="Publishing Guide: Reaching Your Audience" activeNav="quest-logs">
+  <WikiLayout title="Publishing Guide: Reaching Your Audience" activeNav="quest-logs" activeSidebar="publishing-guide">
     <div class="callout callout-info">
-      <strong>📦 Objective:</strong> Navigate the path from finished game to published release.
+      <strong>📦 Step 4 of 4:</strong> Once your game is finished and tested, the final step is getting it into the hands of real players worldwide.
     </div>
 
-    <h2>Where to Publish</h2>
-    <table>
-      <thead>
-        <tr><th>Platform</th><th>Fee</th><th>Best For</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>itch.io</strong></td><td>Free (optional revenue share)</td><td>First releases, game jam games, experimental titles</td></tr>
-        <tr><td><strong>Steam</strong></td><td>$100 per title</td><td>Commercial releases, wishlists, visibility</td></tr>
-        <tr><td><strong>Epic Games Store</strong></td><td>Free (12% revenue share)</td><td>Unreal Engine games, exclusive deals</td></tr>
-        <tr><td><strong>Console Stores</strong></td><td>Varies (dev kit required)</td><td>Established studios, console-first titles</td></tr>
-      </tbody>
-    </table>
+    <h2>Top 7 Publishing Platforms</h2>
+    <p>
+      Choosing where to release your game depends on your target audience, platform requirements, and budget:
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Target Audience</th>
+            <th>Main Advantages</th>
+            <th>Requirements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Steam</strong></td>
+            <td>PC, Mac, Steam Deck</td>
+            <td>Largest global PC market, robust discovery algorithms &amp; sales tools<sup>[1]</sup></td>
+            <td>$100 submission fee per game, store page setup</td>
+          </tr>
+          <tr>
+            <td><strong>itch.io</strong></td>
+            <td>PC, Web, Indie Fans</td>
+            <td>Free to post, open revenue split, perfect for prototypes &amp; jams</td>
+            <td>Open registration, zero submission fee</td>
+          </tr>
+          <tr>
+            <td><strong>Epic Games Store</strong></td>
+            <td>PC Market</td>
+            <td>Dev-friendly revenue split (88/12), front-page curation opportunities</td>
+            <td>Submission approval process &amp; Epic SDK integration</td>
+          </tr>
+          <tr>
+            <td><strong>Google Play Store</strong></td>
+            <td>Android Devices</td>
+            <td>Massive global mobile audience, straightforward publishing access</td>
+            <td>One-time $25 developer fee, Android compatibility checks</td>
+          </tr>
+          <tr>
+            <td><strong>Apple App Store</strong></td>
+            <td>iOS Devices</td>
+            <td>High user monetization across iPhones and iPads</td>
+            <td>$99 annual developer fee, strict iOS human interface review</td>
+          </tr>
+          <tr>
+            <td><strong>Nintendo eShop</strong></td>
+            <td>Nintendo Switch</td>
+            <td>High consumer demand for portable indie gems</td>
+            <td>Official developer application and dev kit approval</td>
+          </tr>
+          <tr>
+            <td><strong>GOG</strong></td>
+            <td>DRM-Free PC Fans</td>
+            <td>Dedicated audience valuing DRM-free preservation &amp; classic feel</td>
+            <td>Curated editorial selection process</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>Pre-Launch Checklist</h2>
-    <ol>
-      <li>Create a compelling store page with screenshots, trailer, and description.</li>
-      <li>Build a landing page or social media presence for your game.</li>
-      <li>Send press kits to indie gaming outlets and YouTubers.</li>
-      <li>Set up a wishlist page (Steam) at least 2–3 months before launch.</li>
-      <li>Playtest with external testers for bugs and feedback.</li>
-    </ol>
-
-    <h2>Marketing on a Budget</h2>
+    <p>Preparing for a launch starts months before your actual release date:</p>
     <ul>
-      <li><strong>Social media</strong> — Post devlogs, GIFs, and progress updates on Twitter/X, TikTok, and Reddit.</li>
-      <li><strong>Game jams</strong> — Use jams to build an audience before your commercial release.</li>
-      <li><strong>Community building</strong> — Start a Discord server; engaged communities drive launch-day sales.</li>
-      <li><strong>Press outreach</strong> — Use <a href="https://presskit.to" target="_blank" rel="noopener noreferrer">presskit()</a> to create a professional media kit.</li>
+      <li>
+        <strong>Launch Your Store Page Early:</strong> Create your public Steam page 6 to 12 months before launch so interested players can start adding your game to their Wishlist<sup>[2]</sup>.
+      </li>
+      <li>
+        <strong>Cut an Exciting Gameplay Trailer:</strong> Make a short 60-second trailer that shows real gameplay within the first 5 seconds. Avoid long, slow studio logos.
+      </li>
+      <li>
+        <strong>Build a Digital Press Kit:</strong> Assemble high-resolution screenshots, key art posters, animated GIFs, loglines, and developer team details into a public folder. (See our <a href={`${base}blueprints/press-kit/`}>Press Kit Blueprint</a>)
+      </li>
+      <li>
+        <strong>Create a Free Demo:</strong> Build a 15-minute demo build to participate in digital events like Steam Next Fest, driving massive Wishlist growth<sup>[2]</sup>.
+      </li>
+      <li>
+        <strong>Translate Your Game Page:</strong> Localize your store description and game menus into popular languages like Simplified Chinese, German, Spanish, and Japanese to reach international players.
+      </li>
     </ul>
 
-    <div class="callout callout-warning">
-      <strong>⚠️ Quest Alert:</strong> Don't launch on the same day as a major AAA release. Check release calendars and pick a quiet window.
+    <h2>Marketing on a Budget</h2>
+    <p>
+      You do not need a huge marketing budget to get people excited about your game. Focus on creative, visual, community-driven outreach:
+    </p>
+    <ul>
+      <li>
+        <strong>Post Short Videos:</strong> Share short, energetic videos on TikTok, YouTube Shorts, and Instagram Reels showing unique mechanics, funny bugs, or satisfying visual moments from development.
+      </li>
+      <li>
+        <strong>Reach Out to Niche Streamers:</strong> Email free game keys directly to small and mid-sized Twitch and YouTube creators who regularly stream games in your specific genre.
+      </li>
+      <li>
+        <strong>Leverage Steam Next Fest:</strong> Enter your playable demo into Steam Next Fest. This official event highlights upcoming games on Steam's front page, driving high wishlist conversion rates<sup>[2]</sup>.
+      </li>
+      <li>
+        <strong>Build a Community Discord:</strong> Run a welcoming Discord channel where fans can download test builds, report bugs, share fan art, and chat with you directly.
+      </li>
+    </ul>
+
+    <h2>Launch Day Execution</h2>
+    <p>Launch day requires focus, clear communication, and fast responses:</p>
+    <ol>
+      <li>
+        <strong>Publish Your Live Build:</strong> Push the release button on your store dashboard and post launch announcements across social channels, Discord, and email lists.
+      </li>
+      <li>
+        <strong>Track Player Feedback:</strong> Monitor community discussion boards, user review posts, and bug reports closely during the first 24 hours.
+      </li>
+      <li>
+        <strong>Deploy Quick Hotfix Patches:</strong> Work quickly to fix critical crashes or game-breaking bugs that players discover in early levels to protect your store review rating.
+      </li>
+      <li>
+        <strong>Send Release Emails:</strong> Contact journalists and content creators who showed interest in your demo to let them know your full game is live.
+      </li>
+      <li>
+        <strong>Engage with Early Players:</strong> Respond politely to user reviews, answer player questions, thank supporters, and share your post-launch update plans.
+      </li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <strong>🎉 Journey Complete:</strong> You now have the full roadmap from concept to launch. Explore our <a href={`${base}equipment/`}>Equipment Tools</a> and <a href={`${base}blueprints/`}>Blueprints</a> to supercharge your project assets!
+    </div>
+
+    <!-- Citations / Works Cited -->
+    <div class="citations-section">
+      <h3>References &amp; Cited Sources</h3>
+      <ol class="citations-list">
+        <li>Indie Game Sales Statistics 2026 (Revenue &amp; Growth Data), <a href="https://rec0ded88.com/statistics/indie-game-sales/" target="_blank" rel="noopener noreferrer">https://rec0ded88.com/statistics/indie-game-sales/</a></li>
+        <li>Indie Game Sales Statistics 2026: 500-2000 Copies Median, <a href="https://www.steampageanalyzer.com/blog/indie-game-sales-statistics" target="_blank" rel="noopener noreferrer">https://www.steampageanalyzer.com/blog/indie-game-sales-statistics</a></li>
+        <li>The 2024 Indie Game Landscape: Why Luck Plays a Major Role, <a href="https://shahriyarshahrabi.medium.com/the-2024-indie-game-landscape-why-luck-plays-a-major-role-in-success-on-steam-c6cbc1868c35" target="_blank" rel="noopener noreferrer">https://shahriyarshahrabi.medium.com/the-2024-indie-game-landscape-why-luck-plays-a-major-role-in-success-on-steam-c6cbc1868c35</a></li>
+        <li>Indie Game Revenue Data 2026: $5K-$15K Median, $1M Top 5%, <a href="https://www.steampageanalyzer.com/blog/indie-game-revenue-data" target="_blank" rel="noopener noreferrer">https://www.steampageanalyzer.com/blog/indie-game-revenue-data</a></li>
+        <li>Defold - Official Homepage - Free, small and truly cross platform, <a href="https://defold.com/" target="_blank" rel="noopener noreferrer">https://defold.com/</a></li>
+        <li>Download Defold, <a href="https://defold.com/download/" target="_blank" rel="noopener noreferrer">https://defold.com/download/</a></li>
+        <li>How Much Do Indie Games Actually Make on Steam? - Ziva, <a href="https://ziva.sh/blogs/indie-game-revenue" target="_blank" rel="noopener noreferrer">https://ziva.sh/blogs/indie-game-revenue</a></li>
+      </ol>
     </div>
   </WikiLayout>
 </BaseLayout>
