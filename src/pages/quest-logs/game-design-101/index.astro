@@ -1,61 +1,103 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../layouts/WikiLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Game Design 101" activeNav="quest-logs">
-  <WikiLayout title="Game Design 101" activeNav="quest-logs" activeSidebar="game-design-101">
+<BaseLayout title="Game Design 101: Crafting the Experience" activeNav="quest-logs">
+  <WikiLayout title="Game Design 101: Crafting the Experience" activeNav="quest-logs" activeSidebar="game-design-101">
     <div class="callout callout-info">
-      <strong>🎯 Objective:</strong> Understand core game design principles so you can create engaging, intentional player experiences.
+      <strong>🎯 Step 2 of 4:</strong> Game design is not about coding or drawing; it is about creating rules, choices, and goals that make playing fun.
     </div>
 
-    <h2>What Is Game Design?</h2>
+    <h2>What is Game Design?</h2>
     <p>
-      Game design is the craft of defining what a game <em>is</em> — its rules, systems,
-      goals, and the feelings it creates in players. It's distinct from programming (how it
-      works) and art (how it looks).
+      Game design is the architecture of play. While a programmer writes code and an artist creates visual assets, the game designer crafts the systems that make those elements work together. Game design determines how fast a character moves, how high they jump, what obstacles stand in their way, and how the game rewards success.
     </p>
 
     <h2>The MDA Framework</h2>
     <p>
-      One of the most useful lenses for understanding games is the <strong>MDA Framework</strong>
-      (Mechanics, Dynamics, Aesthetics):
+      The Mechanics, Dynamics, and Aesthetics (MDA) framework helps developers understand how games function from both the developer's side and the player's side:
     </p>
     <ul>
-      <li><strong>Mechanics</strong> — The rules and systems (e.g., "press A to jump," health points, inventory).</li>
-      <li><strong>Dynamics</strong> — How mechanics interact during play (e.g., resource management creates tension).</li>
-      <li><strong>Aesthetics</strong> — The emotional responses evoked (e.g., challenge, discovery, fellowship).</li>
+      <li><strong>Mechanics:</strong> The base rules, algorithms, and code set by the developer. This includes character jump height, weapon damage values, and enemy health points.</li>
+      <li><strong>Dynamics:</strong> How those mechanics behave when a real player starts interacting with them. For instance, combining high jump mechanics with moving platforms creates dynamic parkour gameplay.</li>
+      <li><strong>Aesthetics:</strong> The emotional response the player feels while playing. This can include feelings of discovery, suspense, mastery, competition, or mystery.</li>
     </ul>
+    <p>
+      Developers build <em>Mechanics</em>, which combine during play into system <em>Dynamics</em>, which ultimately yield emotional <em>Aesthetics</em> for the player.
+    </p>
 
     <h2>Core Design Pillars</h2>
-    <p>Before you build, define 2–3 <strong>design pillars</strong> — short phrases that guide every decision:</p>
-    <table>
-      <thead>
-        <tr><th>Example Game</th><th>Pillar 1</th><th>Pillar 2</th><th>Pillar 3</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Celeste</td><td>Tight controls</td><td>Emotional narrative</td><td>Fair difficulty</td></tr>
-        <tr><td>Stardew Valley</td><td>Relaxing routine</td><td>Community bonds</td><td>Player freedom</td></tr>
-        <tr><td>Hades</td><td>Fast combat</td><td>Story progression</td><td>Replayable variety</td></tr>
-      </tbody>
-    </table>
+    <p>
+      Design pillars are three or four core guidelines that define what makes your project unique. Every feature, weapon, artwork, or music track you consider adding must support at least one of these pillars.
+    </p>
+    <p>
+      For example, if one of your design pillars is <em>"Fast, Non-Stop Movement,"</em> adding a slow inventory management menu breaks that pillar. Design pillars give you a clear compass whenever you are unsure about adding a feature.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Example Game</th>
+            <th>Pillar 1</th>
+            <th>Pillar 2</th>
+            <th>Pillar 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Celeste</strong></td>
+            <td>Tight, responsive platforming controls</td>
+            <td>Emotional, empathetic narrative</td>
+            <td>Challenging yet fair difficulty</td>
+          </tr>
+          <tr>
+            <td><strong>Stardew Valley</strong></td>
+            <td>Relaxing daily routine &amp; rhythm</td>
+            <td>Cozy community relationships</td>
+            <td>Unrestricted player freedom</td>
+          </tr>
+          <tr>
+            <td><strong>Hades</strong></td>
+            <td>Lightning-fast hack-and-slash combat</td>
+            <td>Rich narrative progression through defeat</td>
+            <td>Endless build variety &amp; replayability</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>The Core Loop</h2>
     <p>
-      Every game has a <strong>core loop</strong> — the repeated cycle of actions that forms
-      the heartbeat of gameplay. A strong loop is satisfying on its own, even before adding
-      progression or story.
+      The core loop is the basic cycle of actions that players repeat throughout the entire game. A solid core loop keeps players coming back for more.
     </p>
-    <p>Example: <em>Enter room → Fight enemies → Collect loot → Upgrade → Repeat</em></p>
+    <p>A standard core loop follows four basic steps:</p>
+    <ol>
+      <li><strong>Action:</strong> The player performs a primary action, such as jumping across platform gaps, shooting enemy targets, or harvesting wood.</li>
+      <li><strong>Reward:</strong> The game instantly rewards the player with gold coins, experience points, or loot drops.</li>
+      <li><strong>Upgrade:</strong> The player spends earned rewards to buy better gear, unlock stronger character abilities, or open new map zones.</li>
+      <li><strong>Challenge:</strong> The player uses their upgraded powers to take on tougher challenges, restarting the core cycle.</li>
+    </ol>
 
-    <h2>Scope Is Everything</h2>
+    <h2>Scope and Preventing Scope Creep</h2>
     <p>
-      The #1 killer of indie projects is <strong>scope creep</strong>. Start with the smallest
-      possible version of your idea that's still fun. You can always add more later.
+      Scope represents the total amount of work, art assets, code features, and level designs required to complete a game. Scope creep happens when you keep adding new features—like mini-games, extra playable characters, or massive open maps—while building the game. Scope creep causes projects to take years longer than planned, leading to burnout.
     </p>
+    <p>To manage scope and keep your game achievable:</p>
+    <ul>
+      <li><strong>Build a Minimum Viable Product (MVP):</strong> Strip your idea down to the absolute smallest playable version that tests whether the core mechanics are fun.</li>
+      <li><strong>Cut Unnecessary Features:</strong> If a secondary feature takes three weeks to program but adds only a tiny bit of fun, drop it.</li>
+      <li><strong>Cut Scope Early:</strong> When behind schedule, cut extra level sections or extra weapons until only the essential core loop remains.</li>
+    </ul>
 
     <div class="callout callout-warning">
-      <strong>⚠️ Quest Alert:</strong> If your first game idea has "procedurally generated open world with multiplayer," take a step back. Scope down to something you can finish in 2–4 weeks.
+      <strong>⚠️ Prototyping Rule:</strong> If your first game concept has "procedurally generated infinite universe with multiplayer MMO economies," pump the brakes immediately. Start with a self-contained 2D mechanic you can polish in two weekends.
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>Next Quest:</strong> Ready to turn theoretical design into a working build? Move on to <a href={`${base}quest-logs/your-first-game/`}>Your First Game: From Idea to Reality →</a>
     </div>
   </WikiLayout>
 </BaseLayout>
