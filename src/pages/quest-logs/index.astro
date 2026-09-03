@@ -4,37 +4,39 @@ import WikiLayout from "../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Quest Logs" activeNav="quest-logs">
-  <WikiLayout title="Quest Logs" activeNav="quest-logs">
+<BaseLayout title="Quest Logs - The Ultimate Beginner's Guide to Game Development" activeNav="quest-logs">
+  <WikiLayout title="Quest Logs: The Ultimate Beginner's Guide to Game Development" activeNav="quest-logs">
+    <div class="callout callout-info">
+      <strong>🗺️ From Concept to Launch:</strong> Making video games is one of the most exciting creative journeys you can take. It combines storytelling, art, music, logic, and problem-solving into an interactive experience.
+    </div>
+
     <p>
-      Follow these step-by-step guides to level up your game development skills.
-      Each quest is designed to be completed in order, but feel free to jump to
-      whatever catches your eye.
+      This comprehensive guide breaks down the game development journey into four foundational steps: getting started and understanding the industry landscape, mastering game design fundamentals, turning your first idea into a playable reality, and publishing your work to players across the globe.
     </p>
 
     <div class="card-grid">
       <a href={`${base}quest-logs/getting-started/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🚀</div>
-        <h3>Getting Started</h3>
-        <p>Set up your development environment and understand the game dev landscape in under 10 minutes.</p>
+        <h3>1. Getting Started</h3>
+        <p>Understand core development roles, realistic commercial success metrics, and pick from 21 top game engines.</p>
       </a>
 
       <a href={`${base}quest-logs/game-design-101/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🧩</div>
-        <h3>Game Design 101</h3>
-        <p>Learn core design principles: mechanics, dynamics, aesthetics, and player experience loops.</p>
+        <h3>2. Game Design 101</h3>
+        <p>Learn the architecture of play, the MDA Framework, core design pillars, the four-stage core loop, and strategies to prevent scope creep.</p>
       </a>
 
       <a href={`${base}quest-logs/your-first-game/`} class="card" style="text-decoration:none;">
         <div class="card-icon">🕹️</div>
-        <h3>Your First Game</h3>
-        <p>Build a complete, small-scope game from concept to playable prototype.</p>
+        <h3>3. Your First Game</h3>
+        <p>From idea to reality: choose your first project genre, follow the 5-stage milestone checklist, avoid common pitfalls, and protect your mental health.</p>
       </a>
 
       <a href={`${base}quest-logs/publishing-guide/`} class="card" style="text-decoration:none;">
         <div class="card-icon">📦</div>
-        <h3>Publishing Guide</h3>
-        <p>Navigate storefronts, marketing basics, and launch checklists for indie releases.</p>
+        <h3>4. Publishing Guide</h3>
+        <p>Evaluate the top 7 publishing storefronts, execute your pre-launch marketing checklist, promote on a budget, and survive launch day.</p>
       </a>
     </div>
   </WikiLayout>
