@@ -6,59 +6,76 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
 <BaseLayout title="Game Engines" activeNav="equipment">
   <WikiLayout title="Game Engines" activeNav="equipment" activeSidebar="game-engines">
     <p>
-      Your game engine is the foundation of your project. Here's an honest comparison of the
-      most popular options for indie developers.
+      Your game engine is the foundation of your project. Building a video game requires combining several tools into a smooth development pipeline. 
+      Developers need software to run the game, create art, compose music, track tasks, and save code safely.
+      
+      A game engine is the core software framework used to build a video game. It handles rendering graphics, calculating physics, playing sounds, detecting collisions, and running scripts. 
+      Choosing the right game engine depends on whether the game is 2D or 3D, which platforms it will launch on, and the developer's coding experience.
     </p>
+
+    <div class="callout callout-tip">
+      <strong>💡 Tip:</strong> Want a full list of game engines to look around? <a href="https://readydevstart.indiegameacademy.com/quest-logs/getting-started/">Check out our main list in the Getting Started segment</a> 
+    </div>
 
     <h2>Engine Comparison</h2>
     <table>
       <thead>
-        <tr><th>Engine</th><th>Language</th><th>Strengths</th><th>Cost</th></tr>
+        <tr><th>Engine</th><th>Language</th><th>Strengths</th><th>Cost</th><th>Best For</th></tr>
       </thead>
       <tbody>
         <tr>
           <td><strong>Godot 4</strong></td>
           <td>GDScript, C#</td>
-          <td>Lightweight, open-source, excellent 2D, fast iteration</td>
-          <td>Free</td>
+          <td>Lightweight file size, open-source code, dedicated 2D tools, fast startup times</td>
+          <td>Free and open source</td>
+          <td>2D games, light 3D projects, fast prototyping</td>
         </tr>
         <tr>
           <td><strong>Unity</strong></td>
           <td>C#</td>
-          <td>Massive ecosystem, cross-platform, huge community</td>
-          <td>Free tier; paid plans</td>
+          <td>Massive asset store, huge online community, easy export to almost any device</td>
+          <td>Free tier; paid plans for higher revenue</td>
+          <td>Cross-platform 2D/3D games, mobile releases, career development</td>
         </tr>
         <tr>
           <td><strong>Unreal Engine 5</strong></td>
           <td>C++, Blueprints</td>
-          <td>Stunning 3D visuals, Nanite, Lumen, AAA features</td>
-          <td>Free; 5% royalty after $1M</td>
+          <td>High-end photorealistic graphics, virtual geometry (Nanite), dynamic lighting (Lumen)</td>
+          <td>Free; 5% royalty fee after $1M in sales</td>
+          <td>High-budget 3D action games, cinematic visuals, large worlds</td>
         </tr>
         <tr>
           <td><strong>GameMaker</strong></td>
           <td>GML</td>
-          <td>Beginner-friendly, great 2D workflow, fast prototyping</td>
-          <td>Free tier; paid export</td>
+          <td>Simple drag-and-drop features, easy 2D setup, quick sprite manipulation</td>
+          <td>Free non-commercial use; subscription for commercial export</td>
+          <td>2D pixel art games, top-down games, rapid 2D prototypes</td>
         </tr>
         <tr>
           <td><strong>Defold</strong></td>
           <td>Lua</td>
-          <td>Lightweight, mobile-optimized, free forever</td>
+          <td>Very small build file sizes, efficient mobile performance, fast load times</td>
           <td>Free</td>
+          <td>Mobile 2D games, web browser games, lightweight titles</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>How to Choose</h2>
+    <h2>Engine Selection Rules</h2>
+    <p>
+      Picking a game engine comes down to matching project needs with engine capabilities:
+    </p>
     <ul>
-      <li><strong>Making a 2D game?</strong> → Start with <strong>Godot</strong> or <strong>GameMaker</strong>.</li>
-      <li><strong>Want a large community &amp; job prospects?</strong> → <strong>Unity</strong>.</li>
-      <li><strong>Building in 3D with high-fidelity visuals?</strong> → <strong>Unreal Engine</strong>.</li>
-      <li><strong>Targeting mobile?</strong> → <strong>Defold</strong> or <strong>Unity</strong>.</li>
+      <li><strongFor 2D games:</strong> Godot 4 or GameMaker offer straightforward 2D design tools and low system requirements.</li>
+      <li><strong>For career opportunities and large communities:</strong> Unity provides the largest selection of tutorials and job openings across the industry.</li>
+      <li><strong>For high-end 3D graphics:</strong> Unreal Engine 5 includes advanced lighting and rendering tools built directly into the editor.</li>
+      <li><strong>For mobile or web browser games:</strong> Defold or Unity keep build files small and optimize memory usage for mobile phones.</li>
     </ul>
 
     <div class="callout callout-tip">
-      <strong>💡 Pro Tip:</strong> The best engine is the one you actually learn and ship with. Don't engine-hop — pick one and commit for your first project.
+      <strong>💡</strong> The best engine is the one you actually learn and ship with. Don't engine-hop: Pick one and commit for your first project. 
+
+      Sticking with one engine throughout a project's lifecycle prevents delays, as switching engines mid-production requires rebuilding code and game assets.
     </div>
   </WikiLayout>
 </BaseLayout>
