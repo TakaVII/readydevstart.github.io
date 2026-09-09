@@ -115,12 +115,12 @@ export const searchItems: SearchItem[] = [
   },
   {
     id: 'studio-template',
-    title: 'Studio Charter Template',
+    title: 'Studio Architecture & Setup Template',
     category: 'Blueprints',
-    description: 'Founding document template for indie game studios, equity sharing, values, and rules.',
+    description: 'Strategic guide for indie game studio creation: market validation, corporate setup, W-8BEN-E, capacity modeling, and publisher deal structures.',
     url: 'blueprints/studio-template/',
     icon: '🏢',
-    tags: ['studio', 'indie', 'co-founders', 'legal', 'charter', 'contract']
+    tags: ['studio', 'indie', 'llc', 'governance', 'chain of title', 'steam wishlists', 'publisher agreements', 'recoupment']
   },
   {
     id: 'game-design-doc',
@@ -144,10 +144,10 @@ export const searchItems: SearchItem[] = [
     id: 'pitch-deck',
     title: 'Publisher Pitch Deck Template',
     category: 'Blueprints',
-    description: 'Slide-by-slide pitch deck blueprint for securing funding or publisher deals.',
+    description: '12-slide visual narrative blueprint, Three Pillars framework, and cold outreach strategies for pitching publishers and investors.',
     url: 'blueprints/pitch-deck/',
     icon: '📊',
-    tags: ['pitch deck', 'publisher', 'funding', 'investors', 'budget', 'slides']
+    tags: ['pitch deck', 'publisher', 'funding', 'investors', 'budget', 'slides', 'three pillars', 'outreach']
   },
   {
     id: 'press-kit',
@@ -335,3 +335,4 @@ export const searchItems: SearchItem[] = [
     tags: ['about', 'indie game academy', 'iga', 'mission', 'discord', 'community']
   }
 ];
+
