@@ -4,41 +4,190 @@ import WikiLayout from "../../../layouts/WikiLayout.astro";
 ---
 
 <BaseLayout title="Pitch Deck" activeNav="blueprints">
-  <WikiLayout title="Pitch Deck Template" activeNav="blueprints" activeSidebar="pitch-deck">
-    <div class="callout callout-info">
-      <strong>📊 Blueprint:</strong> A 10-slide framework for pitching your game to publishers, investors, or grant programs.
+  <WikiLayout title="Pitch Deck Template: Visual Narrative &amp; Publisher Framework" activeNav="blueprints" activeSidebar="pitch-deck">
+    <div class="callout callout-info" id="pitch-deck-overview-callout">
+      <strong>📊 Pitch Deck Framework:</strong> A high-level visual narrative engineered to demonstrate commercial viability and secure an initial meeting, publisher advance, or prototype review. Strict 12 to 15 slide constraint designed for asynchronous review.
     </div>
 
-    <h2>Slide Structure</h2>
-    <table>
-      <thead>
-        <tr><th>#</th><th>Slide</th><th>What to Include</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td><strong>Title</strong></td><td>Game name, logo, studio name, key art</td></tr>
-        <tr><td>2</td><td><strong>The Hook</strong></td><td>One-sentence pitch + genre + platform + comparison ("X meets Y")</td></tr>
-        <tr><td>3</td><td><strong>Gameplay</strong></td><td>Core loop, key mechanics, GIF or video link</td></tr>
-        <tr><td>4</td><td><strong>Visual Style</strong></td><td>Screenshots, concept art, art direction mood board</td></tr>
-        <tr><td>5</td><td><strong>Story &amp; World</strong></td><td>Setting, narrative hook, characters (if applicable)</td></tr>
-        <tr><td>6</td><td><strong>Market &amp; Audience</strong></td><td>Target audience, comparable titles and their sales data</td></tr>
-        <tr><td>7</td><td><strong>Unique Selling Points</strong></td><td>3 bullets that differentiate your game from competitors</td></tr>
-        <tr><td>8</td><td><strong>Team</strong></td><td>Key members, relevant experience, shipped titles</td></tr>
-        <tr><td>9</td><td><strong>Timeline &amp; Budget</strong></td><td>Development roadmap, milestones, funding ask</td></tr>
-        <tr><td>10</td><td><strong>Contact &amp; CTA</strong></td><td>Studio website, email, social links, playable demo link</td></tr>
-      </tbody>
-    </table>
+    <!-- Section 1: Philosophy & Purpose -->
+    <h2 id="pitch-deck-philosophy">1. Pitch Deck Design &amp; Philosophy</h2>
+    <p>
+      A pitch deck is a high-level visual narrative designed to demonstrate commercial viability and secure an initial meeting or executable prototype review. It is distinct from a Game Design Document (GDD), which serves as an exhaustive technical and design manual for production.
+    </p>
+    <p>
+      Written pitch decks must communicate asynchronously and concisely, maintaining a <strong>hard limit of 12 to 15 pages</strong>. Busy publisher scouts and venture investors spend an average of two to three minutes reviewing an unsolicited deck on first pass; every slide must deliver high-density visual proof rather than speculative text.
+    </p>
 
-    <h2>Tips for a Strong Pitch</h2>
+    <!-- Section 2: The Three Pillars -->
+    <h2 id="three-pillars">2. The "Three Pillars" Evaluation Framework</h2>
+    <p>
+      Publishers and investors evaluate every incoming proposal against three fundamental pillars:
+    </p>
     <ul>
-      <li><strong>Lead with visuals</strong> — Show, don't tell. GIFs and gameplay footage win pitches.</li>
-      <li><strong>Know your comps</strong> — "It's like Hollow Knight meets Celeste" communicates instantly.</li>
-      <li><strong>Be specific about the ask</strong> — How much funding? What's it for? What's the timeline?</li>
-      <li><strong>Keep it short</strong> — 10 slides, each digestible in under 30 seconds.</li>
-      <li><strong>Practice</strong> — Rehearse until you can present without reading slides.</li>
+      <li>
+        <strong>Fun (Gameplay Proof):</strong> An engaging core loop proven via in-engine video capture or a playable grey-box build. Mechanics must be demonstrably compelling within the first sixty seconds of interaction.
+      </li>
+      <li>
+        <strong>Feasibility (Execution Proof):</strong> An experienced team with relevant shipped titles, a realistic and buffered production budget, and an achievable milestone roadmap.
+      </li>
+      <li>
+        <strong>Profitability (Market Proof):</strong> A clearly defined addressable audience (bottom-up TAM), defensible competitor comp positioning, and verifiable early market traction (Steam wishlists, demo engagement, community metrics).
+      </li>
     </ul>
 
-    <div class="callout callout-tip">
-      <strong>💡 Pro Tip:</strong> Always include a playable demo link. Publishers receive hundreds of pitches — a demo that's fun in 5 minutes will do more than any slide deck.
+    <div class="callout callout-tip" id="publisher-pitch-guide-tip">
+      <strong>💡 Publisher Scouting Perspective:</strong> Scouts review hundreds of submissions monthly and look immediately for gameplay clarity and team credibility. For an in-depth breakdown of publisher evaluation rubrics, read the <a href="https://respawn.outlookindia.com/gaming/gaming-guides/how-to-pitch-your-game-to-a-publisher-a-first-time-devs-guide" target="_blank" rel="noopener noreferrer">First-Time Dev's Guide to Pitching Games to Publishers</a>.
     </div>
+
+    <!-- Section 3: Narrative Sequencing -->
+    <h2 id="narrative-sequencing">3. Structural Narrative Sequencing</h2>
+    <p>
+      Pitch deck structure follows a deliberate, logical narrative sequence that mirrors investor due diligence:
+    </p>
+    <ol>
+      <li>
+        <strong>Immediate Concept Framing (Slides 1–2):</strong> Open with the Cover and Concept Hook to establish the thematic tone, genre, platform targets, and high-concept logline within seconds.
+      </li>
+      <li>
+        <strong>Visual Proof of Engagement (Slides 3–4):</strong> Move straight into gameplay mechanics and the beauty corner/visual target render to prove the core loop is already functioning and visually distinctive.
+      </li>
+      <li>
+        <strong>Market Positioning &amp; Existing Demand (Slides 5–7):</strong> Ground the creative vision in commercial reality with comparable titles (comps), bottom-up addressable market analysis, and existing traction metrics.
+      </li>
+      <li>
+        <strong>Business Execution Plans (Slides 8–10):</strong> Outline the go-to-market strategy, monetization/pricing structure, and buffered production milestone roadmap.
+      </li>
+      <li>
+        <strong>Capability &amp; The Financial Ask (Slides 11–12):</strong> Present an itemized budget allocation, team credentials with past shipped titles, and an explicit call to action.
+      </li>
+    </ol>
+
+    <!-- Section 4: Slide-by-Slide Breakdown -->
+    <h2 id="slide-breakdown">4. The 12-Slide Pitch Deck Structure</h2>
+    <p>
+      Use this slide-by-slide structure to build a deck that eliminates ambiguity and answers critical publisher questions upfront:
+    </p>
+
+    <div class="table-wrapper" id="pitch-deck-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Slide #</th>
+            <th>Slide Title</th>
+            <th>Core Content &amp; Essential Elements</th>
+            <th>Primary Founder Pitfall to Avoid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td><strong>Cover</strong></td>
+            <td>Game title, studio logo, target platforms, high-concept logline, and founder contact info.</td>
+            <td>Ambiguity regarding business entity status, studio category, or contact responsiveness.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td><strong>Concept Hook</strong></td>
+            <td>High-concept summary, core genre, and the target player's primary emotional drive.</td>
+            <td>Opening with dense lore, multi-paragraph backstory, or fictional character world histories.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td><strong>Gameplay &amp; Mechanics</strong></td>
+            <td>Visual breakdown of the core loop across second-to-second and session cycles; animated GIFs or direct video links.</td>
+            <td>Text-heavy descriptions lacking concrete gameplay proof or visual loop diagrams.</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td><strong>Beauty Corner / Visual Target</strong></td>
+            <td>In-engine beauty render communicating target fidelity, lighting direction, and final aesthetic quality.</td>
+            <td>Misrepresenting early untextured grey-box assets or mood-board concept art as final in-engine art.</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td><strong>Comparable Titles (Comps)</strong></td>
+            <td>Three balanced comps: one commercial blockbuster, one mid-tier peer, and one conservative underperformer.</td>
+            <td>Comparing an indie debut project exclusively to AAA mega-hits (e.g., Elden Ring or Zelda).</td>
+          </tr>
+          <tr>
+            <td><strong>6</strong></td>
+            <td><strong>Market &amp; Target Audience</strong></td>
+            <td>Bottom-up Total Addressable Market (TAM), player demographics, and genre-specific demand trends.</td>
+            <td>Quoting generic, top-down macro statistics (e.g., "The global video games market is $180 Billion").</td>
+          </tr>
+          <tr>
+            <td><strong>7</strong></td>
+            <td><strong>Traction Data</strong></td>
+            <td>Steam wishlists, Next Fest metrics, external playtest retention rates, and community social reach.</td>
+            <td>Omitting data entirely; even pre-launch decks should show playtest hours, feedback scores, or conversion rates.</td>
+          </tr>
+          <tr>
+            <td><strong>8</strong></td>
+            <td><strong>Go-To-Market Strategy</strong></td>
+            <td>Marketing roadmap, content creator/streamer outreach plan, demo timing, and target community hubs.</td>
+            <td>Assuming organic viral discovery will happen automatically without an intentional promotional engine.</td>
+          </tr>
+          <tr>
+            <td><strong>9</strong></td>
+            <td><strong>Monetization &amp; Business Model</strong></td>
+            <td>Retail price point ($19.99 / $24.99), planned DLC expansions, and platform revenue splits.</td>
+            <td>Asserting unbenchmarked, overly optimistic ARPU or microtransaction LTV metrics for premium PC titles.</td>
+          </tr>
+          <tr>
+            <td><strong>10</strong></td>
+            <td><strong>Production Roadmap</strong></td>
+            <td>Named milestone gates: Prototype &rarr; Vertical Slice &rarr; Alpha &rarr; Beta &rarr; Console Certification &rarr; Launch.</td>
+            <td>Presenting aggressive, unbuffered timelines that lack console certification padding and QA buffer.</td>
+          </tr>
+          <tr>
+            <td><strong>11</strong></td>
+            <td><strong>Budget Ask &amp; Allocation</strong></td>
+            <td>Itemized funding ask across core staffing, external outsourcing, QA/localization, marketing, and contingency.</td>
+            <td>Failing to account for storefront cuts (30%), regional VAT/sales taxes, or currency fluctuations.</td>
+          </tr>
+          <tr>
+            <td><strong>12</strong></td>
+            <td><strong>Team &amp; Call to Action</strong></td>
+            <td>Shipped developer credentials, relevant discipline leads, exact capital ask, and explicit next-step CTA.</td>
+            <td>Emphasizing non-gaming academic degrees over demonstrable shipped titles or verifiable game dev experience.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-tip" id="investor-pitfalls-tip">
+      <strong>💡 Investor Deck Polish:</strong> Institutional investors and strategic publishers look for bottom-up comps and operational risk buffers. Discover common review pitfalls in the <a href="https://www.runwayteam.co/post/gaming-pitch-deck" target="_blank" rel="noopener noreferrer">Runway Guide on What Games Investors Want to See</a>.
+    </div>
+
+    <!-- Section 5: Outreach Strategy -->
+    <h2 id="outreach-strategy">5. Publisher Outreach Strategy &amp; Cold Pitch Framework</h2>
+    <p>
+      Publisher outreach must be concise, direct, and personalized. Scouts receive dozens of cold submissions daily and discard generic email blasts immediately.
+    </p>
+    
+    <h3 id="cold-email-blueprint">The Four-Paragraph Cold Email Structure</h3>
+    <p>
+      A successful cold submission email consists of four tight paragraphs:
+    </p>
+    <ol>
+      <li>
+        <strong>Paragraph 1 — The Hook:</strong> A one-sentence high-concept logline clearly stating title, genre, and platform targets.
+      </li>
+      <li>
+        <strong>Paragraph 2 — The Comps &amp; Positioning:</strong> A one-sentence market comparison positioning the game against familiar, successful reference titles (e.g., <em>"Combines the systemic depth of FTL with the tactile deckbuilding of Slay the Spire"</em>).
+      </li>
+      <li>
+        <strong>Paragraph 3 — The Proof:</strong> Direct hyperlink to an unlisted 60-to-90-second gameplay video (YouTube or Vimeo) alongside a link to an executable playable build or Steam playtest key.
+      </li>
+      <li>
+        <strong>Paragraph 4 — The Ask &amp; Deck Link:</strong> Direct link to the 12-page pitch deck PDF (hosted on Google Drive, Notion, or DocSend) with a concise statement of the budget ask and an invitation to schedule an introductory call.
+      </li>
+    </ol>
+
+    <h3 id="scout-etiquette">Scout Personalization &amp; Catalog Alignment</h3>
+    <p>
+      Always pitch scouting managers and portfolio leads by name. Reference specific games in their published catalog that align with your game's genre or systemic design philosophy, explaining briefly why your project complements their existing lineup. Targeted pitches sent to ten well-aligned publishers consistently outperform generic email blasts sent to a hundred indiscriminate contacts.
+    </p>
   </WikiLayout>
 </BaseLayout>
+
