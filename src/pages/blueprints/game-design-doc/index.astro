@@ -25,69 +25,143 @@ const base = import.meta.env.BASE_URL;
       description="Open an editable copy of the GDD template in Google Docs."
     />
 
-    <h2>1. Overview</h2>
+    <h2>Overview</h2>
+    <p>Have you ever wondered how do you turn that spark that came to you one day about the most incredible game in the world that you absolutely want to create into something tangible, something you and maybe a team can actually use to build that game? That’s where a Game Design Document, or GDD, comes in.</p>
+    <p>We will walk you through what a Game Design Document is, why it's a good idea to have one, and how to create both the traditional GDD and its quicker cousin, the One Pager Design Document. Plus, we'll share tips to make it easier and point you towards finding a useful GDD template or Game Design Document template.</p>
+
+    <h2>So, What Exactly IS a Game Design Document (GDD)?</h2>
+    <p>Imagine a GDD as the master plan or the recipe for your game. Simply put, it's a written document you create to share your vision for the game, describe what's in it, and map out an implementation plan. Its main job is to get everyone involved in the development process on the same wavelength:</p>
+
     <ul>
-      <li><strong>Title:</strong> [Game Name]</li>
-      <li><strong>Genre:</strong> [e.g., Roguelike, Platformer, RPG]</li>
-      <li><strong>Platform(s):</strong> [PC, Mobile, Console]</li>
-      <li><strong>Target Audience:</strong> [Age range, player type]</li>
-      <li><strong>Elevator Pitch:</strong> [2–3 sentences describing the game]</li>
+      <li><strong>Shares the Vision:</strong> It explains the game's main idea, how it plays, the story, the look, the sounds – all the details so everyone gets what you're aiming for.</li> 
+      <li><strong>Keeps the Team Aligned:</strong> It keeps the entire team pulling in the same direction, ensuring everyone, including newcomers, understands the goal and the path to get there. This prevents confusion down the line.</li>
+      <li><strong>Organizes Your Thoughts:</strong> Even if you're working solo, writing things down helps you sort out your ideas, keep track of changes, and stay focused on what matters most.</li>
     </ul>
 
-    <h2>2. Gameplay</h2>
-    <h3>Core Loop</h3>
-    <p>[Describe the primary repeated cycle of player actions]</p>
+    <p>A really important thing to remember is that a GDD is a living document. It’s not meant to be carved in stone on day one. Your game will change as you build it – you'll have new ideas, figure out what works (and what doesn't), and refine things. Your GDD should change along with it. It becomes the place where you write down the team's decisions and flesh out ideas clearly, cutting out the fluff.</p>
 
-    <h3>Mechanics</h3>
+    <h2>Why Even Make a GDD?</h2>
+    <p>Making a Game Design Document might feel like a chore when everything that you want is to simply jump into actually making the game. But spending a bit of time on it upfront saves a ton of headaches later:</p>
+
     <ul>
-      <li>[Mechanic 1: description]</li>
-      <li>[Mechanic 2: description]</li>
-      <li>[Mechanic 3: description]</li>
+      <li><strong>Gets You Focused:</strong> Writing it down forces you to think through the core parts of your game, moving past the initial excitement to define what really makes it tick. You might realize that your core gameplay loop needs further tweaking or that your planned ending doesn't align with the rest of the game.</li>
+      <li><strong>Keeps Your Project Realistic:</strong> It helps you draw a line about what is and isn't part of the game. This helps stop 'scope creep', that sneaky habit projects have of growing bigger and bigger until they become unmanageable, which can be especially useful if you're making a GDD for a game jam.</li>
+      <li><strong>Makes Planning Easier:</strong> When the vision is clear, it's much easier to figure out what tasks need doing, set deadlines, and spot potential problems early.</li>
+      <li><strong>Helps New Teammates:</strong> Got someone new joining the project? Hand them the GDD! It’s the fastest way for them to understand the game and get up to speed, like handing the script to an actor before they start acting.</li>
+      <li><strong>Makes Planning Easier:</strong> Whether you're trying to get funding, convince friends to join your team, or just reassure yourself, a well-thought-out GDD shows you've got a solid plan. It is not uncommon for publishers to ask for one before signing a deal.</li>
     </ul>
 
-    <h3>Progression</h3>
-    <p>[How does the player advance? Levels, upgrades, story progression?]</p>
+    <h2>The One Pager: The Quick Version</h2>
+    <p>Before you tackle a potentially giant GDD, many folks start with something smaller: a One Pager Design Document. This is a super concise, often visual, snapshot of your game's core idea.</p>
+    <p><strong>What it is:</strong> Just like it sounds: a single page (or maybe a single screen) that summarizes the key aspects of a game’s design. It is used to communicate the game's vision and core features to team members, investors, and publishers. In short words, this is basically a GDD’s condensed version, maximized for readability.</p>
 
-    <h2>3. Narrative</h2>
+    <h4>Why use it?</h4>
     <ul>
-      <li><strong>Setting:</strong> [World, time period, atmosphere]</li>
-      <li><strong>Story Synopsis:</strong> [Brief plot outline]</li>
-      <li><strong>Characters:</strong> [Key characters and their roles]</li>
+      <li><strong>It's Fast:</strong> Lets you share the basic idea super quickly without getting lost in the weeds. Super useful when you need to work fast for a game jam.</li>
+      <li><strong>Great for Brainstorming:</strong> Perfect when ideas are flying and changing fast early on. Easy to update or toss out without losing much work.</li>
+      <li><strong>Awesome for Quick Pitches:</strong> Need to explain your game in 60 seconds? A One Pager helps you nail that.</li>
+      <li><strong>A Starting Point:</strong> It can be the seed that eventually grows into your full GDD.</li>
     </ul>
 
-    <h2>4. Art Direction</h2>
-    <ul>
-      <li><strong>Visual Style:</strong> [Pixel art, low-poly, hand-drawn, realistic]</li>
-      <li><strong>Color Palette:</strong> [Primary colors and mood]</li>
-      <li><strong>Reference Games:</strong> [Games with similar art direction]</li>
-    </ul>
+    <p>Think of the One Pager like a movie poster combined with a quick summary: it should grab attention and instantly tell people what your game is about and why it's cool.</p>
 
-    <h2>5. Audio</h2>
+    <h2>How to Write Your GDD: Step-by-Step Template Structure</h2>
+    
+    <h3>1. The Basics / Elevator Pitch</h3>
     <ul>
-      <li><strong>Music Style:</strong> [Chiptune, orchestral, ambient, electronic]</li>
-      <li><strong>Key SFX:</strong> [List critical sound effects needed]</li>
+      <li><strong>Title & Tagline:</strong> The working title of your game and a catchy slogan that captures its vibe.</li>
+      <li><strong>Quick Pitch:</strong> A 2–3 sentence high-level summary. What is the core hook? What makes it unique?</li>
+      <li><strong>Genre:</strong> Specify the genre (e.g., Roguelike Deckbuilder, Cozy Farming Sim, Precision Platformer).</li>
+      <li><strong>Target Audience:</strong> Define your ideal player demographic (e.g., Fans of fast-paced action, casual puzzle players).</li>
+      <li><strong>Platforms:</strong> Where will players play your game? (PC / Steam, Nintendo Switch, Mobile, Consoles).</li>
+      <li><strong>Inspirations & Comparables:</strong> Games, movies, or books that sparked the concept (e.g., <em>Hades</em> meets <em>Stardew Valley</em>).</li>
     </ul>
-
-    <h2>6. Technical Specs</h2>
+    
+    <h3>2. Gameplay & Core Mechanics</h3>
     <ul>
-      <li><strong>Engine:</strong> [Godot, Unity, Unreal, etc.]</li>
-      <li><strong>Min Requirements:</strong> [Target hardware specs]</li>
-      <li><strong>Networking:</strong> [Single-player, local co-op, online?]</li>
+      <li><strong>Core Loop:</strong> The primary repeated cycle of action (e.g., Explore Level ➔ Collect Resources ➔ Upgrade Gear ➔ Defeat Boss).</li>
+      <li><strong>Controls & Input Scheme:</strong> Keybindings and gamepad mappings for primary actions.</li>
+      <li><strong>Player Abilities & Mechanics:</strong> Detailed breakdown of player movements, attacks, crafting mechanics, or interaction rules.</li>
+      <li><strong>Progression & Difficulty Curve:</strong> How the player advances over time (leveling systems, skill trees, unlocking areas).</li>
+      <li><strong>Level / Game Modes:</strong> Overview of game modes, environmental hazards, and level progression rules.</li>
     </ul>
-
-    <h2>7. Milestones</h2>
+    
+    <h3>3. Story & World (Narrative)</h3>
+    <ul>
+      <li><strong>Setting & Worldbuilding:</strong> The atmosphere, time period, lore, and physical rules of your game world.</li>
+      <li><strong>Story Synopsis:</strong> A brief outline of the narrative journey, central conflict, and resolution.</li>
+      <li><strong>Characters:</strong> Profiles for the protagonist, major allies, antagonists, and shopkeepers.</li>
+      <li><strong>Core Themes:</strong> Deeper emotional or narrative themes (e.g., survival, identity, friendship).</li>
+    </ul>
+    
+    <h3>4. Look & Feel (Art & Visual Direction)</h3>
+    <ul>
+      <li><strong>Visual Style:</strong> Art aesthetic choices (2D Pixel Art, 3D Low-Poly, Hand-Drawn, Stylized, Photorealistic).</li>
+      <li><strong>Color Palette & Mood:</strong> Dominant color schemes and atmospheric visual references.</li>
+      <li><strong>Environment & Character Art:</strong> Visual references, concept sketches, or moodboard links for character models and level biomes.</li>
+      <li><strong>User Interface (UI / UX):</strong> HUD layout, health bars, inventory screens, and menu navigation flows.</li>
+    </ul>
+    
+    <h3>5. Audio & Sound Design</h3>
+    <ul>
+      <li><strong>Music Style:</strong> Desired musical genre and energy levels (Chiptune, Ambient Synth, Orchestral, Lofi).</li>
+      <li><strong>Key Sound Effects (SFX):</strong> Priority sound effects needed (impact sounds, menu clicks, environmental ambience).</li>
+      <li><strong>Voice Acting / Dialogue Audio:</strong> Full voiceovers, gibberish/grunts (e.g., <em>Animal Crossing</em> style), or text chitter.</li>
+    </ul>
+    
+    <h3>6. Technical Specs & Tools</h3>
+    <ul>
+      <li><strong>Game Engine:</strong> Unity, Godot, Unreal Engine, GameMaker, or custom engine.</li>
+      <li><strong>Target Performance / Specs:</strong> Target framerate (60 FPS), minimum hardware requirements, and screen resolutions.</li>
+      <li><strong>Networking & Multiplayer:</strong> Single-player, local couch co-op, or online multiplayer infrastructure.</li>
+      <li><strong>Third-Party Plugins / Tools:</strong> Middleware, version control (Git / GitHub / Perforce), and analytics packages.</li>
+    </ul>
+    
+    <h3>7. Production & Milestones Schedule</h3>
     <table>
       <thead>
-        <tr><th>Milestone</th><th>Target Date</th><th>Deliverables</th></tr>
+        <tr>
+          <th>Milestone Stage</th>
+          <th>Target Date</th>
+          <th>Core Deliverables</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Prototype</td><td>[Date]</td><td>Core loop playable</td></tr>
-        <tr><td>Vertical Slice</td><td>[Date]</td><td>One polished level/area</td></tr>
-        <tr><td>Alpha</td><td>[Date]</td><td>All content in, playable start to finish</td></tr>
-        <tr><td>Beta</td><td>[Date]</td><td>Feature-complete, bug fixing</td></tr>
-        <tr><td>Release</td><td>[Date]</td><td>Launch-ready build</td></tr>
+        <tr>
+          <td><strong>Prototype</strong></td>
+          <td>[Date]</td>
+          <td>Greybox environment with core loop and basic controls functional.</td>
+        </tr>
+        <tr>
+          <td><strong>Vertical Slice</strong></td>
+          <td>[Date]</td>
+          <td>One fully polished level with final art, sound, UI, and gameplay feel.</td>
+        </tr>
+        <tr>
+          <td><strong>Alpha Build</strong></td>
+          <td>[Date]</td>
+          <td>All features and levels implemented; playable from start to finish.</td>
+        </tr>
+        <tr>
+          <td><strong>Beta Build</strong></td>
+          <td>[Date]</td>
+          <td>Feature-complete build focused on bug fixing, balance, and playtesting.</td>
+        </tr>
+        <tr>
+          <td><strong>Gold Release</strong></td>
+          <td>[Date]</td>
+          <td>Launch-ready build submitted to Steam, consoles, or storefronts.</td>
+        </tr>
       </tbody>
     </table>
+    
+    <h2>Tips for Writing an Effective GDD</h2>
+    <ul>
+      <li><strong>Keep It Clear & Simple:</strong> Use plain, accessible language rather than dense corporate jargon.</li>
+      <li><strong>Write from the Player's Perspective:</strong> Describe actions by framing what the player sees, feels, and does in the first 5 minutes.</li>
+      <li><strong>Focus on What Matters:</strong> Don't spend 20 pages detailing lore for a game that doesn't have its core loop running yet.</li>
+      <li><strong>Use Visuals:</strong> Embed concept art, moodboards, diagrams, and wireframes to illustrate your points.</li>
+    </ul>
 
     <div class="callout callout-warning">
       <strong>⚠️ Reminder:</strong> A GDD is a living document. Update it as your design evolves — an outdated GDD is worse than no GDD.
