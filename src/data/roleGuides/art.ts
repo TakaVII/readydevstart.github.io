@@ -1,0 +1,291 @@
+import type { RoleGuide } from "../roleGuides";
+
+export const artGuides: Record<string, RoleGuide> = {
+  "3d-modeling-artist": {
+    name: "3D Modeling Artist",
+    steps: [
+      { title: "Learn one 3D package well", body: "Start with Blender (free) or Maya or 3ds Max, which many studios use. Get comfortable with navigation, polygon modeling, edge loops, and modifiers before jumping between programs." },
+      { title: "Study form, proportion, and reference", body: "Good models start with good observation. Collect reference in a board tool like PureRef and practice matching real objects in scale and silhouette before adding detail." },
+      { title: "Learn the game asset pipeline", body: "Practice the full workflow: high-poly model, low-poly game mesh, UV unwrapping, baking normal maps, and texturing in Substance Painter. Each stage affects the next, so learn how they connect." },
+      { title: "Get serious about topology and optimization", body: "Learn to build clean, efficient meshes that deform well and stay within a polygon budget. Studios care a lot about whether a model can actually run in the game." },
+      { title: "Put your models in a game engine", body: "Import your work into Unreal or Unity, set up materials, and check it under real lighting. Presenting assets in-engine shows you understand where they end up." },
+      { title: "Build a focused portfolio and apply", body: "Polish a handful of strong props or hard-surface assets, post them on ArtStation, and apply for junior 3D artist, prop artist, or outsourcing studio roles." },
+    ],
+    skills: [
+      { title: "Topology", body: "Building meshes with clean edge flow that deform properly and stay light enough for real-time use." },
+      { title: "UV unwrapping", body: "Laying out UVs with minimal stretching, sensible seams, and consistent texel density." },
+      { title: "Baking", body: "Transferring detail from high-poly to low-poly meshes and fixing common artifacts like skewed normals." },
+      { title: "Reading concept art", body: "Interpreting a 2D drawing, including what it doesn't show, and turning it into a believable 3D object." },
+      { title: "Taking feedback", body: "Revising assets quickly based on art director and teammate notes without losing quality." },
+    ],
+    portfolio: [
+      "A few finished, game-ready assets rather than many half-done models.",
+      "Wireframe and UV layout shots next to the final renders so reviewers can judge your topology.",
+      "Polycount and texture resolution noted for each asset to show you work within budgets.",
+      "At least one piece shown in a game engine or in Marmoset Toolbag with real-time lighting.",
+      "A mix of hard-surface and organic work, or a clear specialty that matches the jobs you want.",
+    ],
+    faqs: [
+      { question: "What software do 3D modelers use for games?", answer: "Most use Maya, 3ds Max, or Blender for modeling, ZBrush for sculpting, and Substance Painter for texturing. Marmoset Toolbag is common for baking and portfolio renders, and assets end up in engines like Unreal or Unity." },
+      { question: "Is Blender good enough to get a job as a 3D artist?", answer: "Yes. Studios mainly judge the quality of your models, and the core skills transfer between programs. Some studios use Maya or 3ds Max in their pipeline, so it's worth learning the basics of one of them once you're comfortable in Blender." },
+      { question: "What's the difference between a 3D modeler and a 3D artist?", answer: "The terms are often used interchangeably. \"3D modeler\" usually emphasizes building the geometry, while \"3D artist\" can also cover texturing, materials, and presentation. In games, most job listings expect you to take an asset from model to finished texture." },
+      { question: "What does game-ready mean for a 3D model?", answer: "A game-ready model is optimized to run in real time: it has an efficient low-poly mesh, clean UVs, baked maps, textures at a sensible resolution, and correct scale and pivot so it can be dropped into the engine." },
+    ],
+  },
+
+  "character-artist": {
+    name: "Character Artist",
+    steps: [
+      { title: "Study anatomy seriously", body: "Character art lives or dies on anatomy. Practice figure drawing and sculpting studies of the skull, torso, hands, and muscle groups, using books like Anatomy for Sculptors as reference." },
+      { title: "Learn digital sculpting in ZBrush", body: "ZBrush is the standard sculpting tool for characters. Start with heads and busts, then move on to full figures, focusing on big forms before small details." },
+      { title: "Learn clothing and hair workflows", body: "Marvelous Designer is widely used for realistic clothing folds. Learn how hair is built for games, usually with hair cards, since it's one of the harder parts of a real-time character." },
+      { title: "Take a character through the full game pipeline", body: "Retopologize your sculpt, unwrap UVs, bake maps, and texture in Substance Painter. A character that only exists as a high-poly sculpt doesn't show you can make game assets." },
+      { title: "Present characters in-engine or in a real-time viewer", body: "Render your characters in Marmoset Toolbag, Unreal, or Unity with good lighting and a neutral pose. Learn enough about rigging to keep your topology animation-friendly." },
+      { title: "Get critique and apply", body: "Share work-in-progress on ArtStation and in character art communities, then apply for junior character artist or outsourcing roles with a few polished characters." },
+    ],
+    skills: [
+      { title: "Anatomy & proportion", body: "Understanding how bones, muscles, and fat shape the body, for both realistic and stylized characters." },
+      { title: "Sculpting", body: "Building convincing forms in ZBrush, from primary shapes down to skin pores and fabric wear." },
+      { title: "Real-time topology", body: "Creating low-poly meshes that hold their silhouette and deform cleanly at joints and faces." },
+      { title: "Materials & texturing", body: "Making skin, cloth, leather, and metal read clearly with physically based materials." },
+      { title: "Design sense", body: "Interpreting concept art while keeping the character's personality and silhouette readable." },
+    ],
+    portfolio: [
+      "Two or three fully finished game-ready characters, rather than many unfinished busts.",
+      "Turnarounds from several angles plus close-ups of the face, hands, and key details.",
+      "Wireframes, polycounts, and texture sheets so reviewers can judge the technical side.",
+      "Characters that match the style of the studios you're applying to, whether realistic or stylized.",
+      "Credit to the concept artist when you build from someone else's design.",
+    ],
+    faqs: [
+      { question: "What software do character artists use?", answer: "ZBrush for sculpting, Maya or Blender for retopology and UVs, Marvelous Designer for clothing, and Substance Painter for texturing. Marmoset Toolbag is a common choice for presentation renders." },
+      { question: "How do I become a 3D character artist for games?", answer: "Learn anatomy, get strong at sculpting in ZBrush, and practice taking characters through the full real-time pipeline, from sculpt to low-poly to textures. Then build a small portfolio of finished, game-ready characters and apply for junior roles." },
+      { question: "What's the difference between a character artist and a character designer?", answer: "A character designer creates the look of a character, usually in 2D concept art. A character artist builds that design as a 3D model ready for the game. On small teams one person may do both." },
+      { question: "Do character artists need to know how to draw?", answer: "It helps but isn't strictly required. Many character artists work mostly in 3D, but drawing builds your understanding of anatomy and form, which shows up directly in your sculpts." },
+    ],
+  },
+
+  "environment-artist": {
+    name: "Environment Artist",
+    steps: [
+      { title: "Learn modeling and texturing basics", body: "Get comfortable building props and architecture in Maya or Blender and texturing them in Substance 3D Painter. Environment art builds on solid 3D fundamentals." },
+      { title: "Learn a game engine's level tools", body: "Most environment work is assembled in Unreal Engine or Unity. Learn how to import assets, build materials, place foliage, sculpt terrain, and light a scene." },
+      { title: "Study modular and tiling workflows", body: "Games reuse assets heavily. Practice building modular kits, tiling textures, and trim sheets so you can create large spaces efficiently without everything looking repeated." },
+      { title: "Train your eye for composition and storytelling", body: "Study real places and games you admire. Think about focal points, scale, color, and the small details that tell players what happened in a space." },
+      { title: "Build complete environment scenes", body: "Create a few finished scenes from start to finish: blockout, modular kit, props, materials, lighting, and final shots. Use concept art or real-world reference as your target." },
+      { title: "Share work and apply", body: "Post breakdowns on ArtStation, ask for critique in environment art communities, and apply for junior environment artist, prop artist, or outsourcing roles." },
+    ],
+    skills: [
+      { title: "Modular design", body: "Building kits of pieces that snap together on a grid to create varied spaces from a limited set of assets." },
+      { title: "Materials & tiling textures", body: "Creating believable surfaces with Substance 3D Designer, Painter, or scanned libraries like Quixel Megascans." },
+      { title: "Composition & lighting", body: "Arranging assets and light so scenes have a clear focal point and mood." },
+      { title: "Optimization", body: "Keeping draw calls, texture memory, and polycounts under control so scenes run well." },
+      { title: "Working with level design", body: "Dressing a designer's blockout without breaking gameplay, sightlines, or player navigation." },
+    ],
+    portfolio: [
+      "Two or three complete real-time scenes, shown in a game engine rather than offline renders.",
+      "Breakdowns of each scene: modular kit, trim sheets, materials, and the blockout you started from.",
+      "Wide shots that show the whole space plus detail shots that show your prop and texture quality.",
+      "A short flythrough video so reviewers can see the scene in motion.",
+      "Notes on which assets you made yourself and which came from libraries like Megascans.",
+    ],
+    faqs: [
+      { question: "What does an environment artist do in games?", answer: "Environment artists build the places players explore, including terrain, buildings, props, and foliage. They model and texture assets, then assemble and light them in the game engine to match the game's art direction." },
+      { question: "Is Unreal Engine necessary for environment artists?", answer: "It isn't required everywhere, but it's widely used and very common in environment art portfolios. Learning Unreal or Unity well is important because so much of the job happens inside the engine." },
+      { question: "Can I use Megascans or store assets in my portfolio?", answer: "Yes, as long as you clearly label what you made and what came from a library. Reviewers want to see your own modeling and texturing, so make sure your original work is the focus." },
+      { question: "What's the difference between an environment artist and a level designer?", answer: "A level designer plans the layout and gameplay of a space, usually with simple blockout shapes. An environment artist turns that space into a finished, believable place with art, materials, and lighting." },
+    ],
+  },
+
+  "lighting-artist": {
+    name: "Lighting Artist",
+    steps: [
+      { title: "Learn how light behaves", body: "Study real-world light: direct and bounce light, color temperature, shadows, and atmosphere. Books like Light for Visual Artists and Color and Light give you the vocabulary." },
+      { title: "Study lighting in photography and film", body: "Analyze how cinematographers and photographers use key, fill, and rim lights, contrast, and color to direct attention and set mood. Recreate shots you like." },
+      { title: "Learn a game engine's lighting system", body: "Get deep into Unreal Engine or Unity lighting: static and dynamic lights, baked lightmaps, real-time global illumination, reflection captures, fog, and post-process settings." },
+      { title: "Light scenes you didn't build", body: "Take free or marketplace environments and relight them in several moods, such as dawn, night, and storm. This mirrors the actual job, where you mostly light other people's art." },
+      { title: "Learn the performance side", body: "Understand the cost of shadows, dynamic lights, and lightmap resolution, and how to use the engine's profiling and view modes to find problems." },
+      { title: "Build a portfolio and apply", body: "Show a few scenes with strong before/after comparisons, then apply for junior lighting artist roles or environment roles where lighting is a big part of the job." },
+    ],
+    skills: [
+      { title: "Color & value", body: "Using brightness, contrast, and color to create mood and keep scenes readable." },
+      { title: "Player guidance", body: "Using light to lead players toward paths, objectives, and points of interest." },
+      { title: "Engine lighting tech", body: "Knowing when to use baked, dynamic, or real-time global illumination and how each affects the image." },
+      { title: "Post-processing", body: "Tuning exposure, color grading, bloom, and fog to finish the look of a scene." },
+      { title: "Optimization", body: "Getting good results within the frame budget on each target platform." },
+    ],
+    portfolio: [
+      "Before/after comparisons showing the scene in flat or default light next to your final lighting.",
+      "The same environment lit in several different moods or times of day.",
+      "Real-time scenes captured in-engine, with a short video showing light in motion.",
+      "Brief notes on your goals for each shot and the techniques you used.",
+      "Clear credit for the environment artists whose scenes you lit.",
+    ],
+    faqs: [
+      { question: "What does a lighting artist do in video games?", answer: "A lighting artist places and tunes lights in game levels to set mood, guide players, and make the art look its best, while keeping performance within budget. They work closely with environment artists and level designers." },
+      { question: "What's the difference between baked and dynamic lighting?", answer: "Baked lighting is calculated ahead of time and stored in lightmaps, which is cheap to render but can't change during play. Dynamic lighting is calculated while the game runs, so it can move and react, but it costs more performance." },
+      { question: "Do lighting artists need to model?", answer: "Not much. Lighting artists mostly work with assets made by others. Basic modeling and engine skills help you fix small issues and build test scenes, but lighting skill is what you're hired for." },
+      { question: "Is game lighting different from lighting for film and animation?", answer: "Yes. Film lighting can be rendered offline for each frame, while game lighting must work in real time from any angle the player chooses. Game lighting artists balance quality against performance and interactivity." },
+    ],
+  },
+
+  "storyboard-artist": {
+    name: "Storyboard Artist",
+    steps: [
+      { title: "Get comfortable drawing quickly", body: "Storyboards favor clear, fast drawing over polish. Practice gesture drawing, perspective, and simple figures that read at small sizes." },
+      { title: "Learn the language of film", body: "Study shot types, camera angles, the 180-degree rule, staging, and continuity. Watch cutscenes and films with the sound off and sketch their shots to see how sequences are built." },
+      { title: "Learn storyboarding software", body: "Tools like Storyboard Pro, Clip Studio Paint, Photoshop, or Krita are common. The free Storyboarder tool (linked below) is a good way to start." },
+      { title: "Make animatics", body: "Time your boards to dialogue, sound, and music so they play like a rough video. Animatics show you understand pacing, which is a big part of the job." },
+      { title: "Board for games specifically", body: "Practice boarding cutscenes, trailers, and gameplay moments such as a boss intro or a tutorial beat. Games add camera control and player agency, so think about where the camera can and can't go." },
+      { title: "Build a sequence-based portfolio and apply", body: "Show full sequences rather than single images, then apply for storyboard, cinematic, or previs roles at game studios and animation studios." },
+    ],
+    skills: [
+      { title: "Visual storytelling", body: "Communicating action, emotion, and story beats clearly with simple drawings." },
+      { title: "Cinematic composition", body: "Choosing shots, angles, and framing that support the moment and keep the action readable." },
+      { title: "Pacing & timing", body: "Controlling rhythm through the number of panels, cuts, and timing in animatics." },
+      { title: "Acting & expression", body: "Drawing poses and faces that show what characters feel and intend." },
+      { title: "Fast iteration", body: "Redrawing sequences quickly as the script, design, or direction changes." },
+    ],
+    portfolio: [
+      "Several complete sequences that tell a short story from start to finish.",
+      "At least one animatic with timing and sound so reviewers can judge your pacing.",
+      "Examples relevant to games, such as a cutscene, a trailer beat, or a gameplay moment.",
+      "A range of tones, for example an action sequence, a dialogue scene, and a quiet emotional beat.",
+      "Clear, readable drawings over polished illustrations.",
+    ],
+    faqs: [
+      { question: "Do video games use storyboards?", answer: "Yes. Game studios use storyboards for cutscenes, trailers, cinematics, and sometimes to plan gameplay moments or tutorials. Some studios hire dedicated storyboard artists, while others have cinematic artists or concept artists cover it." },
+      { question: "What software do storyboard artists use?", answer: "Storyboard Pro is widely used in animation, and many artists also use Clip Studio Paint, Photoshop, or Krita with a drawing tablet. Storyboarder is a free option for beginners." },
+      { question: "What is an animatic?", answer: "An animatic is a storyboard edited into a video with timing, dialogue, and sound. It lets the team see the pacing of a scene before any animation or 3D work begins." },
+      { question: "Do storyboard artists need to be good at drawing?", answer: "You need to draw clearly and quickly, especially figures in perspective, but you don't need polished illustration skills. Readability and storytelling matter more than rendering." },
+    ],
+  },
+
+  "technical-artist": {
+    name: "Technical Artist",
+    steps: [
+      { title: "Start from an art or programming base", body: "Technical artists usually come from one side and grow toward the other. If you're an artist, learn scripting. If you're a programmer, learn 3D tools and how art assets are made." },
+      { title: "Learn Python and an engine's scripting", body: "Python is used for tools in Maya, Blender, Houdini, and other programs. Also learn your engine's scripting, such as Unreal Blueprints or C# in Unity." },
+      { title: "Learn shaders and materials", body: "Start with node-based material editors in Unreal, Unity Shader Graph, or Blender, then learn the basics of HLSL. Understanding how shaders work is central to most technical art jobs." },
+      { title: "Understand the asset pipeline and performance", body: "Learn how assets move from 3D software to the engine, what makes them expensive to render, and how to use the engine's profiling tools to find problems." },
+      { title: "Build tools that solve real problems", body: "Write a script that automates a boring task, like batch-exporting assets or checking naming conventions. Small, useful tools are great portfolio pieces." },
+      { title: "Join the tech art community and apply", body: "Communities like TechArtists.org (linked below) are a good place to ask questions and see what working TAs do. Apply for junior technical artist roles or move into tech art from an artist role on a team." },
+    ],
+    skills: [
+      { title: "Scripting", body: "Writing Python and engine scripts to automate tasks and build tools for artists." },
+      { title: "Shaders & materials", body: "Building materials and shader effects that look right and run efficiently." },
+      { title: "Pipeline knowledge", body: "Understanding how art gets from DCC tools into the engine, and where it breaks." },
+      { title: "Problem-solving & debugging", body: "Tracking down why an asset looks wrong or runs slowly and finding a fix." },
+      { title: "Communication", body: "Explaining technical limits to artists and artistic goals to programmers." },
+    ],
+    portfolio: [
+      "Shader and material examples with short videos and a breakdown of how they work.",
+      "Tools or scripts you've written, with a short demo and source code on GitHub where possible.",
+      "Examples of procedural work, for example in Houdini or Substance Designer.",
+      "A case study of a technical problem you solved, such as optimizing an asset or fixing a pipeline issue.",
+      "Some evidence of your artistic eye, so studios know you understand what artists need.",
+    ],
+    faqs: [
+      { question: "What does a technical artist do?", answer: "A technical artist bridges art and programming. They build tools and pipelines for artists, create shaders and materials, set up rigs or effects, and make sure art runs well in the game engine." },
+      { question: "Do technical artists need to code?", answer: "Most do, at least some. Python scripting and shader work are common requirements, and many TAs also use engine scripting like Blueprints or C#. The amount varies by studio and specialty." },
+      { question: "Is technical art a good career path for artists who like programming?", answer: "Yes. Technical art suits people who enjoy both making things look good and solving technical problems, and TAs are needed on most 3D game teams." },
+      { question: "What's the difference between a technical artist and a graphics programmer?", answer: "A graphics programmer builds the rendering engine and its core systems in code. A technical artist works on top of those systems, creating shaders, tools, and workflows that help artists use them." },
+    ],
+  },
+
+  "texture-artist": {
+    name: "Texture Artist",
+    steps: [
+      { title: "Learn how materials look in real life", body: "Photograph and study surfaces like rusted metal, worn wood, and painted concrete. Notice where dirt collects, how edges wear, and how materials reflect light." },
+      { title: "Understand PBR", body: "Physically based rendering is the standard in modern games. Learn what base color, roughness, metallic, normal, and height maps each do and what realistic values look like." },
+      { title: "Learn Substance 3D Painter and Designer", body: "Painter is widely used for texturing individual assets, and Designer for procedural, tiling materials. Photoshop is still useful for editing and hand-painted work." },
+      { title: "Learn UVs and baking", body: "Good textures depend on clean UVs and accurate baked maps. Learn how texel density, seams, and bake settings affect your results." },
+      { title: "Practice both realistic and stylized texturing", body: "Try a hand-painted asset as well as a realistic one. Different games need different styles, and range makes you more flexible." },
+      { title: "Show your materials in context and apply", body: "Present textures on models in Marmoset Toolbag or a game engine, then apply for texture artist, material artist, or general 3D artist roles." },
+    ],
+    skills: [
+      { title: "PBR materials", body: "Creating maps that react correctly to light in a physically based renderer." },
+      { title: "Procedural texturing", body: "Building tileable, customizable materials with node graphs in Substance 3D Designer." },
+      { title: "Storytelling with wear", body: "Adding dirt, scratches, and aging that make sense for how an object was used." },
+      { title: "Texture optimization", body: "Choosing resolutions, packing channels, and keeping memory use within budget." },
+      { title: "Color & value control", body: "Keeping materials consistent with the art style and readable in game lighting." },
+    ],
+    portfolio: [
+      "Textured assets shown in a real-time viewer, with lighting that shows off roughness and metal.",
+      "Individual texture maps displayed for at least some pieces so reviewers can check your PBR values.",
+      "Procedural, tiling materials from Substance 3D Designer shown on a sphere or plane and on a real asset.",
+      "A mix of materials such as metal, fabric, stone, and wood.",
+      "Both realistic and stylized work, or a clear focus that matches the studios you're targeting.",
+    ],
+    faqs: [
+      { question: "Is texture artist a separate job in game studios?", answer: "Sometimes. Larger studios may have dedicated texture or material artists, but many studios expect 3D, environment, or character artists to texture their own assets. Strong texturing skills help in all of these roles." },
+      { question: "What software do texture artists use?", answer: "Substance 3D Painter and Designer are the most common, along with Photoshop. Mari is used for some high-detail work, and many artists use scanned libraries like Quixel Megascans." },
+      { question: "What are PBR textures?", answer: "PBR textures are sets of maps, such as base color, roughness, metallic, and normal, that describe a surface's physical properties. A physically based renderer uses them to light the surface consistently in any environment." },
+      { question: "What's the difference between a texture artist and a material artist?", answer: "The titles overlap a lot. A material artist often focuses on reusable, tiling, procedural materials and shader setups, while a texture artist may focus more on painting textures for specific assets." },
+    ],
+  },
+
+  "ux-ui-artist": {
+    name: "UX/UI Artist",
+    steps: [
+      { title: "Learn UI and UX fundamentals", body: "Study visual hierarchy, typography, layout, color, and usability principles. Learn the difference between UX (how something works for the player) and UI (how it looks)." },
+      { title: "Study game interfaces", body: "Analyze HUDs, menus, and inventories from games you play. The Game UI Database (linked below) is a great way to compare how different games solve the same problems." },
+      { title: "Learn design and prototyping tools", body: "Figma is widely used for wireframes, mockups, and clickable prototypes. Photoshop and Illustrator are common for final UI art and icons." },
+      { title: "Implement UI in a game engine", body: "Learn Unreal's UMG or Unity's UI tools so you can build working menus. Seeing your UI in-game teaches you about resolution, scaling, and controller navigation." },
+      { title: "Test with players and design for accessibility", body: "Watch people use your interfaces and note where they get stuck. Learn accessibility basics like readable text sizes, colorblind-friendly palettes, and remappable controls." },
+      { title: "Show your process and apply", body: "Build case studies that show research, wireframes, iterations, and the final result, then apply for UI artist, UI designer, or UX designer roles at game studios." },
+    ],
+    skills: [
+      { title: "Visual design", body: "Typography, iconography, color, and layout that fit the game's art style." },
+      { title: "Information hierarchy", body: "Deciding what the player needs to see first and keeping screens uncluttered." },
+      { title: "Prototyping", body: "Building clickable or in-engine prototypes to test flows before final art." },
+      { title: "Platform awareness", body: "Designing for mouse, controller, touch, and different screen sizes and distances." },
+      { title: "Accessibility", body: "Making interfaces usable for players with different abilities and preferences." },
+    ],
+    portfolio: [
+      "Game-specific UI work: HUDs, menus, inventories, or shops, not only websites and apps.",
+      "Case studies that show the problem, wireframes, iterations, and why you made each change.",
+      "Interactive prototypes or videos of your UI working in an engine.",
+      "Icon sets and UI art that match a consistent visual style.",
+      "Examples of designing for different platforms, such as controller navigation or mobile touch.",
+    ],
+    faqs: [
+      { question: "What's the difference between UX and UI in games?", answer: "UX is about how the player experiences the game, including whether menus, tutorials, and feedback are easy to understand. UI is the visual layer of that experience: the screens, buttons, icons, and HUD elements." },
+      { question: "Can a web or app UX designer move into games?", answer: "Yes. The core skills transfer well, but you'll need to learn game-specific needs like HUD design, controller navigation, and how UI fits a game's art style. Adding a few game UI projects to your portfolio helps a lot." },
+      { question: "What software do game UI artists use?", answer: "Figma is common for wireframes and prototypes, Photoshop and Illustrator for UI art and icons, and After Effects for motion. Final UI is usually built in the game engine, such as Unreal's UMG or Unity's UI tools." },
+      { question: "Should a game UI portfolio include redesigns of existing games?", answer: "Yes, redesigns are a common and useful portfolio piece. Explain what problem you saw in the original, how you approached it, and how your version improves the player experience." },
+    ],
+  },
+
+  "vfx-artist": {
+    name: "VFX Artist",
+    steps: [
+      { title: "Learn the fundamentals of effects", body: "Study timing, shape, color, and readability. Good game effects have a clear anticipation, impact, and dissipation, so learn basic animation principles alongside the tools." },
+      { title: "Learn a real-time effects system", body: "Pick Unreal's Niagara or Unity's VFX Graph or Particle System and learn emitters, spawn rates, forces, and how particles use textures and materials." },
+      { title: "Learn to make effect textures and shaders", body: "Create flipbooks, noise textures, and masks in Photoshop, Substance Designer, or Houdini, and learn to build scrolling, dissolving, and distortion effects in the engine's material editor." },
+      { title: "Study real effects and other games", body: "Watch reference of fire, smoke, water, and explosions, and slow down effects from games you admire to see how they're layered. Reproducing them is a great exercise." },
+      { title: "Learn the performance side", body: "Effects can be expensive. Learn about overdraw, particle counts, and texture budgets, and how to profile effects so they run well." },
+      { title: "Build a reel and apply", body: "Make a short reel of your best real-time effects, share breakdowns on ArtStation, and apply for junior VFX artist roles at game studios." },
+    ],
+    skills: [
+      { title: "Timing & motion", body: "Giving effects strong anticipation, impact, and follow-through that feel good in gameplay." },
+      { title: "Readability", body: "Making effects communicate gameplay clearly, such as hit areas, telegraphs, and status changes." },
+      { title: "Shader building", body: "Creating materials for dissolves, distortion, scrolling textures, and other effect looks." },
+      { title: "Texture creation", body: "Making flipbooks, gradients, and noise textures, sometimes from simulations in Houdini." },
+      { title: "Optimization", body: "Controlling overdraw, particle counts, and texture memory to protect frame rate." },
+    ],
+    portfolio: [
+      "A short reel of your best real-time effects, with the strongest work first.",
+      "Effects shown in gameplay context, such as on a character or in an environment, not only on a black background.",
+      "Breakdowns of a few effects showing their layers, textures, and material setup.",
+      "Variety, for example magic, elemental, impact, and environmental effects, or a clear specialty.",
+      "Effects that match the style of the games you want to work on, whether realistic or stylized.",
+    ],
+    faqs: [
+      { question: "What's the difference between VFX for games and VFX for film?", answer: "Game VFX run in real time and must react to player actions from any angle, so they rely on particle systems, shaders, and tight performance budgets. Film VFX are usually rendered offline frame by frame and often focus on simulation and compositing." },
+      { question: "Do VFX artists need to learn Houdini?", answer: "Not to get started, but it's a valuable skill. Many real-time VFX artists use Houdini to create simulations, flipbook textures, and meshes, but you can build a strong portfolio using only the game engine and texture tools at first." },
+      { question: "What is Niagara in Unreal Engine?", answer: "Niagara is Unreal Engine's system for creating particle effects. VFX artists use it to build effects like fire, sparks, and magic by combining emitters, modules, and materials." },
+      { question: "How do I get into real-time VFX with no experience?", answer: "Start by recreating simple effects, such as a campfire, a hit spark, or a healing aura, in Niagara or Unity's VFX tools. Share them online for feedback, keep improving, and build a short reel of your best work." },
+    ],
+  },
+};

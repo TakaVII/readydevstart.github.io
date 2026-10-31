@@ -4,6 +4,9 @@
  * Each entry is rendered by `src/components/RoleGuide.astro` inside the role page,
  * and its FAQs are also published as FAQPage structured data.
  *
+ * The five original pilot roles live below; every other role lives in a
+ * per-discipline file in `src/data/roleGuides/`, merged into `roleGuides`.
+ *
  * To add a role: add an entry keyed by the role's URL slug, then render
  * <RoleGuide slug="..." /> on that role page and update its title/description
  * to target "How to Become a ..." searches.
@@ -19,10 +22,27 @@ export interface RoleGuide {
   skills: { title: string; body: string }[];
   /** What hiring managers look for in a portfolio for this role. */
   portfolio: string[];
+  /** Heading/intro overrides for roles where "portfolio" isn't the right word (e.g. business roles). */
+  portfolioTitle?: string;
+  portfolioIntro?: string;
   faqs: { question: string; answer: string }[];
 }
 
+import { animationAudioGuides } from "./roleGuides/animation-audio";
+import { artGuides } from "./roleGuides/art";
+import { designQaInfraGuides } from "./roleGuides/design-qa-infra";
+import { marketingGuides } from "./roleGuides/marketing";
+import { productionBusinessGuides } from "./roleGuides/production-business";
+import { programmingGuides } from "./roleGuides/programming";
+
 export const roleGuides: Record<string, RoleGuide> = {
+  ...animationAudioGuides,
+  ...artGuides,
+  ...designQaInfraGuides,
+  ...marketingGuides,
+  ...productionBusinessGuides,
+  ...programmingGuides,
+
   "game-designer": {
     name: "Game Designer",
     steps: [
@@ -109,7 +129,7 @@ export const roleGuides: Record<string, RoleGuide> = {
       "A clear specialty (characters, environments, or props) that matches the jobs you want.",
       "Projects built around a coherent world or brief, showing consistent design language.",
       "Production-ready sheets with turnarounds or callouts that a 3D artist could use.",
-      "Around 10–15 strong pieces rather than everything you've ever made.",
+      "A tight selection of your strongest pieces rather than everything you've ever made.",
     ],
     faqs: [
       { question: "Do you need a degree to be a concept artist?", answer: "No. Studios hire concept artists based on their portfolio. Art school can help build fundamentals and connections, but many concept artists are self-taught through online courses, practice, and critique." },

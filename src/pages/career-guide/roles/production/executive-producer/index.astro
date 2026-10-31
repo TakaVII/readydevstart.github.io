@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -73,7 +74,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Executive Producer Career Guide: Salary, Skills & Tools" description="What does an Executive Producer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an Executive Producer in Games: Career Path & Skills" description="How to become an Executive Producer in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Executive Producer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -120,6 +121,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="executive-producer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -149,6 +152,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="executive-producer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

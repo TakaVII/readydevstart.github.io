@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -60,7 +61,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Motion Capture Artist Career Guide: Salary, Skills & Tools" description="What does a Motion Capture Artist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Motion Capture Artist: Skills, Portfolio & Tools" description="How to become a Motion Capture Artist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Motion Capture Artist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -107,6 +108,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="motion-capture-artist" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -136,6 +139,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="motion-capture-artist" part="faq" />
       </div>
 
       <aside class="career-sidebar">

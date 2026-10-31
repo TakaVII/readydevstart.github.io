@@ -43,9 +43,9 @@ const faqSchema = {
 </div>
 
 <div class="card" style="margin-bottom: 1.5rem;">
-  <h2 id="portfolio">{guide.name} Portfolio Tips</h2>
+  <h2 id="portfolio">{guide.portfolioTitle ?? `${guide.name} Portfolio Tips`}</h2>
   <div class="callout callout-tip">
-    <p>Studios hire on your portfolio first. Here's what reviewers look for.</p>
+    <p>{guide.portfolioIntro ?? "Studios hire on your portfolio first. Here's what reviewers look for."}</p>
   </div>
   <ul>
     {guide.portfolio.map((p) => (
