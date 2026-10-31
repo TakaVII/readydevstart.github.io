@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -11,29 +12,23 @@ const salaries = [
 ];
 
 const responsibilities = [
-  "Utilize everyday objects, props, and specialized tools to generate convincing sounds for footsteps, actions, objects, creatures, and environments within the game.",
+  "Use everyday objects, props, and specialized tools to generate convincing sounds for footsteps, actions, objects, creatures, and environments within the game.",
   "Layer, filter, and manipulate recorded sounds to achieve the desired sonic texture, enhance detail, and create unique sound effects beyond the limitations of the original source.",
   "Analyze gameplay mechanics and animation to craft sound effects that accurately reflect in-game actions, reactions, and visual effects.",
   "Build and maintain a vast library of recorded sounds and Foley props, categorized and readily accessible for future projects.",
   "Work closely with audio designers and directors to understand the desired sonic vision, interpret concept art and gameplay ideas, and translate them into effective sound effects.",
   "Be prepared to adjust and improvise sound effects on the fly to accommodate unexpected gameplay scenarios, glitches, or changes in development.",
   "Consider file size, memory usage, and audio playback performance when creating and implementing sound effects to ensure smooth gameplay.",
-  "Understand the emotional tone and narrative arc of the game, and utilize sound effects to evoke specific emotions, build tension, and enhance player immersion in the story."
+  "Understand the emotional tone and narrative arc of the game, and use sound effects to evoke specific emotions, build tension, and enhance player immersion in the story."
 ];
 
 const resources = [
+  { name: "A Sound Effect's Game Audio Articles (free interviews and behind-the-scenes on game sound and Foley)", url: "https://www.asoundeffect.com/blog/game-audio/" },
+  { name: "Wwise-101 Free Course by Audiokinetic", url: "https://www.audiokinetic.com/en/courses/wwise101/" },
+  { name: "FMOD Learning Resources (free docs and video tutorials)", url: "https://www.fmod.com/learn" },
   { name: "Game Audio Implementation Resources", url: "https://gameaudioimplementation.com/" },
-  { name: "12 inspiring resources about the fine art of Foley sounds", url: "https://www.systematic-sound.com/12-inspiring-resources-about-the-fine-art-of-foley-sounds/" },
-  { name: "Foley Artist: Everything You Need To Know", url: "https://www.nfi.edu/foley-artist/" },
-  { name: "Art of Foley Sound Effects Library", url: "https://www.sound-ideas.com/Product/441/Art-of-Foley-Sound-Effects-Library" },
-  { name: "What are foley sounds? by Josh Edwards", url: "https://artlist.io/blog/foley-sound-effects/" },
-  { name: "Discover the hidden world of Foley sound effects by Adobe", url: "https://www.adobe.com/creativecloud/video/discover/foley-sound-effects.html" },
-  { name: "Foley: the art and craft of sound effects!", url: "https://huehd.com/foley-the-art-and-craft-of-sound-effects/" },
   { name: "What is a Foley Artist — How to Bring Movies to Life with Sound by Alysa Maio", url: "https://www.studiobinder.com/blog/what-is-a-foley-artist/" },
-  { name: "How to Create Foley Sound Effects by Suzy Woltmann", url: "https://www.backstage.com/magazine/article/how-to-create-foley-sound-effects-75583/" },
-  { name: "How to Become a Foley Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/foley-artist" },
-  { name: "Foley Artist by The Art Career Project", url: "https://theartcareerproject.com/careers/foley-art/" },
-  { name: "How Do You Become a Foley Artist and Work in Sound Design?", url: "https://www.ipr.edu/blogs/sound-design-for-visual-media/how-do-you-become-a-foley-artist-and-work-in-sound-design/" }
+  { name: "Foley Artist: Everything You Need To Know", url: "https://www.nfi.edu/foley-artist/" }
 ];
 
 const books = [
@@ -44,30 +39,23 @@ const books = [
   { name: "Game Audio Implementation by Richard Stevens and Dave Raybould", url: "https://www.amazon.com/Game-Audio-Implementation-Practical-Unreal/dp/1138777242/ref=sr_1_2" },
   { name: "Complete Guide to Game Audio by Aaron Marks", url: "https://www.amazon.com/Aaron-Marks-Complete-Guide-Audio/dp/1138795380/ref=sr_1_4" },
   { name: "The Essential Guide to Game Audio by Steve Horowitz and Scott Looney", url: "https://www.amazon.com/Essential-Guide-Game-Audio-Practice/dp/041570670X/ref=sr_1_13" },
-  { name: "Game Audio Mixing by Alex Riviere", url: "https://www.amazon.com/Game-Audio-Mixing-Alex-Riviere/dp/1032397357/ref=sr_1_14" },
-  { name: "The Art of Game Design by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third-ebook/dp/B07X59RN6N" },
-  { name: "The Computer Music Tutorial by Curtis Roads", url: "https://www.amazon.com/Computer-Music-Tutorial-MIT-Press/dp/0262680823" },
-  { name: "Sound Synthesis and Sampling by Martin Russ", url: "https://www.amazon.com/Sound-Synthesis-Sampling-Third-Technology/dp/0240521056" }
+  { name: "Game Audio Mixing by Alex Riviere", url: "https://www.amazon.com/Game-Audio-Mixing-Alex-Riviere/dp/1032397357/ref=sr_1_14" }
 ];
 
 const tools = [
   "Game Engines",
   "Pro Tools",
   "Reaper",
-  "iZotope RX series",
-  "Soundminer.",
+  "iZotope RX",
+  "Soundminer",
   "Wwise or FMOD Studio",
-  "Kontakt or Battery",
-  "Boom Library",
-  "Spitfire Audio",
   "SpectraLayers Pro",
   "Waves plugins",
-  "iZotope Ozone",
-  "Audient iD14",
+  "Soundtoys plugins",
   "Focusrite Scarlett",
-  "Zoom H6",
-  "Tascam DR-40x",
-  "Soundtoys plugins"
+  "Audient iD14",
+  "Zoom H6essential",
+  "Tascam DR-40X"
 ];
 
 const sidebarRoles = [
@@ -80,7 +68,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Foley Artist Career Guide: Salary, Skills & Tools" description="What does a Foley Artist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Foley Artist: Skills, Portfolio & Tools" description="How to become a Foley Artist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Foley Artist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -104,7 +92,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>Foley artists are magicians of sound. They're the ones who bring the aural textures of the game world to life, from the satisfying crunch of footsteps on different surfaces to the clinking of armor and the whoosh of a sword swing. Just like their film counterparts, game Foley artists use everyday objects and their own creative ingenuity to recreate, enhance, or replace sounds that were either poorly captured during development or simply don't exist in the real world. They're the alchemist of squeaks and pops, transforming celery stalks into crackling flames, leather jackets into flapping dragon wings, and bowls of cereal into the crunching footsteps of trolls.</p>
+          <p>Foley artists are magicians of sound. They're the ones who bring the aural textures of the game world to life, from the satisfying crunch of footsteps on different surfaces to the clinking of armor and the whoosh of a sword swing. Just like their film counterparts, game Foley artists use everyday objects and their own creative ingenuity to recreate, enhance, or replace sounds that were either poorly captured during development or simply don't exist in the real world. They're the alchemists of squeaks and pops, transforming snapping celery into breaking bones, leather jackets into flapping dragon wings, and bowls of cereal into the crunching footsteps of trolls.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -126,6 +114,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="foley-artist" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -156,6 +146,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="foley-artist" part="faq" />
       </div>
 
       <aside class="career-sidebar">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -21,12 +22,13 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "Into Games’ Junior Technical Designer Database", url: "https://entrylevel.games/database/junior-technical-designer" },
-  { name: "Into Games’ Technical Designer Profile", url: "https://intogames.org/role/technical-designer/" },
+  { name: "Technical Design Jobs in the Video Game Industry: Quick Guide by Hitmarker", url: "https://hitmarker.net/technical-design-jobs-in-the-video-game-industry-the-ultimate-quick-guide" },
   { name: "What Is A Technical Designer? by GameDev.tv", url: "https://www.youtube.com/watch?v=SgjvbYsLPdM&ab_channel=GameDev.tv" },
   { name: "Avoid an Identity Crisis as a Technical Designer - GDC Talk", url: "https://www.youtube.com/watch?v=MYZ-Agw4d1A&ab_channel=GDC" },
   { name: "Why you need a Technical Designer", url: "https://www.gamedeveloper.com/design/why-you-need-a-technical-designer" },
-  { name: "ISART Technical Game Design Course", url: "https://www.isart.ca/programmes/programmes-courts/technical-design/" },
+  { name: "Blueprints Visual Scripting: Official Unreal Engine Docs", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine" },
+  { name: "Unity Learn: Free Official Unity Courses", url: "https://learn.unity.com/" },
+  { name: "Game Programming Patterns by Robert Nystrom (Free Web Edition)", url: "https://gameprogrammingpatterns.com/" },
   { name: "Game Accessibility Guidelines", url: "https://gameaccessibilityguidelines.com/" },
   { name: "Accessible Player Experiences (APX)", url: "https://accessible.games/accessible-player-experiences/" }
 ];
@@ -35,32 +37,27 @@ const books = [
   { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
   { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
   { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
-  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/dp/1032607009" },
   { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
-  { name: "Game Usability by Noah Schaffer and Katherine Isbister", url: "https://www.amazon.com/gp/product/B0092J077G" },
+  { name: "Game Usability (2nd Edition) by Katherine Isbister and Celia Hodent", url: "https://www.routledge.com/Game-Usability-Advice-from-the-Experts-for-Advancing-UX-Strategy-and-Practice-in-Videogames/Isbister-Hodent/p/book/9780367619923" },
   { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" }
 ];
 
 const tools = [
   "Game Engines",
+  "Unreal Blueprints",
   "C#",
   "C++",
   "Python",
+  "Visual Studio",
+  "Rider",
   "Git",
   "Perforce",
-  "Maya",
-  "Blender",
-  "Houdini",
-  "ZBrush",
-  "Substance 3D Painter",
-  "Substance 3D Designer",
-  "Photoshop",
-  "Illustrator",
-  "Jira",
-  "Confluence",
-  "Excel",
   "Subversion (SVN)",
-  "Xcode"
+  "Blender",
+  "Excel / Google Sheets",
+  "Jira",
+  "Confluence"
 ];
 
 const sidebarRoles = [
@@ -74,7 +71,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Technical Designer Career Guide: Salary, Skills & Tools" description="What does a Technical Designer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Technical Designer: Skills, Portfolio & Tools" description="How to become a Technical Designer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Technical Designer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -98,7 +95,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A Technical Designer understands both the intricate workings of game engines and the nuances of gameplay systems. Their role is to translate design ideas into functional prototypes, ensuring mechanics are not only fun but also technically achievable within the engine's limitations. They collaborate closely with both designers and programmers, acting as interpreters and problem solvers. They break down complex systems into manageable tasks, identify potential technical hurdles, and propose elegant solutions that maintain the vision's integrity while adhering to technical constraints, shaping the foundation of engaging gameplay without compromising technical stability, and ensuring a smooth and enjoyable experience for players.</p>
+          <p>A Technical Designer understands both the intricate workings of game engines and the nuances of gameplay systems. Their role is to translate design ideas into functional prototypes, making sure mechanics are fun to play and achievable within the engine's limits. They work closely with designers and programmers, acting as interpreters and problem solvers. They break complex systems into manageable tasks, spot technical hurdles early, and propose solutions that keep the design vision intact while respecting technical constraints, so players get gameplay that is both fun and stable.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -120,6 +117,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="technical-designer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -150,6 +149,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="technical-designer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

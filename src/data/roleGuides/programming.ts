@@ -1,0 +1,323 @@
+import type { RoleGuide } from "../roleGuides";
+
+export const programmingGuides: Record<string, RoleGuide> = {
+  "ai-programmer": {
+    name: "AI Programmer",
+    steps: [
+      { title: "Get solid at general game programming first", body: "AI code lives inside gameplay code, so you need to be comfortable with C++ or C#, an engine like Unreal or Unity, and how characters move, animate, and take damage before you can make them behave well." },
+      { title: "Learn the classic game AI techniques", body: "Finite state machines, behavior trees, utility AI, and goal-oriented action planning (GOAP) power most enemies and NPCs you've played against. Books like AI for Games by Ian Millington and the Game AI Pro series cover them in depth." },
+      { title: "Master pathfinding and navigation", body: "Implement A* yourself on a grid, then learn how navigation meshes work and how your engine generates and queries them. Add steering behaviors and simple avoidance so agents move around each other believably." },
+      { title: "Build agents that perceive and react", body: "Give characters senses such as sight cones, hearing, and memory of the last known player position. Small details like these make enemies feel aware without making them unfair." },
+      { title: "Study machine learning as a bonus, not the foundation", body: "Most shipped game AI is hand-authored for control and predictability. Tools like the Unity ML-Agents Toolkit and PyTorch are worth exploring for testing bots and research, but treat them as an extra skill on top of the classic techniques." },
+      { title: "Show off readable AI and apply", body: "Build a demo with visible debug overlays (paths, current state, scores) so reviewers can see your agents think. Then apply for AI, gameplay, or generalist programmer roles, which are common entry points." },
+    ],
+    skills: [
+      { title: "Decision-making architectures", body: "Knowing when a state machine, behavior tree, or utility system is the right fit, and how to keep each one maintainable as it grows." },
+      { title: "Pathfinding & spatial reasoning", body: "A*, navigation meshes, cover and position selection, and querying the world efficiently." },
+      { title: "Debug visualization", body: "Drawing paths, sensor ranges, and decision data in the game so you and designers can see why an agent did something." },
+      { title: "Designer-facing systems", body: "Exposing behaviors and tuning values in editors so designers can author and balance enemies without changing code." },
+      { title: "Performance budgeting", body: "Spreading expensive work like path queries and perception checks across frames so many agents can run at once." },
+    ],
+    portfolio: [
+      "A playable demo where enemies or NPCs patrol, notice the player, and react in distinct, readable ways.",
+      "Your own A* or navigation implementation, with a short explanation of the trade-offs you made.",
+      "At least one behavior tree or utility AI system, ideally with an editor view or data files a designer could tweak.",
+      "Videos with debug overlays turned on, showing the agents' state and decisions in real time.",
+      "A short write-up of an AI bug or exploit you found (such as agents getting stuck) and how you fixed it.",
+    ],
+    faqs: [
+      { question: "What does an AI programmer do in video games?", answer: "They program how non-player characters think and move: deciding what to do, finding paths through the level, reacting to the player, and working in groups. In games this usually means behavior trees, state machines, utility AI, and pathfinding rather than machine learning." },
+      { question: "Is game AI the same as machine learning?", answer: "Mostly no. Game AI is largely hand-designed logic built to be predictable, tunable, and fun. Machine learning is used in some areas, such as automated testing bots and research projects, but it is not the core of most game AI jobs." },
+      { question: "What is a behavior tree in game AI?", answer: "A behavior tree is a hierarchy of tasks and conditions that an agent evaluates to choose its next action. It is popular because it is modular and easy to visualize, and engines like Unreal include a built-in behavior tree editor." },
+      { question: "What should I learn first to become a game AI programmer?", answer: "Start with a game programming language like C++ or C#, then build a finite state machine and implement A* pathfinding on a grid. From there, move on to behavior trees, navigation meshes, and utility AI." },
+    ],
+  },
+
+  "audio-programmer": {
+    name: "Audio Programmer",
+    steps: [
+      { title: "Learn C++ and how audio works digitally", body: "Understand sample rates, buffers, channels, decibels, and why audio runs on its own thread with strict timing. C++ is the main language for audio engines and middleware integrations." },
+      { title: "Get hands-on with audio middleware", body: "Install Wwise or FMOD Studio and integrate it into Unity or Unreal. Learn how events, parameters, banks, and buses connect what sound designers build to what the game triggers." },
+      { title: "Study DSP fundamentals", body: "Write simple filters, delays, and a basic reverb yourself. Resources like Introduction to Digital Filters with Audio Applications by Julius O. Smith III (linked below) explain the math behind effects you'll use every day." },
+      { title: "Build game audio systems", body: "Program features like footstep surfaces, occlusion, distance attenuation, voice limiting, and music that changes with gameplay intensity. These are the systems studios actually need." },
+      { title: "Work with sound designers and composers", body: "Team up on a game jam or student project as the person who implements audio. Learning how designers think about sound will shape the tools and systems you build." },
+      { title: "Share your work and apply", body: "Put together builds, code, and videos with sound on, then apply for audio programmer, gameplay programmer, or audio tools roles. The Audio Programmer community (linked below) is a good place to keep learning and meet people." },
+    ],
+    skills: [
+      { title: "Real-time programming", body: "Writing code that runs on the audio thread without allocations, locks, or anything that could cause dropouts." },
+      { title: "Digital signal processing", body: "Filters, mixing, resampling, and effects, plus enough math to understand how they work." },
+      { title: "Middleware integration", body: "Connecting Wwise or FMOD to engine events, game state, and platform-specific audio output." },
+      { title: "Critical listening", body: "Hearing clicks, clipping, phasing, and timing problems and tracing them back to the code that caused them." },
+      { title: "Memory & streaming", body: "Managing compressed formats, streaming large files, and keeping audio within memory and CPU budgets." },
+    ],
+    portfolio: [
+      "A game or demo with interactive audio systems, captured in videos with clear sound so reviewers can hear the results.",
+      "A Wwise or FMOD integration you built, showing how game events and parameters drive the mix.",
+      "A small DSP project, such as a plugin made with JUCE or an effect written from scratch, with source code.",
+      "A write-up of an audio feature like occlusion or adaptive music, explaining the approach and its cost.",
+      "Notes on any collaboration with sound designers, and what you built to make their workflow easier.",
+    ],
+    faqs: [
+      { question: "What's the difference between an audio programmer and a sound designer?", answer: "A sound designer creates and edits the sounds themselves. An audio programmer writes the code and systems that play, mix, and change those sounds in the game, and builds tools that help sound designers work." },
+      { question: "Do audio programmers need to know music theory?", answer: "It's not required, but a basic understanding helps when building adaptive music systems. Knowledge of digital signal processing and real-time programming matters much more day to day." },
+      { question: "What is audio middleware in games?", answer: "Audio middleware, such as Wwise and FMOD, is software that sits between the game engine and the sound hardware. It lets sound designers build complex audio behavior in their own tool, while programmers trigger and control it from game code." },
+      { question: "What language do audio programmers use?", answer: "C++ is the most common, because audio engines and middleware are written in it and performance is critical. C# is used for audio scripting in Unity, and some teams use Lua or other scripting languages for higher-level logic." },
+    ],
+  },
+
+  "engine-programmer": {
+    name: "Engine Programmer",
+    steps: [
+      { title: "Go deep on C++", body: "Engine work is mostly C++. Learn how memory is laid out, how pointers and ownership work, templates, move semantics, and what the compiler does with your code." },
+      { title: "Learn how computers actually run code", body: "Study CPU caches, threads, synchronization, and data-oriented design. Engine performance often depends more on how data moves through memory than on clever algorithms." },
+      { title: "Build a small engine of your own", body: "Write a simple engine with a game loop, window, input, renderer, asset loading, and a basic scene. You'll hit the same problems real engines solve, and you'll understand them far better." },
+      { title: "Read and modify a real engine", body: "Unreal Engine's source is available on GitHub after you link your Epic account, and Godot is fully open source. Trace how a frame is built, fix a bug, or add a small feature." },
+      { title: "Learn to profile and optimize", body: "Use tools such as Tracy, Intel VTune, Perf, or the Visual Studio profiler to measure before you change anything. Show measured before-and-after results in your projects." },
+      { title: "Apply for engine, tools, or generalist roles", body: "Engine teams often hire juniors with strong C++ and systems knowledge. Tools and generalist roles can also be a path onto an engine team later." },
+    ],
+    skills: [
+      { title: "Advanced C++", body: "Writing fast, safe code and understanding the cost of every abstraction you use." },
+      { title: "Memory management", body: "Custom allocators, object lifetimes, and avoiding fragmentation and leaks in long-running games." },
+      { title: "Multithreading", body: "Job systems, task graphs, and avoiding race conditions and deadlocks." },
+      { title: "Architecture & API design", body: "Building systems other programmers can extend and use correctly without reading every line." },
+      { title: "Cross-platform development", body: "Handling differences between PC, consoles, and mobile in builds, file systems, and hardware." },
+    ],
+    portfolio: [
+      "A personal engine or engine subsystem on GitHub with a clear README and build instructions using CMake.",
+      "Profiler captures and benchmarks showing an optimization you made and how much it helped.",
+      "A focused system written from scratch, such as a memory allocator, job system, or asset pipeline.",
+      "Contributions or patches to an open source engine like Godot, if you have them.",
+      "Short technical write-ups explaining your design decisions and what you would change next time.",
+    ],
+    faqs: [
+      { question: "What does a game engine programmer do?", answer: "They build and maintain the core technology a game runs on, such as memory management, threading, file I/O, platform support, and the foundations for rendering, physics, and audio. Their users are mostly other developers on the team." },
+      { question: "Should I build my own game engine to learn?", answer: "Yes, if your goal is engine programming. A small engine teaches you how the pieces fit together. Keep it focused and finish features rather than trying to compete with commercial engines." },
+      { question: "Is engine programming harder than gameplay programming?", answer: "It's different. Engine work demands deeper knowledge of C++, hardware, and performance, while gameplay work demands more collaboration with designers and fast iteration. Many engine programmers started in gameplay or generalist roles." },
+      { question: "Do you need a computer science degree to be an engine programmer?", answer: "A degree is common in this role because of the focus on systems, algorithms, and architecture, but it isn't strictly required. Strong C++ projects that show low-level understanding can carry the same weight." },
+    ],
+  },
+
+  "generalist-programmer": {
+    name: "Generalist Programmer",
+    steps: [
+      { title: "Build a strong programming foundation", body: "Learn data structures, algorithms, debugging, and object-oriented and component-based design. These transfer to every part of a game, which is exactly what a generalist needs." },
+      { title: "Get productive in one engine and its language", body: "Choose Unity with C# or Unreal with C++ and learn it well enough to build a full game alone, from input to menus to save files." },
+      { title: "Touch every system at least once", body: "Across a few projects, build some gameplay, simple AI, UI, a basic tool, audio hookups, and a little shader work. You don't need to be an expert in any of them yet." },
+      { title: "Learn version control and team workflows", body: "Get comfortable with Git and the basics of Perforce, code reviews, and bug trackers. Generalists often move between teams, so working cleanly with others is essential." },
+      { title: "Finish and ship complete games", body: "Small finished games prove you can handle the many unglamorous tasks that come up near the end: bugs, build issues, performance, and platform quirks." },
+      { title: "Apply widely, especially to small studios", body: "Indie and mid-size studios often need programmers who can cover many areas. Many people specialize later once they find what they enjoy most." },
+    ],
+    skills: [
+      { title: "Adaptability", body: "Picking up an unfamiliar system or codebase quickly and being useful in it within days." },
+      { title: "Debugging across systems", body: "Tracking down problems that span gameplay, rendering, audio, and data using debuggers and profilers." },
+      { title: "Pragmatic problem-solving", body: "Choosing a simple, reliable fix that fits the schedule over an ideal one that doesn't." },
+      { title: "Clear communication", body: "Explaining technical trade-offs to designers, artists, and producers in plain language." },
+      { title: "Code quality", body: "Writing readable, well-documented code that the next person can safely change." },
+    ],
+    portfolio: [
+      "Two or three complete, playable games that you programmed most or all of.",
+      "A breakdown of the different systems in each project and which ones you built.",
+      "Source code on GitHub that shows clean structure across several areas, not just one script.",
+      "At least one example of something outside gameplay, such as a small editor tool, shader, or save system.",
+      "A short story of a tricky bug you tracked down and how you found the cause.",
+    ],
+    faqs: [
+      { question: "What is a generalist programmer in game development?", answer: "A generalist programmer works across many parts of a game, including gameplay, UI, tools, AI, and performance, depending on what the project needs. They are especially common on small and mid-size teams." },
+      { question: "Is it better to be a generalist or a specialist programmer?", answer: "Both are valuable. Generalists are useful on small teams and early in a career, while specialists are needed for deep problems on larger teams. Many programmers start as generalists and specialize over time." },
+      { question: "Is generalist programmer a good first job in games?", answer: "Yes. It exposes you to many systems, which helps you discover what you enjoy and builds a broad base of experience that makes later specialization easier." },
+      { question: "What's the difference between a generalist programmer and a gameplay programmer?", answer: "A gameplay programmer focuses on the features players interact with directly. A generalist covers gameplay too, but also picks up UI, tools, engine fixes, optimization, and anything else the team needs." },
+    ],
+  },
+
+  "graphics-programmer": {
+    name: "Graphics Programmer",
+    steps: [
+      { title: "Learn the math behind 3D graphics", body: "Get comfortable with vectors, matrices, transforms, coordinate spaces, and basic trigonometry. Every rendering technique builds on these." },
+      { title: "Render your first triangle with a graphics API", body: "Start with OpenGL using Learn OpenGL (linked below) to understand the pipeline, buffers, and shaders. Later, move to DirectX 12 or Vulkan to learn how modern explicit APIs work." },
+      { title: "Write a ray tracer", body: "Following Ray Tracing in One Weekend (linked below) teaches light, materials, and sampling in a simple setting, and makes rasterization concepts easier to understand." },
+      { title: "Learn shader programming", body: "Write vertex, pixel, and compute shaders in HLSL or GLSL. Implement lighting, normal mapping, shadows, and a few post-processing effects yourself." },
+      { title: "Profile on the GPU", body: "Capture frames with RenderDoc, PIX, or Nsight Graphics. Learn to read what each draw call costs and why a frame is slow." },
+      { title: "Build a renderer and apply", body: "Combine what you've learned into a small renderer with a clear feature list, then apply for graphics, rendering, or engine programmer roles. Technical artist roles can also be an adjacent entry point." },
+    ],
+    skills: [
+      { title: "Linear algebra", body: "Transforms, projections, and working fluently across object, world, view, and clip space." },
+      { title: "Shader languages", body: "HLSL and GLSL, plus how shaders compile and run on the GPU." },
+      { title: "Graphics APIs", body: "DirectX, Vulkan, OpenGL, or Metal, and the concepts they share, such as buffers, pipelines, and synchronization." },
+      { title: "GPU performance", body: "Understanding bandwidth, overdraw, occupancy, and how to read GPU profiler captures." },
+      { title: "Working with artists", body: "Turning an art direction into techniques that look right and fit the frame budget." },
+    ],
+    portfolio: [
+      "A renderer or rendering demo with source code, built on DirectX, Vulkan, or OpenGL rather than only an engine's built-in tools.",
+      "Specific techniques you implemented, such as shadow mapping, physically based shading, or deferred lighting, each with screenshots.",
+      "Frame captures or GPU timings showing the cost of a technique and any optimization you made.",
+      "A ray tracer, even a simple CPU one, to show you understand light transport.",
+      "Short write-ups explaining how a technique works and the trade-offs you chose.",
+    ],
+    faqs: [
+      { question: "What does a graphics programmer do?", answer: "A graphics programmer writes the code that turns game data into images on screen. That includes lighting, shadows, materials, post-processing, and optimizing the renderer so it hits its frame rate on every target platform." },
+      { question: "Should I learn OpenGL or Vulkan first?", answer: "Many people start with OpenGL because it is simpler to get something on screen and teaches the core pipeline concepts. Vulkan and DirectX 12 are closer to what modern engines use, so learning one of them next is a good move." },
+      { question: "How much math does graphics programming need?", answer: "Quite a lot compared to most programming roles. Linear algebra is essential, and you'll also use trigonometry, some calculus, and probability for lighting and sampling. You can learn it alongside your projects." },
+      { question: "What's the difference between a graphics programmer and a technical artist?", answer: "A graphics programmer builds the rendering systems and low-level techniques. A technical artist works between art and code, writing shaders, tools, and pipelines that help artists use those systems well." },
+    ],
+  },
+
+  "network-engineer": {
+    name: "Network Engineer",
+    steps: [
+      { title: "Learn networking fundamentals", body: "Understand TCP and UDP, IP addresses, ports, NAT, latency, packet loss, and bandwidth. Tools like Wireshark, ping, and traceroute help you see these concepts in action." },
+      { title: "Write networked code from scratch", body: "Build a simple client and server with sockets in C++ or C#. Sending messages back and forth yourself makes every higher-level framework easier to understand." },
+      { title: "Study multiplayer game architecture", body: "Learn client-server versus peer-to-peer models, server authority, client-side prediction, interpolation, lag compensation, and rollback. The Game Networking Resources Repository (linked below) collects many of the classic articles on these topics." },
+      { title: "Use your engine's networking layer", body: "Build a small multiplayer game with Unreal's replication system or a Unity networking solution such as Netcode for GameObjects. Test it with simulated lag and packet loss." },
+      { title: "Learn servers, cloud, and security basics", body: "Get familiar with Linux, running dedicated servers, cloud hosting, monitoring tools, and common threats like cheating and DDoS attacks. Some network engineer roles focus heavily on this infrastructure side." },
+      { title: "Show a working multiplayer project and apply", body: "Apply for network programmer, online, server, or gameplay programmer roles with multiplayer experience. Read each posting closely, since the title can mean game netcode or server infrastructure." },
+    ],
+    skills: [
+      { title: "Network protocols", body: "TCP, UDP, and how reliability, ordering, and packet size affect a real-time game." },
+      { title: "Latency hiding", body: "Prediction, interpolation, and reconciliation so games feel responsive despite network delay." },
+      { title: "Bandwidth optimization", body: "Serialization, compression, and sending only what each player actually needs." },
+      { title: "Security & anti-cheat thinking", body: "Keeping the server authoritative and never trusting data from the client." },
+      { title: "Debugging distributed systems", body: "Reproducing problems that only happen with lag, packet loss, or many players at once, using logs and packet captures." },
+    ],
+    portfolio: [
+      "A playable multiplayer game or prototype that works over a real network, not only on one machine.",
+      "Videos comparing behavior with and without simulated lag, showing your prediction or interpolation working.",
+      "Source code for a client and server you wrote, including how you serialize and send game state.",
+      "A write-up of a desync, cheating, or bandwidth problem you hit and how you solved it.",
+      "Any server setup, monitoring, or load testing you've done, if you're targeting infrastructure-focused roles.",
+    ],
+    faqs: [
+      { question: "What does a network engineer do in game development?", answer: "In games, the title usually covers making multiplayer work: synchronizing game state between players and servers, hiding latency, and keeping connections stable and secure. Some roles lean toward server infrastructure, monitoring, and scaling for launches." },
+      { question: "Is network programming for games hard?", answer: "It is one of the more challenging areas because you're dealing with delay, packet loss, and many machines at once, and bugs can be hard to reproduce. Starting with small socket projects and adding complexity step by step makes it manageable." },
+      { question: "Should I use TCP or UDP for a multiplayer game?", answer: "Fast-paced games usually use UDP with a custom reliability layer, because TCP can stall waiting for lost packets. Slower turn-based games often use TCP or WebSockets because simplicity matters more than every millisecond." },
+      { question: "What is client-side prediction?", answer: "Client-side prediction lets a player's own game apply their inputs immediately instead of waiting for the server. When the server's authoritative result arrives, the client corrects itself if the two disagree, which keeps controls feeling responsive." },
+    ],
+  },
+
+  "physics-programmer": {
+    name: "Physics Programmer",
+    steps: [
+      { title: "Brush up on math and mechanics", body: "Review vectors, matrices, quaternions, and basic calculus, along with Newton's laws, momentum, and rotational motion. Physics code is mostly these ideas turned into numbers that update each frame." },
+      { title: "Write a simple physics simulation", body: "Start with particles under gravity, then add springs and simple collisions. Compare integration methods like explicit Euler and semi-implicit Euler to see why stability matters." },
+      { title: "Learn collision detection", body: "Implement sphere, box, and capsule tests, then study broad-phase methods like bounding volume hierarchies and narrow-phase algorithms like SAT and GJK." },
+      { title: "Build a rigid body engine", body: "Add rotation, contact generation, and an impulse-based solver. The Introduction to Physics Programming YouTube series by Gustavo Oliveira (linked below) is a helpful companion." },
+      { title: "Study production physics engines", body: "Read the documentation and source of open engines like Bullet or Jolt, and learn how the built-in physics in Unity (PhysX) and Unreal (Chaos) is set up and tuned. Notice how they trade accuracy for speed and stability." },
+      { title: "Make physics feel good and apply", body: "Build a gameplay demo, such as vehicles, ragdolls, or destruction, that's both stable and fun. Then apply for physics, gameplay, or engine programmer roles." },
+    ],
+    skills: [
+      { title: "Applied math", body: "Vectors, matrices, quaternions, and numerical integration you can debug confidently." },
+      { title: "Collision detection", body: "Shapes, spatial partitioning, and fast, reliable contact generation." },
+      { title: "Numerical stability", body: "Keeping simulations from jittering, exploding, or tunneling through walls." },
+      { title: "Performance", body: "Writing cache-friendly, often multithreaded code that handles many bodies every frame." },
+      { title: "Tuning for gameplay", body: "Bending realism where needed so vehicles, characters, and objects feel right to play." },
+    ],
+    portfolio: [
+      "A physics engine or simulation you wrote yourself, with source code and a demo video.",
+      "A collision detection project showing broad-phase and narrow-phase working together.",
+      "A gameplay-focused physics feature, such as a vehicle, ragdoll, or rope, that feels good to control.",
+      "Comparisons of stability problems before and after your fixes, such as jitter or objects passing through each other.",
+      "A short explanation of the math behind one system, written so another programmer could follow it.",
+    ],
+    faqs: [
+      { question: "What does a physics programmer do in games?", answer: "A physics programmer builds and tunes the systems that make objects move, collide, and react, from character controllers and vehicles to ragdolls and destruction. They balance realism, stability, performance, and how it feels to play." },
+      { question: "Do you need a physics degree to be a physics programmer?", answer: "No. Most physics programmers have a programming background with strong math. You need to understand mechanics and numerical methods well, but you can learn them through books, courses, and building your own simulations." },
+      { question: "Do games use real physics?", answer: "Games use simplified physics. Engines approximate real behavior with fast methods that stay stable at a fixed time step, and designers often adjust values like gravity or friction so the game feels better than strict realism would." },
+      { question: "What physics engines do game studios use?", answer: "Common choices include NVIDIA PhysX, Havok, Jolt, and Bullet, along with the built-in physics in Unity, Unreal, and Godot. Some studios also write custom physics for specific needs such as vehicles." },
+    ],
+  },
+
+  "tools-programmer": {
+    name: "Tools Programmer",
+    steps: [
+      { title: "Learn the languages tools are built with", body: "C++ and C# are common for editor tools, and Python is used heavily for automation and in content creation apps like Maya, Houdini, and Blender. Being comfortable in at least two of these is a big advantage." },
+      { title: "Understand how games get made", body: "Learn how assets travel from an artist's software into the engine: export, import, processing, and builds. You can't fix a pipeline until you know where it hurts." },
+      { title: "Extend an engine editor", body: "Write custom inspectors, editor windows, and asset validators in Unity, or editor utilities and plugins in Unreal. Godot also supports editor plugins. This is the core of most tools jobs." },
+      { title: "Build desktop UI and automation", body: "Learn a UI framework such as Qt, WPF, or Dear ImGui, and write scripts that automate repetitive tasks like batch exporting or renaming assets." },
+      { title: "Make tools for real users", body: "Join a game jam or indie team and build something that saves your teammates time. Watching people use your tool teaches you more than any tutorial." },
+      { title: "Show the time saved and apply", body: "Present your tools with the problem they solved and the workflow before and after, then apply for tools, pipeline, or generalist programmer roles." },
+    ],
+    skills: [
+      { title: "User empathy", body: "Watching artists and designers work, asking good questions, and building what they actually need." },
+      { title: "UI development", body: "Building clear, responsive interfaces that people use for hours every day." },
+      { title: "Data & pipelines", body: "File formats, serialization, asset processing, and build automation." },
+      { title: "Scripting & automation", body: "Using Python and engine scripting to remove repetitive manual work." },
+      { title: "Reliability", body: "Writing tools that don't lose work, give clear error messages, and handle bad input gracefully." },
+    ],
+    portfolio: [
+      "Two or three tools with videos showing them in use, such as a level editor extension, asset validator, or batch exporter.",
+      "A clear before-and-after description of the workflow each tool improved.",
+      "Source code showing clean UI code and well-organized data handling.",
+      "A Python script or plugin for Maya, Houdini, Blender, or another content creation app.",
+      "Documentation or a short user guide you wrote for one of your tools.",
+    ],
+    faqs: [
+      { question: "What does a tools programmer do?", answer: "A tools programmer builds the software the rest of the team uses to make the game, such as editor extensions, level and data editors, asset importers, and build automation. Their goal is to make everyone else faster." },
+      { question: "Is tools programming a good way into the games industry?", answer: "Yes. Tools roles value general software skills like UI, data handling, and automation, which many programmers already have. It's also a good way to learn how a studio's whole pipeline works." },
+      { question: "What's the difference between a tools programmer and a technical artist?", answer: "Both improve workflows, but a tools programmer usually builds larger software tools and editor systems, while a technical artist sits closer to art, focusing on shaders, rigs, and artist-facing scripts." },
+      { question: "What languages do tools programmers use?", answer: "C++ and C# are common for engine and editor tools, and Python is widely used for automation and plugins in content creation software. Some tools are also built with web technologies." },
+    ],
+  },
+
+  "ux-ui-programmer": {
+    name: "UX/UI Programmer",
+    steps: [
+      { title: "Learn an engine's UI system", body: "Get comfortable with Unreal Motion Graphics (UMG) or Unity UI Toolkit, including layouts, anchors, styles, and how UI receives input. These are the tools you'll use daily." },
+      { title: "Learn UX and UI design basics", body: "Study hierarchy, readability, feedback, and how players scan a screen. You won't be the designer, but understanding their reasoning helps you build their intent accurately." },
+      { title: "Build common game UI from scratch", body: "Create a main menu, settings screen, HUD, inventory, and dialogue box. Make them work with mouse, keyboard, and gamepad, including focus and navigation." },
+      { title: "Separate UI from game logic", body: "Learn patterns like MVC or MVVM and data binding so UI reads game data cleanly and doesn't break when gameplay changes." },
+      { title: "Practice accessibility and polish", body: "Add text scaling, colorblind-friendly options, input remapping, and clear focus states, along with animations and transitions that feel responsive. The Game UI Database (linked below) is great for studying how shipped games solve UI problems." },
+      { title: "Build a UI-focused portfolio and apply", body: "Show screens you implemented from a mockup, with videos of them in action, and apply for UI programmer, gameplay programmer, or front-end-leaning roles." },
+    ],
+    skills: [
+      { title: "Engine UI frameworks", body: "UMG, Unity UI Toolkit, or similar systems, and their performance quirks." },
+      { title: "Input & navigation", body: "Handling gamepad focus, mouse, touch, and keyboard so every screen works on every platform." },
+      { title: "UI architecture", body: "Data binding and clean separation between UI and game state." },
+      { title: "Motion & feedback", body: "Animating transitions and responses so the interface feels alive and clear." },
+      { title: "Accessibility", body: "Building scalable text, readable contrast, remappable controls, and other options into the UI from the start." },
+    ],
+    portfolio: [
+      "A set of implemented game screens (menu, HUD, inventory, settings) with video showing gamepad and mouse navigation.",
+      "Side-by-side comparisons of a Figma mockup and your in-engine implementation.",
+      "Source code showing how your UI is separated from gameplay logic.",
+      "Examples of accessibility features you built, such as text scaling or remapping.",
+      "A breakdown of one complex screen, explaining the layout, data flow, and how it handles different resolutions.",
+    ],
+    faqs: [
+      { question: "What does a UI programmer do in games?", answer: "A UI programmer builds and connects menus, HUDs, inventories, and other interface screens. They take designs from UX and UI designers, implement them in the engine, wire them to game data, and make them work across input devices and screen sizes." },
+      { question: "What's the difference between a UI designer and a UI programmer?", answer: "A UI designer decides how the interface should look and behave, usually in tools like Figma. A UI programmer makes it real in the engine, handling layout, input, data, animation, and performance." },
+      { question: "Does a game UI programmer need art skills?", answer: "Not much, but a good eye helps. Understanding spacing, alignment, and typography lets you implement designs faithfully and spot when something looks off." },
+      { question: "Why is game UI hard to program?", answer: "Game UI has to work with gamepads, mouse, and touch, many resolutions and languages, and constantly changing game data, all while staying fast. Handling focus, navigation, and edge cases takes a lot of careful work." },
+    ],
+  },
+
+  "vr-programmer": {
+    name: "VR Programmer",
+    steps: [
+      { title: "Learn Unity or Unreal for XR", body: "Most VR games are built in Unity (C#) or Unreal (C++ and Blueprints). Learn how each sets up an XR project, tracks the headset and controllers, and renders to both eyes." },
+      { title: "Learn the VR toolkits", body: "Get familiar with OpenXR, the cross-platform standard, and higher-level kits like the Unity XR Interaction Toolkit. If you target Meta Quest, also learn the Meta XR SDK, which replaced the older Oculus Integration package. Understand what each layer handles for you." },
+      { title: "Get access to a headset and test constantly", body: "VR has to be felt to be judged. Test on real hardware often, since comfort and scale problems rarely show up on a flat monitor." },
+      { title: "Build core VR interactions", body: "Implement grabbing, throwing, UI pointers, and both teleport and smooth locomotion. Add comfort options like vignettes and snap turning." },
+      { title: "Learn VR performance", body: "VR needs a high, steady frame rate, often on mobile hardware in standalone headsets. Learn to profile, reduce draw calls, and use techniques like foveated rendering where available." },
+      { title: "Publish demos and apply", body: "Share builds through itch.io or a platform's developer channels, record videos, and apply for VR, XR, or gameplay programmer roles at studios making immersive games." },
+    ],
+    skills: [
+      { title: "Interaction programming", body: "Grabbing, hand presence, physics-based objects, and controls that feel natural with tracked hands and controllers." },
+      { title: "Comfort design", body: "Reducing motion sickness through locomotion choices, stable frame rates, and careful camera control." },
+      { title: "Performance optimization", body: "Hitting high frame rates while rendering twice per frame, especially on standalone headsets." },
+      { title: "3D math", body: "Transforms, quaternions, and tracking spaces for heads, hands, and the play area." },
+      { title: "Spatial UI & audio", body: "Placing interfaces and sound in 3D space so they're readable and believable." },
+    ],
+    portfolio: [
+      "At least one VR project people can run, with clear instructions on the supported headsets.",
+      "Recorded footage of interactions like grabbing, throwing, and locomotion, captured from inside the headset.",
+      "Examples of comfort options you implemented and why you chose them.",
+      "Profiling results showing how you got a scene to hold a stable frame rate.",
+      "Source code for a reusable interaction system, such as a grab or tool system.",
+    ],
+    faqs: [
+      { question: "What does a VR programmer do?", answer: "A VR programmer builds the code that makes virtual reality experiences work: tracking the headset and hands, handling interactions and locomotion, keeping the frame rate high, and making sure players stay comfortable." },
+      { question: "Do I need a VR headset to learn VR development?", answer: "You can start with simulators built into some toolkits, but you'll need a headset to judge comfort, scale, and interactions properly. Testing on real hardware is an essential part of the job." },
+      { question: "Is Unity or Unreal better for VR development?", answer: "Both are widely used. Unity is very common for standalone and indie VR projects, while Unreal is often chosen for high-end visuals. Pick the one that matches the projects and studios you're interested in." },
+      { question: "What is OpenXR?", answer: "OpenXR is an open standard from the Khronos Group that gives developers one API for many VR and AR devices. It lets you write code once and support headsets from different manufacturers." },
+    ],
+  },
+};

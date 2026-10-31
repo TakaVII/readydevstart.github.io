@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -28,15 +29,14 @@ const resources = [
   { name: "Careers in Gaming Law: an Overview", url: "https://law.unlv.edu/gaming-law/careers" },
   { name: "Seven (mostly) free legal resources for game developers", url: "https://www.gamedeveloper.com/business/seven-mostly-free-legal-resources-for-game-developers" },
   { name: "Life as a lawyer in computer gaming: an interview with Steven Webb", url: "https://www.linkedin.com/pulse/life-lawyer-computer-gaming-interview-steven-webb-miguel-florit/" },
-  { name: "The legal landscape of gaming company financing rounds", url: "https://nordialaw.com/insights-financing-round-gaming-company/" }
+  { name: "The legal landscape of gaming company financing rounds", url: "https://nordialaw.com/insights-financing-round-gaming-company/" },
+  { name: "Video Game Bar Association", url: "https://vgba.org/" }
 ];
 
 const books = [
-  { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design-dp-1118877160/dp/1118877160/" },
   { name: "Video Game Law by S. Gregory Boyd, Brian Pyne and Sean F. Kane", url: "https://www.amazon.com/Video-Game-Law-Everything-Business/dp/1138058491" },
   { name: "The Essential Guide to the Business & Law of Esports & Professional Video Gaming by Justin Jacobson", url: "https://www.amazon.com/Essential-Business-Esports-Professional-Gaming/dp/0367699451" },
-  { name: "Virtual Law: Navigating the Legal Landscape of Virtual Worlds by Benjamin Duranske", url: "https://www.amazon.com/Virtual-Law-Navigating-Landscape-Worlds/dp/160442009X" },
-  { name: "The American Bar Association's Legal Guide to Video Game Development", url: "https://www.amazon.com/gp/product/1614380031/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1614380031&linkCode=as2&tag=zacharystrebeck-20" }
+  { name: "The American Bar Association's Legal Guide to Video Game Development (2nd Edition), edited by Ross A. Dannenberg", url: "https://www.amazon.com/dp/1634256212" }
 ];
 
 const tools = [
@@ -62,7 +62,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Specialist Lawyer Career Guide: Salary, Skills & Tools" description="What does a Specialist Lawyer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Specialist Lawyer in Games: Career Path & Skills" description="How to become a Specialist Lawyer in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Specialist Lawyer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -109,6 +109,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="specialist-lawyer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -138,6 +140,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="specialist-lawyer" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -163,4 +167,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

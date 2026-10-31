@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -24,24 +25,19 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "Business Development Resources (BDR)", url: "https://www.bdrco.com/" },
   { name: "Business Development: Definition, Strategies, Steps & Skills", url: "https://www.investopedia.com/articles/personal-finance/090815/basics-business-development.asp" },
-  { name: "19 Top Business Development Resources To Stay Ahead Of Emerging Market Trends", url: "https://www.forbes.com/sites/forbesbusinessdevelopmentcouncil/2023/10/10/19-top-business-development-resources-to-stay-ahead-of-emerging-market-trends/?sh=778a3a2d2386" },
   { name: "The Ultimate Guide to Business Development and How It Can Help Your Company Grow", url: "https://blog.hubspot.com/sales/business-development" },
-  { name: "+10 Best Business Development Training & Courses in 2024", url: "https://www.thebdschool.com/blog/business-development-training-courses" },
-  { name: "Business Development Foundations", url: "https://www.linkedin.com/learning/business-development-foundations-18980222" },
   { name: "Go, Go, Gadget Business Development: A Beginner's Guide to Business Development in the Video Game Industry - GDC Talk by Jay Powell", url: "https://www.gdcvault.com/play/1021572/Go-Go-Gadget-Business-Development" },
-  { name: "Winning the business development game (without feeling like a sell-out)", url: "https://www.gamesindustry.biz/winning-the-business-development-game-without-feeling-like-a-sell-out" }
+  { name: "Winning the business development game (without feeling like a sell-out)", url: "https://www.gamesindustry.biz/winning-the-business-development-game-without-feeling-like-a-sell-out" },
+  { name: "Naavik: games business analysis, newsletter, and podcast", url: "https://naavik.co/" },
+  { name: "GameDiscoverCo Newsletter by Simon Carless (free tier)", url: "https://newsletter.gamediscover.co/" }
 ];
 
 const books = [
-  { name: "Reality Is Broken: Why Games Make Us Better and How They Can Change the World by Jane McGonigal", url: "https://www.amazon.com/Reality-Broken-Games-Better-Change-ebook/dp/B004G8Q1Q4" },
-  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
-  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
   { name: "One Up: Creativity, Competition, and the Global Business of Video Games by Joost van Dreunen", url: "https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527" },
-  { name: "Virtual Selling: How to Build Relationships, Differentiate, and Win Sales Remotely by Mike Schultz, Dave Shaby and Andy Springer", url: "https://www.amazon.com/Virtual-Selling-Relationships-Differentiate-Remotely-ebook/dp/B088KW33WZ" },
   { name: "Business Development For Dummies by Anna Kennedy", url: "https://www.amazon.com/Business-Development-Dummies-Anna-Kennedy/dp/1118962710" },
-  { name: "What, Exactly, Is Business Development?: A Primer on Getting Deals Done by Scott Pollack", url: "https://www.amazon.com/What-Exactly-Business-Development-Getting/dp/1521770506" }
+  { name: "What, Exactly, Is Business Development?: A Primer on Getting Deals Done by Scott Pollack", url: "https://www.amazon.com/What-Exactly-Business-Development-Getting/dp/1521770506" },
+  { name: "Never Split the Difference: Negotiating As If Your Life Depended On It by Chris Voss and Tahl Raz", url: "https://www.amazon.com/dp/0062407805" }
 ];
 
 const tools = [
@@ -50,12 +46,10 @@ const tools = [
   "HubSpot CRM",
   "LinkedIn Sales Navigator",
   "Hunter.io",
-  "Crunchbase Pro",
+  "Crunchbase",
   "Owler",
-  "App Annie",
   "Sensor Tower",
   "Discord",
-  "Git",
   "Trello"
 ];
 
@@ -70,7 +64,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Business Development Executive Career Guide: Salary, Skills & Tools" description="What does a Business Development Executive do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Business Development Executive in Games: Career Path & Skills" description="How to become a Business Development Executive in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Business Development Executive" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -94,7 +88,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A Business Development Specialist in the game industry is a matchmaker of sorts, forging connections that fuel the industry's growth. They're the relationship architects, building bridges between game companies, investors, partners, and sometimes even players. Their goal is to identify and unlock new revenue streams and opportunities. This involves digging deep into market trends, scouting for potential partners, and negotiating deals that benefit everyone involved. From securing funding for indie studios to crafting strategic partnerships for major publishers, they're the glue that holds the game industry's ecosystem together, constantly seeking out and cultivating opportunities that make the whole sector thrive.</p>
+          <p>A Business Development Executive in the game industry is a matchmaker of sorts, forging connections that fuel the industry's growth. They're the relationship architects, building bridges between game companies, investors, partners, and sometimes even players. Their goal is to identify and unlock new revenue streams and opportunities. This involves digging deep into market trends, scouting for potential partners, and negotiating deals that benefit everyone involved. From securing funding for indie studios to crafting strategic partnerships for major publishers, they're the glue that holds the game industry's ecosystem together, constantly seeking out and cultivating opportunities that make the whole sector thrive.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -116,6 +110,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="business-development-executive" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -146,6 +142,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="business-development-executive" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -171,4 +169,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

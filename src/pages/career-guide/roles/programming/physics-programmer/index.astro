@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -17,51 +18,42 @@ const responsibilities = [
   "Connect physics simulations with animation, rendering, audio, and gameplay mechanics to create a cohesive and responsive game world.",
   "Craft unique physics behavior for vehicles, ragdoll effects, dynamic environments, destructible objects, and other gameplay elements.",
   "Create clear documentation of physics parameters, calculations, and design choices to facilitate future maintenance and collaboration.",
-  "Utilize physics simulation data to drive dynamic environmental events, trigger scripted sequences, and influence gameplay elements like enemy behaviors, weather effects, and object deformation, creating a dynamic and evolving game world.",
+  "Use physics simulation data to drive dynamic environmental events, trigger scripted sequences, and influence gameplay elements like enemy behaviors, weather effects, and object deformation, creating a dynamic and evolving game world.",
   "Develop systems for realistic material properties like elasticity, buoyancy, and fluid dynamics, creating immersive interactions with objects and the environment."
 ];
 
 const resources = [
-  { name: "ScreenSkills’ Physics Programmers Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/physics-programmer/#:~:text=What%20does%20a%20physics%20programmer,would%20happen%20in%20real%20life." },
+  { name: "ScreenSkills’ Physics Programmers Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/physics-programmer/" },
   { name: "Introduction to Physics Programming YouTube Series by Gustavo Oliveira", url: "https://www.youtube.com/watch?v=erLT9HsllJU&ab_channel=GustavoOliveira" },
-  { name: "Video Game Physics Tutorial by Toptal", url: "https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics" },
-  { name: "Into Games’ Physics Programmer Profile", url: "https://intogames.org/role/physics-programmer/" },
-  { name: "Awesome Physics Programming Resource List Repository by tensorush", url: "https://github.com/tensorush/Awesome-Physics-Programming" },
+  { name: "Video Game Physics Tutorial by Toptal", url: "https://www.toptal.com/developers/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics" },
+  { name: "Game Physics Articles by Glenn Fiedler (Gaffer On Games)", url: "https://gafferongames.com/categories/game-physics/" },
+  { name: "Ten Minute Physics by Matthias Müller", url: "https://matthias-research.github.io/pages/tenMinutePhysics/" },
+  { name: "Box2D Publications and GDC Talks by Erin Catto", url: "https://box2d.org/publications/" },
+  { name: "Game Physics Series by Allen Chou", url: "http://allenchou.net/game-physics-series/" },
   { name: "The Ultimate Guide for Physics in Game Development! by Will Hess", url: "https://www.youtube.com/watch?v=3lBYVSplAuo&ab_channel=WillHess" },
-  { name: "Physics for Game Programmers - GDC Talk by Richard Tonge", url: "https://www.gdcvault.com/play/1017643/Physics-for-Game" },
-  { name: "The Role of Physics in Video Game Design", url: "https://www.gamedesigning.org/learn/game-physics/" }
+  { name: "Physics for Game Programmers - GDC Talk by Richard Tonge", url: "https://www.gdcvault.com/play/1017643/Physics-for-Game" }
 ];
 
 const books = [
   { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
   { name: "Game Physics Engine Development by Ian Millington", url: "https://www.amazon.com/Game-Physics-Engine-Development-Commercial-Grade/dp/0123819768/" },
+  { name: "Real-Time Collision Detection by Christer Ericson", url: "https://www.amazon.com/Real-Time-Collision-Detection-Interactive-Technology/dp/1558607323" },
   { name: "Physics for Game Developers: Science, math, and code for realistic effects by David Bourg and Bryan Bywalec", url: "https://www.amazon.com/Physics-Game-Developers-Science-realistic/dp/1449392512/" },
-  { name: "Game Physics by David H. Eberly", url: "https://www.amazon.com/Game-Physics-David-H-Eberly/dp/0123749034" },
-  { name: "Physics for Game Programmers by Grant Palmer", url: "https://www.amazon.com/Physics-Game-Programmers-Grant-Palmer/dp/159059472X/" },
-  { name: "Game Physics book series by Gregory Hodges", url: "https://www.amazon.com/dp/B08RXZ4FPR" }
+  { name: "Game Physics by David H. Eberly", url: "https://www.amazon.com/Game-Physics-David-H-Eberly/dp/0123749034" }
 ];
 
 const tools = [
   "Game Engines",
+  "C++",
   "Git",
   "CMake",
-  "SWIG",
-  "Bullet Physics Engine",
-  "ODE Physics Engine",
-  "PhysX",
-  "OpenAL",
-  "Embree",
-  "OSPRay",
-  "Cinder",
-  "JUCE",
-  "Assimp",
-  "SPIRV-Cross",
-  "Glfw",
-  "Rapier",
-  "GIMPACT",
-  "Hikari",
-  "OpenMM",
-  "OpenFLUIDS"
+  "NVIDIA PhysX",
+  "Havok Physics",
+  "Jolt Physics",
+  "Chaos Physics (Unreal)",
+  "Bullet Physics",
+  "Box2D",
+  "Rapier"
 ];
 
 const sidebarRoles = [
@@ -79,7 +71,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Physics Programmer Career Guide: Salary, Skills & Tools" description="What does a Physics Programmer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Physics Programmer: Skills, Portfolio & Tools" description="How to become a Physics Programmer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Physics Programmer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -103,7 +95,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>The Physics Programmer is responsible for simulating the real-world laws of motion, gravity, and collision within the game engine. Their work encompasses a wide range of tasks, from designing and implementing physics systems for objects like characters, vehicles, and projectiles, to optimizing performance and ensuring realistic interactions between virtual elements. They collaborate closely with other programmers, designers, and artists to ensure physics seamlessly integrates with the game's visuals and gameplay mechanics. Ultimately, the Physics Programmer's expertise is crucial for creating believable and immersive worlds that feel responsive and engaging to players, ensuring they experience the thrill of gravity, the satisfying impact of a collision, and the fluidity of movement that makes games feel truly alive.</p>
+          <p>The Physics Programmer is responsible for simulating the real-world laws of motion, gravity, and collision within the game engine. Their work encompasses a wide range of tasks, from designing and implementing physics systems for objects like characters, vehicles, and projectiles, to optimizing performance and ensuring realistic interactions between virtual elements. They collaborate closely with other programmers, designers, and artists to make sure physics fits the game's visuals and gameplay mechanics. Ultimately, the Physics Programmer's expertise is crucial for creating believable and immersive worlds that feel responsive and engaging to players, ensuring they experience the thrill of gravity, the satisfying impact of a collision, and the fluidity of movement that makes games feel truly alive.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -125,6 +117,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="physics-programmer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -155,6 +149,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="physics-programmer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

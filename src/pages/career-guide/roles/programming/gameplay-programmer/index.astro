@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -13,21 +14,20 @@ const salaries = [
 const responsibilities = [
   "Translate game design documents and concepts into code, building the fundamental systems that govern player movement, interactions, combat, and progression.",
   "Analyze and troubleshoot performance bottlenecks, implement optimizations to maintain smooth gameplay frame rates and responsiveness across various platforms.",
-  "Connect different game features like physics, animation, audio, and rendering, ensuring seamless interaction and a cohesive gameplay experience.",
+  "Connect different game features like physics, animation, audio, and rendering, ensuring smooth interaction and a cohesive gameplay experience.",
   "Implement systems for balancing character abilities, enemy difficulty, resource management, and progression curves to create a fair and engaging challenge for players.",
   "Identify and fix bugs, glitches, and unintended behaviors in gameplay mechanics, ensuring a polished and satisfying player experience.",
   "Develop rapid prototypes and iterate on mechanics through testing to refine gameplay elements and ensure functionality before integration into the main game.",
-  "Work closely with game designers, artists, animators, and programmers to ensure gameplay aligns with the overall vision and integrates seamlessly with other game elements.",
+  "Work closely with game designers, artists, animators, and programmers to ensure gameplay aligns with the overall vision and fits with other game elements.",
   "Clearly document your code, gameplay algorithms, and design decisions to facilitate future maintenance and collaboration with other developers."
 ];
 
 const resources = [
-  { name: "Mastered’s Games Programming Bootcamp", url: "https://join.mastered.com/games_careers_sb" },
   { name: "ScreenSkills’ Gameplay Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/gameplay-programmer/" },
-  { name: "Into Games’ Gameplay Programmer Profile", url: "https://intogames.org/role/gameplay-programmer/" },
-  { name: "Gameplay Programming Best Practices by eLearning Industry", url: "https://elearningindustry.com/gameplay-programming-best-practices" },
-  { name: "Gameplay Programmer Accreditation by CDA", url: "https://certifieddigitalartist.com/games-gameplay-programmer/" },
-  { name: "Working on Video Games as a Gameplay Programmer", url: "https://www.codingame.com/blog/video-games-gameplay-programmer/" },
+  { name: "Game Programming Patterns (free online edition) by Robert Nystrom", url: "https://gameprogrammingpatterns.com/" },
+  { name: "Junior Programmer Pathway by Unity Learn", url: "https://learn.unity.com/pathway/junior-programmer" },
+  { name: "CS50's Introduction to Game Development by Harvard", url: "https://cs50.harvard.edu/games/" },
+  { name: "Math for Game Devs YouTube Series by Freya Holmér", url: "https://www.youtube.com/playlist?list=PLImQaTpSAdsD88wprTConznD1OY1EfK_V" },
   { name: "2 months of Gameplay Programming by @Randy", url: "https://www.youtube.com/watch?v=0_2NtACW8XI&ab_channel=Randy" },
   { name: "Gameplay Programming is More Than Just Writing Code", url: "https://www.dsdambuster.com/blog/gameplay-programming-is-more-than-just-writing-code-part-one" }
 ];
@@ -35,7 +35,7 @@ const resources = [
 const books = [
   { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
   { name: "Game Engine Architecture by Jason Gregory", url: "https://www.amazon.com/Engine-Architecture-Third-Jason-Gregory/dp/1138035459/" },
-  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779/" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/dp/1032607009" },
   { name: "Game Programming Algorithms and Techniques: A Platform-Agnostic Approach by Sanjay Madhav", url: "https://www.amazon.com/Game-Programming-Algorithms-Techniques-Platform-Agnostic-ebook/dp/B00HCHUU90/" }
 ];
 
@@ -43,23 +43,14 @@ const tools = [
   "Game Engines",
   "C#",
   "C++",
-  "Python",
+  "Blueprints (Unreal)",
+  "GDScript (Godot)",
+  "Visual Studio",
+  "JetBrains Rider",
   "Git",
-  "CMake",
-  "Havok Physics",
-  "Oculus SDK",
-  "OpenXR",
-  "TensorFlow",
-  "PyTorch",
-  "Protobuf",
-  "Wireshark",
-  "Valgrind",
-  "MemorySanitizer",
-  "JProfiler",
-  "Cppcheck",
-  "Static Code Analysis Tool",
-  "Postman",
-  "REST Client"
+  "Perforce",
+  "Unity Profiler",
+  "Unreal Insights"
 ];
 
 const sidebarRoles = [
@@ -77,7 +68,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Gameplay Programmer Career Guide: Salary, Skills & Tools" description="What does a Gameplay Programmer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Gameplay Programmer: Skills, Languages & Portfolio" description="How to become a gameplay programmer: which languages and engines to learn, key skills, portfolio tips, salary resources, and common questions answered." activeNav="career-guide">
   <WikiLayout title="Gameplay Programmer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -124,6 +115,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="gameplay-programmer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -153,6 +146,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="gameplay-programmer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

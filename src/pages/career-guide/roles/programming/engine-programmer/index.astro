@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -21,13 +22,12 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "Mastered’s Games Programming Bootcamp", url: "https://join.mastered.com/games_careers_sb" },
+  { name: "ScreenSkills’ Engine Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/engine-programmer/" },
+  { name: "Game Engine YouTube Series by The Cherno", url: "https://www.youtube.com/playlist?list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT" },
+  { name: "Handmade Hero by Casey Muratori", url: "https://handmadehero.org/" },
+  { name: "Game Programming Patterns (free online edition) by Robert Nystrom", url: "https://gameprogrammingpatterns.com/" },
   { name: "Game Engine Programming 001 YouTube Series by Game Engine Series", url: "https://www.youtube.com/watch?v=hRL56gXqj-4&ab_channel=GameEngineSeries" },
   { name: "How to Make Your Own C++ Game Engine", url: "https://www.gamedeveloper.com/game-platforms/how-to-make-your-own-c-game-engine" },
-  { name: "Learn Game Engine Programming List of Resources", url: "https://engine-programming.github.io/" },
-  { name: "ScreenSkills’ Engine Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/engine-programmer/" },
-  { name: "Making Your Own Video Game Engine: The Beginners Guide", url: "https://www.gamedesigning.org/learn/make-a-game-engine/" },
-  { name: "Into Games’ Engine Programmer Profile", url: "https://intogames.org/role/engine-programmer/" },
   { name: "How to become a game engine developer by Harold Serrano", url: "https://www.haroldserrano.com/blog/how-to-become-a-game-engine-developer" }
 ];
 
@@ -38,26 +38,25 @@ const books = [
   { name: "Game Engine Black Book Wolfenstein 3D by Fabien Sanglard", url: "https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein/dp/1070515841/" },
   { name: "Game Engine Black Book: DOOM by Fabien Sanglard", url: "https://www.amazon.com/Game-Engine-Black-Book-DOOM/dp/B0BMSP3GSS/" },
   { name: "Unreal Engine 5 Game Development with C++ Scripting by George Li", url: "https://www.amazon.com/Unreal-Engine-Game-Development-Scripting/dp/1804613932" },
-  { name: "Beginning C++ Game Programming: Learn to program with C++ by building fun games by John Horton", url: "https://www.amazon.com/Beginning-Game-Programming-program-building/dp/1838648577/" },
-  { name: "3D Game Engine Programming by Stefan Zerbst and Oliver Duvel", url: "https://www.amazon.com/3D-Game-Engine-Programming-Development/dp/1592003516/" }
+  { name: "Beginning C++ Game Programming: Learn to program with C++ by building fun games by John Horton", url: "https://www.amazon.com/Beginning-Game-Programming-program-building/dp/1838648577/" }
 ];
 
 const tools = [
   "Game Engines",
   "C++",
   "C#",
+  "Visual Studio",
   "Git",
+  "Perforce",
   "CMake",
   "Perf",
   "Valgrind",
-  "CodeXL",
   "PIX",
   "RenderDoc",
-  "Intel VTune Amplifier",
+  "Intel VTune Profiler",
   "NVIDIA Nsight Graphics",
   "AMD Radeon GPU Profiler",
   "Tracy Profiler",
-  "Boost",
   "Python",
   "Lua"
 ];
@@ -77,7 +76,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Engine Programmer Career Guide: Salary, Skills & Tools" description="What does an Engine Programmer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an Engine Programmer: Skills, Portfolio & Tools" description="How to become an Engine Programmer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Engine Programmer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -101,7 +100,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>Engine Programmers are the architects of the invisible foundation upon which our games are built. They find themselves crafting and optimizing the game engine, the software that powers graphics, physics, sound, and everything that makes a game tick. Their task is multifaceted, encompassing both low-level optimization of core systems like rendering and memory management, alongside building high-level features like networking and animation tools. They work closely with other programmers, artists, and designers, ensuring the engine seamlessly supports their creative vision.</p>
+          <p>Engine Programmers are the architects of the invisible foundation upon which our games are built. They find themselves crafting and optimizing the game engine, the software that powers graphics, physics, sound, and everything that makes a game tick. Their task is multifaceted, encompassing both low-level optimization of core systems like rendering and memory management, alongside building high-level features like networking and animation tools. They work closely with other programmers, artists, and designers, ensuring the engine supports their creative vision.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -123,6 +122,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="engine-programmer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -153,6 +154,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="engine-programmer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -11,37 +12,31 @@ const salaries = [
 ];
 
 const responsibilities = [
-  "Ensure seamless network performance, bandwidth allocation, and server stability for various game functionalities and player load.",
-  "Protect game servers from cyberattacks, data breaches, and DDoS attacks, safeguarding player data and maintaining game integrity.",
-  "Analyze network logs, identify performance bottlenecks, and troubleshoot connectivity problems to resolve player latency, disconnects, and other network-related issues.",
-  "Implement cloud-based solutions, manage virtual servers, and optimize network resources for efficient operation and scalability.",
-  "Build internal tools to monitor network health, track player traffic, and automate network tasks for improved efficiency and data-driven decision making.",
-  "Continuously learn new protocols, software, and security solutions to adapt the network infrastructure to evolving online gaming demands.",
-  "Scalably handle surges in traffic during game releases and major updates, ensuring a smooth and stable experience for players.",
-  "Utilize data analytics to understand player behavior, optimize bandwidth allocation, and identify potential network bottlenecks for proactive maintenance.",
-  "Maintain clear documentation of network architecture, troubleshooting steps, and security protocols for future maintenance and knowledge sharing."
+  "Design and build the game's multiplayer architecture, such as client-server or peer-to-peer, and decide what the server is authoritative over.",
+  "Synchronize game state between players and servers using replication, serialization, and the engine's networking layer.",
+  "Hide latency with client-side prediction, reconciliation, interpolation, lag compensation, or rollback so the game feels responsive.",
+  "Reduce bandwidth by sending only the data each player needs, compressing updates, and choosing sensible update rates.",
+  "Keep the server authoritative and validate client input to limit cheating, and work with security teams on threats like DDoS attacks.",
+  "Reproduce and fix desyncs, disconnects, and lag issues using logs, packet captures, and simulated latency and packet loss.",
+  "Support dedicated servers, matchmaking, and online services, and help the team prepare for traffic spikes at launch and during updates.",
+  "Work with gameplay programmers and designers so new features work correctly in multiplayer from the start.",
+  "Maintain clear documentation of network architecture, protocols, and debugging steps for future maintenance and knowledge sharing."
 ];
 
 const resources = [
-  { name: "Network Direction Hub", url: "https://networkdirection.net/" },
-  { name: "Training material for new network engineer list by u/VA_Network_Nerd", url: "https://www.reddit.com/r/networking/comments/7iudp5/training_material_for_new_network_engineer/" },
   { name: "ScreenSkills’ Network Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/network-programmer/" },
-  { name: "Elevating Your Network Engineering Game: A Deep Dive into Today's Essential Skills and Strategies by Leonardo Furtado", url: "https://www.linkedin.com/pulse/elevating-your-network-engineering-game-deep-dive-todays-furtado-fkime/" },
-  { name: "Game Networking Resources Repository by ThusSpokeNomad", url: "https://github.com/ThusSpokeNomad/GameNetworkingResources" },
-  { name: "Real-Time Game Server Internals: Basic Theory, Architecture, Optimization, Auto-Scaling by Aleksei Elivanov", url: "https://betterprogramming.pub/real-time-game-server-internals-basic-theory-architecture-optimization-auto-scaling-b2070aa803d9" },
-  { name: "Socket Programming: Building an online multiplayer game server by Kareem Emad", url: "https://kareememad400.medium.com/socket-programming-building-an-online-multiplayer-game-server-38132f811fbd" }
+  { name: "Fast-Paced Multiplayer article series by Gabriel Gambetta", url: "https://www.gabrielgambetta.com/client-server-game-architecture.html" },
+  { name: "Gaffer On Games by Glenn Fiedler", url: "https://gafferongames.com/" },
+  { name: "Source Multiplayer Networking by Valve", url: "https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking" },
+  { name: "Networking Overview for Unreal Engine by Epic Games", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine" },
+  { name: "Game Networking Resources Repository by ThusSpokeNomad", url: "https://github.com/0xFA11/MultiplayerNetworkingResources" },
+  { name: "Real-Time Game Server Internals: Basic Theory, Architecture, Optimization, Auto-Scaling by Aleksei Elivanov", url: "https://betterprogramming.pub/real-time-game-server-internals-basic-theory-architecture-optimization-auto-scaling-b2070aa803d9" }
 ];
 
 const books = [
   { name: "Game Programming Patterns by Robert Nystrom", url: "https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906" },
   { name: "Multiplayer Game Programming: Architecting Networked Games by Josh Glazer and Sanjay Madhav", url: "https://www.amazon.com/Multiplayer-Game-Programming-Architecting-Networked-ebook/dp/B0189RXWJQ/" },
-  { name: "Network Security: A Decision and Game-Theoretic Approach by Tansu Alpcan and Tamer Basar", url: "https://www.amazon.com/Network-Security-Decision-Game-Theoretic-Approach/dp/0521119324/" },
   { name: "Development and Deployment of Multiplayer Online Games by 'No Bugs' Hare", url: "https://www.amazon.com/Development-Deployment-Multiplayer-Online-Games/dp/3903213160/" },
-  { name: "Networking All-in-One For Dummies by Doug Lowe", url: "https://www.amazon.com/Networking-All-One-Dummies-Computer/dp/1119689015" },
-  { name: "Network Warrior: Everything You Need to Know That Wasn't on the CCNA by Gary Donahue", url: "https://www.amazon.com/Network-Warrior-Everything-Need-Wasnt/dp/1449387861/" },
-  { name: "Massively Multiplayer Game Development by Thor Alexander", url: "https://www.amazon.com/Massively-Multiplayer-Game-Development/dp/1584502436/" },
-  { name: "Network Programmability and Automation: Skills for the Next-Generation Network Engineer by Jason Edelman, Scott Lowe and Matt Oswalt", url: "https://www.amazon.com/Network-Programmability-Automation-Next-Generation-Engineer/dp/1491931256/" },
-  { name: "Security Engineering: A Guide to Building Dependable Distributed Systems by Ross Anderson", url: "https://www.amazon.com/Security-Engineering-Building-Dependable-Distributed/dp/1119642787/" },
   { name: "Multiplayer Game Development with Unreal Engine 5 by Marco Secchi", url: "https://www.amazon.com/Multiplayer-Game-Development-Unreal-Engine/dp/1803232870/" }
 ];
 
@@ -49,20 +44,15 @@ const tools = [
   "Game Engines",
   "C#",
   "C++",
+  "Unreal Engine Replication",
+  "Unity Netcode for GameObjects",
+  "Photon",
+  "Steamworks",
   "Wireshark",
   "tcpdump",
-  "Netstat",
-  "Ping",
-  "Traceroute",
-  "MTR (My Traceroute)",
-  "nmap",
-  "Microsoft Network Monitor",
-  "SolarWinds Network Performance Monitor",
-  "PRTG Network Monitor",
-  "Nagios",
-  "Icinga",
-  "Zabbix",
-  "Splunk"
+  "Clumsy",
+  "Docker",
+  "Linux"
 ];
 
 const sidebarRoles = [
@@ -80,7 +70,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Network Engineer Career Guide: Salary, Skills & Tools" description="What does a Network Engineer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Network Engineer: Skills, Portfolio & Tools" description="How to become a Network Engineer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Network Engineer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -104,7 +94,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>Network Engineers (also known as Server Programmer or Network Programmer) are the masters of data flow, ensuring smooth communication between players, servers, and all the digital infrastructure behind the scenes. Their responsibilities encompass designing, building, and maintaining the game's network infrastructure. This includes setting up and configuring servers, optimizing data transmission pathways, and implementing security measures to prevent lag, outages, and breaches. They work closely with developers, testers, and system administrators, identifying and resolving network issues to guarantee a lag-free, enjoyable experience for players, ensuring the online world remains accessible and responsive, and allowing players to connect, compete, and collaborate without a hitch.</p>
+          <p>Network Engineers (also known as Server Programmer or Network Programmer) are the masters of data flow, ensuring smooth communication between players, servers, and all the digital infrastructure behind the scenes. In games, the role is mostly about netcode: designing the multiplayer architecture, keeping game state in sync between players and servers, and using techniques like client-side prediction and lag compensation so online play feels responsive. They also keep the server authoritative to limit cheating and help support dedicated servers and online services. They work closely with gameplay programmers, designers, testers, and online operations teams, identifying and resolving network issues to guarantee a lag-free, enjoyable experience for players, ensuring the online world remains accessible and responsive, and allowing players to connect, compete, and collaborate without a hitch.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -126,6 +116,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="network-engineer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -156,6 +148,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="network-engineer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

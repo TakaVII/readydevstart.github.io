@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -19,57 +20,48 @@ const responsibilities = [
   "Address player issues and reports promptly, troubleshoot technical problems, and ensure a smooth and enjoyable player experience.",
   "Track key performance indicators (KPIs) related to live operations, analyze performance, and recommend adjustments to optimize player engagement and retention.",
   "Collaborate with marketing teams on live ops campaigns, promote new content and updates, and drive player engagement through targeted messaging.",
-  "Manage relationships with external partners, negotiate deals for in-game collaborations and promotions, and leverage partnerships to enhance the player experience."
+  "Manage relationships with external partners, negotiate deals for in-game collaborations and promotions, and use partnerships to enhance the player experience."
 ];
 
 const resources = [
-  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
-  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" },
-  { name: "What Does Gaming Operations Management Encompass?", url: "https://www.oceangamingconsult.ug/blog/what-does-gaming-operations-management-encompass" },
-  { name: "Operations Management: How It Drives Production and Enhances Profitability", url: "https://safetyculture.com/topics/operations-management/" },
-  { name: "A Comprehensive Guide to Operations Management: 10 Key Principles", url: "https://emeritus.org/in/learn/what-is-operations-management/" }
+  { name: "What Is Game LiveOps? by Heroic Labs", url: "https://heroiclabs.com/blog/what-is-game-liveops/" },
+  { name: "What is live ops and why should you care? by PocketGamer.biz", url: "https://www.pocketgamer.biz/what-is-live-ops-and-why-should-you-care/" },
+  { name: "Deconstructor of Fun: free-to-play game breakdowns and podcast", url: "https://www.deconstructoroffun.com/" },
+  { name: "What does a Chief Operating Officer in games do? by Into Games", url: "https://intogames.org/news/how-do-you-become-a-chief-operating-officer-for-videogames" }
 ];
 
 const books = [
-  { name: "Operations Management For Dummies by Mary Ann Anderson, Edward J. Anderson and Geoffrey Parker", url: "https://www.amazon.com/Operations-Management-Dummies-Business-Personal/dp/1119843103/" },
-  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
-  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
-  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
   { name: "The Game Production Toolbox by Heather Maxwell Chandler", url: "https://www.amazon.com/Production-Toolbox-Heather-Maxwell-Chandler-ebook/dp/B086XLC7RY" },
-  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
   { name: "One Up: Creativity, Competition, and the Global Business of Video Games by Joost van Dreunen", url: "https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527" },
   { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" },
   { name: "The Dream Architects: Adventures in the Video Game Industry by David Polfeldt", url: "https://www.amazon.com/Dream-Architects-Adventures-Video-Industry/dp/B08FMVSFMR" },
-  { name: "The McGraw-Hill 36-Hour Course: Operations Management (McGraw-Hill 36-Hour Courses) by Linda Brennan", url: "https://www.amazon.com/McGraw-Hill-36-Hour-Course-Operations-Management/dp/0071743839" },
-  { name: "Operations Management by Jay Heizer and Barry Render", url: "https://www.amazon.com/Operations-Management-11th-Jay-Heizer/dp/0132921146/" }
+  { name: "Free-to-Play: Making Money From Games You Give Away by Will Luton", url: "https://www.amazon.com/dp/0321919017" }
 ];
 
 const tools = [
   "Game Engines",
   "Jira",
   "Confluence",
-  "Git",
   "Discord",
   "PagerDuty",
   "Datadog",
-  "Splunk",
   "Grafana",
-  "Kibana",
   "Tableau",
   "Power BI",
-  "Azure DevOps"
+  "SQL",
+  "Azure PlayFab"
 ];
 
 const sidebarRoles = [
   { name: "Game Producer", slug: "game-producer", current: false },
   { name: "Executive Producer", slug: "executive-producer", current: false },
-  { name: "Publisher", slug: "publisher", current: false },
+  { name: "Publishing Manager/Producer", slug: "publishing-manager", current: false },
   { name: "Project Manager", slug: "project-manager", current: false },
   { name: "Operations Manager", slug: "operations-manager", current: true }
 ];
 ---
 
-<BaseLayout title="Operations Manager Career Guide: Salary, Skills & Tools" description="What does an Operations Manager do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an Operations Manager in Games: Career Path & Skills" description="How to become an Operations Manager in games, often a LiveOps role: career path, key skills, what to show employers, salary resources, tools, and FAQs." activeNav="career-guide">
   <WikiLayout title="Operations Manager" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -93,7 +85,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>An Operations Manager in the game industry is the engine behind the smooth running of a live game. They're the unseen force ensuring servers hum, content updates roll out flawlessly, and players encounter minimal hiccups. They are seen juggling server health, player engagement, and revenue streams simultaneously. From monitoring server performance and resolving technical issues to coordinating live events and analyzing player data, their responsibilities are diverse. They collaborate with developers, community managers, and marketing teams to keep the game humming, adapting to player feedback and optimizing the experience for maximum enjoyment, keeping the game alive and thriving, post-launch, while paving the way for continued growth and player satisfaction.</p>
+          <p>An Operations Manager in the game industry keeps the day-to-day running of a game on track. In games, this is most often a LiveOps (live operations) role, and many studios call it LiveOps manager: the person who keeps a live game running smoothly after launch. They plan the schedule of events, content updates, and seasons, watch player data and server health, and coordinate the response when something breaks. They work with developers, community managers, and marketing teams to decide what goes live and when. They use metrics like retention and engagement to judge what's working and adjust the plan. Note that some studios also use "operations manager" for studio operations, such as facilities, budgets, and administration. That side of the job is closer to the Office/Studio Manager and COO roles.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -115,6 +107,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="operations-manager" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -145,6 +139,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="operations-manager" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -170,4 +166,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

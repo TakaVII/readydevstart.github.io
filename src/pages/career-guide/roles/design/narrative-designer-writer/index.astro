@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -19,51 +20,49 @@ const responsibilities = [
   "Reveal information naturally through gameplay, dialogue, and environment, avoiding info dumps and maintaining player intrigue.",
   "Ensure dialogues feel natural, character voices consistent, and overall tone aligns with the game's vision.",
   "Lead the team in understanding and expressing the game's emotional themes and ensuring consistent messaging.",
-  "Craft compelling non-dialogue narrative elements like item descriptions, environmental storytelling, and sound design."
+  "Craft compelling non-dialogue narrative elements like item descriptions, codex entries, and audio logs."
 ];
 
 const resources = [
-  { name: "How to become a professional Game Writer", url: "https://www.writinginteractive.com/breakingin" },
   { name: "Getting A Job In Game or Narrative Design", url: "http://katiechironis.com/2018/05/13/getting-a-job-in-game-or-narrative-design-pt-1-preparing-yourself/" },
   { name: "How To Apply For A Game Writing Job", url: "https://www.annamegill.com/blog/2017/10/24/how-to-apply-for-a-game-writing-job" },
   { name: "Job Functions in Game Narrative", url: "https://wildwinter.medium.com/role-functions-in-game-narrative-9d4b4daace3b" },
   { name: "Deciphering game narrative jobs", url: "https://inari-tnd.medium.com/decyphering-game-narrative-jobs-686eb0388c40" },
-  { name: "Narrative Design 101 —Introduction", url: "https://johnnemann.medium.com/narrative-design-101-introduction-4c62eb21ff05" },
+  { name: "Narrative Design 101: Introduction", url: "https://johnnemann.medium.com/narrative-design-101-introduction-4c62eb21ff05" },
   { name: "Game Writing/Narrative Design Resources", url: "https://docs.google.com/document/d/1OvmeyIUkOIJ8Ekdlr2z4QXf7ES3kNe3eERO9t2breXU/edit#heading=h.wxg65t5efiib" },
-  { name: "Issues With The Video Game Hiring Process (Narrative Design focused)", url: "https://www.linkedin.com/feed/update/urn:li:activity:7151791653794590720/" },
-  { name: "Narrative Design Research Amazon Book Wishlist by Andrea Saravia", url: "https://www.amazon.com/hz/wishlist/ls/3KN40TAL5GD3Z?ref_=wl_share" },
   { name: "Worldbuilding for game writers", url: "https://www.thenarrativedept.com/blog/worldbuilding-for-writers" },
-  { name: "The 7 Types of Short Story Opening, and How to Decide Which is Right for Your Story", url: "https://gizmodo.com/the-7-types-of-short-story-opening-and-how-to-decide-w-5814687" },
   { name: "Narrative Design Resources by Tom Jubert", url: "https://tom-jubert.blogspot.com/p/narrative-design-resources.html" },
-  { name: "Worldbuilding: Create Brave New Worlds by Reedsy", url: "https://blog.reedsy.com/worldbuilding-guide/" },
+  { name: "Worldbuilding: Create Brave New Worlds by Reedsy", url: "https://reedsy.com/blog/worldbuilding-guide/" },
   { name: "Katarina Gyllenbäck’s Blog", url: "https://katarinagyllenback.com/" },
   { name: "The System Behind Hades' Astounding Dialogue by People Make Games", url: "https://www.youtube.com/watch?v=bwdYL0KFA_U&ab_channel=PeopleMakeGames" },
   { name: "Building Non-Linear Narratives in Horizon: Zero Dawn - GDC Talk by Leszek Szczepanski", url: "https://www.youtube.com/watch?v=ykPZcG8_mPU&ab_channel=GDC" },
-  { name: "Bradon Sanderson’s YouTube Channel", url: "https://www.youtube.com/@BrandSanderson/featured" },
+  { name: "Brandon Sanderson’s YouTube Channel", url: "https://www.youtube.com/@BrandSanderson" },
   { name: "The Voice: How to Write Realistic Dialogue in Games by Amanda Gardner", url: "https://www.youtube.com/watch?v=CpEjinGGD44&ab_channel=BostonFIG" },
   { name: "Standard Patterns in Choice-Based Games by Sam Kabo Ashwell", url: "https://heterogenoustasks.wordpress.com/2015/01/26/standard-patterns-in-choice-based-games/" },
   { name: "Stories To Go: Narrative Design for Mobile Games by Valentina Tamer", url: "https://www.youtube.com/watch?v=ee3QJkAie2s&ab_channel=BoosterSpace" },
-  { name: "Narrative System Design Basics / Leszek Szczepanski, Guerrilla Games", url: "https://www.youtube.com/watch?v=wPb-eZJL9v4&ab_channel=4CConference" }
+  { name: "Narrative System Design Basics / Leszek Szczepanski, Guerrilla Games", url: "https://www.youtube.com/watch?v=wPb-eZJL9v4&ab_channel=4CConference" },
+  { name: "Emily Short’s Interactive Storytelling Blog", url: "https://emshort.blog/" },
+  { name: "Writing with Ink: Official Guide by inkle", url: "https://github.com/inkle/ink/blob/master/Documentation/WritingWithInk.md" },
+  { name: "Twine Cookbook", url: "https://twinery.org/cookbook/" },
+  { name: "Game Narrative Resources by Sasha Kirlee", url: "https://sashakirlee.com/game-narrative-resources" }
 ];
 
 const books = [
-  { name: "Procedural Storytelling in Game Design by Tanya X. Short and Tarn Adams", url: "https://www.amazon.com/dp/1138595306/?coliid=I14O19APO9R3BV&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "The Game Narrative Toolbox by Tobias Heussner", url: "https://www.amazon.com/dp/1138787086/?coliid=ID2PRFO3HRQQP&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "The Anatomy of Story: 22 Steps to Becoming a Master Storyteller by John Truby", url: "https://www.amazon.com/dp/0865479933/?coliid=I1CVSUQ0HBZ1LW&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "Story: Substance, Structure, Style and the Principles of Screenwriting by Robert McKee", url: "https://www.amazon.com/dp/0060391685/?coliid=I3QAMJJ23U4WSD&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "Screenplay: The Foundations of Screenwriting by Syd Field", url: "https://www.amazon.com/dp/0385339038/?coliid=I2LTAXDYSP2LON&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "Screenwriter's Bible, 7th Edition: A Complete Guide to Writing, Formatting, and Selling Your Script by David Trottier", url: "https://www.amazon.com/dp/1935247212/?coliid=I3S8QXZF8W8M6R&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "The Writer's Journey - 25th Anniversary Edition: Mythic Structure for Writers by Christopher Vogler", url: "https://www.amazon.com/dp/1615933158/?coliid=I5A02J6IDCEN&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
-  { name: "20 Master Plots: And How to Build Them by Ronald B. Tobias", url: "https://www.amazon.com/dp/1599635372/?coliid=I19K6BWGBGQ4BG&colid=3KN40TAL5GD3Z&psc=1&ref_=list_c_wl_lv_vv_lig_dp_it" },
+  { name: "Procedural Storytelling in Game Design by Tanya X. Short and Tarn Adams", url: "https://www.amazon.com/dp/1138595306/" },
+  { name: "The Game Narrative Toolbox by Tobias Heussner", url: "https://www.amazon.com/dp/1138787086/" },
+  { name: "The Anatomy of Story: 22 Steps to Becoming a Master Storyteller by John Truby", url: "https://www.amazon.com/dp/0865479933/" },
+  { name: "Story: Substance, Structure, Style and the Principles of Screenwriting by Robert McKee", url: "https://www.amazon.com/dp/0060391685/" },
+  { name: "Screenplay: The Foundations of Screenwriting by Syd Field", url: "https://www.amazon.com/dp/0385339038/" },
+  { name: "Screenwriter's Bible, 7th Edition: A Complete Guide to Writing, Formatting, and Selling Your Script by David Trottier", url: "https://www.amazon.com/dp/1935247212/" },
+  { name: "The Writer's Journey - 25th Anniversary Edition: Mythic Structure for Writers by Christopher Vogler", url: "https://www.amazon.com/dp/1615933158/" },
+  { name: "20 Master Plots: And How to Build Them by Ronald B. Tobias", url: "https://www.amazon.com/dp/1599635372/" },
   { name: "Write Your Way into Animation and Games by Christy Marx", url: "https://www.routledge.com/Write-Your-Way-into-Animation-and-Games-Create-a-Writing-Career-in-Animation/Marx/p/book/9780240813431" },
   { name: "The Ultimate Guide to Video Game Writing and Design by Flint Dille and John Zuur Platten", url: "https://www.amazon.com/Ultimate-Guide-Video-Writing-Design/dp/158065066X/" },
   { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
   { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
-  { name: "Video Game Storytelling: What Every Developer Needs to Know About Narrative Techniques by Evan Skolnick", url: "https://www.amazon.com/Video-Game-Storytelling-Developer-Techniques/dp/B08KWMYXRP/" },
-  { name: "Procedural Storytelling in Game Design", url: "https://www.amazon.com/Procedural-Storytelling-Design-Tanya-Short/dp/1138595306/" },
+  { name: "Video Game Storytelling: What Every Developer Needs to Know About Narrative Techniques by Evan Skolnick", url: "https://www.amazon.com/dp/0385345828/" },
   { name: "Kobold Guide to Game Design by Wolfgang Baur, Amber Scott, Colin McComb, Keith Baker, Michael A. Stackpole, Kelly Pawlik, Jeff Grubb and Ed Greenwood", url: "https://www.amazon.com/Kobold-Guide-Game-Design-2nd/dp/1936781034/" },
   { name: "Kobold Guide to Worldbuilding by Scott Hungerford, Jeff Grubb, Michael A. Stackpole, Chris Pramas, Keith Baker, Steven Winter, Jonathan Roberts, Monte Cook, David Cook, Janna Silverstein", url: "https://www.amazon.com/Kobold-Guide-Worldbuilding-Wolfgang-Baur/dp/1936781115/" },
-  { name: "Kobold Guide to Plots & Campaigns by Margaret Weis, Wolfgang Baur, Jeff Grubb, Clinton J. Boomer, Robert J. Schwalb, Zeb Cook, James Jacobs, Kevin Kulp, Richard Pett, Amber E. Scott", url: "https://www.amazon.com/Kobold-Guide-Plots-Campaigns-Guides/dp/193678162X/" },
   { name: "How Games Move Us: Emotion by Design by Katherine Isbister", url: "https://www.amazon.com/How-Games-Move-Playful-Thinking/dp/0262534452/" }
 ];
 
@@ -72,14 +71,13 @@ const tools = [
   "Twine",
   "Yarn Spinner",
   "Ink",
+  "articy:draft X",
   "Chat Mapper",
   "Git",
   "XMind",
   "MindMeister",
   "Celtx",
-  "Excel",
-  "Cloud Storage Software",
-  "Project Management Tools",
+  "Excel / Google Sheets",
   "Final Draft",
   "Confluence",
   "Notion",
@@ -97,7 +95,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Narrative Designer/Writer Career Guide: Salary, Skills & Tools" description="What does a Narrative Designer/Writer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Narrative Designer/Writer: Skills, Portfolio & Tools" description="How to become a Narrative Designer/Writer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Narrative Designer/Writer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -121,7 +119,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A Narrative Designer in the game industry is the architect of compelling stories within the interactive canvas of gameplay. They're not just writers; they're world-builders, weaving plot threads, crafting memorable characters, and shaping the emotional arc of the player's journey. They are the ones pulling the strings of events, dialogue, and environmental details to immerse players in a captivating narrative, collaborating with writers, artists, and programmers to ensure the story seamlessly integrates with gameplay mechanics, choices matter, and every step feels like a natural chapter in a larger saga. Ultimately, the Narrative Designer's craft lies in making players not just play a game, but feel like they're living a story.</p>
+          <p>A Narrative Designer in the game industry is the architect of the story inside the interactive canvas of gameplay. They build worlds as much as they write them, weaving plot threads, crafting memorable characters, and shaping the emotional arc of the player's journey. They decide how events, dialogue, and environmental details reveal the story, and they work with writers, artists, and programmers so the narrative fits the gameplay and player choices feel like they matter. When it works, players feel like they're living the story while they play.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -143,6 +141,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="narrative-designer-writer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -173,6 +173,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="narrative-designer-writer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

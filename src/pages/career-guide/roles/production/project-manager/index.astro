@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -23,33 +24,24 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
-  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" },
   { name: "How to Be a Project Manager in Games by starveup", url: "https://www.youtube.com/watch?v=JB1Ff-WtMuU&ab_channel=starveup" },
-  { name: "IntoGames’ Project Manager Profile", url: "https://intogames.org/role/project-manager-games/" },
   { name: "Steering the Game: My Journey as a Project Manager in the Gaming Industry", url: "https://medium.com/@globalstephaniechavez/steering-the-game-my-journey-as-a-project-manager-in-the-gaming-industry-20876c898a7d" },
-  { name: "Project Management Tools for Game Development: A Comprehensive Guide", url: "https://teamhub.com/blog/project-management-tools-for-game-development/" },
-  { name: "Efective Project Management in Game Development", url: "https://www.argentics.io/effective-project-management-in-game-development" },
   { name: "The Importance of Project Management in Game Co-Development", url: "https://gamingrespawn.com/features/58489/the-importance-of-project-management-in-game-co-development/" },
-  { name: "Game Development Project Management: Tips From Top Studios", url: "https://www.perforce.com/blog/hns/manage-game-development-teams" },
-  { name: "Navigating Game Development | The Power of Game Project Management", url: "https://polydin.com/game-project-management/" }
+  { name: "Game Development Project Management: Tips From Top Studios", url: "https://www.perforce.com/blog/p4-plan/manage-game-development-teams" },
+  { name: "What does a Project Manager in games do? by Into Games", url: "https://intogames.org/news/how-do-you-become-a-project-manager-for-videogames" },
+  { name: "Atlassian Agile Coach (free guides to Agile, Scrum, and Kanban)", url: "https://www.atlassian.com/agile" },
+  { name: "The Scrum Guide (free, official)", url: "https://scrumguides.org/scrum-guide.html" }
 ];
 
 const books = [
-  { name: "Hooked: How to Build Habit-Forming Products by Nir Eyal", url: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788" },
   { name: "Project Management QuickStart Guide by Chris Croft", url: "https://www.amazon.com/dp/1636100589" },
   { name: "Project Management All-in-One For Dummies by Stanley E. Portny", url: "https://www.amazon.com/Project-Management-All-One-Dummies-ebook/dp/B08JQS14RS/" },
-  { name: "Game Thinking: Innovate smarter & drive deep engagement with design techniques from hit games by Amy Jo Kim", url: "https://www.amazon.com/Game-Thinking-Innovate-engagement-techniques/dp/099978854X" },
   { name: "Project Management for the Unofficial Project Manager by Kory Kogon, Suzette Blakemore and James Wood", url: "https://www.amazon.com/Project-Management-Unofficial-Manager-FranklinCovey/dp/B07VN91TCV/" },
   { name: "A Guide to the Project Management Body of Knowledge by Project Management Institute", url: "https://www.amazon.com/Guide-Project-Management-Knowledge-PMBOK%C2%AE/dp/1628256648/" },
-  { name: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses by Eric Ries", url: "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602" },
-  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
-  { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
-  { name: "Extra Lives: Why Video Games Matter by Tom Bissell", url: "https://www.amazon.com/Extra-Lives-Video-Games-Matter/dp/0307474313" },
-  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
   { name: "The Game Production Toolbox by Heather Maxwell Chandler", url: "https://www.amazon.com/Production-Toolbox-Heather-Maxwell-Chandler-ebook/dp/B086XLC7RY" },
-  { name: "Project Management Mastery by Jack Hayden", url: "https://www.amazon.com/Project-Management-Mastery-Comprehensive-Successfully/dp/B0CCG2CV4P/" },
-  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" }
+  { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" },
+  { name: "Agile Game Development: Build, Play, Repeat (2nd Edition) by Clinton Keith", url: "https://www.amazon.com/dp/0136527817" },
+  { name: "Scrum: The Art of Doing Twice the Work in Half the Time by Jeff Sutherland", url: "https://www.amazon.com/dp/038534645X" }
 ];
 
 const tools = [
@@ -62,22 +54,20 @@ const tools = [
   "Git",
   "Perforce",
   "Discord",
-  "Unity Collaborate",
-  "Plastic SCM",
-  "SVN",
-  "Cloud Storage Software"
+  "Cloud Storage Software",
+  "Unity Version Control"
 ];
 
 const sidebarRoles = [
   { name: "Game Producer", slug: "game-producer", current: false },
   { name: "Executive Producer", slug: "executive-producer", current: false },
-  { name: "Publisher", slug: "publisher", current: false },
+  { name: "Publishing Manager/Producer", slug: "publishing-manager", current: false },
   { name: "Project Manager", slug: "project-manager", current: true },
   { name: "Operations Manager", slug: "operations-manager", current: false }
 ];
 ---
 
-<BaseLayout title="Project Manager Career Guide: Salary, Skills & Tools" description="What does a Project Manager do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Project Manager in Games: Career Path & Skills" description="How to become a Project Manager in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Project Manager" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -124,6 +114,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="project-manager" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -153,6 +145,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="project-manager" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -178,4 +172,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

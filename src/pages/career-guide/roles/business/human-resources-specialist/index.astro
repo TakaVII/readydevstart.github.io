@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -22,7 +23,6 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "IntoGames’ HR Manager Profile", url: "https://intogames.org/role/hr-manager/" },
   { name: "5 HR challenges for gaming companies", url: "https://www.hibob.com/blog/gaming-companies-hr-challenges/" },
   { name: "What's wrong with HR and how can it be fixed?", url: "https://www.gamesindustry.biz/whats-wrong-with-hr-and-how-can-it-be-fixed" },
   { name: "HR: The Study into Recruitment and Selection in the Growing Game Development Industry: Importance of Soft Skills", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3902525" },
@@ -36,10 +36,8 @@ const books = [
   { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
   { name: "Human Resources Kit For Dummies by Max Messmer", url: "https://www.amazon.com/Human-Resources-Kit-Dummies-Messmer/dp/1118422899/" },
   { name: "The New HR Leader's First 100 Days by Alan Collins", url: "https://www.amazon.com/New-Leaders-First-100-Days/dp/0996096124/" },
-  { name: "The Little Black Book of Human Resources Management by Barry Wolfe", url: "https://www.amazon.com/Little-Black-Human-Resources-Management/dp/B017UZCNJS/" },
   { name: "The Essential HR Handbook, 10th Anniversary Edition by Sharon Armstrong and Barbara Mitchell", url: "https://www.amazon.com/Essential-Handbook-10th-Anniversary-Professional/dp/1632651394/" },
   { name: "The Culture Code: The Secrets of Highly Successful Groups by Daniel Coyle", url: "https://www.amazon.com/Culture-Code-Secrets-Highly-Successful/dp/0525492461" },
-  { name: "The Gamification of Learning and Instruction: Game-based Methods and Strategies for Training and Education by Karl M. Kapp", url: "https://www.amazon.com/Gamification-Learning-Instruction-Game-based-Strategies/dp/1118096347" },
   { name: "Drive: The Surprising Truth About What Motivates Us by Daniel H. Pink", url: "https://www.amazon.com/Drive-Surprising-Truth-About-Motivates/dp/1594484805" },
   { name: "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers by Ben Horowitz", url: "https://www.amazon.com/Hard-Thing-About-Things-Building/dp/0062273205" },
   { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" }
@@ -71,7 +69,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Human Resources Specialist Career Guide: Salary, Skills & Tools" description="What does a Human Resources Specialist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Human Resources Specialist in Games: Career Path & Skills" description="How to become a Human Resources Specialist in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Human Resources Specialist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -118,6 +116,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="human-resources-specialist" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -147,6 +147,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="human-resources-specialist" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -172,4 +174,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

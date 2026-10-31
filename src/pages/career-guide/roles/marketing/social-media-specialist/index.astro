@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
   { name: "InGameJob", url: "https://ingamejob.com/en/salaries" },
-  { name: "Glassdoor", url: "https://www.glassdoor.com/Salary/Social-Media-Specialist-Social-Media-Specialist-Salaries-E4909208_D_KO24,47.htm" },
+  { name: "Glassdoor", url: "https://www.glassdoor.com/Salaries/us-social-media-specialist-salary-SRCH_IL.0,2_IN1_KO3,26.htm" },
   { name: "Salary.com", url: "https://www.salary.com/research/salary/recruiting/social-media-specialist-salary" },
   { name: "ZipRecruiter", url: "https://www.ziprecruiter.com/Salaries/Social-Media-Specialist-Salary" }
 ];
@@ -13,7 +14,7 @@ const salaries = [
 const responsibilities = [
   "Develop and manage social media content calendars, creating text posts, images, videos, and live streams that capture player attention and build community engagement.",
   "Foster positive player interactions on social platforms, respond to comments and messages, host community events, and build a loyal fan base.",
-  "Utilize social media channels to promote new game releases, updates, and special events, driving traffic to the game and maximizing reach.",
+  "Use social media channels to promote new game releases, updates, and special events, driving traffic to the game and maximizing reach.",
   "Track key metrics like engagement, reach, and sentiment, analyze data to understand audience preferences, and refine content strategies for continuous improvement.",
   "Continuously learn about new social media features, emerging platforms, and relevant trends in the gaming community, adapting strategies accordingly.",
   "Work closely with game developers, marketers, and community managers to ensure social media messaging aligns with the overall game vision and marketing goals.",
@@ -24,26 +25,20 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "Social media for gamers: How to level up your video game marketing", url: "https://sproutsocial.com/insights/social-media-for-gamers/" },
-  { name: "How to Create Gaming Social Media Content Worth Sharing", url: "https://www.gamemarketinggenie.com/blog/gaming-social-media-content-worth-sharing" },
-  { name: "How To Use Social Media Gamification", url: "https://brame.io/blog/social-media-gamification/" },
-  { name: "The 5 Best Resources for Social Media Managers", url: "https://digitalmarketinginstitute.com/blog/the-5-best-resources-for-social-media-managers" },
-  { name: "12 Top Social Media Marketing Resources to Keep Up with the Industry", url: "https://rockcontent.com/blog/social-media-marketing-resources/" },
-  { name: "How to Learn Social Media Marketing: 39 Resources for Beginners", url: "https://blog.hubspot.com/marketing/social-media-marketing-resources" },
+  { name: "How to Create Gaming Social Media Content Worth Sharing", url: "https://gamemarketinggenie.com/blog/gaming-social-media-content-worth-sharing/" },
   { name: "Mastering Social Media for Gamers: The Ultimate Guide for Game Makers", url: "https://www.socialpilot.co/blog/social-media-for-gamers" },
-  { name: "Gamification In Social Media Marketing: The Complete Guide", url: "https://statusbrew.com/insights/gamification-in-social-media/" }
+  { name: "Social Media Marketing Certification Course (Free) by HubSpot Academy", url: "https://academy.hubspot.com/courses/social-media-marketing" },
+  { name: "How to Learn Social Media Marketing: 39 Resources for Beginners", url: "https://blog.hubspot.com/marketing/social-media-marketing-resources" },
+  { name: "Meta Blueprint: Free Meta Ads Courses", url: "https://www.facebook.com/business/learn" },
+  { name: "How To Market A Game by Chris Zukowski", url: "https://howtomarketagame.com/" },
+  { name: "The 5 Best Resources for Social Media Managers", url: "https://digitalmarketinginstitute.com/blog/the-5-best-resources-for-social-media-managers" }
 ];
 
 const books = [
-  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
   { name: "Social Media Marketing Workbook by Jason McDonald", url: "https://www.amazon.com/dp/B0CPXNNHSM" },
   { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
-  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
-  { name: "The StorySelling Method: Master the Art of Storytelling to Build Trust, Stand Out, and Boost Sales by Philipp Humm", url: "https://www.amazon.com/dp/B0BZ32CTSJ/" },
   { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
   { name: "500 Social Media Marketing Tips by Andrew Macarthy", url: "https://www.amazon.com/500-Social-Media-Marketing-Tips/dp/179279603X/" },
-  { name: "Social Media Marketing All-in-One For Dummies by Michelle Krasniak, Jan Zimmerman and Deborah Ng", url: "https://www.amazon.com/Marketing-Dummies-Business-Personal-Finance/dp/1119696879/" },
-  { name: "Social Media Marketing: 9 Easy Steps Using Facebook, Instagram, and Pinterest to Reach New Customers, Increase Sales, and Ensure Customer Loyalty by Mick Black", url: "https://www.amazon.com/Social-Media-Marketing-Instagram-Pinterest/dp/B0BTKKDN7R/" },
   { name: "Social Media Success for Every Brand: The Five StoryBrand Pillars That Turn Posts into Profits by Claire Diaz-Ortiz and Donald Miller", url: "https://www.amazon.com/Social-Media-Success-Every-Brand/dp/B07PYYRHPH/" }
 ];
 
@@ -52,12 +47,11 @@ const tools = [
   "Buffer",
   "Sprout Social",
   "Discord",
-  "TwitchAlerts",
+  "Streamlabs",
   "StreamElements",
-  "Twitter Analytics",
+  "X Analytics",
   "YouTube Analytics",
   "Google Trends",
-  "Reddit Keyword Monitor",
   "TikTok for Business",
   "Keyhole",
   "Bitly",
@@ -79,7 +73,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Social Media Specialist Career Guide: Salary, Skills & Tools" description="What does a Social Media Specialist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Social Media Specialist: Skills, Portfolio & Tools" description="How to become a Social Media Specialist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Social Media Specialist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -126,6 +120,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="social-media-specialist" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -155,6 +151,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="social-media-specialist" part="faq" />
       </div>
 
       <aside class="career-sidebar">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -12,7 +13,7 @@ const salaries = [
 
 const responsibilities = [
   "Create eye-catching visual effects for spells, explosions, weather phenomena, particle systems, and environmental interactions, enhancing immersion and gameplay impact.",
-  "Proficiently utilize VFX software to design, simulate, and animate dynamic visual effects.",
+  "Use VFX software to design, simulate, and animate dynamic visual effects.",
   "Apply principles of physics and fluid dynamics to create realistic simulations for smoke, fire, water, and other dynamic elements within the game world.",
   "Balance visual quality with gameplay performance by managing particle counts, texture usage, and shader complexity to maintain smooth framerates.",
   "Ensure VFX interact appropriately with environments, characters, and gameplay mechanics, enhancing immersion and avoiding unwanted collisions or clipping.",
@@ -23,51 +24,35 @@ const responsibilities = [
 ];
 
 const resources = [
+  { name: "Getting Started in Real-Time VFX? Start Here! by RealtimeVFX.com (free)", url: "https://realtimevfx.com/t/getting-started-in-real-time-vfx-start-here/3415" },
+  { name: "VFX Apprentice Free Training, incl. Artistic Principles of VFX (free)", url: "https://www.vfxapprentice.com/free-vfx-training" },
+  { name: "Niagara Effects Overview, Unreal Engine Docs (free)", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-niagara-effects-for-unreal-engine" },
+  { name: "CGHOW: Niagara and Real-Time VFX Tutorials (free, YouTube)", url: "https://www.youtube.com/@CGHOW" },
   { name: "Building a Great VFX Portfolio - By Hadidjah Chamberlin", url: "https://www.hadidjah.com/demo-vfx-portfolio" },
   { name: "Mastered’s VFX Bootcamp", url: "https://join.mastered.com/vfx_artist_sb" },
   { name: "When Art Meets Technology: The World of VFX and Technical Artists", url: "https://agate.id/when-art-meets-technology-the-world-of-vfx-and-technical-artists/" },
-  { name: "The Essential Guide to Building a Successful VFX Workflow by Dan Swierenga", url: "https://blog.frame.io/2020/02/17/vfx-workflow-best-practices/" },
-  { name: "What is the VFX Pipeline? by Ricky Cheung", url: "https://massive.io/workflow/vfx-pipeline/" },
-  { name: "The Art of VFX in Games", url: "https://www.argentics.io/the-art-of-vfx-in-video-games" },
-  { name: "NextGen Level 3 Extended Diploma in Games, Animation and Visual Effects Skills", url: "https://gateway.ac.uk/course/nextgen-games-development-l3/" },
-  { name: "VFX Courses by Motion Design School", url: "https://motiondesign.school/vfx-courses/" },
-  { name: "CGSpectrum VFX Courses", url: "https://www.cgspectrum.com/courses/visual-effects" },
-  { name: "ActionVFX Tutorials", url: "https://www.actionvfx.com/blog?category=tutorials" },
-  { name: "Allan McKay’s Toolkit", url: "https://www.allanmckay.com/toolkit/" },
-  { name: "ScreenSkills’ VFX Artist Profile", url: "https://www.screenskills.com/job-profiles/browse/games/technical-art/visual-effects-vfx-artist/" },
-  { name: "VFX Continuing Education: Where Do VFX Go To Keep Learning", url: "https://www.vfxvoice.com/vfx-continuing-education-where-do-vfx-artists-go-to-keep-learning/" },
-  { name: "How to Become a Visual Effects Artist by MadVFX", url: "https://mad-vfx.com/becoming-a-visual-effects-artist/" },
-  { name: "Beginner's Guide to Becoming a Visual Effects (VFX) Artist", url: "https://discover.therookies.co/2019/05/06/beginners-guide-to-becoming-a-visual-effects-vfx-artist/" },
-  { name: "How to Grow as a VFX artist", url: "https://cghero.com/articles/how-to-grow-as-a-vfx-artist" },
-  { name: "130 Terms Every VFX Artist Should Know", url: "https://www.rebelway.net/vfx-terminology/" },
-  { name: "How to Become a Special & Visual Effects Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/special-visual-effects-artist" }
+  { name: "ScreenSkills’ VFX Artist Profile", url: "https://www.screenskills.com/job-profiles/browse/games/technical-art/visual-effects-vfx-artist/" }
 ];
 
 const books = [
-  { name: "The VES Handbook of Visual Effects: Industry Standard VFX Practices and Procedures", url: "https://www.amazon.com/VES-Handbook-Visual-Effects-Procedures/dp/1138542202/ref=sr_1_1" },
-  { name: "Why I Do VFX: The Untold Truths About Working in Visual Effects by Vicki Lau", url: "https://www.amazon.com/Why-Do-VFX-Working-Effects/dp/B0983YXQLR/ref=sr_1_1" },
-  { name: "Designing Creatures and Characters by Marc Taro Holmes", url: "https://www.amazon.co.uk/Designing-Creatures-Characters-Portfolio-Animation/dp/1440344094" },
-  { name: "Story Structure and Development: A Guide for Animators, VFX Artists, Game Designers, and Virtual Reality by Craig Caldwell", url: "https://www.routledge.com/Story-Structure-and-Development-A-Guide-for-Animators-VFX-Artists-Game/Caldwell/p/book/9781498781732" },
-  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+  { name: "Elemental Magic, Volume I: The Art of Special Effects Animation by Joseph Gilland", url: "https://www.routledge.com/Elemental-Magic-Volume-I-The-Art-of-Special-Effects-Animation/Gilland/p/book/9780240811635" },
+  { name: "The Animator's Survival Kit by Richard Williams", url: "https://www.amazon.com/Animators-Survival-Kit-Principles-Classical/dp/086547897X" },
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.com/dp/0823098478" }
 ];
 
 const tools = [
   "Game Engines",
-  "Maya",
-  "ZBrush",
+  "Unreal Niagara",
+  "Unity VFX Graph / Particle System",
   "Houdini",
-  "Substance Painter",
-  "Mari",
-  "Nuke",
-  "After Effects",
+  "EmberGen",
+  "Substance Designer",
   "Photoshop",
-  "Houdini Engine",
-  "OpenFX Plugins (e.g., X-Gen, TurbulenceFD)",
+  "After Effects",
+  "Blender",
+  "Maya",
   "Python",
-  "Git",
-  "Toon Boom Harmony",
-  "PureRef",
-  "RealityCapture"
+  "PureRef"
 ];
 
 const sidebarRoles = [
@@ -85,7 +70,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="VFX Artist Career Guide: Salary, Skills & Tools" description="What does a VFX Artist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a VFX Artist: Skills, Portfolio & Tools" description="How to become a VFX Artist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="VFX Artist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -109,7 +94,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A VFX Artist, short for Visual Effects Artist, is a skilled professional who breathes life into fantastical visuals on screen. They collaborate with a larger team to craft digital assets that would be impractical or impossible to capture in real life, enhancing movies, TV shows, and even video games. VFX artists can be specialists, mastering a specific skill like 3D modeling or texturing, or generalists, adept at handling various artistic and technical tasks within the VFX pipeline. Whether conjuring up awe-inspiring dragons or seamlessly integrating digital sets, these creative minds are the backbone of bringing imaginary worlds to vivid life.</p>
+          <p>A VFX Artist, short for Visual Effects Artist, creates the effects that make a game feel alive and responsive: fire, smoke, explosions, magic spells, weapon impacts, and weather. In games, effects run in real time, so VFX artists build them with particle systems and shaders in tools like Unreal's Niagara or Unity's VFX Graph, then keep them within a tight performance budget. Effects also do gameplay work. They show where an attack will land, when a player takes damage, and when an ability is ready. Game VFX artists work closely with designers, animators, and technical artists so every effect looks great and reads clearly in the middle of play.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -131,6 +116,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="vfx-artist" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -161,6 +148,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="vfx-artist" part="faq" />
       </div>
 
       <aside class="career-sidebar">

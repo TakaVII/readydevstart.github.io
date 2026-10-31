@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -23,12 +24,11 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "Animation for UI Designers by Career Foundry", url: "https://careerfoundry.com/en/courses/animation-for-ui-designers/" },
-  { name: "UI Animation Essentials Course by Motion Design School", url: "https://motiondesign.school/courses/ui-animation-essentials/" },
-  { name: "UI Animation—How to Apply Disney’s 12 Principles of Animation to UI Design", url: "https://www.interaction-design.org/literature/article/ui-animation-how-to-apply-disney-s-12-principles-of-animation-to-ui-design" },
-  { name: "Animation in UI: How to Create Motion Design by Aela School", url: "https://aelaschool.com/en/interactiondesign/ui-animation-create-motion-design/" },
-  { name: "UI Animation – All You Need to Know and Examples by UXPIN", url: "https://www.uxpin.com/studio/blog/ui-animation-examples/" },
-  { name: "UI Animation: A Complete Guide For Beginners by Career Foundry", url: "https://careerfoundry.com/en/blog/ui-design/ui-animation-beginners-guide/" }
+  { name: "Game UI Database (free library of game menus and HUDs, with video of UI motion)", url: "https://www.gameuidatabase.com/" },
+  { name: "Creating User Interfaces with UMG in Unreal Engine (official docs)", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/creating-user-interfaces-with-umg-and-slate-in-unreal-engine" },
+  { name: "UI Animation—How to Apply Disney’s 12 Principles of Animation to UI Design", url: "https://ixdf.org/literature/article/ui-animation-how-to-apply-disney-s-12-principles-of-animation-to-ui-design" },
+  { name: "UI Animation: A Complete Guide For Beginners by Career Foundry", url: "https://careerfoundry.com/en/blog/ui-design/ui-animation-beginners-guide/" },
+  { name: "UI Animation Essentials Course by Motion Design School", url: "https://motiondesign.school/courses/ui-animation-essentials/" }
 ];
 
 const books = [
@@ -41,22 +41,16 @@ const books = [
 
 const tools = [
   "Game Engines",
-  "Maya",
-  "Blender",
   "After Effects",
-  "Animate",
+  "Duik Ángela",
+  "Adobe Animate",
+  "Rive",
+  "Spine",
   "Aseprite",
   "Photoshop",
-  "Toon Boom Harmony",
-  "Live2D",
-  "Anima",
-  "Duik Bassel",
+  "Illustrator",
   "Figma",
-  "Adobe XD",
-  "Proto.io",
-  "Framer",
-  "Sketch",
-  "Illustrator"
+  "Blender"
 ];
 
 const sidebarRoles = [
@@ -70,7 +64,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="UX/UI Animator Career Guide: Salary, Skills & Tools" description="What does a UX/UI Animator do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a UX/UI Animator: Skills, Portfolio & Tools" description="How to become a UX/UI Animator in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="UX/UI Animator" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -117,6 +111,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="ux-ui-animator" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -146,6 +142,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="ux-ui-animator" part="faq" />
       </div>
 
       <aside class="career-sidebar">

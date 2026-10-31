@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -12,14 +13,14 @@ const salaries = [
 
 const responsibilities = [
   "Scour various platforms to find and partner with the right influencers whose audience, content style, and values align with the game's target market and overall brand image.",
-  "Craft personalized campaigns that leverage the strengths and reach of chosen influencers, integrating the game organically into their content and engaging their audience authentically.",
+  "Craft personalized campaigns that build on the strengths and reach of chosen influencers, integrating the game organically into their content and engaging their audience authentically.",
   "Negotiate fair and mutually beneficial agreements with influencers, outlining campaign goals, deliverables, compensation, and reporting requirements.",
   "Equip influencers with clear brand guidelines, messaging points, and relevant assets like gameplay footage, artwork, and key features to ensure consistent and effective communication.",
   "Track key metrics like reach, engagement, and conversion rates, analyze influencer content performance, and adjust strategies based on data insights.",
   "Foster long-term relationships with influencers, maintain open communication, and address their needs throughout the campaign to ensure continued collaboration and mutual success.",
-  "Stay abreast of evolving social media trends and emerging platforms in the gaming community, adapting campaigns and collaborations to leverage new opportunities and reach wider audiences.",
+  "Stay abreast of evolving social media trends and emerging platforms in the gaming community, adapting campaigns and collaborations to take advantage of new opportunities and reach wider audiences.",
   "Prepare clear and impactful reports for internal stakeholders, showcasing the reach, engagement, and impact achieved through influencer marketing campaigns.",
-  "Utilize influencers to foster connections with the broader gaming community, engage in fan interaction, and participate in relevant events and conversations.",
+  "Use influencers to foster connections with the broader gaming community, engage in fan interaction, and participate in relevant events and conversations.",
   "Understand and adhere to FTC guidelines on influencer marketing disclosures, ensuring transparency and ethical brand promotion within the gaming space."
 ];
 
@@ -27,9 +28,9 @@ const resources = [
   { name: "Influencer Resource Library by Influencer Marketing Hub", url: "https://influencermarketinghub.com/resources/" },
   { name: "Influencer Marketing Resources by Mention", url: "https://mention.com/en/blog/influencer-marketing-resources/" },
   { name: "Influencer Marketing Resources: A Complete Guide of Tools, Case Studies, & Examples", url: "https://grin.co/blog/influencer-marketing-resources-a-complete-guide/" },
-  { name: "What is influencer marketing?", url: "https://www.aspire.io/glossary/influencer-marketing" },
-  { name: "Gaming Influencer Marketing", url: "https://www.businessofapps.com/marketplace/influencer-marketing/gaming/" },
-  { name: "Building the Brand Through Influencer Marketing Course by eCornell", url: "https://ecornell.cornell.edu/courses/marketing/building-the-brand-through-influencer-marketing/" }
+  { name: "Influencer Marketing Guides for Games by IMPRESS Academy", url: "https://impress.games/influencer-marketing-guides" },
+  { name: "Disclosures 101 for Social Media Influencers by the FTC", url: "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers" },
+  { name: "How To Market A Game by Chris Zukowski", url: "https://howtomarketagame.com/" }
 ];
 
 const books = [
@@ -47,7 +48,6 @@ const tools = [
   "Hootsuite",
   "BuzzSumo",
   "Awario",
-  "Klear",
   "Upfluence",
   "Traackr",
   "Influencity",
@@ -55,7 +55,9 @@ const tools = [
   "ClickUp",
   "SocialLadder",
   "Hunter",
-  "trendHERO"
+  "trendHERO",
+  "Keymailer",
+  "Lurkit"
 ];
 
 const sidebarRoles = [
@@ -69,7 +71,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Influencer Marketer Career Guide: Salary, Skills & Tools" description="What does an Influencer Marketer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an Influencer Marketer: Skills, Portfolio & Tools" description="How to become an Influencer Marketer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Influencer Marketer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -93,7 +95,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>An Influencer Marketer, a more specific version of an Affiliate Marketer (but sometimes with the same responsibilities), is the cool cousin your average marketer wishes they had. They navigate the vibrant world of streamers, YouTubers, and esports stars, leveraging their influence to spread the word about your game. They work by crafting impactful campaigns that resonate with specific audiences, partnering with the right influencers, and measuring the buzz across social media and streaming platforms. From sponsored streams to strategic product placements, they turn influencers into living, breathing billboards for your game, adding that extra layer of hype and authenticity, driving downloads and boosting engagement.</p>
+          <p>An Influencer Marketer is the cool cousin your average marketer wishes they had, and the role sometimes overlaps with affiliate marketing. They navigate the vibrant world of streamers, YouTubers, and esports stars, using their influence to spread the word about your game. They work by crafting impactful campaigns that resonate with specific audiences, partnering with the right influencers, and measuring the buzz across social media and streaming platforms. From sponsored streams to strategic product placements, they turn influencers into living, breathing billboards for your game, adding that extra layer of hype and authenticity, driving downloads and boosting engagement.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -115,6 +117,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="influencer-marketer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -145,6 +149,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="influencer-marketer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

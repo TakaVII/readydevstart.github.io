@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -14,31 +15,27 @@ const responsibilities = [
   "Transform scripts, game design documents, and gameplay concepts into clear and engaging storyboards that communicate the intended flow and emotion of the game.",
   "Compose dynamic storyboards for cutscenes, cinematics, and in-game events, using camera angles, framing, and composition to enhance storytelling and emotional impact.",
   "Closely work with game directors and writers to understand the narrative vision, interpret key moments, and translate them into visually compelling sequences.",
-  "Utilize storyboards to effectively showcase gameplay mechanics, character interactions, and level layouts, ensuring clarity and understanding for other teams.",
+  "Use storyboards to effectively showcase gameplay mechanics, character interactions, and level layouts, ensuring clarity and understanding for other teams.",
   "Proficiently employ composition, framing, perspective, and cinematic shots to convey narrative beats, character emotions, and action within the game world.",
   "Vary panel size, layout, and transitions to control the pacing and rhythm of the story, building tension, excitement, and emotional impact.",
-  "Utilize dynamic poses, expressions, and body language to portray character emotions, actions, and reactions within the storyboard sequences.",
+  "Use dynamic poses, expressions, and body language to portray character emotions, actions, and reactions within the storyboard sequences.",
   "Ensure storyboards align with the game's overall visual style, tone, and character designs, contributing to a cohesive visual experience.",
   "Effectively communicate storyboard ideas and receive feedback from directors, writers, and other teams, adapting and refining storyboards for optimal impact."
 ];
 
 const resources = [
-  { name: "How to build a storyboard by Canva", url: "https://www.canva.com/learn/how-to-build-a-storyboard/" },
   { name: "Drawing & Composition for Visual Storytelling", url: "http://www.floobynooby.com/comp1.html" },
   { name: "The Animation Story Group - Discord Server", url: "https://discord.gg/JbeUjbs42u" },
   { name: "Storyboarder Free Tool", url: "https://wonderunit.com/storyboarder/" },
+  { name: "The Ultimate Guide to Camera Shots by StudioBinder (free)", url: "https://www.studiobinder.com/blog/ultimate-guide-to-camera-shots/" },
   { name: "StoryboardArt Tutorials and Guides", url: "https://storyboardart.org/" },
-  { name: "Storyboard Artist: Everything You Need To Know", url: "https://www.nfi.edu/storyboard-artist/" },
-  { name: "How to Become a Storyboard Artist by Teal", url: "https://www.tealhq.com/how-to-become/storyboard-artist" },
-  { name: "What is a Storyboard Artist?", url: "https://storyboardartists.com/what-is-a-storyboard-artist/" },
-  { name: "How to Become a Storyboard Artist by YellowBrick", url: "https://www.yellowbrick.co/resources/careers/storyboard-artist" },
-  { name: "How to Become a Storyboard Artist: Easy Peasy by Emiliano Pardo Saguier", url: "https://bunnystudio.com/blog/how-to-become-a-storyboard-artist-easy-peasy/" }
+  { name: "What is a Storyboard Artist?", url: "https://storyboardartists.com/what-is-a-storyboard-artist/" }
 ];
 
 const books = [
   { name: "Understanding Comics: The Invisible Art by Scott McCloud", url: "https://www.amazon.co.uk/Understanding-Comics-Invisible-Scott-McCloud/dp/006097625X" },
   { name: "The Art of the Storyboard: Storyboarding for Film, TV, and Animation by John Hart", url: "https://www.amazon.com/Art-Storyboard-Storyboarding-Film-Animation/dp/0240803299" },
-  { name: "Acting for Animators: 4th Edition by Ed Hooks", url: "https://www.amazon.com/-/he/Ed-Hooks/dp/1138669121" },
+  { name: "Acting for Animators: 4th Edition by Ed Hooks", url: "https://www.amazon.com/dp/1138669121" },
   { name: "From Word to Image-2nd edition: Storyboarding and the Filmmaking Process by Marcie Begleiter", url: "https://www.amazon.com/Word-Image-2nd-Storyboarding-Filmmaking-Process/dp/193290767X/ref=sr_1_1" },
   { name: "Cinematics Storyboard Workshop: Filmmaking Essentials for the Entry-Level Storyboard Artist by Gregg Davidson", url: "https://www.amazon.com/Cinematics-Storyboard-Workshop-Filmmaking-Entry-Level/dp/1624650414/ref=sr_1_4" },
   { name: "Directing the Story: Professional Storytelling and Storyboarding Techniques for Live Action and Animation by Francis Glebas", url: "https://www.amazon.com/Directing-Story-Professional-Storytelling-Storyboarding/dp/0240810767" },
@@ -47,26 +44,22 @@ const books = [
   { name: "The Storyboard Artist: A Guide to Freelancing in Film, TV, and Advertising by Giuseppe Cristiano", url: "https://www.amazon.com/Storyboard-Artist-Guide-Freelancing-Advertising/dp/1615930833/ref=pd_sbs_d_sccl_3_7/142-8161820-1280056" },
   { name: "Sketching for Animation: Developing Ideas, Characters and Layouts in Your Sketchbook by Peter Parr", url: "https://www.amazon.com/Sketching-Animation-Developing-Characters-Sketchbook/dp/1350087092/ref=pd_sbs_d_sccl_3_11/142-8161820-1280056" },
   { name: "Storyboards: Motion in Art by Mark Simon", url: "https://www.amazon.com/gp/product/0240808053/" },
-  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.in/Drawing-Basics-Video-Game-Art/dp/0823098478" }
+  { name: "Drawing Basics and Video Game Art: Classic to Cutting-Edge Art Techniques for Winning Video Game Design by Chris Solarski", url: "https://www.amazon.com/dp/0823098478" }
 ];
 
 const tools = [
   "Game Engines",
   "Adobe Photoshop",
-  "Adobe Illustrator",
   "Clip Studio Paint",
   "Toon Boom Harmony",
   "Storyboard Pro",
+  "Storyboarder",
   "OpenToonz",
-  "ComicLife",
   "Krita",
   "Wacom Cintiq or similar drawing tablet",
-  "Marmoset Toolbag",
-  "Lens Studio",
+  "Premiere Pro or DaVinci Resolve (for animatics)",
   "Miro",
-  "Figma",
-  "Maquette",
-  "Frame.io"
+  "Figma"
 ];
 
 const sidebarRoles = [
@@ -84,7 +77,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Storyboard Artist Career Guide: Salary, Skills & Tools" description="What does a Storyboard Artist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Storyboard Artist: Skills, Portfolio & Tools" description="How to become a Storyboard Artist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Storyboard Artist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -108,7 +101,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A storyboard artist is the visionary bridge between script and screen. They translate the written word into a series of sequential comic-strip-like panels, visually mapping out the narrative flow of a film, animation, or game. Think of them as the director's sketch artist, using their drawing skills and storytelling instincts to capture key scenes, camera angles, character actions, and lighting. Their work serves as a crucial blueprint for the entire production, ensuring everyone from animators to cinematographers are on the same page, leading to a cohesive and visually stunning final product.</p>
+          <p>A storyboard artist is the visionary bridge between script and screen. They translate the written word into a series of sequential comic-strip-like panels, visually mapping out a game's cutscenes, trailers, and key gameplay moments. Think of them as the director's sketch artist, using their drawing skills and storytelling instincts to capture key scenes, camera angles, character actions, and lighting. Their boards become the blueprint that cinematic artists, animators, and designers work from, so everyone on the team shares the same vision before expensive 3D work begins.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -130,6 +123,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="storyboard-artist" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -160,6 +155,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="storyboard-artist" part="faq" />
       </div>
 
       <aside class="career-sidebar">

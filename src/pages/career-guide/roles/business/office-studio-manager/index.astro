@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -20,39 +21,30 @@ const responsibilities = [
   "Oversee office maintenance, repairs, safety protocols, and emergency preparedness to ensure a clean, safe, and comfortable work environment.",
   "Act as a central point of communication within the studio, relaying information, managing calendars, and facilitating collaboration between departments.",
   "Assist employees with travel arrangements, visa applications, and documentation for international conferences, events, or relocation needs.",
-  "Address unexpected challenges, find creative solutions to logistical hurdles, and anticipate needs to ensure a seamless and efficient studio operation."
+  "Address unexpected challenges, find creative solutions to logistical hurdles, and anticipate needs to keep the studio running smoothly."
 ];
 
 const resources = [
-  { name: "Money in the game industry by Michael Fitch", url: "https://www.linkedin.com/pulse/money-game-industry-michael-fitch/" },
-  { name: "The Expensive Video Game Problem", url: "https://fleximize.com/articles/002825/funding-for-the-gaming-industry" },
-  { name: "The Cost-Effective Game Development", url: "https://www.argentics.io/the-cost-effective-game-development-a-capacious-guide" },
-  { name: "What does a Studio Manager in games do? Interview with Claire Boissiere by Into Games", url: "https://intogames.org/news/how-do-you-become-a-studio-manager-for-videogames/" },
-  { name: "Into Games’ Office Manager Profile", url: "https://intogames.org/role/office-manager-games/" },
-  { name: "How can Robust Resource Management Future Proof the Gaming Industry", url: "https://www.saviom.com/blog/how-can-robust-resource-management-future-proof-the-gaming-industry/" }
+  { name: "What does a Studio Manager in games do? by Into Games", url: "https://intogames.org/news/how-do-you-become-a-studio-manager-for-videogames/" },
+  { name: "What does a Studio Assistant in games do? by Into Games", url: "https://intogames.org/news/how-do-you-become-a-studio-assistant-for-videogames" }
 ];
 
 const books = [
   { name: "Blood, Sweat, and Pixels: The Triumphant, Turbulent Stories Behind How Video Games Are Made by Jason Schreier", url: "https://www.amazon.com/Blood-Sweat-Pixels-Triumphant-Turbulent-ebook/dp/B01NAKSWW1" },
-  { name: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses by Eric Ries", url: "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602" },
-  { name: "Map It: The hands-on guide to strategic training design by Cathy Moore", url: "https://www.amazon.com/Map-hands-strategic-training-design/dp/0999174509/ref=m_crc_dp_lf_d_t1_d_sccl_2_5/142-8161820-1280056?pd_rd_w=klo4F&content-id=amzn1.sym.76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_p=76a0b561-a7b4-41dc-9467-a85a2fa27c1c&pf_rd_r=52FQK966YCW6P3QVE75E&pd_rd_wg=ks59c&pd_rd_r=c5d144c4-78a7-43fd-a2f8-d335349b8cca&pd_rd_i=0999174509&psc=1" },
   { name: "Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace by Gustavo Razzetti", url: "https://www.amazon.com/Remote-Not-Distant-Company-Workplace/dp/0999097393" },
-  { name: "Start with Why Series by Simon Sinek, David Mead and Peter Docker", url: "https://www.amazon.com/dp/B07VVJF819" },
-  { name: "The Missing Billionaires: A Guide to Better Financial Decisions by Victor Haghani and James White", url: "https://www.amazon.com/Missing-Billionaires-Better-Financial-Decisions-ebook/dp/B0CGW16YC4/" },
   { name: "Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier", url: "https://www.amazon.com/Press-Reset-Recovery-Video-Industry/dp/B08NTTVPJS/" },
   { name: "The Dream Architects: Adventures in the Video Game Industry by David Polfeldt", url: "https://www.amazon.com/Dream-Architects-Adventures-Video-Industry/dp/B08FMVSFMR" }
 ];
 
 const tools = [
-  "Git",
   "Cloud storage",
-  "Project management software",
-  "Perforce",
-  "FileZilla",
   "Discord",
   "Trello",
   "Jira",
-  "Asana"
+  "Asana",
+  "Google Workspace",
+  "Microsoft 365",
+  "Slack"
 ];
 
 const sidebarRoles = [
@@ -66,7 +58,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Office/Studio Manager Career Guide: Salary, Skills & Tools" description="What does an Office/Studio Manager do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an Office/Studio Manager in Games: Career Path & Skills" description="How to become an Office/Studio Manager in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Office/Studio Manager" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -113,6 +105,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="office-studio-manager" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -142,6 +136,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="office-studio-manager" part="faq" />
       </div>
 
       <aside class="career-sidebar">
@@ -167,4 +163,4 @@ const sidebarRoles = [
       </aside>
     </div>
   </WikiLayout>
-</BaseLayout>
+</BaseLayout>

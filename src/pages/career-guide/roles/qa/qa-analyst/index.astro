@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -23,27 +24,21 @@ const responsibilities = [
 ];
 
 const resources = [
-  { name: "What does a quality assurance analyst do?", url: "https://www.careerexplorer.com/careers/quality-assurance-analyst/" },
-  { name: "Best Practices for QA Testing", url: "https://www.globalapptesting.com/best-practices-for-qa-testing" },
-  { name: "Best QA Practices for Game Development", url: "https://pinglestudio.com/blog/game-testing/best-qa-practices-for-game-development" },
-  { name: "An Introduction to Quality Assurance Testing in Video Games", url: "https://www.transperfect.com/blog/introduction-quality-assurance-testing-video-games" },
-  { name: "What Is a Quality Assurance Analyst? 2024 Career Guide", url: "https://www.coursera.org/articles/quality-assurance-analyst" },
-  { name: "What Is A QA Analyst, And What Do They Really Do?", url: "https://theqalead.com/careers/qa-analyst-explained/" },
+  { name: "Best QA Practices for Game Development", url: "https://pinglestudio.com/blog/best-qa-practices-for-game-development/" },
   { name: "What does a video game tester do?", url: "https://www.cgspectrum.com/career-pathways/qa-game-tester" },
-  { name: "What a video game tester does and how you can become one", url: "https://hitmarker.net/what-a-video-game-tester-does-how-to-become-one" }
+  { name: "How to Become a Video Game Tester: The Step-by-Step Guide", url: "https://hitmarker.net/how-to-become-a-video-game-tester-the-step-by-step-guide" },
+  { name: "Tips and tricks for building a QA portfolio", url: "https://www.gamesindustry.biz/tips-and-tricks-for-building-a-qa-portfolio" },
+  { name: "ISTQB Certified Tester Foundation Level (free syllabus and sample exams)", url: "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/" },
+  { name: "Ministry of Testing (testing community, articles, and free learning)", url: "https://www.ministryoftesting.com/" }
 ];
 
 const books = [
   { name: "Modern Game Testing: Learn how to test games like a pro, optimize testing effort, and skyrocket your QA career by Nikolina Finska", url: "https://www.amazon.com/dp/1803244402/" },
+  { name: "Game Testing: All in One by Charles P. Schultz and Robert Denton Bryant", url: "https://www.amazon.com/Game-Testing-Charles-P-Schultz/dp/1942270763/" },
   { name: "Game Development Essentials: Game QA & Testing by Luis Levy and Jeannie Novak", url: "https://www.amazon.com/Game-Development-Essentials-QA-Testing/dp/1435439473/" },
   { name: "Modern Game Testing: A Pragmatic Guide to Test Planning and Strategy by Chris Howell", url: "https://www.amazon.com/Modern-Game-Testing-Pragmatic-Planning/dp/1739711505/" },
-  { name: "Design Patterns for High-Quality Automated Tests: High-Quality Test Attributes and Best Practices by Anton Angelov", url: "https://www.amazon.com/Design-Patterns-High-Quality-Automated-Tests/dp/B085KR3XQ9/" },
-  { name: "The Complete Software Tester: Concepts, Skills, and Strategies for High-Quality Testing by Kristin Jackvony", url: "https://www.amazon.com/Complete-Software-Tester-Strategies-High-Quality-ebook/dp/B09NGVVCJ9/" },
-  { name: "Storytelling with Data: A Data Visualization Guide for Business Professionals by Cole Nussbaumer Knaflic", url: "https://www.amazon.com/Storytelling-with-Data-audiobook/dp/B079H3ZJJZ/" },
-  { name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics by Tim Harford", url: "https://www.amazon.com/dp/B089B5VXQ7" },
-  { name: "Naked Statistics: Stripping the Dread from the Data by Charles Wheelan", url: "https://www.amazon.com/dp/B00CH7FWWU" },
-  { name: "The Art of Statistics: How to Learn from Data by David Spiegelhalter", url: "https://www.amazon.com/dp/B07WK7KPKH" },
-  { name: "The Visual Display of Quantitative Information by Edward R. Tufte", url: "https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130/" }
+  { name: "Explore It!: Reduce Risk and Increase Confidence with Exploratory Testing by Elisabeth Hendrickson", url: "https://www.amazon.com/dp/1937785025/" },
+  { name: "The Complete Software Tester: Concepts, Skills, and Strategies for High-Quality Testing by Kristin Jackvony", url: "https://www.amazon.com/Complete-Software-Tester-Strategies-High-Quality-ebook/dp/B09NGVVCJ9/" }
 ];
 
 const tools = [
@@ -57,8 +52,6 @@ const tools = [
   "Fiddler",
   "Wireshark",
   "Git",
-  "Bug Genie",
-  "TestLink",
   "Zephyr",
   "qTest Manager",
   "TestComplete"
@@ -72,7 +65,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="QA Analyst Career Guide: Salary, Skills & Tools" description="What does a QA Analyst do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a QA Analyst in Games: Career Path & Skills" description="How to become a QA Analyst in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="QA Analyst" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -96,7 +89,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A QA Analyst in the game industry delves deeper than just bug-hunting. They're analyzing game mechanics, features, and user experience with a critical eye. They go beyond the surface, dissecting design choices, identifying potential issues before they become bugs, and ensuring the game aligns with its core vision. Their expertise lies in understanding game development principles and collaborating with designers and programmers to refine mechanics and optimize gameplay balance. They analyze data, conduct user research, and provide insightful feedback that shapes the final product. Ultimately, the QA Analyst ensures the game is not only technically sound but also fun, engaging, and true to its intended design.</p>
+          <p>A QA Analyst in the game industry delves deeper than just bug-hunting. They study new features before testing starts, write test plans and test cases, and work out which areas of the game carry the most risk. When bugs come in, they judge severity, spot patterns across reports, and help the team decide what to fix first. They work closely with designers, programmers, and producers, and their reports on quality trends help the studio know whether a build is ready to ship.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -118,6 +111,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="qa-analyst" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -148,6 +143,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="qa-analyst" part="faq" />
       </div>
 
       <aside class="career-sidebar">

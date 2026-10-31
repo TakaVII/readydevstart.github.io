@@ -4,12 +4,12 @@ import WikiLayout from "../../../../layouts/WikiLayout.astro";
 const base = import.meta.env.BASE_URL;
 
 const roles = [
-  { name: "Character Animator", slug: "character-animator", description: "Character animators are technical artists specializing in creating realistic and expressive movements for characters in video games." },
-  { name: "Cinematic Animator", slug: "cinematic-animator", description: "Cinematic animators are specialized technical artists who create high-fidelity, narrative-driven animation sequences for video games." },
+  { name: "Character Animator", slug: "character-animator", description: "Character animators are artists who create realistic and expressive movements for characters in video games." },
+  { name: "Cinematic Animator", slug: "cinematic-animator", description: "Cinematic animators are specialized animators who create high-fidelity, narrative-driven animation sequences for video games." },
   { name: "Motion Capture Artist", slug: "motion-capture-artist", description: "Motion Capture Artists are the technical wizards behind the scenes, capturing the nuances of human movement and translating them into the digital world." },
   { name: "Technical Animator", slug: "technical-animator", description: "Technical animators ensure that characters move realistically and the game runs smoothly, bridging the gap between artistic vision and technological limitations." },
   { name: "UX/UI Animator", slug: "ux-ui-animator", description: "UX/UI animators are the architects of interactivity in games." },
-  { name: "VFX Animator", slug: "vfx-animator", description: "VFX animators occupy a unique space within the cinematic workflow, bridging the gap between artistic vision and technical feasibility." },
+  { name: "VFX Animator", slug: "vfx-animator", description: "VFX animators create the real-time effects in games, such as spell impacts, explosions, fire, and weather." },
   { name: "Rigging Artist", slug: "rigging-artist", description: "Rigging artists are the puppeteers of the digital world, crafting the internal structures that grant characters fluid, believable movement." }
 ];
 
@@ -25,9 +25,8 @@ const skills = [
   "Creative Process Development",
   "Creativity",
   "Cross-team Communication",
-  "Design Diligence",
   "Design Principles",
-  "Design Readiness",
+  "Game Engine Integration",
   "Graphic Design",
   "Graphic Illustrations",
   "Hand-drawn Animation",
@@ -39,15 +38,18 @@ const skills = [
   "Pixel Animation",
   "Pixel Art",
   "Prototyping",
+  "Rigging",
   "Storyboarding",
   "Texturing",
   "Vector Animation"
 ];
 
 const courses = [
-  { name: "Advice from 500 Digital Artists Free Book", url: "https://therookies.hubspotpagebuilder.com/advice-from-500-digital-artists" },
+  { name: "12 Principles of Animation (free video series) by Alan Becker", url: "https://www.youtube.com/watch?v=uDqjIdI4bF4" },
+  { name: "The 11 Second Club (free monthly animation contest and critique community)", url: "https://www.11secondclub.com/" },
+  { name: "Game Anim: Jonathan Cooper's Game Animation Site and Book", url: "https://www.gameanim.com/book/" },
+  { name: "Real Time VFX Forum (free community for game effects artists)", url: "https://realtimevfx.com/" },
   { name: "ScreenSkills’ slides “What jobs are needed to make an animation”", url: "https://www.screenskills.com/media/3359/animation-slides-240120.pdf" },
-  { name: "How to Make a Successful Demo Reel for 3D Artists", url: "https://www.lifewire.com/how-to-make-a-successful-demo-reel-for-3d-artists-2054" },
   { name: "Fundamentals of Animation Course by Aaron Blaise", url: "https://creatureartteacher.com/product/fundamentals-of-animation/" },
   { name: "Creature of Art’s Animation Tutorials", url: "https://creatureartteacher.com/product-category/tutorials-lessons/animation-tutorials/" },
   { name: "3D Animation & VFX Course by Vancouver Film School", url: "https://vfs.edu/programs/3D-animation-vfx" },

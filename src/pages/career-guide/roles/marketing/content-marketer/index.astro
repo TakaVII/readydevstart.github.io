@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -16,34 +17,25 @@ const responsibilities = [
   "Understand and implement SEO best practices to ensure content reaches the right audience through organic search queries.",
   "Work closely with developers, community managers, designers, and other departments to ensure content aligns with game updates, features, and community interactions.",
   "Monitor content reach, engagement, conversion rates, and other key metrics to measure success and inform future content strategies.",
-  "Embrace emerging trends, explore new content formats, and utilize data analytics tools to continuously improve content effectiveness.",
-  "Leverage platforms like YouTube ads, social media advertising, and influencer partnerships to amplify content reach and drive targeted player acquisition.",
+  "Embrace emerging trends, explore new content formats, and use data analytics tools to continuously improve content effectiveness.",
+  "Use platforms like YouTube ads, social media advertising, and influencer partnerships to amplify content reach and drive targeted player acquisition.",
   "Explore interactive content, user-generated content, and other innovative formats to keep the audience engaged and excited about the game.",
   "Clearly demonstrate the value of content marketing efforts by tying content performance to key business goals like player acquisition, retention, and revenue generation."
 ];
 
 const resources = [
-  { name: "44 Must Read Resources on Content Marketing", url: "https://neilpatel.com/blog/44-content-marketing-resources/" },
-  { name: "The Ultimate Guide to Content Marketing in 2023 by HubSpot", url: "https://blog.hubspot.com/marketing/content-marketing" },
-  { name: "Content Marketing Resources: How to Grow as a Content Marketer", url: "https://www.copystash.io/content-marketing-resources/" },
+  { name: "The Ultimate Guide to Content Marketing by HubSpot", url: "https://blog.hubspot.com/marketing/content-marketing" },
   { name: "The Ultimate Guide to Content Marketing Strategy by Semrush", url: "https://www.semrush.com/blog/content-marketing-strategy-guide/" },
-  { name: "Spice Up Your Content Marketing Plan with Branded Games", url: "https://www.easypromosapp.com/blog/en/content-marketing-gamification/" },
-  { name: "10 Content Marketing Strategies for Your Game Launch", url: "https://www.gamemarketinggenie.com/blog/game-launch-content-marketing-strategies" },
-  { name: "6 Lessons Content Marketers Can Learn from the Video Game Industry", url: "https://www.wtmdigital.com/blog/6-lessons-content-marketers-can-learn-from-the-video-game-industry/" },
-  { name: "Content Writing for Games: A Tool for Success", url: "https://goodmanlantern.com/blog/content-writing-for-games/" },
-  { name: "Game Content Marketing Strategy: How to Adopt Content Marketing Strategies for Your Game Launch?", url: "https://www.tridindia.com/blog/game-content-marketing-strategy/" }
+  { name: "Content Marketing Certification Course (Free) by HubSpot Academy", url: "https://academy.hubspot.com/courses/content-marketing" },
+  { name: "Blogging for Business (Free Course) by Ahrefs", url: "https://ahrefs.com/academy/blogging-for-business" },
+  { name: "How To Market A Game by Chris Zukowski", url: "https://howtomarketagame.com/" },
+  { name: "10 Content Marketing Strategies for Your Game Launch", url: "https://gamemarketinggenie.com/blog/game-launch-content-marketing-strategies/" },
+  { name: "6 Lessons Content Marketers Can Learn from the Video Game Industry", url: "https://www.wtmdigital.com/blog/6-lessons-content-marketers-can-learn-from-the-video-game-industry/" }
 ];
 
 const books = [
-  { name: "Upstream Marketing: Unlock Growth Using the Combined Principles of Insight, Identity, and Innovation by Tim Koelzer and Kristin Kurth", url: "https://www.amazon.com/Upstream-Marketing-Transform-Principles-Innovation/dp/1626347514/" },
-  { name: "SEO Workbook by Jason McDonald", url: "https://www.amazon.com/SEO-Workbook-Optimization-Success-Marketing/dp/B0CQLHTG14/" },
-  { name: "The Content Shift: Why A Search Mindset Is Essential To Your Content Marketing Strategy by Mark Hawks and Jonathan Heinl", url: "https://www.amazon.com/dp/B0BW27PCSZ/" },
-  { name: "The One Hour Content Plan by Meera Kothand", url: "https://www.amazon.com/One-Hour-Content-Plan-Solopreneurs/dp/1974415708/" },
-  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/Hook-Point-Stand-3-Second-World-ebook/dp/B08D56R2FW/" },
-  { name: "The Quickest Guide to Content Creation by Helena Escalante", url: "https://www.amazon.com/Quickest-Guide-Content-Creation-Consistently-ebook/dp/B08BJ16NY7/" },
-  { name: "The One-Page Content Marketing Blueprint by Prafull Sharma", url: "https://www.amazon.com/One-Page-Content-Marketing-Blueprint-Strategy-ebook/dp/B082QVKYKR/" },
-  { name: "Content Rules: How to Create Killer Blogs, Podcasts, Videos, Ebooks, Webinars (and More) That Engage Customers and Ignite Your Business by Ann Handley and C. C. Chapman", url: "https://www.amazon.com/Content-Rules-Podcasts-Webinars-Customers/dp/1118232607" },
-  { name: "Don't Make It Weird: The Entrepreneur’s Guide to Being Human on the Internet by Colleen Nichols", url: "https://www.amazon.com/Dont-Make-Weird-Entrepreneurs-Internet/dp/B0CPTDLM1M/" },
+  { name: "Everybody Writes: Your New and Improved Go-To Guide to Creating Ridiculously Good Content (2nd Edition) by Ann Handley", url: "https://www.amazon.com/dp/1119854164/" },
+  { name: "Hook Point: How to Stand Out in a 3-Second World by Brendan Kane", url: "https://www.amazon.com/dp/B09VFS57QL/" },
   { name: "How to Get to the Top of Google: The Plain English Guide to SEO by Tim Cameron-Kitchen and Exposure Ninja", url: "https://www.amazon.com/How-Get-Top-Google-English/dp/B07CB218ZV/" },
   { name: "The YouTube Formula: How Anyone Can Unlock the Algorithm to Drive Views, Build an Audience, and Grow Revenue by Derral Eves and \"Mr. Beast\" Jimmy Donaldson", url: "https://www.amazon.com/YouTube-Formula-Algorithm-Audience-Revenue/dp/B09XY1HQ32" }
 ];
@@ -58,8 +50,9 @@ const tools = [
   "Google Analytics",
   "Semrush",
   "Ahrefs",
-  "MailChimp",
+  "Mailchimp",
   "WordPress",
+  "Steamworks",
   "Asana",
   "Trello",
   "Discord",
@@ -77,7 +70,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Content Marketer Career Guide: Salary, Skills & Tools" description="What does a Content Marketer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Content Marketer: Skills, Portfolio & Tools" description="How to become a Content Marketer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Content Marketer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -124,6 +117,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="content-marketer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -153,6 +148,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="content-marketer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

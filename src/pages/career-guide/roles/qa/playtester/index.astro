@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -24,23 +25,22 @@ const responsibilities = [
 
 const resources = [
   { name: "Into Games’ Junior QA Tester Database", url: "https://entrylevel.games/database/qa-tester" },
-  { name: "Writing A Playtest Report: Tips and Tricks for Creating a Strong Post-Playtest Report", url: "https://blog.playtestcloud.com/writing-a-playtest-report/" },
+  { name: "Writing A Playtest Report: Tips and Tricks for Creating a Strong Post-Playtest Report", url: "https://start.playtestcloud.com/blog/writing-a-playtest-report" },
   { name: "Best Practices: Five Tips for Better Playtesting", url: "https://www.gamedeveloper.com/design/best-practices-five-tips-for-better-playtesting" },
   { name: "Choose the Right Playtest Method", url: "https://gamesuserresearch.com/choose-the-right-playtest-method/" },
   { name: "VR Playtest Best Practices Featuring Schell Games", url: "https://schellgames.com/blog/vr-playtest-best-practices-featuring-schell-games" },
-  { name: "The 3 stages of playtesting — Internal, Local, and Blind", url: "https://www.backerkit.com/blog/tabletop-games-crowdfunding-roadmap/playtest/the-3-stages-of-playtesting-internal-local-and-blind/" },
-  { name: "How to Be a Better Playtester", url: "https://stonemaiergames.com/how-to-be-a-better-playtester/" }
+  { name: "How to Be a Better Playtester", url: "https://stonemaiergames.com/how-to-be-a-better-playtester/" },
+  { name: "Game Accessibility Guidelines", url: "https://gameaccessibilityguidelines.com/" }
 ];
 
 const books = [
   { name: "Modern Game Testing: Learn how to test games like a pro, optimize testing effort, and skyrocket your QA career by Nikolina Finska", url: "https://www.amazon.com/dp/1803244402/" },
   { name: "Games, Design and Play: A detailed approach to iterative game design by Colleen Macklin and John Sharp", url: "https://www.amazon.com/Games-Design-Play-detailed-iterative/dp/0134392078/" },
   { name: "Players Making Decisions: Game Design Essentials and the Art of Understanding Your Players by Zack Hiwiller", url: "https://www.amazon.com/Players-Making-Decisions-Essentials-Understanding/dp/0134396758/" },
-  { name: "Mobile Playtesting Playbook: Make Better Games by Testing Early and Often by Gareth Lloyd", url: "https://www.amazon.com/Mobile-Playtesting-Playbook-Better-Testing/dp/B09TZBPVW7/" },
+  { name: "Mobile Playtesting Playbook by Gareth Lloyd (free ebook from PlaytestCloud)", url: "https://start.playtestcloud.com/playbook" },
   { name: "Game Testing: All in One by Charles P. Schultz and Robert Denton Bryant", url: "https://www.amazon.com/Game-Testing-Charles-P-Schultz/dp/1942270763/" },
   { name: "Modern Game Testing: A Pragmatic Guide to Test Planning and Strategy by Chris Howell", url: "https://www.amazon.com/Modern-Game-Testing-Pragmatic-Planning/dp/1739711505/" },
-  { name: "Land a Job as a Video Game Tester by Jason W. Bay", url: "https://www.amazon.com/Land-Job-Video-Game-Tester/dp/0692536779/" },
-  { name: "The Complete Software Tester: Concepts, Skills, and Strategies for High-Quality Testing by Kristin Jackvony", url: "https://www.amazon.com/Complete-Software-Tester-Strategies-High-Quality-ebook/dp/B09NGVVCJ9/" }
+  { name: "Land a Job as a Video Game Tester by Jason W. Bay", url: "https://www.amazon.com/Land-Job-Video-Game-Tester/dp/0692536779/" }
 ];
 
 const tools = [
@@ -50,15 +50,11 @@ const tools = [
   "ShareX",
   "Jira",
   "Bugzilla",
-  "TeamViewer",
-  "AnyDesk",
   "Trello",
   "Asana",
-  "FRAPS",
-  "NVIDIA GeForce Experience",
-  "Wireshark",
-  "Cheat Engine",
-  "Process Explorer"
+  "NVIDIA App",
+  "Xbox Game Bar",
+  "Google Forms"
 ];
 
 const sidebarRoles = [
@@ -69,7 +65,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Playtester Career Guide: Salary, Skills & Tools" description="What does a Playtester do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Playtester in Games: Career Path & Skills" description="How to become a Playtester in the game industry: step-by-step career path, key skills, what to show employers, salary resources, tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Playtester" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -116,6 +112,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="playtester" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -145,6 +143,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="playtester" part="faq" />
       </div>
 
       <aside class="career-sidebar">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -23,23 +24,23 @@ const responsibilities = [
 
 const resources = [
   { name: "\"Everything I learned about Level Design, I Learned from Disneyland\" GDC Talk by Scott Rogers", url: "https://www.youtube.com/watch?v=P4uPwhSqW8Q&ab_channel=GameDesignCon" },
-  { name: "Into Game’s Junior Level Designer Database", url: "https://entrylevel.games/database/junior-level-designer" },
+  { name: "Into Games’ Junior Level Designer Database", url: "https://entrylevel.games/database/junior-level-designer" },
   { name: "Level Design Resources", url: "https://app.milanote.com/1R3WQ51Gh0VHbT/level-design-resources?p=4pN11kPoqDo" },
   { name: "The Level Design Book", url: "https://book.leveldesignbook.com/" },
   { name: "Level Design Papermaps YouTube Playlist by Matthew Marquit", url: "https://www.youtube.com/watch?v=fR7AfLt1vYk&list=PL0GHpYtoYaLIA3xjjYNNi0iC-1QYguLY3&index=3&ab_channel=MatthewMarquit" },
   { name: "Level Design Workshop: The Illusion of Choice - GDC Talk by Jim Brown", url: "https://www.gdcvault.com/play/1023552/Level-Design-Workshop-The-Illusion" },
-  { name: "Practical Guide on First Person Level Design", url: "https://medium.com/ironequal/practical-guide-on-first-person-level-design-e187e45c744c" },
+  { name: "Practical Guide on First Person Level Design", url: "https://www.gamedeveloper.com/design/practical-guide-on-first-person-level-design" },
   { name: "Multiplayer Level Design Guide", url: "https://www.nextleveldesign.org/index.php?/content/articles/multiplayer-level-design-guide-r145/" },
   { name: "An Approach to Holistic Level Design - GDC Talk by Steve Lee", url: "https://www.youtube.com/watch?v=CpOoTAVeEcU&ab_channel=GDC" },
   { name: "Finding your own path as a professional Level Designer", url: "https://www.mapcore.org/articles/interviews/finding-your-own-path-as-a-professional-level-designer-r92/" },
   { name: "Lighting Design for Level Designers - GDC Talk by Robert Yang", url: "https://www.gdcvault.com/play/1016450/Lighting-Design-for-Level" },
   { name: "Competitive Design Guide", url: "https://www.nextleveldesign.org/index.php?/content/articles/competitive-design-guide-r39/" },
   { name: "Level Design Lobby YouTube Channel", url: "https://www.youtube.com/channel/UCncCrL2AVwpp7NJEG2lhG9Q" },
-  { name: "Leve Design Compendium Board by Vicente Quesada", url: "https://trello.com/b/AM3ZOmAd/level-design-compendium" },
+  { name: "Level Design Compendium Board by Vicente Quesada", url: "https://trello.com/b/AM3ZOmAd/level-design-compendium" },
   { name: "Level Design Workshop: Designing Celeste - GDC Talk by Maddy Thorson", url: "https://www.youtube.com/watch?v=4RlpMhBKNr0&ab_channel=GDC" },
   { name: "Level Design Saga: Creating Levels for Casual Games - GDC Document by Jeremy Kang", url: "https://www.gdcvault.com/play/1023799/Level-Design-Saga-Creating-Levels" },
   { name: "Awesome Level Design List of Resources by bytecauldron", url: "https://github.com/bytecauldron/awesome-level-design" },
-  { name: "Level Design Tips and Tricks", url: "https://sites.google.com/view/leveldesigner/english-version" },
+  { name: "Unity’s Free E-Book for Level Designers", url: "https://unity.com/blog/games/e-book-for-level-designers" },
   { name: "Push and Pull: The art of guiding players through an environment", url: "https://www.clement-melendez.com/portfolio/essays" },
   { name: "World of Level Design", url: "https://www.worldofleveldesign.com/" },
   { name: "Level Design Fundamentals Unreal Engine Course", url: "https://dev.epicgames.com/community/learning/tutorials/3VKJ/unreal-engine-fortnite-level-design-fundamentals" },
@@ -47,34 +48,27 @@ const resources = [
 ];
 
 const books = [
-  { name: "Story Structure and Development: A Guide for Animators, VFX Artists, Game Designers, and Virtual Reality by Craig Caldwell", url: "https://www.routledge.com/Story-Structure-and-Development-A-Guide-for-Animators-VFX-Artists-Game/Caldwell/p/book/9781498781732" },
+  { name: "An Architectural Approach to Level Design (2nd Edition) by Christopher W. Totten", url: "https://www.amazon.com/dp/081536136X" },
   { name: "Level Up! The Guide to Great Video Game Design by Scott Rogers", url: "https://www.amazon.com/Level-Guide-Great-Video-Design/dp/1118877160/" },
   { name: "The Art of Game Design: A Book of Lenses by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third/dp/1138632058" },
   { name: "Theory of Fun for Game Design by Raph Koster", url: "https://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/" },
-  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/1138098779" },
+  { name: "Game Design Workshop: A Playcentric Approach to Creating Innovative Games by Tracy Fullerton", url: "https://www.amazon.com/dp/1032607009" },
   { name: "Game Feel by Steve Swink", url: "https://www.amazon.com/Game-Feel-Designers-Sensation-Kaufmann/dp/0123743281/" },
-  { name: "Fundamentals of Creature Design: How to Create Successful Concepts Using Functionality, Anatomy, Color, Shape & Scale by 3dtotal Publishing", url: "https://www.amazon.com/Fundamentals-Creature-Design-Successful-Functionality/dp/1912843129/" },
   { name: "Designing Games: A Guide to Engineering Experiences by Tynan Sylvester", url: "https://www.amazon.com/Designing-Games-Guide-Engineering-Experiences/dp/1449337937" }
 ];
 
 const tools = [
   "Game Engines",
-  "Maya",
   "Blender",
-  "Houdini",
-  "Substance Designer",
-  "Substance Painter",
-  "ZBrush",
+  "TrenchBroom",
+  "Hammer (Source 2)",
+  "LDtk",
+  "Tiled",
   "Photoshop",
+  "Excel / Google Sheets",
   "Jira",
   "Perforce",
-  "Git",
-  "Excel",
-  "World Machine",
-  "Houdini Engine",
-  "Graphite",
-  "LDtk",
-  "Tiled"
+  "Git"
 ];
 
 const sidebarRoles = [
@@ -88,7 +82,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Level Designer Career Guide: Salary, Skills & Tools" description="What does a Level Designer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Level Designer: Skills, Portfolio & Tools" description="How to become a level designer: step-by-step path, key skills, portfolio tips, salary resources, the tools and editors to learn, and common questions answered." activeNav="career-guide">
   <WikiLayout title="Level Designer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -135,6 +129,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="level-designer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -164,6 +160,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="level-designer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

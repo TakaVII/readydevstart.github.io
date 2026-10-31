@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -12,29 +13,28 @@ const salaries = [
 
 const responsibilities = [
   "Define AI goals and behaviors for characters, enemies, and environments, crafting algorithms and decision trees to govern their actions and reactions.",
-  "Seamlessly integrate AI code with the game engine, ensuring smooth interaction between AI entities and other game elements like physics, environment, and player actions.",
+  "Build decision-making systems such as finite state machines, behavior trees, utility AI, and goal-oriented action planning (GOAP).",
+  "Implement pathfinding and navigation with A* and navigation meshes, plus steering and avoidance so agents move believably through levels.",
+  "Program perception systems such as sight, hearing, and memory so NPCs notice and react to the player in readable, fair ways.",
+  "Integrate AI code with the game engine so AI agents interact correctly with physics, animation, the environment, and player actions.",
   "Tune AI algorithms and resource allocation to achieve desired behavior while maintaining smooth gameplay performance and frame rate.",
-  "Design AI difficulty levels and progression curves that offer a rewarding challenge for players, encouraging engagement and avoiding frustration.",
-  "Craft diverse and dynamic AI behaviors that mimic natural movement, decision-making, and reactions to create immersive and unpredictable gameplay experiences.",
-  "Implement machine learning algorithms like reinforcement learning and neural networks to enable AI agents to learn, adapt, and improve over time.",
-  "Work closely with game designers, programmers, artists, and animators to ensure AI systems seamlessly fit within the game's narrative, environment, and visual style.",
-  "Continuously learn about emerging AI research, tools, and techniques to utilize the latest advancements and keep AI systems innovative and engaging.",
+  "Expose AI parameters and tools so designers can author, tune, and balance enemy behavior and difficulty without changing code.",
+  "Work closely with game designers, programmers, artists, and animators to ensure AI systems fit the game's narrative, environment, and visual style.",
+  "Keep up with new techniques, including machine learning for areas like automated testing bots, where it suits the project.",
   "Identify and fix bugs and unexpected behaviors in AI systems, ensuring optimal performance and a smooth player experience.",
   "Clearly document AI algorithms, decision trees, and design choices to facilitate future maintenance and collaboration with other developers."
 ];
 
 const resources = [
-  { name: "Mastered’s Games Programming Bootcamp", url: "https://join.mastered.com/games_careers_sb" },
   { name: "ScreenSkills’ AI Programmer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/programming/artificial-intelligence-ai-programmer/" },
-  { name: "The Total Beginner's Guide to Game AI by Ben Sizer", url: "https://www.gamedev.net/tutorials/programming/artificial-intelligence/the-total-beginners-guide-to-game-ai-r4942/" },
-  { name: "Introduction to AI Programming for Games by Kodeco", url: "https://www.kodeco.com/2808-introduction-to-ai-programming-for-games" },
-  { name: "AI Programming for Games by GameDesigning", url: "https://www.gamedesigning.org/career/ai-programmer/" },
-  { name: "AI in Gaming | 5 Biggest Innovations (+40 AI Games)", url: "https://www.engati.com/blog/ai-in-gaming" },
-  { name: "AI for Game Developers by David M Bourg, Glenn Seemann", url: "https://www.oreilly.com/library/view/ai-for-game/0596005555/ch01.html" },
+  { name: "The Total Beginner's Guide to Game AI by Ben Sizer", url: "https://gamedev.net/tutorials/programming/artificial-intelligence/the-total-beginners-guide-to-game-ai-r4942/" },
+  { name: "Introduction to A* (Pathfinding) by Red Blob Games", url: "https://www.redblobgames.com/pathfinding/a-star/introduction.html" },
+  { name: "Behavior Trees for AI: How They Work by Chris Simpson", url: "https://www.gamedeveloper.com/programming/behavior-trees-for-ai-how-they-work" },
+  { name: "Game AI Pro (free online chapters)", url: "http://www.gameaipro.com/" },
+  { name: "AI and Games YouTube Channel by Tommy Thompson", url: "https://www.youtube.com/@AIandGames" },
   { name: "An Introduction to Utility Theory by David “Rez” Graham", url: "http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf" },
   { name: "Improving AI Decision Modeling Through Utility Theory - GDC Talk by Kevin Dill and Dave Mark", url: "https://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through" },
   { name: "Winding Road Ahead: Designing Utility AI with Curvature - GDC Talk by Mike Lewis", url: "https://www.youtube.com/watch?v=TCf1GdRrerw&ab_channel=GDC" },
-  { name: "Awesome Game AI materials of Multi-Agent Reinforcement Learning", url: "https://github.com/datamllab/awesome-game-ai" },
   { name: "Game AI: The State of the Industry", url: "https://www.gamedeveloper.com/design/game-ai-the-state-of-the-industry" }
 ];
 
@@ -44,29 +44,22 @@ const books = [
   { name: "Programming Game AI by Example by Mat Buckland", url: "https://www.amazon.com/Programming-Example-Wordware-Developers-Library/dp/1556220782/" },
   { name: "Game AI Pro by Steven Rabin", url: "https://www.amazon.com/Game-AI-Pro-Steven-Rabin/dp/1032477458/" },
   { name: "Artificial Intelligence and Games by Georgios N. Yannakakis and Julian Togelius", url: "https://www.amazon.com/Artificial-Intelligence-Games-Georgios-Yannakakis-ebook/dp/B079WGWJB9/" },
-  { name: "AI for Game Developers: Creating Intelligent Behavior in Games by David M. Bourg and Glenn Seemann", url: "https://www.amazon.com/AI-Game-Developers-Creating-Intelligent/dp/0596005555/" },
   { name: "Behavioral Mathematics for Game AI by Dave Mark", url: "https://www.amazon.com/Behavioral-Mathematics-Game-AI-Applied/dp/1584506849/" },
-  { name: "AI Techniques for Game Programming by Mat Buckland", url: "https://www.amazon.com/Techniques-Programming-Premier-Press-Development/dp/193184108X/" },
-  { name: "Game AI Pro 360: Guide to Tactics and Strategy by Steve Rabin", url: "https://www.amazon.com/Game-AI-Pro-360-Strategy-ebook/dp/B07XJ88HPD/" },
-  { name: "AI Game Programming Wisdom by Steve Rabin", url: "https://www.amazon.com/AI-Game-Programming-Wisdom-Development/dp/1584500778" }
+  { name: "Game AI Pro 360: Guide to Tactics and Strategy by Steve Rabin", url: "https://www.amazon.com/Game-AI-Pro-360-Strategy-ebook/dp/B07XJ88HPD/" }
 ];
 
 const tools = [
   "Game Engines",
-  "TensorFlow",
-  "PyTorch",
-  "Scikit-learn",
-  "Unity ML-Agents Toolkit",
-  "Keras",
-  "Pandas",
-  "NumPy",
-  "OpenAI Gym",
-  "OpenCV",
-  "Jupyter Notebook",
+  "C++",
+  "C#",
+  "Unreal Behavior Trees",
+  "Unreal StateTree",
+  "Unreal Environment Query System (EQS)",
+  "Unity AI Navigation",
+  "Recast & Detour",
   "Git",
-  "PyCharm",
-  "Blender",
-  "Houdini"
+  "Unity ML-Agents Toolkit",
+  "PyTorch"
 ];
 
 const sidebarRoles = [
@@ -84,7 +77,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="AI Programmer Career Guide: Salary, Skills & Tools" description="What does an AI Programmer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become an AI Programmer: Skills, Portfolio & Tools" description="How to become an AI Programmer in the game industry: step-by-step path, key skills, portfolio tips, salary resources, the tools to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="AI Programmer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -108,7 +101,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>An AI Programmer is the architect of intelligent behavior within the virtual world. They design and implement algorithms that power the brains of non-player characters (NPCs), enemies, and even environmental elements. Their code dictates how these entities react to players, make decisions, and adapt to the unfolding narrative. The work involves expertise in various areas like machine learning, pathfinding algorithms, and scripting languages. AI Programmers create diverse behaviors, from basic pathfinding and combat routines to complex decision trees that simulate individual personalities and emotional responses. Their goal is to breathe life into the game world, making it feel dynamic, believable, and engaging for players to explore and interact with.</p>
+          <p>An AI Programmer is the architect of intelligent behavior within the virtual world. They design and implement algorithms that power the brains of non-player characters (NPCs), enemies, and even environmental elements. Their code dictates how these entities react to players, make decisions, and adapt to the unfolding narrative. The work centers on classic game AI techniques: finite state machines, behavior trees, utility AI, goal-oriented action planning (GOAP), and pathfinding with A* and navigation meshes. Machine learning is a smaller, emerging part of the field, used mostly for things like automated testing bots. AI Programmers create diverse behaviors, from basic pathfinding and combat routines to complex decision trees that simulate individual personalities and emotional responses. Their goal is to breathe life into the game world, making it feel dynamic, believable, and engaging for players to explore and interact with.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
@@ -130,6 +123,8 @@ const sidebarRoles = [
             ))}
           </ul>
         </div>
+
+        <RoleGuide slug="ai-programmer" part="guide" />
 
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
@@ -160,6 +155,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="ai-programmer" part="faq" />
       </div>
 
       <aside class="career-sidebar">
