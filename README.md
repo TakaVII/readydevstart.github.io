@@ -27,7 +27,11 @@ See [`public/assets/README.md`](public/assets/README.md) for the full asset cata
 
 ### Sitemap
 
-The site includes a static [`public/sitemap.xml`](public/sitemap.xml) submitted to Google Search Console. **Always update `sitemap.xml` when adding or removing pages** — add a new `<url>` entry with the full URL, `<lastmod>` date, and appropriate `<priority>`.
+`/sitemap.xml` (submitted to Google Search Console) is generated at build time by [`src/pages/sitemap.xml.ts`](src/pages/sitemap.xml.ts). Every page is listed automatically with its last git commit date as `<lastmod>` — no manual updates needed. Pages that set `canonicalPath` on `BaseLayout` (duplicates of another page) are left out.
+
+### Titles & descriptions
+
+Every page passes a search-focused `title` and a unique `description` to `BaseLayout`. Write the title for the query people actually search (e.g. "Level Designer Career Guide: Salary, Skills & Tools", not just "Level Designer"); `| Ready Dev Start` is appended automatically. Keep descriptions around 140–160 characters and only describe what the page really contains.
 
 ### Google Tag Manager
 
