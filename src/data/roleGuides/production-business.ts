@@ -103,8 +103,8 @@ export const productionBusinessGuides: Record<string, RoleGuide> = {
     ],
   },
 
-  "publisher": {
-    name: "Publisher",
+  "publishing-manager": {
+    name: "Publishing Manager/Producer",
     steps: [
       { title: "Learn what game publishers actually do", body: "Publishers fund development, handle marketing, manage distribution and platform relationships, and often provide QA and localization. Read up on how publishing deals are structured and how they differ from self-publishing." },
       { title: "Study the market", body: "Follow sales charts, platform storefronts, and industry news. Practice explaining why certain games found an audience and others didn't, and which genres and platforms are growing." },
@@ -130,11 +130,10 @@ export const productionBusinessGuides: Record<string, RoleGuide> = {
       "Relationships you've managed with developers, platforms, or vendors, described without confidential details.",
     ],
     faqs: [
+      { question: "What does a publishing manager or publishing producer do?", answer: "They are the publisher's main point of contact with a partner studio. They track milestones, review builds, manage budgets and schedules, and coordinate marketing, QA, localization, and platform submissions so the game launches well. Titles vary by company, and some publishers use one title for both jobs." },
       { question: "What does a video game publisher do?", answer: "A video game publisher funds and supports the release of games, usually covering some combination of development funding, marketing, distribution, platform relationships, QA, and localization, in exchange for a share of revenue." },
       { question: "How do you get a job at a game publisher?", answer: "Build a strong understanding of the games market, develop analytical and communication skills, and look for entry roles such as publishing assistant, associate producer, QA, or marketing at a publishing company." },
-      { question: "What's the difference between a game developer and a game publisher?", answer: "A developer makes the game. A publisher handles the business of getting it to players, such as funding, marketing, and distribution. Some companies do both, and many indie developers self-publish." },
-      { question: "What do publishers look for when signing an indie game?", answer: "It varies by publisher, but they generally look at whether the game fits their audience and portfolio, whether the team can realistically finish it, the quality of the current build, and the budget and timeline being requested." },
-    ],
+      { question: "What's the difference between a game developer and a game publisher?", answer: "A developer makes the game. A publisher handles the business of getting it to players, such as funding, marketing, and distribution. Some companies do both, and many indie developers self-publish." },    ],
   },
 
   "business-development-executive": {
