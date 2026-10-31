@@ -346,7 +346,7 @@ export const productionBusinessGuides: Record<string, RoleGuide> = {
     steps: [
       { title: "Learn the fundamentals of performance marketing", body: "Understand paid ad campaigns, targeting, bidding, budgets, and the key metrics: cost per install, retention, return on ad spend, and lifetime value. These concepts drive every UA decision." },
       { title: "Understand mobile game business models", body: "Most UA roles are in mobile and free-to-play games. Learn how in-app purchases and ad revenue work, because the value of a new player decides how much you can spend to acquire one." },
-      { title: "Get hands-on with ad platforms", body: "Learn how Meta Business Manager, Google Ads, TikTok Ads, and ad networks like Unity Ads or AppLovin work. Even running a small campaign for your own game or app teaches a lot." },
+      { title: "Get hands-on with ad platforms", body: "Learn how Meta Ads Manager, Google Ads, TikTok Ads, and ad networks like Unity Ads or AppLovin work. Even running a small campaign for your own game or app teaches a lot." },
       { title: "Learn attribution and analytics tools", body: "Mobile measurement partners like AppsFlyer, Adjust, or Singular track where installs come from. Pair them with analytics tools like Amplitude or Mixpanel to see what players do after they install." },
       { title: "Practice creative testing", body: "Ad creatives are a big lever in UA. Study the ads in your favorite games, learn how to brief and test new concepts, and understand how platforms report creative performance." },
       { title: "Apply for UA and growth marketing roles", body: "Look for junior UA, marketing analyst, or growth marketing roles at game studios, publishers, or ad tech companies. Highlight any campaigns you've run and what you learned from the data." },
@@ -371,7 +371,7 @@ export const productionBusinessGuides: Record<string, RoleGuide> = {
       { question: "What does a user acquisition specialist do in mobile games?", answer: "A UA specialist runs paid campaigns to bring new players into a game, choosing channels, managing budgets, testing ad creatives, and analyzing whether the players acquired are valuable enough to justify the cost." },
       { question: "How do you get into user acquisition for mobile games?", answer: "Learn performance marketing basics and mobile game monetization, get hands-on with ad platforms and attribution tools, run small campaigns where you can, and apply for junior UA, marketing analyst, or growth roles." },
       { question: "What is the difference between user acquisition and marketing?", answer: "User acquisition is a part of marketing focused on getting new players, usually through paid, measurable channels. Broader marketing also covers brand, community, PR, and retaining existing players." },
-      { question: "What tools do user acquisition managers use?", answer: "Ad platforms like Meta Business Manager, Google Ads, and Unity Ads, mobile measurement partners like AppsFlyer, Adjust, or Singular, analytics tools like Amplitude or Mixpanel, and market intelligence tools like Sensor Tower." },
+      { question: "What tools do user acquisition managers use?", answer: "Ad platforms like Meta Ads Manager, Google Ads, and Unity Ads, mobile measurement partners like AppsFlyer, Adjust, or Singular, analytics tools like Amplitude or Mixpanel, and market intelligence tools like Sensor Tower." },
     ],
   },
 };

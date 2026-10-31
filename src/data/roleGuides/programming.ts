@@ -41,7 +41,7 @@ export const programmingGuides: Record<string, RoleGuide> = {
       { title: "Study DSP fundamentals", body: "Write simple filters, delays, and a basic reverb yourself. Resources like Introduction to Digital Filters with Audio Applications by Julius O. Smith III (linked below) explain the math behind effects you'll use every day." },
       { title: "Build game audio systems", body: "Program features like footstep surfaces, occlusion, distance attenuation, voice limiting, and music that changes with gameplay intensity. These are the systems studios actually need." },
       { title: "Work with sound designers and composers", body: "Team up on a game jam or student project as the person who implements audio. Learning how designers think about sound will shape the tools and systems you build." },
-      { title: "Share your work and apply", body: "Put together builds, code, and videos with sound on, then apply for audio programmer, gameplay programmer, or audio tools roles. The Audio Programmer Wiki (linked below) and its community are a good place to keep learning and meet people." },
+      { title: "Share your work and apply", body: "Put together builds, code, and videos with sound on, then apply for audio programmer, gameplay programmer, or audio tools roles. The Audio Programmer community (linked below) is a good place to keep learning and meet people." },
     ],
     skills: [
       { title: "Real-time programming", body: "Writing code that runs on the audio thread without allocations, locks, or anything that could cause dropouts." },
@@ -293,7 +293,7 @@ export const programmingGuides: Record<string, RoleGuide> = {
     name: "VR Programmer",
     steps: [
       { title: "Learn Unity or Unreal for XR", body: "Most VR games are built in Unity (C#) or Unreal (C++ and Blueprints). Learn how each sets up an XR project, tracks the headset and controllers, and renders to both eyes." },
-      { title: "Learn the VR toolkits", body: "Get familiar with OpenXR, the cross-platform standard, and higher-level kits like the Unity XR Interaction Toolkit. Understand what each layer handles for you." },
+      { title: "Learn the VR toolkits", body: "Get familiar with OpenXR, the cross-platform standard, and higher-level kits like the Unity XR Interaction Toolkit. If you target Meta Quest, also learn the Meta XR SDK, which replaced the older Oculus Integration package. Understand what each layer handles for you." },
       { title: "Get access to a headset and test constantly", body: "VR has to be felt to be judged. Test on real hardware often, since comfort and scale problems rarely show up on a flat monitor." },
       { title: "Build core VR interactions", body: "Implement grabbing, throwing, UI pointers, and both teleport and smooth locomotion. Add comfort options like vignettes and snap turning." },
       { title: "Learn VR performance", body: "VR needs a high, steady frame rate, often on mobile hardware in standalone headsets. Learn to profile, reduce draw calls, and use techniques like foveated rendering where available." },

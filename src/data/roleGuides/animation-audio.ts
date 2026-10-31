@@ -294,7 +294,7 @@ export const animationAudioGuides: Record<string, RoleGuide> = {
   "foley-artist": {
     name: "Foley Artist",
     steps: [
-      { title: "Learn the basics of recording", body: "Understand microphones, mic placement, gain staging, and room acoustics. A portable recorder like a Zoom H6 or an audio interface such as a Focusrite Scarlett is enough to start." },
+      { title: "Learn the basics of recording", body: "Understand microphones, mic placement, gain staging, and room acoustics. A portable recorder like a Zoom H6essential or an audio interface such as a Focusrite Scarlett is enough to start." },
       { title: "Build a prop collection and experiment", body: "Gather shoes, fabrics, gravel, leather, metal, and vegetables, then try recording them in different ways. Much of Foley is discovering which objects produce the sound you need." },
       { title: "Practice performing to picture", body: "Foley is a performance. Watch gameplay or animation clips and record footsteps, cloth movement, and handling sounds in sync with the action." },
       { title: "Learn editing and cleanup", body: "Edit and clean your recordings in a DAW such as Reaper or Pro Tools, and use iZotope RX to remove noise and clicks. Clean, well-cut files matter as much as good recordings." },

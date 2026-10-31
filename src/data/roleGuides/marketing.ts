@@ -102,7 +102,7 @@ export const marketingGuides: Record<string, RoleGuide> = {
     steps: [
       { title: "Watch the creators your players watch", body: "Spend time on Twitch, YouTube, and TikTok in the genres you want to market. Learn what kinds of games each creator plays, how they talk to their audience, and what makes a sponsored segment feel natural or forced." },
       { title: "Learn how creator outreach works", body: "Understand the common approaches: sending free keys, paid sponsorships, early access, and creator programs. Key distribution services like Keymailer, and creator discovery tools like Social Blade, are standard parts of the workflow." },
-      { title: "Learn disclosure rules", body: "Read the FTC's guidance on endorsements and sponsored content. You will be responsible for making sure paid partnerships are clearly disclosed." },
+      { title: "Learn disclosure rules", body: "Read the FTC's Disclosures 101 guide for influencers (linked below). You will be responsible for making sure paid partnerships are clearly disclosed." },
       { title: "Build and manage a creator list", body: "Practice by building a spreadsheet of creators for a real indie game: channel, audience, genre fit, contact info, and notes. Organizing and tracking outreach is a big part of the job." },
       { title: "Run outreach for a small game", body: "Offer to handle creator outreach for an indie game or demo. Writing pitches, sending keys, following up, and tracking who covered the game gives you a real campaign to show." },
       { title: "Apply to studios, publishers, and agencies", body: "Look for influencer marketing, creator relations, or marketing coordinator roles. Agencies that specialize in game influencer campaigns are a common entry point." },
@@ -133,7 +133,7 @@ export const marketingGuides: Record<string, RoleGuide> = {
     name: "Performance Marketer",
     steps: [
       { title: "Learn the core metrics", body: "Understand cost per install (CPI), cost per acquisition, retention, return on ad spend (ROAS), and lifetime value (LTV). These terms show up in nearly every performance marketing conversation in games." },
-      { title: "Learn the major ad platforms", body: "Get hands-on with Google Ads, Meta Ads Manager, and TikTok Ads. Free courses and certifications from the platforms themselves teach campaign setup, targeting, and bidding." },
+      { title: "Learn the major ad platforms", body: "Get hands-on with Google Ads, Meta Ads Manager, and TikTok Ads. Free courses and certifications from the platforms themselves (Google Skillshop, Meta Blueprint, and TikTok Academy, linked below) teach campaign setup, targeting, and bidding." },
       { title: "Understand attribution and mobile measurement", body: "Learn how mobile measurement partners like AppsFlyer, Adjust, and Singular track where installs come from, and how privacy changes on iOS and Android affect tracking." },
       { title: "Build strong spreadsheet and analysis skills", body: "Much of the job happens in spreadsheets and dashboards. Practice pivot tables, cohort analysis, and building simple reports that compare channels and creatives." },
       { title: "Run a small paid test", body: "With a small budget, run ads for an indie game, demo, or even a personal project, and track the results. Testing different creatives and audiences gives you a real example of how you make decisions from data." },

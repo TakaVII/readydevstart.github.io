@@ -100,7 +100,7 @@ export const roleGuides: Record<string, RoleGuide> = {
       "Levels built in the engine or genre of the studios you're targeting, where possible.",
     ],
     faqs: [
-      { question: "What software do level designers use?", answer: "Mostly game engines and their editors, such as Unreal Engine, Unity, or Godot, plus mod tools for existing games. Many also use 3D tools like Blender for simple props and 2D tile editors such as Tiled or LDtk for 2D games." },
+      { question: "What software do level designers use?", answer: "Mostly game engines and their editors, such as Unreal Engine, Unity, or Godot, plus mod tools for existing games. Many also use 3D tools like Blender for simple props, brush-based editors like TrenchBroom or Hammer, and 2D tile editors such as Tiled or LDtk for 2D games." },
       { question: "Do level designers need to know how to code?", answer: "Deep programming isn't usually required, but most level designers script events and interactions with visual scripting (like Unreal Blueprints) or light scripting, so basic logic skills are very useful." },
       { question: "Is modding a good way to become a level designer?", answer: "Yes. Building maps and mods for existing games is one of the most common ways into level design, because it teaches you to design within real mechanics and gives you shareable portfolio pieces." },
       { question: "What is greyboxing in level design?", answer: "Greyboxing (or blockout) is building a level with simple, untextured shapes to test layout, scale, and flow before artists spend time on final visuals." },

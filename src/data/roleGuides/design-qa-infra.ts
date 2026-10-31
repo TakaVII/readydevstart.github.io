@@ -59,7 +59,7 @@ export const designQaInfraGuides: Record<string, RoleGuide> = {
     ],
     faqs: [
       { question: "What's the difference between a narrative designer and a game writer?", answer: "A game writer focuses on the words themselves: dialogue, text, and scripts. A narrative designer focuses on how the story is structured and delivered through gameplay, quests, and systems. Many job postings blend the two, especially at smaller studios." },
-      { question: "What software do narrative designers use?", answer: "Common tools include Twine, Ink, and Yarn Spinner for branching dialogue, Final Draft or Celtx for scripts, spreadsheets for managing lines, and wikis like Confluence, Notion, or Obsidian for lore. Many also implement dialogue directly in the game engine." },
+      { question: "What software do narrative designers use?", answer: "Common tools include Twine, Ink, and Yarn Spinner for branching dialogue, articy:draft for larger story databases, Final Draft or Celtx for scripts, spreadsheets for managing lines, and wikis like Confluence, Notion, or Obsidian for lore. Many also implement dialogue directly in the game engine." },
       { question: "How do I get into game writing with no experience?", answer: "Write and publish small interactive stories, join game jams as a writer, and contribute to mods or indie projects. A few finished, playable samples that match the studio's tone usually carry more weight than credits from unrelated writing work." },
       { question: "Should a narrative design portfolio include prose fiction?", answer: "You can include a short piece, but put interactive work first. Studios want to see that you can write branching dialogue, short in-game text, and story that works alongside gameplay." },
     ],
@@ -105,7 +105,7 @@ export const designQaInfraGuides: Record<string, RoleGuide> = {
       { title: "Build systems designers can use", body: "Make reusable components with exposed parameters, such as a configurable door, spawner, or ability, so other designers can build content without writing code." },
       { title: "Prototype AI and complex logic", body: "Practice with behavior trees, state machines, and perception systems. Building a small enemy that patrols, notices, and reacts teaches a lot about debugging and performance." },
       { title: "Learn to debug and profile", body: "Get used to using the engine's debugger and profiler, reading logs, and tracking down why something breaks. Version control with Git or Perforce is expected on any team." },
-      { title: "Show your work and apply", body: "Combine playable prototypes with short videos that walk through your scripts and tools. Apply for junior technical designer roles; Into Games' Junior Technical Designer Database (linked below) is a useful place to see what studios ask for." },
+      { title: "Show your work and apply", body: "Combine playable prototypes with short videos that walk through your scripts and tools. Apply for junior technical designer roles, and read real job postings to see which engines and scripting languages studios ask for." },
     ],
     skills: [
       { title: "Scripting & visual scripting", body: "Writing clean, readable logic in Blueprints, C#, C++, or Python." },
@@ -268,7 +268,7 @@ export const designQaInfraGuides: Record<string, RoleGuide> = {
     steps: [
       { title: "Build a foundation in manual testing", body: "Learn how to write test cases, run regression passes, and report bugs clearly. Automation is only useful if you know what is worth testing in the first place." },
       { title: "Learn to program", body: "Python is a good first language for test automation, and C# or C++ help when writing tests inside Unity or Unreal. Focus on writing small, readable scripts." },
-      { title: "Learn test automation frameworks", body: "Practice with the Unity Test Framework or Unreal Engine's automation and testing tools, and try Selenium or Appium for web and mobile front ends. Write tests that load a scene, perform an action, and check the result." },
+      { title: "Learn test automation frameworks", body: "Practice with the Unity Test Framework or Unreal Engine's automation and testing tools, and try Selenium or Appium for web and mobile front ends. Write tests that load a scene, perform an action, and check the result. The GDC talk on automated testing in Sea of Thieves (linked below) shows how one studio does this at scale." },
       { title: "Understand builds and pipelines", body: "Learn Git, how build systems work, and how continuous integration runs tests automatically on each change. QA engineers often help keep builds stable and catch breakages early." },
       { title: "Learn to work with data and APIs", body: "Use SQL to check player data and Postman to test backend endpoints. Online games depend on services, and testing them is a large part of the role." },
       { title: "Show automation projects and apply", body: "Publish a small game project with an automated test suite on GitHub, then apply for QA engineer, test automation, or SDET roles at studios." },
@@ -398,7 +398,7 @@ export const designQaInfraGuides: Record<string, RoleGuide> = {
   "liveops-engineer": {
     name: "LiveOps Engineer",
     steps: [
-      { title: "Understand what live operations involve", body: "Live games keep changing after launch through events, seasons, balance patches, and store updates. Learn how studios plan, schedule, and deploy this content without breaking the game. LiveOps 101: A Survival Guide for Game Operations (linked below) is a good overview." },
+      { title: "Understand what live operations involve", body: "Live games keep changing after launch through events, seasons, balance patches, and store updates. Learn how studios plan, schedule, and deploy this content without breaking the game. The free GDC talk LiveOps: A Process in the Making (linked below) is a good overview." },
       { title: "Learn programming and scripting", body: "Python is widely used for automation and tooling, and SQL for checking live data. Knowing the language your game's backend uses is a big plus." },
       { title: "Learn backend and cloud basics", body: "Understand servers, databases, APIs, and how content is delivered to players. Try a game backend service like PlayFab or Firebase to see how remote config, events, and player data work." },
       { title: "Get comfortable with monitoring and deployment", body: "Learn how tools like Grafana, Datadog, or Splunk track server health and errors, and how CI/CD systems such as Jenkins automate builds and deployments." },

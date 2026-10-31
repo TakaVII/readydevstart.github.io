@@ -13,27 +13,26 @@ const salaries = [
 
 const responsibilities = [
   "Design and implement all sound effects, ambient sounds, dialogue, and music integration to create a unique and immersive audio experience that supports the game's narrative, theme, and gameplay.",
-  "Utilize Foley artistry, synthesis, and audio manipulation techniques to generate realistic and impactful sound effects for actions, objects, characters, environments, and UI elements.",
+  "Use Foley artistry, synthesis, and audio manipulation techniques to generate realistic and impactful sound effects for actions, objects, characters, environments, and UI elements.",
   "Implement systems for dynamic ambient sounds, reactive sound effects, and procedural audio that adapt to player actions, environmental changes, and gameplay events.",
-  "Work closely with environment artists, character artists, and level designers to understand visual concepts and ensure audio seamlessly integrates with the game's art style and atmosphere.",
+  "Work closely with environment artists, character artists, and level designers to understand visual concepts and make sure audio fits the game's art style and atmosphere.",
   "Cast, direct, and edit voice acting performances for characters and narration, ensuring emotional depth, consistency, and adherence to the game's lore and dialogue style.",
   "Analyze and address memory usage, resource allocation, and processing demands of audio assets to maintain smooth gameplay without compromising sound quality.",
   "Identify and resolve audio glitches, clipping, inconsistencies, and performance bottlenecks across platforms and hardware configurations.",
-  "Proficiently utilize DAWs, audio editing software, sound libraries, and plugins to edit, mix, and master sound effects, dialogue, and music for optimal impact."
+  "Use DAWs, audio editing software, sound libraries, and plugins to edit, mix, and master sound effects, dialogue, and music for optimal impact."
 ];
 
 const resources = [
   { name: "The 4 Fundamentals of a Good Mix (with Dan Worrall) by Audio University", url: "https://www.youtube.com/watch?v=QSvdhuu2orQ&ab_channel=AudioUniversity" },
+  { name: "Wwise-101 Free Course by Audiokinetic", url: "https://www.audiokinetic.com/en/courses/wwise101/" },
+  { name: "FMOD Learning Resources (free docs and video tutorials)", url: "https://www.fmod.com/learn" },
   { name: "Game Audio Implementation Resources", url: "https://gameaudioimplementation.com/" },
-  { name: "USITT/TSDCA Sound Documentation Recommended Practice", url: "https://tsdca.org/app/uploads/USITT-TSDCA-Sound-Documentation-Recommendations_April_2022_APPROVED.pdf" },
   { name: "StudyingSound Resources & Exercises", url: "https://studyingsound.org/" },
+  { name: "Game Audio Learning Portal (free community resource list)", url: "https://www.gameaudiolearning.com/resources" },
   { name: "What does a Sound Designer (Games and Tech) do?", url: "https://www.berklee.edu/careers/roles/sound-designer-games" },
-  { name: "Sound Designer: Everything You Need To Know", url: "https://www.nfi.edu/sound-designer/" },
   { name: "How to become a video game sound designer by GamesIndustry.biz", url: "https://www.gamesindustry.biz/how-to-become-a-video-game-sound-designer" },
-  { name: "Video game sound design 101", url: "https://blog.native-instruments.com/video-game-sound-design/" },
-  { name: "ScreenSkills’ Sound Designer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/audio/sound-designer-games/" },
-  { name: "Basics of Sound Design for Video Games by Michael Cullen", url: "https://frost.ics.uci.edu/ics62/BasicsofSoundDesignforVideoGames-MichaelCullen.pdf" },
-  { name: "The Importance of Sound Design for Video Games", url: "https://www.visartech.com/blog/sound-effects-in-games-development/" }
+  { name: "Video game sound design 101 by Native Instruments", url: "https://www.native-instruments.com/blogs/blog/video-game-sound-design" },
+  { name: "ScreenSkills’ Sound Designer Profile", url: "https://www.screenskills.com/job-profiles/browse/games/audio/sound-designer-games/" }
 ];
 
 const books = [
@@ -45,35 +44,26 @@ const books = [
   { name: "Complete Guide to Game Audio by Aaron Marks", url: "https://www.amazon.com/Aaron-Marks-Complete-Guide-Audio/dp/1138795380/ref=sr_1_4" },
   { name: "The Essential Guide to Game Audio by Steve Horowitz and Scott Looney", url: "https://www.amazon.com/Essential-Guide-Game-Audio-Practice/dp/041570670X/ref=sr_1_13" },
   { name: "Game Audio Mixing by Alex Riviere", url: "https://www.amazon.com/Game-Audio-Mixing-Alex-Riviere/dp/1032397357/ref=sr_1_14" },
-  { name: "The Art of Game Design by Jesse Schell", url: "https://www.amazon.com/Art-Game-Design-Lenses-Third-ebook/dp/B07X59RN6N" },
-  { name: "The Computer Music Tutorial by Curtis Roads", url: "https://www.amazon.com/Computer-Music-Tutorial-MIT-Press/dp/0262680823" },
   { name: "Sound Synthesis and Sampling by Martin Russ", url: "https://www.amazon.com/Sound-Synthesis-Sampling-Third-Technology/dp/0240521056" }
 ];
 
 const tools = [
   "Game Engines",
-  "Pro Tools",
-  "Logic Pro X",
   "Wwise",
   "FMOD Studio",
-  "iZotope RX Suite",
-  "Soundminer",
-  "Splice Sounds",
-  "Loopcloud",
-  "Kontakt",
-  "Battery",
-  "Serum",
-  "Massive",
-  "FabFilter Pro-Q 3",
-  "Soundtoys Decapitator",
-  "Wavesfactory Renaissance Reverb",
-  "Valhalla Room",
-  "Kilohearts Phaseplant",
-  "iZotope Neutron 3",
-  "Reaktor",
-  "Max/MSP",
+  "Reaper",
+  "Pro Tools",
   "Ableton Live",
-  "Bitwig Studio"
+  "iZotope RX",
+  "Soundminer",
+  "Splice",
+  "Kontakt",
+  "Serum",
+  "Kilohearts Phase Plant",
+  "FabFilter Pro-Q",
+  "Soundtoys Decapitator",
+  "Valhalla Room",
+  "Max/MSP"
 ];
 
 const sidebarRoles = [
@@ -110,7 +100,7 @@ const sidebarRoles = [
       <div class="career-main">
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>About this Role</h2>
-          <p>A game sound designer sculpts the sonic architecture of interactive worlds. Master manipulators of digital audio workstations, forge immersive experiences through meticulous layering of sound effects, environments, and dynamic cues. Their palette ranges from meticulously recorded foley elements to expertly synthesized ambiances, all meticulously crafted to seamlessly integrate with gameplay mechanics. They wield middleware tools like Wwise and FMOD with surgical precision, ensuring sounds trigger at the perfect moment, react to player actions, and dynamically adapt to real-time scenarios. From the satisfying clink of a well-placed headshot to the heart-pounding crescendo of a boss battle, they weave a sonic tapestry that guides, informs, and emotionally compels players, making them active participants in the unfolding soundscape.</p>
+          <p>A game sound designer sculpts the sonic architecture of interactive worlds. Working in digital audio workstations, they build immersive experiences through meticulous layering of sound effects, environments, and dynamic cues. Their palette ranges from meticulously recorded foley elements to expertly synthesized ambiances, all crafted to fit gameplay mechanics. They wield middleware tools like Wwise and FMOD with surgical precision, ensuring sounds trigger at the perfect moment, react to player actions, and dynamically adapt to real-time scenarios. From the satisfying clink of a well-placed headshot to the heart-pounding crescendo of a boss battle, they weave a sonic tapestry that guides, informs, and emotionally compels players, making them active participants in the unfolding soundscape.</p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
