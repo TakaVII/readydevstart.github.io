@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -77,7 +78,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Gameplay Programmer Career Guide: Salary, Skills & Tools" description="What does a Gameplay Programmer do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Gameplay Programmer: Skills, Languages & Portfolio" description="How to become a gameplay programmer: which languages and engines to learn, key skills, portfolio tips, salary resources, and common questions answered." activeNav="career-guide">
   <WikiLayout title="Gameplay Programmer" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -124,6 +125,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="gameplay-programmer" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -153,6 +156,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="gameplay-programmer" part="faq" />
       </div>
 
       <aside class="career-sidebar">

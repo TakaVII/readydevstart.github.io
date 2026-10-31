@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../../layouts/BaseLayout.astro";
 import WikiLayout from "../../../../../layouts/WikiLayout.astro";
+import RoleGuide from "../../../../../components/RoleGuide.astro";
 const base = import.meta.env.BASE_URL;
 
 const salaries = [
@@ -82,7 +83,7 @@ const sidebarRoles = [
 ];
 ---
 
-<BaseLayout title="Concept Artist Career Guide: Salary, Skills & Tools" description="What does a Concept Artist do in game development? Key responsibilities, salary resources, learning resources, recommended books, and the tools to learn." activeNav="career-guide">
+<BaseLayout title="How to Become a Concept Artist for Games: Skills & Portfolio" description="How to become a concept artist in the game industry: step-by-step path, key skills, portfolio tips, salary resources, software to learn, and FAQs." activeNav="career-guide">
   <WikiLayout title="Concept Artist" activeNav="career-guide" activeSidebar="roles">
     <div class="career-layout">
       <aside class="career-sidebar">
@@ -129,6 +130,8 @@ const sidebarRoles = [
           </ul>
         </div>
 
+        <RoleGuide slug="concept-artist" part="guide" />
+
         <div class="card" style="margin-bottom: 1.5rem;">
           <h2>Learning Resources</h2>
           <ul>
@@ -158,6 +161,8 @@ const sidebarRoles = [
             ))}
           </div>
         </div>
+
+        <RoleGuide slug="concept-artist" part="faq" />
       </div>
 
       <aside class="career-sidebar">
